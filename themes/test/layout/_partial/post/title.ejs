@@ -1,15 +1,45 @@
-<% if (post.link){ %>
-  <h1 itemprop="name">
-    <a class="<%= class_name %>" href="<%- url_for(post.link) %>" target="_blank" itemprop="url"><%= post.title %></a>
-  </h1>
-<% } else if (post.title){ %>
-  <% if (index){ %>
-    <h1 itemprop="name">
-      <a class="<%= class_name %>" href="<%- url_for(post.path) %>"><%= post.title %></a>
-    </h1>
-  <% } else { %>
-    <h1 class="<%= class_name %>" itemprop="name">
-      <%= post.title %>
-    </h1>
+<header  class="post-header">
+  <% if (post.link){ %>
+      <h1 itemprop="name" class="<%= class_name %>">
+        <a class="post-title-link" class="<%= class_name %>" href="<%- url_for(post.link) %>" target="_blank"
+          itemprop="url"><%= post.title %></a>
+      </h1>
+  <% } else if (post.title){ %>
+      <% if (index){ %>
+        <h1 itemprop="name" class="<%= class_name %>">
+          <a class="post-title-link" href="<%- url_for(post.path) %>"><%= post.title %></a>
+        </h1>
+      <% } else { %>
+        <h1 class="<%= class_name %>" itemprop="name">
+          <a class="post-title-link"><%= post.title %>
+        </h1>
+      <% } %>
   <% } %>
-<% } %>
+  <div class="post-meta">
+      <span class="post-time">
+          <time datetime="<%= date_xml(post.date) %>" title="<%= date_xml(post.created) %>" itemprop="datePublished">
+            <%= date(post.date, config.date_format) %>
+          </time>
+      </span>
+      <span class="post-wordcount">
+        <span class="post-meta-divider">•</span> 
+        <span class="post-meta-item-icon">
+          <i class="fa fa-file-word-o"></i> 
+        </span>
+        <span class="post-meta-item-text">字数统计</span> 
+        <span title="字数统计">
+          <%= wordcount(post.content) %>
+        </span> 
+      </span>
+      <span class="post-wordcount">
+          <span class="post-meta-divider">•</span> 
+          <span class="post-meta-item-icon">
+            <i class="fa fa-file-word-o"></i> 
+          </span>
+          <span class="post-meta-item-text">字数统计</span> 
+          <span title="字数统计">
+            <%= min2read(post.content) %>
+          </span> 
+        </span>
+  </div>
+</header>

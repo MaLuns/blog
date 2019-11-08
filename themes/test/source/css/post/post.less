@@ -1,0 +1,67 @@
+.post {
+    position     : relative;
+    padding      : 40px;
+    background   : #fff;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    min-height   : 300px;
+
+    .post-date {
+        background-color: #97dffd;
+        box-shadow      : 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        position        : absolute;
+        top             : -20px;
+        left            : -30px;
+        height          : 60px;
+        width           : 70px;
+        padding-top     : 10px;
+        border-radius   : 100px;
+        color           : #fff;
+        text-align      : center;
+        line-height     : 1.1;
+
+        .post-day {
+            font-size  : 30px;
+            font-weight: 700;
+        }
+    }
+
+    .post-badge {
+        position        : absolute;
+        left            : -16px;
+        top             : 105px;
+        border-color    : #47456d;
+        box-shadow      : 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        background-color: #97dffd;
+        margin          : 5px 0 15px 2px;
+        font-size       : 14px;
+        border-radius   : 0 4px 4px 0;
+        display         : inline-block;
+        padding         : 7px 11px 7px 32px;
+        line-height     : 1;
+
+        &:after {
+            position          : absolute;
+            content           : "";
+            top               : 100%;
+            left              : 0;
+            border-top        : 0 solid transparent;
+            border-right-width: 1em;
+            border-right-color: inherit;
+            border-right-style: solid;
+            border-bottom     : 1em solid transparent;
+            border-left       : 0 solid transparent;
+            width             : 0;
+            height            : 0;
+        }
+
+        a {
+            color          : #fff;
+            word-wrap      : break-word;
+            text-decoration: none;
+            outline        : 0;
+        }
+    }
+}
+
+@import "./post-title.less";

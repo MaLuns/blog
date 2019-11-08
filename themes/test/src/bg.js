@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     if (document.getElementById('canvasbg')) {
         var c = document.getElementById('canvasbg'),
             ctx = c.getContext('2d'),
