@@ -1,3 +1,20 @@
 <div class="post-block">
     <%- partial('title', {class_name: 'post-title'}) %>
+    <div>
+            <%= post.permalink %>
+        <%- post.excerpt %>
+        <% if(is_home()){ %>
+            
+        <% } %>
+        <% if(is_post()){ %>
+            ccccccccccccccc
+        <% } %>
+        <% if(is_tag()){ %>
+            is_tagis_tagis_tagis_tagis_tagis_tag
+        <% } %>
+        <% if(is_category()){ %>
+            is_categoryis_categoryis_categoryis_categoryis_category
+           
+        <% } %>
+    </div>
 </div>

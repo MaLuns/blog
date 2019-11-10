@@ -6,7 +6,7 @@ categories:
 date: 2019-10-10 01:21:05
 tags: [测试,测试22]
 permalink: 2770
-link: http://www.baidu.com
+link: 
 ---
 
 WordPress 垃圾评论一直是超级多超级烦人的，如果没有有效的拦截方案，网站就会瞬间被每天几百条的垃圾评论淹没。
@@ -104,3 +104,5 @@ add_filter( 'preprocess_comment' , 'leonax_anti_spam_check' );
 &nbsp;
 
 目前只找到这几种方法，欢迎补充。
+
+<!--more-->
