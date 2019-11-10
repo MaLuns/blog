@@ -1,0 +1,68 @@
+.posts-expand {
+    .post-header {
+        .post-title {
+            text-align : center;
+            word-break : break-word;
+            line-height: 1.5;
+        }
+
+        .post-title-link {
+            display       : inline-block;
+            position      : relative;
+            color         : @black-deep;
+            border-bottom : none;
+            line-height   : 1.2;
+            vertical-align: top;
+
+            &::before {
+                .the-transition();
+                content         : "";
+                position        : absolute;
+                width           : 100%;
+                height          : 2px;
+                bottom          : 0;
+                left            : 0;
+                background-color: #000;
+                visibility      : hidden;
+                transform       : scaleX(0);
+
+            }
+
+            &:hover::before {
+                visibility: visible;
+                transform : scaleX(1);
+            }
+
+            .fa {
+                font-size: 16px;
+            }
+        }
+
+        .post-title-link,
+        .post-title {
+            color      : #444;
+            font-size  : 25px;
+            font-weight: 700;
+        }
+
+        .post-meta {
+            text-align : center;
+            margin     : 5px 0 60px 0;
+            color      : #999;
+            font-family: "PingFang SC", "Microsoft YaHei", Lato, sans-serif;
+            font-size  : 12px;
+
+            .post-meta-divider {
+                margin: 0 .5em;
+            }
+
+            .post-time {
+                color: #00a7e0;
+            }
+
+            .post-consuming-time {
+                color: #ff3f1a;
+            }
+        }
+    }
+}
