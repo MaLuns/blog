@@ -1,13 +1,16 @@
 <div class="post-block">
     <%- partial('title', {class_name: 'post-title'}) %>
     <div>
-            <%= post.permalink %>
-        <%- post.excerpt %>
         <% if(is_home()){ %>
-            
+            <%- post.excerpt %>
+            <div class="post-button text-center">
+                <a class="btn" href="<%- url_for(post.path) %>" rel="contents">
+                        <%- __('post.read_more') %> &raquo;
+                </a>
+            </div>
         <% } %>
         <% if(is_post()){ %>
-            ccccccccccccccc
+            <%- post.content %>
         <% } %>
         <% if(is_tag()){ %>
             is_tagis_tagis_tagis_tagis_tagis_tag
