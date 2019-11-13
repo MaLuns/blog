@@ -17,3 +17,11 @@ favicon:
   hide_text: (●—●)喔哟，崩溃啦！
   apple_touch_icon: /images/apple-touch-icon-next.png
   safari_pinned_tab: /images/logo.svg
+
+menu:
+  home: /
+  archives: /archives
+  category: /category
+  tags: /tags
+  about: /about
+
