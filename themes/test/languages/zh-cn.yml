@@ -1,2 +1,9 @@
+menu:
+  home: 首页
+  archives: 归档
+  category: 分类
+  tags: 标签
+  about: 关于
+
 post:
   read_more: 阅读全文
