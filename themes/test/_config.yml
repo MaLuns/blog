@@ -25,3 +25,6 @@ menu:
   tags: /tags
   about: /about
 
+# 自动滚动到 <!-- more --> 处
+scroll_to_more: true
+
