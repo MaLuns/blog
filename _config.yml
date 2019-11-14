@@ -96,5 +96,7 @@ theme: test
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: 'git'
-  repository: git@git.coding.net:mablog/blog.git
+  repository: 
+    gitee: git@git.coding.net:mablog/blog.git,master
+    coding: git@gitee.com:ml13/index.git,master
   branch: master
