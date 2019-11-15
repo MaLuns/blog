@@ -1,23 +1,22 @@
 require('jquery-pjax');
-/* const NProgress = require('nprogress');
+const NProgress = require('nprogress');
 
 NProgress.configure({
-  showSpinner: false,
-  easing: 'ease-out',
-  speed: 1000
-}); */
+    showSpinner: false,
+    easing: 'ease-out',
+    speed: 1000
+});
 
 $(document).pjax('a', '#main', {
-    scrollTo: $('.main').position().top - 60,
+    scrollTo: $('.main').position().top + 40,
     fragment: '#main',
     timeout: 5000,
 });
 
 $(document).on('pjax:start', function () {
-    console.log(111)
-    /*  NProgress.start(); */
+    NProgress.start();
     $('html, body').animate({
-        scrollTop: $('.main').position().top - 60
+        scrollTop: $('.main').position().top + 40
     }, 500);
     if (window.dplayerInstances) {
         for (var i = 0; i < window.dplayerInstances.length; i++) {
@@ -27,13 +26,13 @@ $(document).on('pjax:start', function () {
 });
 
 $(document).on('pjax:end', function () {
-    /*  NProgress.done(); */
+    NProgress.done();
     /*  require('./post-details')();
      require('./leancloud')();
      require('./share')();
      require('./pisces')(); */
-  /*   CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
-
-    ga('set', 'location', window.location.href);
-    ga('send', 'pageview'); */
+    /*   CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
+  
+      ga('set', 'location', window.location.href);
+      ga('send', 'pageview'); */
 });

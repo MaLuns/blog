@@ -45,60 +45,35 @@ WordPress 垃圾评论一直是超级多超级烦人的，如果没有有效的�
 
 使用也很简单，将如下代码放到主题的 function.php 即可，代码如下：
 
-```php
-$leonax_magic_lower = 328;  // token 最小值，自己随意修改
-$leonax_magic_upper = 3450709;  // token 最大值，自己随意修改
-function leonax_anti_spam_form($fields){
-    global $leonax_magic_lower, $leonax_magic_upper;
-    $leonax_magic = mt_rand($leonax_magic_lower, $leonax_magic_upper);  // 放在页面的token值，是一个随机数，每次都不同
-    $fields['leonax_magic'] = &lt;&lt;&lt;EOT
-        &lt;input type="hidden" id="leonax-magic" name="leonax-magic" value="0"&gt;  // 隐藏的 input
-        &lt;script&gt;
-            $(function() {
-                $("#comment-content").on("keyup", function() {  // js 检测到触发 keyup、click 或 touch 事件时填充 token
-                    $("#leonax-magic").val("$leonax_magic");
-                });
-                $('body').on('click touch', function () {
-                    $("#leonax-magic").val("$leonax_magic");
-                });
-            })
-        &lt;/script&gt;
-EOT;
-    return $fields;
-}
-add_filter('comment_form_default_fields', 'leonax_anti_spam_form');
-function leonax_anit_spam_caught() {
-    wp_die('&lt;strong&gt;评论失败&lt;/strong&gt;: 垃圾评论什么的去死吧！');
-}
-function leonax_anti_spam_check( $commentdata ) {
-    $comment_type = '';
-    if ( isset($commentdata['comment_type']) ) {
-        $comment_type = trim($commentdata['comment_type']);
+```javascript
+require('jquery-pjax');
+const NProgress = require('nprogress');
+
+NProgress.configure({
+    showSpinner: false,
+    easing: 'ease-out',
+    speed: 1000
+});
+
+$(document).pjax('a', '#main', {
+    scrollTo: $('.main').position().top + 40,
+    fragment: '#main',
+    timeout: 5000,
+});
+
+$(document).on('pjax:start', function () {
+    NProgress.start();
+    $('html, body').animate({
+        scrollTop: $('.main').position().top + 40
+    }, 500);
+    if (window.dplayerInstances) {
+        for (var i = 0; i < window.dplayerInstances.length; i++) {
+            window.dplayerInstances[i].destroy();
+        }
     }
-    if ( ($comment_type == 'pingback') || ($comment_type == 'trackback') ) {
-        return $commentdata;
-    }
-    $content = '';
-    if ( isset($commentdata['comment_content']) ) {
-        $content = trim($commentdata['comment_content']);
-    }
-    if (!strlen($content)) {
-        leonax_anit_spam_caught();
-    }
-    global $leonax_magic_lower, $leonax_magic_upper;
-    if ( isset($commentdata['user_ID']) &amp;&amp; $commentdata['user_ID'] ) { // 登陆用户不做判断
-        return $commentdata;
-    }
-    if ( !isset($_POST['leonax-magic']) ) {
-        leonax_anit_spam_caught();
-    }
-    $magic = intval($_POST['leonax-magic']);
-    if ($magic &lt; $leonax_magic_lower || $magic &gt; $leonax_magic_upper) {  // token 值在上面设置的最大值和最小值之间才合法
-        leonax_anit_spam_caught();
-    }
-    return $commentdata;
-}
-add_filter( 'preprocess_comment' , 'leonax_anti_spam_check' );
+});
+
+$(document).on('pjax:end',  ()=>NProgress.done());
 ```
 
 以上代码来自 [LEONA+](https://leonax.net/p/6732/block-spam-comments-from-web-page/) 和 [JustYY.com](https://justyy.com/archives/1558)。
