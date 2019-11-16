@@ -5,13 +5,13 @@
           itemprop="url"><%= post.title %></a>
       </h1>
   <% } else if (post.title){ %>
-      <% if (index){ %>
+      <% if (is_home()){ %>
         <h1 itemprop="name" class="<%= class_name %>">
           <a class="post-title-link" href="<%- url_for(post.path) %>"><%= post.title %></a>
         </h1>
       <% } else { %>
-        <h1 class="<%= class_name %>" itemprop="name">
-          <a class="post-title-link"><%= post.title %>
+        <h1 itemprop="name" class="<%= class_name %>">
+          <a class="post-title-link"><%= post.title %></a>
         </h1>
       <% } %>
   <% } %>

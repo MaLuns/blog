@@ -1,0 +1,12 @@
+<%# 其他页 %>
+<% if(page.type=='categories'){%>
+<%- partial('./_partial/category') %>
+<%}else if (page.type=='tags'){%>
+<%- list_tags({show_count: theme.show_count}) %>
+<%}else if (page.type=='about'){%>
+关于
+<%}else{%>
+aaaaaaaaaaaaaaaaaaa
+<%}%>
+
+<%- page.type %>
