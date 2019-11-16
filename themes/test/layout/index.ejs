@@ -1,7 +1,19 @@
+<%# 首页 %>
 <% if(is_home()) {%>
-<section id="posts" class="posts-expand">
-    <%- partial('./_partial/archive', {pagination: 2, index: true}) %>
-</section>
+    <section id="posts" class="posts-expand">
+        <%- partial('./_partial/archive', {pagination: 2, index: true}) %>
+    </section>
+<% if(page.prev!=null || page.next !=null){%>
+    <nav class="pagination">
+        <%- 
+        paginator({
+            prev_text: '<',
+            next_text: '>',
+            mid_size: 2
+        })
+        %>
+    </nav>
+    <% } %>
 <% } %>
 
-<%= url  %>
+<% console.log(site.posts.data[0].date)%>

@@ -1,4 +1,4 @@
 ---
 title: ??
-type: about
+type: categories
 ---

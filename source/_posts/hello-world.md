@@ -1,8 +1,7 @@
 ---
 title: RSSHub Radar — 订阅一个 RSS 源不应该这么难
 date: 2019-08-06 11:40:33
-categories: 
-    -创作集
+categories: 创作集
 ---
 
 > 如果你问我，RSSHub 能否改变 RSS 的命运，我也不晓得，但我晓得，不认命，就是 RSSHub 的命。 ——《哪吒之魔童降世》
