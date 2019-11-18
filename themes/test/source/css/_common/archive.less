@@ -99,5 +99,31 @@
         background: #d6d6d6;
         height    : 20px;
     }
+}
 
+.category-list {
+    list-style: circle;
+
+    .category-list-link {
+        margin-right: 5px;
+        color       : #ab3300;
+
+        &:hover {
+            color: #ff4d00;
+        }
+    }
+
+    .category-list-count {
+        color: #bbb;
+
+        &::before {
+            content: "(";
+        }
+
+        &::after {
+            content: ")";
+        }
+    }
+
+    >>>>>>>5c72f41c5a27744c1578374334a6d33867616e03
 }

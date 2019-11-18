@@ -1,9 +1,8 @@
-<%# 分类 %>
-<h2>分类dddddddd</h2>
+<%# 分类详情 %>
 <div class="post-block archive post">
     <div id="posts" class="posts-collapse">
         <h3 class="archive-page-counter">
-            共计 <%- site.posts.length %> 篇。 (゜-゜)つロ 干杯~
+            共计 <%- page.posts.length %> 篇。 (゜-゜)つロ 干杯~
         </h3>
         <div class="timeline">
             <div class="timeline-date">
@@ -13,7 +12,7 @@
             <div class="timeline-item">
                 <span class="post-time">
                     <time datetime="<%- element.date %>" title="<%- element.date %>" itemprop="datePublished">
-                        <%- date(element.date,'MM-DD') %>
+                        <%- date(element.date,'YYYY-MM-DD') %>
                     </time>
                 </span>
                 <a class="title-link" href="<%- url_for(element.path) %>" target="_blank" itemprop="url">
