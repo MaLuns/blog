@@ -1,6 +1,14 @@
 <div>
     <img src="https://diygod.me/images/card.jpg">
-    <div class="ttttt">
+    <% if(theme.rss){%>
+        <div class="feed-link">
+            <a href="<%- url_for(theme.rss)%>" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+            </a>
+        </div>
+    <%}%>
+    <div class="blog-class">
         <div>
             <a href="<%- url_for(theme.menu.archives)%>">
                 <%- site.posts.length %>
