@@ -23,17 +23,11 @@
       </span>
       <span class="post-wordcount">
         <span class="post-meta-divider">•</span> 
-        <span class="post-meta-item-text">字数统计</span> 
-        <span title="字数统计">
-          <%= wordcount(post.content) %> 字
-        </span> 
+        <span class="post-meta-item-text"><%- __('post.word_count',wordcount(post.content)) %></span> 
         <span class="post-meta-divider">•</span> 
       </span>
       <span class="post-consuming-time">
-          <span class="post-meta-item-text">大约耗时</span> 
-          <span title="大约耗时">
-            <%= min2read(post.content) %>分钟
-          </span> 
+          <span class="post-meta-item-text"><%- __('post.min2read',min2read(post.content)) %></span> 
         </span>
   </div>
 </header>

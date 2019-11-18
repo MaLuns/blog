@@ -100,3 +100,12 @@ deploy:
     gitee: git@git.coding.net:mablog/blog.git,master
     coding: git@gitee.com:ml13/index.git,master
   branch: master
+
+# Extensions
+plugins:
+    hexo-generator-feed
+#Feed Atom
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
