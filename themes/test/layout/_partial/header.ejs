@@ -10,10 +10,9 @@
         <span>Hello World !</span>
     </div>
     <div class="header-user">
-        <img class="user-avatar" src="<%- url_for('images/avatar.jpg') %>" />
+        <img class="user-avatar" src="<%- url_for(theme.user.avatar) %>" />
         <div>
-            <span>写代码是热爱，</span>
-            <span>写到世界充满爱！</span>
+            <%- theme.user.desc %>
         </div>
     </div>
 </header>
