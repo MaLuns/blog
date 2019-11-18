@@ -1,39 +1,28 @@
 <%# 归档页面 %>
-<div class="post-block archive post">
-    <div id="posts" class="posts-collapse">
-        <h3 class="archive-page-counter">
-            共计 <%- site.posts.length %> 篇。 (゜-゜)つロ 干杯~
-        </h3>
-        <div class="timeline">
-            <% var lastDate;
+<div class="post-block  post">
+    <h3 class="archive-page-counter">
+        共计 <%- site.posts.length %> 篇。 (゜-゜)つロ 干杯~
+    </h3>
+    <div class="timeline">
+        <% var lastDate;
         page.posts.forEach(function(element) { %>
-            <%var vdate=date(element.date,'YYYY');%>
-            <%if(lastDate !=vdate) {%>
-            <div class="timeline-date">
-                <h2><%- vdate %> </h2>
-            </div>
-            <% }; %>
-            <% lastDate=vdate; %>
-            <div class="timeline-item">
-                <span class="post-time">
-                    <time datetime="<%- element.date %>" title="<%- element.date %>" itemprop="datePublished">
-                        <%- date(element.date,'MM-DD') %>
-                    </time>
-                </span>
-                <a class="title-link" href="<%- url_for(element.path) %>" target="_blank" itemprop="url">
-                    <%= element.title %>
-                </a>
-            </div>
-            <% }) %>
+        <%var vdate=date(element.date,'YYYY');%>
+        <%if(lastDate !=vdate) {%>
+        <div class="timeline-date">
+            <h2><%- vdate %> </h2>
         </div>
+        <% }; %>
+        <% lastDate=vdate; %>
+        <div class="timeline-item">
+            <span class="post-time">
+                <time datetime="<%- element.date %>" title="<%- element.date %>" itemprop="datePublished">
+                    <%- date(element.date,'MM-DD') %>
+                </time>
+            </span>
+            <a class="title-link" href="<%- url_for(element.path) %>" target="_blank" itemprop="url">
+                <%= element.title %>
+            </a>
+        </div>
+        <% }) %>
     </div>
 </div>
-<nav class="pagination">
-    <%- 
-        paginator({
-            prev_text: '<',
-            next_text: '>',
-            mid_size: 2
-        })
-    %>
-</nav>
