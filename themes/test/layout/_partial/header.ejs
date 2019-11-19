@@ -2,8 +2,19 @@
     <nav id="header-nav" class="header-nav">
         <ul class="menu"><% for (const key in theme.menu) { %>
             <li class="menu-item">
-                <a href="<%- url_for(theme.menu[key])%>"><%= __(`menu.${key}`) %></a>
+                <a href="<%- url_for(theme.menu[key])%>">
+                    <i class="iconfont cg-<%- key %>"></i>
+                    <%= __(`menu.${key}`) %>
+                </a>
             </li> <% } %>
+            <% if(theme.rss){%>
+                <li class="menu-item">
+                    <a href="<%- url_for(theme.rss)%>" rel="alternate">
+                        <i class="cg-rss iconfont"></i>
+                        RSS
+                    </a>
+                </li>
+            <%}%>
         </ul>
     </nav>
     <div class="header-title">

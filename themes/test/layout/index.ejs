@@ -3,7 +3,7 @@
     <section id="posts" class="posts-expand">
         <%- partial('./_partial/archive', {pagination: 2, index: true}) %>
     </section>
-<% if(page.prev!=null || page.next !=null){%>
+<% if(page.prev!=0 || page.next !=0){%>
     <nav class="pagination">
         <%- 
         paginator({
@@ -15,5 +15,5 @@
     </nav>
     <% } %>
 <% } %>
-
+<% console.log(page,page.next)%>
 <!-- index.ejs -->
