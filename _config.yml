@@ -55,7 +55,7 @@ highlight:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 2
+  per_page: 10
   order_by: -date
 
 # Category & Tag
@@ -103,7 +103,8 @@ deploy:
 
 # Extensions
 plugins:
-    hexo-generator-feed
+#hexo-generator-feed
+
 #Feed Atom
 feed:
     type: atom
