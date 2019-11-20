@@ -1,6 +1,6 @@
 (function () {
-    if (document.getElementById('canvasbg')) {
-        var c = document.getElementById('canvasbg'),
+    if (document.getElementById('evanyou')) {
+        var c = document.getElementById('evanyou'),
             ctx = c.getContext('2d'),
             pr = window.devicePixelRatio || 1,
             w = window.innerWidth,

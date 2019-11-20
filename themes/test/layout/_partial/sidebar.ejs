@@ -16,3 +16,13 @@
         </div>
     </div>
 </div>
+<% if(is_post()){ %>
+    <% 
+        let tocs= toc(page.content); 
+        if(tocs.length>1){
+    %>
+        <div id="toc-content" class="toc-content">
+            <%- tocs %>
+        </div>
+    <% } %>
+<% } %>
