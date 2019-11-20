@@ -1,3 +1,3 @@
-require('./bg')
-require('./scroll')
+require('./utils')
+require('./evanyou')
 require('./pjax')
