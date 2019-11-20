@@ -15,6 +15,23 @@
         <% } %>
         <% if(is_post()){ %>
             <%- post.content %>
+            <% if(post.prev || post.next){ %>
+                <div>
+                    <% if(post.prev){ %>
+                        <a href="<%- url_for(post.prev.path) %>">
+                            <%- post.prev.title %>
+                        </a>
+                    <% } %>
+                </div>
+                <div>
+                    <% if(post.next){ %>
+                        <a href="<%- url_for(post.next.path) %>">
+                            <%- post.next.title %>
+                        </a>
+                    <% } %>
+                </div>
+            <% } %>
+            
         <% } %>
         <% if(is_tag()){ %>
             is_tagis_tagis_tagis_tagis_tagis_tag
