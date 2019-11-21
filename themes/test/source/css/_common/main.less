@@ -1,13 +1,15 @@
 .main {
-    min-height    : 900px;
+   /*  min-height    : 900px; */
     padding-top   : 100px;
-    padding-bottom: 500px;
+    padding-bottom: 400px;
     position      : relative;
     z-index       : 5;
     width         : 1120px;
     margin        : 0 auto;
+    user-select   : none;
 
     .content-wrap {
+        user-select   : text;
         width         : 750px;
         height        : 100%;
         display       : inline-block;
@@ -16,11 +18,36 @@
 
     .sidebar {
         display       : inline-block;
-        width         : 300px;
-        margin        : 0 0 0 20px;
+        user-select   : text;
         background    : #fff;
+        margin        : 0 0 0 20px;
+        width         : 300px;
+        padding       : 20px;
         border-radius : 5px;
         vertical-align: top;
-        padding       : 20px;
+        position      : sticky;
+        top           : 50px;
+    }
+}
+
+.back-to-top {
+    position          : fixed;
+    background-image  : url(../images/scroll.png);
+    height            : 900px;
+    width             : 70px;
+    top               : -900px;
+    right             : 30px;
+    z-index           : 5;
+    transition        : top 0.5s;
+    -webkit-transition: top 0.5s;
+    -moz-transition   : top 0.5s;
+    -ms-transition    : top 0.5s;
+    -o-transition     : top 0.5s;
+
+    div {
+        height  : 70px;
+        position: absolute;
+        bottom  : 30px;
+        width   : 100%;
     }
 }

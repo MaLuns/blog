@@ -33,31 +33,4 @@ $(document).ready(function () {
         }
         lastScrollTop = scrollTop;
     });
-
-   /*  $(window).bind('hashchange', function () {
-        var tHash = decodeURIComponent(location.hash);
-        if (tHash !== '') {
-            $('#toc-content li>a').removeClass('active');
-            $('#toc-content li>a[href="' + tHash + '"]').addClass('active');
-        }
-    }) */
-
-    $('#toc-content li>a').on('click', function (event) {
-        event.preventDefault();
-        if (!$(this).hasClass('active')) {
-
-            var tActive = $(this).attr('href');
-            $('#toc-content li>a').removeClass('active');
-            $(this).addClass('active');
-
-            window.scrollTo({
-                top: $(tActive).offset().top,
-                behavior: "smooth"
-            });
-
-            if (location.hash !== '') {
-                history.pushState('', document.title, window.location.pathname + window.location.search);
-            }
-        }
-    });
 })

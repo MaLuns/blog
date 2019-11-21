@@ -1,6 +1,6 @@
 <div class="post-block">
     <%- partial('title', {class_name: 'post-title'}) %>
-    <div>
+    <div class="">
         <% if(is_home()){ %>
             <%if(post.excerpt){%>
                 <%- post.excerpt %>
@@ -16,19 +16,25 @@
         <% if(is_post()){ %>
             <%- post.content %>
             <% if(post.prev || post.next){ %>
-                <div>
-                    <% if(post.prev){ %>
-                        <a href="<%- url_for(post.prev.path) %>">
-                            <%- post.prev.title %>
-                        </a>
-                    <% } %>
-                </div>
-                <div>
-                    <% if(post.next){ %>
-                        <a href="<%- url_for(post.next.path) %>">
-                            <%- post.next.title %>
-                        </a>
-                    <% } %>
+                <div class="prev-next-content">
+                    <div class="btn-prev">
+                        <% if(post.prev){ %>
+                            <a href="<%- url_for(post.prev.path) %>">
+                            <i class="cg-paging-left iconfont"></i> <%- post.prev.title %>
+                            </a>
+                        <% } else{%>
+                            <span></span>
+                        <%}%>
+                    </div>
+                    <div class="btn-next">
+                        <% if(post.next){ %>
+                            <a href="<%- url_for(post.next.path) %>">
+                            <%- post.next.title %> <i class="cg-paging-right iconfont"></i>
+                            </a>
+                        <% } else{%>
+                            <span></span>
+                        <%}%>
+                    </div>
                 </div>
             <% } %>
             
