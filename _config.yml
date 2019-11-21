@@ -97,8 +97,8 @@ theme: test
 deploy:
   type: 'git'
   repository: 
-    gitee: git@git.coding.net:mablog/blog.git,master
-    coding: git@gitee.com:ml13/index.git,master
+    coding: git@git.coding.net:mablog/blog.git,master
+    gitee: git@gitee.com:ml13/index.git,master
   branch: master
 
 # Extensions
