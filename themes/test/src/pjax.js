@@ -27,6 +27,7 @@ $(document).on('pjax:start', function () {
 
 $(document).on('pjax:end', function () {
     NProgress.done();
+    require('./loaded')();
     /*  require('./post-details')();
      require('./leancloud')();
      require('./share')();
