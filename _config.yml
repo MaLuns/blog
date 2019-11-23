@@ -98,7 +98,7 @@ deploy:
   type: 'git'
   repository: 
     coding: git@git.coding.net:mablog/blog.git,master
-    gitee: git@gitee.com:ml13/index.git,master
+    gitee: git@gitee.com:ml13/blog.git,master
   branch: master
 
 # Extensions
