@@ -29,7 +29,7 @@
     .post-badge {
         position        : absolute;
         left            : -16px;
-        top             : 130px;
+        top             : 105px;
         border-color    : #47456d;
         box-shadow      : 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
         background-color: #97dffd;
@@ -64,7 +64,82 @@
     }
 }
 
-@import "./post-title.less";
+.post-block {
+    .post-header {
+        /* background-image   : url(../images/line.jpg); */
+        background-repeat  : no-repeat;
+        background-size    : 100%;
+        background-position: bottom;
+        height             : 80px;
+        padding-top        : 20px;
+        margin-bottom      : 40px;
+
+        .post-title {
+            text-align : center;
+            word-break : break-word;
+            line-height: 1.5;
+        }
+
+        .post-title-link {
+            display       : inline-block;
+            position      : relative;
+            color         : @black-deep;
+            border-bottom : none;
+            line-height   : 1.2;
+            vertical-align: top;
+
+            &::before {
+                .the-transition();
+                content         : "";
+                position        : absolute;
+                width           : 100%;
+                height          : 2px;
+                bottom          : 0;
+                left            : 0;
+                background-color: #000;
+                visibility      : hidden;
+                transform       : scaleX(0);
+
+            }
+
+            &:hover::before {
+                visibility: visible;
+                transform : scaleX(1);
+            }
+
+            .fa {
+                font-size: 16px;
+            }
+        }
+
+        .post-title-link,
+        .post-title {
+            color      : #444;
+            font-size  : 25px;
+            font-weight: 700;
+        }
+
+        .post-meta {
+            text-align : center;
+            margin     : 5px;
+            color      : #999;
+            font-family: "PingFang SC", "Microsoft YaHei", Lato, sans-serif;
+            font-size  : 12px;
+
+            .post-meta-divider {
+                margin: 0 .5em;
+            }
+
+            .post-time {
+                color: #00a7e0;
+            }
+
+            .post-consuming-time {
+                color: #ff3f1a;
+            }
+        }
+    }
+}
 
 .pagination {
     text-align: center;
