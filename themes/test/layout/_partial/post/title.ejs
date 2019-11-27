@@ -28,6 +28,12 @@
       </span>
       <span class="post-consuming-time">
           <span class="post-meta-item-text"><%- __('post.min2read',min2read(post.content)) %></span> 
-        </span>
+      </span>
+      <% if(is_post()){ %>
+      <span id="busuanzi_container_page_pv" class="post-wordcount">
+          <span class="post-meta-divider">•</span> 
+         预览<span id="busuanzi_value_page_pv" class="post-meta-item-text"></span>次
+      </span>
+      <% } %>
   </div>
 </header>
