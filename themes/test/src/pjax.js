@@ -28,6 +28,10 @@ $(document).on('pjax:start', function () {
 $(document).on('pjax:end', function () {
     NProgress.done();
     require('./loaded')();
+    bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
+        bszTag.texts(a),
+            bszTag.shows()
+    })
     /*  require('./post-details')();
      require('./leancloud')();
      require('./share')();
