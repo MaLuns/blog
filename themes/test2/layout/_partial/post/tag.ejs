@@ -1,0 +1,11 @@
+<% if (post.categories && post.categories.length){ %>
+<div class="post-badge">
+  <% post.categories.forEach(item=>{ %>
+  <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+    <a href="<%= url_for(item.path) %>" itemprop="url" rel="index">
+      <span itemprop="name"><%= item.name %></span>
+    </a>
+  </span>
+  <% }) %>
+</div>
+<% } %>

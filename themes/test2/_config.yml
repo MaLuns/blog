@@ -1,0 +1,35 @@
+post_wordcount:
+  item_text: true
+  wordcount: true         # 单篇 字数统计
+  min2read: true          # 单篇 阅读时长
+  totalcount: false       # 网站 字数统计
+  separated_meta: true
+
+version: 0.0.1
+
+highlight_theme: normal
+
+favicon:
+  visibilitychange: true
+  narmal: /images/favicon.ico
+  hidden: /images/failure.ico
+  show_text: (/≧▽≦/)咦！又好了！
+  hide_text: (●—●)喔哟，崩溃啦！
+  apple_touch_icon: /images/apple-touch-icon-next.png
+  safari_pinned_tab: /images/logo.svg
+
+menu:
+  home: /
+  archives: /archives
+  category: /categories
+  about: https://mablog.coding.me/cv/
+
+# 自动滚动到 <!-- more --> 处
+scroll_to_more: true
+
+user:
+  avatar: images/avatar.jpg
+  desc:  <span>写代码是热爱，</span>
+         <span>写到世界充满爱！</span>
+
+rss: atom.xml

@@ -1,0 +1,5 @@
+<%# 博客文章列表 %>
+
+<% page.posts.each(function(post){ %>
+  <%- partial('article', {post: post, index: true}) %>
+<% }) %>
