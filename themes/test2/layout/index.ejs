@@ -1,0 +1,20 @@
+<%# 首页 %>
+<%- partial('./_partial/header') %>
+<video src="./video/xkz.mp4" autoplay></video>
+<main class="container">
+    <section id="posts" class="posts-expand">
+        <%- partial('./_partial/archive', {pagination: 2, index: true}) %>
+    </section>
+    <% if(page.prev!=0 || page.next !=0){%>
+    <nav class="pagination">
+        <%- 
+        paginator({
+            prev_text: '上一页',
+            next_text: '下一页',
+            mid_size: 2
+        })
+        %>
+    </nav>
+    <% } %>
+</main>
+<!-- index.ejs -->

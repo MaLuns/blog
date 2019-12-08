@@ -1,0 +1,30 @@
+<header class="header animated fadeInDown">
+    <nav id="header-nav" class="header-nav">
+        <ul class="menu"><% for (const key in theme.menu) { %>
+            <li class="menu-item">
+                <a href="<%- url_for(theme.menu[key])%>">
+                    <i class="iconfont cg-<%- key %>"></i>
+                    <%= __(`menu.${key}`) %>
+                </a>
+            </li> <% } %>
+            <% if(theme.rss){%>
+            <li class="menu-item">
+                <a href="<%- url_for(theme.rss)%>" rel="alternate">
+                    <i class="cg-rss iconfont"></i>
+                    RSS
+                </a>
+            </li>
+            <%}%>
+        </ul>
+    </nav>
+    <div class="header-user">
+        <img class="user-avatar" src="<%- url_for(theme.user.avatar) %>" />
+        <div class="user-des">
+            一觉游仙好梦，任它竹冷松寒。
+        </div>
+    </div>
+    <div class="wave">
+        <div class="wave1"></div>
+        <div class="wave2"></div>
+    </div>
+</header>

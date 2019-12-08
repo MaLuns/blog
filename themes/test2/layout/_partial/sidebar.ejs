@@ -1,0 +1,28 @@
+<div>
+    <img src="<%- url_for('images/card.jpg') %>">
+    <div class="blog-class">
+        <div>
+            <a href="<%- url_for(theme.menu.archives)%>">
+                <%- site.posts.length %>
+                <p class="log">日志</p>
+            </a>
+        </div>
+        <div class="line"></div>
+        <div>
+            <a href="<%- url_for(theme.menu.category)%>">
+                <%- site.categories.length %>
+                <p class="log">分类</p>
+            </a>
+        </div>
+    </div>
+</div>
+<% if(is_post()){ %>
+    <% 
+        let tocs= toc(page.content); 
+        if(tocs.length>1){
+    %>
+        <div id="toc-content" class="toc-content">
+            <%- tocs %>
+        </div>
+    <% } %>
+<% } %>
