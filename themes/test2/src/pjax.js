@@ -1,4 +1,4 @@
-require('jquery-pjax');
+/* require('jquery-pjax');
 const NProgress = require('nprogress');
 
 NProgress.configure({
@@ -32,12 +32,5 @@ $(document).on('pjax:end', function () {
         bszTag.texts(a),
             bszTag.shows()
     })
-    /*  require('./post-details')();
-     require('./leancloud')();
-     require('./share')();
-     require('./pisces')(); */
-    /*   CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
-  
-      ga('set', 'location', window.location.href);
-      ga('send', 'pageview'); */
 });
+ */
