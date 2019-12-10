@@ -104,6 +104,8 @@
         left      : 0;
         right     : 0;
         text-align: center;
+        z-index   : 9;
+        transition: all .3s;
 
         .user-des {
             color        : #eaeadf;
@@ -128,6 +130,10 @@
             &:hover {
                 transform: rotate(360deg);
             }
+        }
+
+        &.hide {
+            transform: translateY(-999px);
         }
     }
 

@@ -6,15 +6,24 @@
         <%- partial('./_partial/archive', {pagination: 2, index: true}) %>
     </section>
     <% if(page.prev!=0 || page.next !=0){%>
-    <nav class="pagination">
-        <%- 
-        paginator({
-            prev_text: '上一页',
-            next_text: '下一页',
-            mid_size: 2
-        })
-        %>
-    </nav>
+
+    <div id="ddddsss" onclick="loadmore()" style="text-align: center">asdasdasd</div>
+
     <% } %>
+    <script>
+        var INDEX_CONFIG = {
+            PAGE_TOTAL:<%- page.total %>,
+        }
+        function loadmore() {
+            $.ajax({
+                url: "page/2",
+                success: res => {
+                    let a = document.createElement("div");
+                    a.innerHTML = res;
+                    document.getElementsByClassName("posts-expand")[0].append(a.getElementsByClassName("posts-expand")[0])
+                }
+            })
+        }
+    </script>
 </main>
 <!-- index.ejs -->
