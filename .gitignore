@@ -8,3 +8,4 @@ public/
 .vs
 demo/
 themes/hexo-theme*
+*.pdf
