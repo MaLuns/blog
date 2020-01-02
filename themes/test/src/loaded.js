@@ -17,5 +17,23 @@ function loaded() {
             }
         }
     });
+
+    $(".post-block img").on("click", ImgToggle)
 }
+
+function ImgToggle(event) {
+    if ($(".img-wrap").length === 0) {
+        let dimg = document.createElement("div");
+        dimg.setAttribute("class", "img-wrap")
+        dimg.addEventListener("click", ImgToggle)
+        document.body.appendChild(dimg)
+    }
+
+    if ($(".img-wrap.show").length === 1) {
+        $(".img-wrap").empty().removeClass("show")
+    } else {
+        $(".img-wrap").append(event.target.cloneNode(true)).addClass("show")
+    }
+}
+
 module.exports = loaded;

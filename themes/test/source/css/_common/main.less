@@ -1,12 +1,12 @@
 .main {
-   /*  min-height    : 900px; */
-    padding-top   : 100px;
-    padding-bottom: 400px;
-    position      : relative;
-    z-index       : 5;
-    width         : 1120px;
-    margin        : 0 auto;
-    user-select   : none;
+    /*  min-height    : 900px; */
+    padding-top       : 100px;
+    padding-bottom    : 400px;
+    position          : relative;
+    z-index           : 5;
+    width             : 1120px;
+    margin            : 0 auto;
+    user-select       : none;
 
     .content-wrap {
         user-select   : text;
@@ -49,5 +49,34 @@
         position: absolute;
         bottom  : 30px;
         width   : 100%;
+    }
+}
+
+.img-wrap {
+    position  : fixed;
+    z-index   : -999;
+    background: #00000073;
+    top       : 0;
+    width     : 100vw;
+    height    : 100vh;
+    display   : flex;
+    cursor    : zoom-out;
+    opacity   : 0;
+    transition: opacity .3s;
+
+    img {
+        transform : scale(0);
+        opacity   : 0;
+        transition: all .3s;
+    }
+
+    &.show {
+        z-index: 999;
+        opacity  : 1;
+
+        img {
+            transform: scale(1);
+            opacity  : 1;
+        }
     }
 }
