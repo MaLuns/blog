@@ -7,5 +7,6 @@ public/
 .deploy*/
 .vs
 demo/
-themes/hexo-theme*
+themes/hexo-theme-freemind
+themes/hexo-theme-sagiri
 *.pdf
