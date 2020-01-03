@@ -7,6 +7,8 @@ categories: 记录类
 
 首先新建 index.js,a.js,b.js 三个文件,index.js 配置为入口,index.js 分别加载a.js,b.js文件, b.js加载a.js文件,js中代码如下
 
+<!--More-->
+
 ``` javascript
 //index.js
 require('./a.js')()
@@ -27,7 +29,7 @@ module.exports = test
 console.log(2)
 require('./a.js')()
 ```
-<!--More-->
+
 
 对文件进行打包,打包结果如下
 
