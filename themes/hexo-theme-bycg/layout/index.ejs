@@ -1,9 +1,45 @@
 <%# 首页 %>
 <% if(is_home()) {%>
-    <section id="posts" class="posts-expand">
-        <%- partial('./_partial/archive', {pagination: 2, index: true}) %>
-    </section>
-<% if(page.prev!=0 || page.next !=0){%>
+    <main class="container">
+        <header class="header">
+           <!--  <nav id="header-nav" class="header-nav">
+                <ul class="menu"><% for (const key in theme.menu) { %>
+                    <li class="menu-item">
+                        <a href="<%- url_for(theme.menu[key])%>">
+                            <i class="iconfont cg-<%- key %>"></i>
+                            <%= __(`menu.${key}`) %>
+                        </a>
+                    </li> <% } %>
+                    <% if(theme.rss){%>
+                        <li class="menu-item">
+                            <a href="<%- url_for(theme.rss)%>" rel="alternate">
+                                <i class="cg-rss iconfont"></i>
+                                RSS
+                            </a>
+                        </li>
+                    <%}%>
+                </ul>
+            </nav> -->
+            <div class="header-content">
+        
+            </div>
+        </header>
+        <main class="main" id="main">
+            <div class="content-wrap">
+                <div id="content" class="content">
+                    <section id="posts" class="posts-expand">
+                        <% page.posts.each(function(post,postIndex){ %>
+                            <%- partial('./components/indexCard',{ post, index: true,postIndex}) %>
+                        <% }) %>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </main>
+    <div>
+        
+    </div>
+    <% if(page.prev!=0 || page.next !=0){%>
     <nav class="pagination">
         <%- 
         paginator({

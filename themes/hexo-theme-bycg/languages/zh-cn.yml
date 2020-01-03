@@ -7,5 +7,5 @@ menu:
 
 post:
   read_more: 阅读全文
-  word_count: 字数统计 %s 字
-  min2read: 大约耗时 %s 分钟
+  word_count: 共%s字
+  min2read: 约%s分钟

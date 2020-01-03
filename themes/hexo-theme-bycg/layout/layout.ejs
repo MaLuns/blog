@@ -3,26 +3,7 @@
     <%- partial('./_partial/head') %>
 
     <body>
-        <main class="container">
-            <%- partial('./_partial/header') %>
-            <main class="main" id="main">
-                <div class="content-wrap">
-                    <div id="content" class="content">
-                        <%- body %>
-                    </div>
-                </div>
-                <div class="sidebar">
-                    <div id="sidebar-inner" class="sidebar-inner ">
-                        <%- partial('./_partial/sidebar') %>
-                    </div>
-                </div>
-            </main>
-            <%- partial('./_partial/footer') %>
-            <canvas id="evanyou"></canvas>
-            <div class="back-to-top" id="back-to-top">
-                <div></div>
-            </div>
-        </main>
+        <%- body %>
         <%- partial('./_partial/script') %>
     </body>
 
