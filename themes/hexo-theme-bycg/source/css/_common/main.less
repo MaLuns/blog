@@ -1,65 +1,176 @@
 .main {
-  position: relative;
-  width: 750px;
-  margin: 0 auto;
+  position   : relative;
+  width      : 750px;
+  margin     : 0 auto;
   user-select: none;
 
   .content-wrap {
-    user-select: text;
-    width: 100%;
-    height: 100%;
-    display: inline-block;
+    user-select   : text;
+    width         : 100%;
+    height        : 100%;
+    display       : inline-block;
     vertical-align: top;
   }
 
   .sidebar {
-    display: inline-block;
-    user-select: text;
-    background: #fff;
-    margin: 0 0 0 20px;
-    width: 300px;
-    padding: 20px;
-    border-radius: 5px;
+    display       : inline-block;
+    user-select   : text;
+    background    : #fff;
+    margin        : 0 0 0 20px;
+    width         : 300px;
+    padding       : 20px;
+    border-radius : 5px;
     vertical-align: top;
-    position: sticky;
-    top: 50px;
+    position      : sticky;
+    top           : 50px;
   }
 }
 
 .back-to-top {
-  position: fixed;
+  position        : fixed;
   background-image: url(../images/scroll.png);
-  height: 900px;
-  width: 70px;
-  top: -900px;
-  right: 30px;
-  z-index: 5;
-  transition: top 0.5s;
-  -webkit-transition: top 0.5s;
-  -moz-transition: top 0.5s;
-  -ms-transition: top 0.5s;
-  -o-transition: top 0.5s;
+  height          : 900px;
+  width           : 70px;
+  top             : -900px;
+  right           : 30px;
+  z-index         : 5;
+  transition      : top 0.5s;
+  transition      : top 0.5s;
+  -moz-transition : top 0.5s;
+  -ms-transition  : top 0.5s;
+  -o-transition   : top 0.5s;
 
   div {
-    height: 70px;
+    height  : 70px;
     position: absolute;
-    bottom: 30px;
-    width: 100%;
+    bottom  : 30px;
+    width   : 100%;
   }
 }
 
 .img-wrap {
-  position: fixed;
+  position  : fixed;
   background: #00000073;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  cursor: zoom-out;
-  z-index: 20;
-  transform: scale(0);
+  top       : 0;
+  width     : 100vw;
+  height    : 100vh;
+  display   : flex;
+  cursor    : zoom-out;
+  z-index   : 20;
+  transform : scale(0);
 
   &.show {
     transform: scale(1);
   }
+}
+
+.menu-list {
+  position: fixed;
+  bottom  : 20px;
+  right   : 20px;
+
+  >ul {
+    list-style: none;
+
+    >li {
+      height       : 60px;
+      width        : 60px;
+      background   : #409EFF;
+      border-radius: 50%;
+      margin       : 20px 0;
+
+      &.menu-nav {
+        .menu {
+          list-style: none;
+
+          li {
+            text-align   : center;
+            position     : absolute;
+            width        : 60px;
+            height       : 60px;
+            line-height  : 60px;
+            background   : #409EFF;
+            border-radius: 50%;
+            bottom       : -80px;
+
+            a {
+              color: #fff;
+
+              i {
+                font-size: 30px;
+              }
+            }
+          }
+        }
+
+        .hamRotate {
+          cursor             : pointer;
+          tap-highlight-color: transparent;
+          transition         : transform 400ms;
+          -moz-user-select   : none;
+          user-select        : none;
+          -ms-user-select    : none;
+          user-select        : none;
+
+          .line {
+            fill          : none;
+            transition    : stroke-dasharray 400ms, stroke-dashoffset 400ms;
+            stroke        : rgb(255, 255, 255);
+            stroke-width  : 5.5;
+            stroke-linecap: round;
+          }
+
+          .top {
+            stroke-dasharray: 40 139;
+          }
+
+          .bottom {
+            stroke-dasharray: 40 180;
+          }
+        }
+
+        &.active {
+          .hamRotate {
+            transform: rotate(45deg);
+
+            .top {
+              stroke-dashoffset: -98px;
+            }
+
+            .bottom {
+              stroke-dashoffset: -138px;
+            }
+          }
+
+          .menu {
+            li {
+              animation: dd .3s forwards linear;
+
+              &::before {
+                content: " ";
+              }
+            }
+          }
+        }
+
+        @keyframes dd {
+          0% {
+            bottom: -80px;
+          }
+
+          70% {
+            bottom: 40px;
+          }
+
+          100% {
+            bottom: 20px;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
 }
