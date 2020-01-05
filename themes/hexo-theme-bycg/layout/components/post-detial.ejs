@@ -1,5 +1,9 @@
 <div style="    height: 50vh;background: url(https://w.wallhaven.cc/full/4y/wallhaven-4yy2zg.jpg);">
-
+    <div class="shinchou-menu">
+        <a>
+            <%- post.title %>
+        </a>
+    </div>
 </div>
 <div style="position: relative;">
     <div style="
@@ -15,3 +19,21 @@
         <%- post.content %>
     </div>
 </div>
+<script>
+
+    let letters = document.querySelectorAll(".shinchou-menu a")[0].textContent.replace(/[\r\n]/g, "").replace(/\ +/g, "").split("");
+    document.querySelectorAll(".shinchou-menu a")[0].textContent = "";
+    letters.forEach((letter, i) => {
+        if (letter != ' ' && letter != '') {
+            console.log(!!letter)
+            let span = document.createElement("span");
+            span.textContent = letter;
+            if (i < 2) {
+                span.className = "highlight-txt";
+            }
+            span.style.transitionDelay = `${i / 10}s`;
+            document.querySelectorAll(".shinchou-menu a")[0].append(span);
+        }
+    });
+
+</script>
