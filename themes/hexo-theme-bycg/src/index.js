@@ -14,6 +14,8 @@ $(function () {
         var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
         //如果滚动条高度加上窗口可视高度大于网页高度
 
+        console.log(Math.round(scrollTop /( htmlHeight-clientHeight)*100))
+        
         if (scrollTop + clientHeight > htmlHeight) {
             loadMore();
         }
@@ -21,7 +23,7 @@ $(function () {
 })
 
 function loadMore() {
-    if (!!IndexConfig && !IndexConfig.loadMore && IndexConfig.current < IndexConfig.total) {
+    if (!!window.IndexConfig && !IndexConfig.loadMore && IndexConfig.current < IndexConfig.total) {
         IndexConfig.loadMore = true;
         $("#loader").addClass('loading').removeClass('loaded')
         $.ajax({
