@@ -1,10 +1,30 @@
 <footer class="footer">
     <div class="footer-inner">
-        <p>博客已萌萌哒运行<span id="since"></span><span class="my-face">(●'◡'●)ﾉ♥</span></p>
-        <p>© <span itemprop="copyrightYear"><%= date(Date.now(), "YYYY") %></span> <%=  config.title  %>.
-            由 <a href="https://hexo.io/" target="_blank" class="external" rel="nofollow">Hexo</a> 强力驱动.
-            Theme By <%= config.theme %> v<%=  theme.version %>.
-        </p>
-        <p>Made with <i class="fa fa-heart throb" style="color: #d43f57;"></i> by <span class="author" itemprop="copyrightHolder"><%=  config.author %></span>. </p>
+        <div>© <span itemprop="copyrightYear"><%= date(Date.now(), "YYYY") %></span> <%=  config.title  %>.</div>
+        <div>
+            博客已萌萌哒运行:
+            <span id="since"></span>
+            <span class="my-face">(●'◡'●)ﾉ♥</span>
+        </div>
     </div>
+    <script language="javascript">
+        function show_date_time() {
+            window.setTimeout("show_date_time()", 1000);
+            BirthDay = new Date("11/19/2019 17:00:00"); //这个日期是可以修改的
+            today = new Date();
+            timeold = (today.getTime() - BirthDay.getTime());
+            sectimeold = timeold / 1000
+            secondsold = Math.floor(sectimeold);
+            msPerDay = 24 * 60 * 60 * 1000
+            e_daysold = timeold / msPerDay
+            daysold = Math.floor(e_daysold);
+            e_hrsold = (e_daysold - daysold) * 24;
+            hrsold = Math.floor(e_hrsold);
+            e_minsold = (e_hrsold - hrsold) * 60;
+            minsold = Math.floor((e_hrsold - hrsold) * 60);
+            seconds = Math.floor((e_minsold - minsold) * 60);
+            since.innerHTML = daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+        }
+        show_date_time();
+    </script>
 </footer>
