@@ -167,3 +167,25 @@
     fill: #FF6700;
   }
 }
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #eee;
+}
+
+#mo-nav::-webkit-scrollbar {
+  width: 0px;
+  opacity: 0;
+}  
+
+/*定义滚动条轨道 内阴影+圆角*/  
+::-webkit-scrollbar-track {
+  background-color: #eee;
+}  
+
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb {
+  background-color: #00acf0;
+}
