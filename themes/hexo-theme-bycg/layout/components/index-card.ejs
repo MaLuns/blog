@@ -1,54 +1,41 @@
-<article
-  id="<%= post.layout %>-<%= post.slug %>"
-  class="post <%= post.layout %>"
-  itemscope
-  itemprop="blogPost"
->
+<article id="<%= post.layout %>-<%= post.slug %>"  class="post"  itemscope  itemprop="blogPost">
   <div class="post-card">
     <div class="<%- postIndex%2==0?'right':'left'%>">
-      <% console.log(post.photos) %> <% if(post.photos.length >0) {%>
-      <img src="<%- url_for(post.photos[0]) %>" />
+      <% if(post.photos.length >0) {%>
+        <img src="<%- url_for(post.photos[0]) %>" />
       <% }else{ %>
-      <img src="<%- url_for('/images/notimage.png') %>" />
+        <img src="<%- url_for('/images/notimage.png') %>" />
       <%}%>
     </div>
     <div class="<%- postIndex%2==0?'left':'right'%>">
       <div>
         <span class="post-time">
-          <time
-            datetime="<%= date_xml(post.date) %>"
-            title="<%= date_xml(post.created) %>"
-            itemprop="datePublished"
-          >
-            <i class="cg-shijian iconfont"></i> 发布于 <%= date(post.date,
-            config.date_format) %>
+          <time datetime="<%= date_xml(post.date) %>" title="<%= date_xml(post.created) %>" itemprop="datePublished">
+            <i class="cg-shijian iconfont"></i> 发布于 <%= date(post.date,config.date_format) %>
           </time>
         </span>
       </div>
       <h3 itemprop="name" class="post-title">
-        <a class="post-title-link" href="<%- url_for(post.path) %>"
-          ><%= post.title %></a
-        >
+        <a class="post-title-link" href="<%- url_for(post.path) %>" ><%= post.title %></a>
       </h3>
       <div class="post-meta">
         <span class="post-wordcount">
-          <span class="post-meta-item-text"
-            ><%- __('post.word_count',wordcount(post.content)) %></span
-          >
+          <span class="post-meta-item-text"><%- __('post.word_count',wordcount(post.content)) %></span>
           <span class="post-meta-divider">•</span>
         </span>
         <span class="post-consuming-time">
-          <span class="post-meta-item-text"
-            ><%- __('post.min2read',min2read(post.content)) %></span
-          >
+          <span class="post-meta-item-text"><%- __('post.min2read',min2read(post.content)) %></span>
         </span>
       </div>
       <div class="post-excerpt">
-        <%if(post.excerpt){%> <%- post.excerpt.substring(0,70) %> <%}else{%> <%-
-        post.content.substring(0,70)%> <%}%>
+        <%if(post.excerpt){%> 
+            <%- post.excerpt.substring(0,70) %> 
+        <%}else{%>
+           <%- post.content.substring(0,70)%> 
+        <%}%>
       </div>
       <div class="select-more">
-        <a>
+        <a href="<%- url_for(post.path) %>">
           <span class="highlight-txt" style="transition-delay: 0s;">M</span>
           <span class="highlight-txt" style="transition-delay: 0.1s;">M</span>
           <span style="transition-delay: 0.2s;">·</span>
@@ -61,3 +48,4 @@
     </div>
   </div>
 </article>
+

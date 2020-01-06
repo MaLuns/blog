@@ -1,4 +1,0 @@
-{
-    "vetur.format.defaultFormatter.html": "prettier",
-    "html.format.unformatted": "wbr,%"
-}

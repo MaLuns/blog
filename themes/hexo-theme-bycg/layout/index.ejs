@@ -1,66 +1,89 @@
 <%# 首页 %>
-<% if(is_home()) {%>
-    <main class="container">
-        <header class="header">
-            <div class="header-content">
-        
-            </div>
-        </header>
-        <main class="main" id="main">
-            <div class="content-wrap">
-                <div id="content" class="content">
-                    <section id="posts" class="posts-expand"><% page.posts.each(function(post,postIndex){ %>
-                            <%- partial('./components/index-card',{ post, index: true,postIndex}) %>
-                        <% }) %>
-                    </section>
-                </div>
-            </div>
-        </main>
-    </main>
-    <div class="menu-list">
-        <ul>   
-            <li>
-                
-            </li>
-            <li class="menu-nav" onclick="this.classList.toggle('active')">
-                <div>
-                    <svg class="hamRotate" viewBox="0 0 100 100" width="60">
-                        <path class="line top" d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
-                        <path class="line middle" d="m 30,50 h 40" />
-                        <path class="line bottom" d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+<main class="container">
+    <header class="header">
+        <div class="header-content">
+    
+        </div>
+    </header>
+    <main class="main" id="main">
+        <div class="content-wrap">
+            <div id="content" class="content">
+                <section id="posts" class="posts-expand">
+                    <% page.posts.each(function(post,postIndex){ %>
+                        <%- partial('./components/index-card',{ post, index: true,postIndex}) %>
+                    <% }) %>
+                </section>
+                <div id="loader" class="loaded">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                        <rect x="0" y="13" width="4" height="5" fill="#333">
+                          <animate attributeName="height" attributeType="XML"
+                            values="5;21;5" 
+                            begin="0s" dur="0.6s" repeatCount="indefinite" />
+                          <animate attributeName="y" attributeType="XML"
+                            values="13; 5; 13"
+                            begin="0s" dur="0.6s" repeatCount="indefinite" />
+                        </rect>
+                        <rect x="10" y="13" width="4" height="5" fill="#333">
+                          <animate attributeName="height" attributeType="XML"
+                            values="5;21;5" 
+                            begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+                          <animate attributeName="y" attributeType="XML"
+                            values="13; 5; 13"
+                            begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+                        </rect>
+                        <rect x="20" y="13" width="4" height="5" fill="#333">
+                          <animate attributeName="height" attributeType="XML"
+                            values="5;21;5" 
+                            begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+                          <animate attributeName="y" attributeType="XML"
+                            values="13; 5; 13"
+                            begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+                        </rect>
                     </svg>
-                </div>
-                <ul class="menu">
-                    <% let num= 0;;for (const key in theme.menu) { %>
-                        <li class="menu-item" style="animation-delay: <%- ++num*0.05 %>s;left:<%- -(num)*60  %>px" title="<%= __(`menu.${key}`) %>">
-                            <a href="<%- url_for(theme.menu[key])%>">
-                                <i class="iconfont cg-<%- key %>"></i>
-                                <!-- <%= __(`menu.${key}`) %> -->
-                            </a>
-                        </li> 
-                    <% } %>
-                    <% if(theme.rss){%>
-                        <li class="menu-item" style="animation-delay: <%- ++num*0.05 %>s;left:<%- -(num)*60  %>px" title="rss">
-                            <a href="<%- url_for(theme.rss)%>" rel="alternate">
-                                <i class="cg-rss iconfont"></i>
-                                <!-- RSS -->
-                            </a>
-                        </li>
-                    <%}%>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <% if(page.prev!=0 || page.next !=0){%>
-    <nav class="pagination">
-        <%- 
-        paginator({
-            prev_text: '上一页',
-            next_text: '下一页',
-            mid_size: 2
-        })
-        %>
-    </nav>
-    <% } %>
-<% } %>
+                  </div>                              
+            </div>
+        </div>
+    </main>
+</main>
+<div class="menu-list">
+    <ul>   
+        <!--<li>            
+        </li> -->
+        <li class="menu-nav" onclick="this.classList.toggle('active')">
+            <div>
+                <svg class="hamRotate" viewBox="0 0 100 100" width="60">
+                    <path class="line top" d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+                    <path class="line middle" d="m 30,50 h 40" />
+                    <path class="line bottom" d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+                </svg>
+            </div>
+            <ul class="menu">
+                <% let num= 0;;for (const key in theme.menu) { %>
+                    <li class="menu-item" style="animation-delay: <%- ++num*0.05 %>s;left:<%- -(num)*60  %>px" title="<%= __(`menu.${key}`) %>">
+                        <a href="<%- url_for(theme.menu[key])%>">
+                            <i class="iconfont cg-<%- key %>"></i>
+                            <!-- <%= __(`menu.${key}`) %> -->
+                        </a>
+                    </li> 
+                <% } %>
+                <% if(theme.rss){%>
+                    <li class="menu-item" style="animation-delay: <%- ++num*0.05 %>s;left:<%- -(num)*60  %>px" title="rss">
+                        <a href="<%- url_for(theme.rss)%>" rel="alternate">
+                            <i class="cg-rss iconfont"></i>
+                            <!-- RSS -->
+                        </a>
+                    </li>
+                <%}%>
+            </ul>
+        </li>
+    </ul>
+</div>
 <!-- index.ejs -->
+<script>
+    window.IndexConfig={
+        current:<%= page.current %>,
+        total:<%= page.total %>,
+        url:"<%= url_for('/')%>",
+        loadMore:false
+    }
+</script>
