@@ -4,25 +4,113 @@
   margin: 0 auto;
   user-select: none;
 
-  .content-wrap {
-    user-select: text;
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    vertical-align: top;
-  }
+  .posts-expand {
+    .post {
+      position: relative;
+      padding: 20px;
+      margin: 80px 0;
+      border-radius: 5px;
+      min-height: 300px;
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.18);
+      user-select: none;
 
-  .sidebar {
-    display: inline-block;
-    user-select: text;
-    background: #fff;
-    margin: 0 0 0 20px;
-    width: 300px;
-    padding: 20px;
-    border-radius: 5px;
-    vertical-align: top;
-    position: sticky;
-    top: 50px;
+      .post-card {
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+
+        .right,
+        .left {
+          height: inherit;
+          position: absolute;
+          width: 49%;
+
+          &.post-card-img {
+            overflow: hidden;
+          }
+
+          >img {
+            height: 100%;
+            object-fit: cover;
+            max-width: 100%;
+            transition: all 0.3s;
+
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+
+        .post-time {
+          font-size: 12px;
+          color: #888;
+          display: block;
+        }
+
+        .post-title {
+          margin: 10px 0;
+
+          a {
+            color: #504e4e;
+          }
+        }
+
+        .post-meta {
+          text-align: left;
+          margin: 5px;
+          color: #999;
+          font-family: "PingFang SC", "Microsoft YaHei", Lato, sans-serif;
+          font-size: 12px;
+
+          .post-meta-divider {
+            margin: 0 0.5em;
+          }
+
+          .post-time {
+            color: #00a7e0;
+          }
+
+          .post-consuming-time {
+            color: #ff3f1a;
+          }
+        }
+
+        .post-excerpt {
+          text-align: left;
+          font-size: 18px;
+          color: rgb(125, 125, 125);
+          font-family: cursive;
+          line-height: 1.5;
+          margin: 10px 0;
+        }
+
+        .left {
+          left: 0;
+        }
+
+        .right {
+          right: 0;
+          text-align: right;
+
+          .post-meta {
+            text-align: right;
+          }
+
+          .select-more {
+            right: 2px;
+            left: auto;
+          }
+        }
+
+        .select-more {
+          position: absolute;
+          bottom: 20px;
+          left: 2px;
+          height: 28px;
+        }
+      }
+
+    }
   }
 }
 
@@ -168,7 +256,72 @@
   }
 }
 
-/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+
+.shinchou-menu,
+.select-more {
+  box-shadow: 0 0 2px 0 #000;
+  position: absolute;
+  z-index: 10;
+  line-height: 1;
+
+  a {
+    position: relative;
+    display: inline-flex;
+    padding: 6px 2px;
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    overflow: hidden;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      background: black;
+    }
+
+    &:hover span {
+      color: white !important;
+      text-shadow: 0 0 10px #00acf0;
+    }
+
+    span {
+      position: relative;
+      margin: 0 5px 0 4px;
+      transition: 0.3s;
+
+      &.highlight-txt::before {
+        position: absolute;
+        content: "";
+        top: -3px;
+        left: -3px;
+        bottom: -3px;
+        right: -3px;
+        z-index: -1;
+        background: #00acf0;
+      }
+
+      &:not(.highlight-txt) {
+        color: #00acf0;
+      }
+    }
+  }
+}
+
+.shinchou-menu {
+  a {
+    font-size: 30px;
+  }
+}
+
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -178,14 +331,14 @@
 #mo-nav::-webkit-scrollbar {
   width: 0px;
   opacity: 0;
-}  
+}
 
-/*定义滚动条轨道 内阴影+圆角*/  
+/*定义滚动条轨道 内阴影+圆角*/
 ::-webkit-scrollbar-track {
   background-color: #eee;
-}  
+}
 
-/*定义滑块 内阴影+圆角*/  
+/*定义滑块 内阴影+圆角*/
 ::-webkit-scrollbar-thumb {
   background-color: #00acf0;
 }

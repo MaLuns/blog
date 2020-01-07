@@ -3,7 +3,7 @@ title: 基于 devenv 实现自动化编译,生成测试文件
 date: 2020-01-02 10:16:09
 tags: 
 categories: 记录类
-photos: ["/images/20200102105829.png","/images/20200102162138.png"]
+photos: ["/images/header-leg.jpg"]
 ---
 
 想要实现自动化编译并生产打包替换文件,首要的对项目进行编译生成.一般编译.net 项目有三种方式 csc.exe , MSbuild(不需要安装vs) , devenv(需要安装vs).因为自己已经安装了vs了,所以直接使用devenv去编译程序了
