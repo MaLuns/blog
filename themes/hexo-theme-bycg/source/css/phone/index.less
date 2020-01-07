@@ -1,0 +1,42 @@
+@media (max-width: 750px) {
+    .container {
+        >.header {
+            display: none;
+        }
+
+        >.main {
+            width: auto;
+            margin: 20px;
+
+            .posts-expand {
+                .post {
+                    position: relative;
+                    padding: 0;
+                    margin: 0;
+                    border-radius: 0;
+                    box-shadow: none;
+                    border-bottom: 1px solid #d6d6d6;
+
+                    .post-card {
+                        height: auto;
+
+                        .left,
+                        .right {
+                            width: 100%;
+                            position: static;
+                            text-align: left;
+
+                            .post-meta {
+                                text-align: left;
+                            }
+                        }
+
+                        .select-more {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

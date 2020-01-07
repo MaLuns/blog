@@ -1,13 +1,13 @@
 <article id="<%= post.layout %>-<%= post.slug %>"  class="post fadeInUp animated"  itemscope  itemprop="blogPost">
   <div class="post-card">
-    <div class="<%- postIndex%2==0?'right':'left'%>">
+    <div class="<%- postIndex%2==0?'right':'left'%> post-card-img">
       <% if(post.photos.length >0) {%>
         <img src="<%- url_for(post.photos[0]) %>" />
       <% }else{ %>
         <img src="<%- url_for('/images/notimage.png') %>" />
       <%}%>
     </div>
-    <div class="<%- postIndex%2==0?'left':'right'%>">
+    <div class="<%- postIndex%2==0?'left':'right'%> post-card-txt">
       <div>
         <span class="post-time">
           <time datetime="<%= date_xml(post.date) %>" title="<%= date_xml(post.created) %>" itemprop="datePublished">
