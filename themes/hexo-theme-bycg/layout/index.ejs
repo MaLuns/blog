@@ -1,8 +1,10 @@
 <%# 首页 %>
 <main class="container">
     <header class="header fadeIn animated">
-        <div class="header-content">
-    
+        <div class="header-content"></div>
+        <div class="video-content">
+            <video id="bgvideo" ></video>
+            <div id="video-btn" class="video-btn cg-bofang iconfont loadvideo"></div>
         </div>
     </header>
     <main class="main" id="main">
@@ -80,6 +82,7 @@
         current:<%= page.current %>,
         total:<%= page.total %>,
         url:"<%= url_for('/')%>",
-        loadMore:false
+        loadMore:false,
+        videoUrl:['https://download.daidr.me/o_1c9tl2261147r10g67pme355i7a.mp4']
     }
 </script>
