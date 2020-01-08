@@ -13,8 +13,8 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://localhost:4000/blog
-root: /blog
+url: http://localhost:4000/
+root: /
 permalink: :title/
 permalink_defaults:
 pretty_urls:
@@ -55,7 +55,7 @@ highlight:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 2
+  per_page: 8
   order_by: -date
 
 # Category & Tag

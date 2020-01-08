@@ -49,40 +49,43 @@ var APPX = {
     SPlay() {
         APPX.bgvideo[0].play();
     },
-    Spause(){
+    Spause() {
         APPX.bgvideo[0].pause();
     },
     AddSource() {
-        $('.video-stu').html('正在载入视频 ...').css({ "bottom": "0px" });
+        $('.video-stu').html('正在载入视频 ...').css({
+            "bottom": "0px"
+        });
         let t = IndexConfig.videoUrl, // 视频列表
             _t = t[Math.floor(Math.random() * t.length)]; // 随机抽取视频
-        APPX.bgvideo.attr('src', IndexConfig.url + '/' + _t);
+        APPX.bgvideo.attr('src', _t);
         APPX.bgvideo.attr('video-name', _t);
     },
     LoadVideo() {
         $('#video-btn').on('click', function () {
             if ($(this).hasClass('loadvideo')) {
-                $(this).removeClass('loadvideo').ad;
+                $(this).removeClass('loadvideo').removeClass('cg-bofang').addClass('cg-zanting').hide();
                 APPX.AddSource();
-                APPX.bgvideo.oncanplay = function () { // 数据可用时
+                APPX.bgvideo[0].oncanplay = function () { // 数据可用时
+                    $('#video-btn').show();
                     APPX.SPlay();
-                 
+
                 }
             } else {
-                if ($(this).hasClass('video-pause')) {
+                if ($(this).hasClass('cg-zanting')) {
                     APPX.Spause();
-           
-                    $('.video-stu').css({ "bottom": "0px" }).html('已暂停 ...');
+                    $(this).removeClass('cg-zanting').addClass('cg-bofang');
                 } else {
                     APPX.SPlay();
-                    $('#landlord').css({ "left": "-500px" });
-                    _btn.addClass('videolive'); // 用于判断切换页面时的状态
+                    $(this).removeClass('cg-bofang').addClass('cg-zanting');
                 }
             }
-            APPX.bgvideo.onended = function () { // 播放结束后
-      
+            APPX.bgvideo[0].onended = function () { // 播放结束后
+
             }
 
         });
     }
 }
+
+APPX.LoadVideo()
