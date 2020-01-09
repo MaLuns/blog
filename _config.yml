@@ -99,6 +99,7 @@ deploy:
   repository: 
     coding: git@git.coding.net:mablog/blog.git,master
     gitee: git@gitee.com:ml13/blog.git,master
+    github: git@github.com:MaLuns/blog.git,master
   branch: master
 
 # Extensions

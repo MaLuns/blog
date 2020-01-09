@@ -48,12 +48,24 @@ var APPX = {
     },
     SPlay() {
         APPX.bgvideo[0].play();
+        $('.video-msg').css({
+            "bottom": "-80px"
+        })
+        $('#user-center').css({
+            "top": "-300px"
+        })
     },
     Spause() {
         APPX.bgvideo[0].pause();
+        $('.video-msg').html('已暂停').css({
+            "bottom": "0px"
+        });
+        $('#user-center').css({
+            "top": "30%"
+        })
     },
     AddSource() {
-        $('.video-stu').html('正在载入视频 ...').css({
+        $('.video-msg').html('正在载入视频 ...').css({
             "bottom": "0px"
         });
         let t = IndexConfig.videoUrl, // 视频列表
@@ -69,19 +81,19 @@ var APPX = {
                 APPX.bgvideo[0].oncanplay = function () { // 数据可用时
                     $('#video-btn').show();
                     APPX.SPlay();
-
                 }
             } else {
                 if ($(this).hasClass('cg-zanting')) {
                     APPX.Spause();
                     $(this).removeClass('cg-zanting').addClass('cg-bofang');
+
                 } else {
                     APPX.SPlay();
                     $(this).removeClass('cg-bofang').addClass('cg-zanting');
                 }
             }
             APPX.bgvideo[0].onended = function () { // 播放结束后
-
+                APPX.bgvideo.attr('src','');
             }
 
         });

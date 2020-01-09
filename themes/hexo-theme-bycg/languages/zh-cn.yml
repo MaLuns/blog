@@ -4,6 +4,9 @@ menu:
   category: 分类
   tags: 标签
   about: 关于
+  github: gayhub
+  weibo: 微博
+  bilibili: b站
 
 post:
   read_more: 阅读全文

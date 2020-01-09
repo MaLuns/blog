@@ -342,3 +342,26 @@
 ::-webkit-scrollbar-thumb {
   background-color: #00acf0;
 }
+
+.testttt {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right top, #00acf0 50%, transparent 50%) no-repeat;
+  background-size: calc(100% + 10px) calc(100% - 100vh + 5px);
+  pointer-events: none;
+  mix-blend-mode: darken;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 5px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #fff;
+    z-index: 1;
+  }
+}
