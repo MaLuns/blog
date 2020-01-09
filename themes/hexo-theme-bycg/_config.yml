@@ -22,8 +22,8 @@ menu:
   home: /
   category: /categories
   about: https://mablog.coding.me/cv/
-  github: https://mablog.coding.me/cv/
-  bilibili: bilibili
+  github: https://github.com/MaLuns
+  bilibili: https://space.bilibili.com/12763040
 
 # 自动滚动到 <!-- more --> 处
 scroll_to_more: true

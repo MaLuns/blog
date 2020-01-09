@@ -1,59 +1,59 @@
 .header {
-    height: 100vh;
-    background-image: url(../images/header-leg.jpg);
-    background-size: cover;
+    height             : 100vh;
+    background-image   : url(../images/header-leg.jpg);
+    background-size    : cover;
     background-position: center bottom;
-    background-repeat: no-repeat;
-    position: relative;
-    overflow: hidden;
+    background-repeat  : no-repeat;
+    position           : relative;
+    overflow           : hidden;
 
     .header-content {
-        height: 100%;
+        height          : 100%;
         background-image: url(../images/grid.png);
     }
 
     .video-content {
         position: absolute;
-        top: 0;
-        height: 100%;
-        width: 100%;
+        top     : 0;
+        height  : 100%;
+        width   : 100%;
 
         video {
-            z-index: -1;
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin: 0;
-            padding: 0;
-            min-width: 100vw;
+            z-index   : -1;
+            position  : absolute;
+            top       : 0;
+            left      : 0;
+            margin    : 0;
+            padding   : 0;
+            min-width : 100vw;
             min-height: 100vh;
         }
 
         .video-msg {
-            position: absolute;
-            margin: auto;
-            width: 300px;
-            left: 0;
-            right: 0;
+            position  : absolute;
+            margin    : auto;
+            width     : 300px;
+            left      : 0;
+            right     : 0;
             text-align: center;
-            font-size: 24px;
-            color: #828282;
+            font-size : 24px;
+            color     : #828282;
             transition: all 0.3s;
-            bottom: -80px;
-            z-index: -1;
+            bottom    : -80px;
+            z-index   : -1;
         }
 
         .video-btn {
-            position: absolute;
-            z-index: 10;
-            color: #ddd4d4;
-            font-size: 30px;
-            background: #5a5a5a66;
-            line-height: 1;
+            position     : absolute;
+            z-index      : 10;
+            color        : #ddd4d4;
+            font-size    : 30px;
+            background   : #5a5a5a66;
+            line-height  : 1;
             border-radius: 50%;
-            right: 10px;
-            bottom: 50px;
-            animation: video-btn-animation .9s linear infinite alternate;
+            right        : 10px;
+            bottom       : 50px;
+            animation    : video-btn-animation .9s linear infinite alternate;
         }
 
         @keyframes video-btn-animation {
@@ -72,39 +72,44 @@
     }
 
     .user-center {
-        position: absolute;
-        z-index: 5;
-        top: 30%;
-        max-width: 500px;
-        left: 0;
-        right: 0;
-        margin: auto;
+        position  : absolute;
+        z-index   : 5;
+        top       : 30%;
+        max-width : 500px;
+        left      : 0;
+        right     : 0;
+        margin    : auto;
         transition: top 0.3s;
 
         .user-avatar {
-            width: 100px;
-            margin: 20px auto;
+            width        : 100px;
+            margin       : 20px auto;
             border-radius: 50%;
-            border: 5px solid rgba(0, 0, 0, 0.219);
+            border       : 5px solid rgba(0, 0, 0, 0.219);
+            transition   : all .6s;
+
+            &:hover {
+                transform: rotate(360deg)
+            }
         }
 
         .user-des {
-            color: #bbb;
-            background: #0000006e;
-            border-radius: 40px;
-            height: 40px;
-            margin-bottom: 20px;
-            display: flex;
+            color          : #bbb;
+            background     : #0000006e;
+            border-radius  : 40px;
+            height         : 50px;
+            margin-bottom  : 30px;
+            display        : flex;
             justify-content: center;
-            align-items: center;
+            align-items    : center;
 
             span {
-                display: inline-block;
-                overflow: hidden;
-                white-space: nowrap;
+                display     : inline-block;
+                overflow    : hidden;
+                white-space : nowrap;
                 border-right: 2px solid;
-                position: relative;
-                padding: 0 1em;
+                position    : relative;
+                padding     : 0 1em;
             }
 
             @keyframes typing {
@@ -121,17 +126,17 @@
         }
 
         .menu {
-            list-style: none;
-            display: flex;
+            list-style     : none;
+            display        : flex;
             justify-content: center;
 
             >li {
-                background: rgba(0, 0, 0, .4);
-                padding: 2px;
-                font-size: 30px;
-                line-height: 1;
+                background   : rgba(0, 0, 0, .4);
+                padding      : 2px;
+                font-size    : 40px;
+                line-height  : 1;
                 border-radius: 50%;
-                margin: 0 3px;
+                margin       : 0 3px;
             }
         }
     }
