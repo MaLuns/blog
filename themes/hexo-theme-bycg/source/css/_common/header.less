@@ -29,6 +29,20 @@
             min-height: 100vh;
         }
 
+        .video-msg {
+            position: absolute;
+            margin: auto;
+            width: 300px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 24px;
+            color: #828282;
+            transition: all 0.3s;
+            bottom: -80px;
+            z-index: -1;
+        }
+
         .video-btn {
             position: absolute;
             z-index: 10;
@@ -37,8 +51,8 @@
             background: #5a5a5a66;
             line-height: 1;
             border-radius: 50%;
-            right: 20px;
-            bottom: 100px;
+            right: 10px;
+            bottom: 50px;
             animation: video-btn-animation .9s linear infinite alternate;
         }
 
@@ -53,6 +67,71 @@
 
             100% {
                 transform: translateY(0px) rotate(.5deg);
+            }
+        }
+    }
+
+    .user-center {
+        position: absolute;
+        z-index: 5;
+        top: 30%;
+        max-width: 500px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transition: top 0.3s;
+
+        .user-avatar {
+            width: 100px;
+            margin: 20px auto;
+            border-radius: 50%;
+            border: 5px solid rgba(0, 0, 0, 0.219);
+        }
+
+        .user-des {
+            color: #bbb;
+            background: #0000006e;
+            border-radius: 40px;
+            height: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                display: inline-block;
+                overflow: hidden;
+                white-space: nowrap;
+                border-right: 2px solid;
+                position: relative;
+                padding: 0 1em;
+            }
+
+            @keyframes typing {
+                from {
+                    width: 0;
+                }
+            }
+
+            @keyframes caret {
+                50% {
+                    border-color: transparent;
+                }
+            }
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+
+            >li {
+                background: rgba(0, 0, 0, .4);
+                padding: 2px;
+                font-size: 30px;
+                line-height: 1;
+                border-radius: 50%;
+                margin: 0 3px;
             }
         }
     }
