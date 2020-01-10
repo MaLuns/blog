@@ -22,6 +22,9 @@ $(function () {
             APPX.LoadMore();
         }
     })
+
+    APPX.LoadHeaderBg()
+    APPX.LoadVideo();
 })
 
 var APPX = {
@@ -93,11 +96,18 @@ var APPX = {
                 }
             }
             APPX.bgvideo[0].onended = function () { // 播放结束后
-                APPX.bgvideo.attr('src','');
+                APPX.bgvideo.attr('src', '');
             }
 
         });
+    },
+    LoadHeaderBg() {
+        if (!!window.IndexConfig) {
+            let t = IndexConfig.headerbg,
+                _t = t[Math.floor(Math.random() * t.length)];
+            $("header.header").css({
+                "background-image": `url(${_t})`
+            });
+        }
     }
 }
-
-APPX.LoadVideo()

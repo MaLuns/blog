@@ -3,6 +3,8 @@
     <%- partial('./_partial/category') %>
 <%}else if (page.type=='tags'){%>
     <%- list_tags({show_count: theme.show_count}) %>
+<%}else if (page.type=='links'){%>
+    <%- partial('links') %>
 <%}else{%>
 
 <%}%>

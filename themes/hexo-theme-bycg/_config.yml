@@ -18,15 +18,20 @@ favicon:
   apple_touch_icon: /images/apple-touch-icon-next.png
   safari_pinned_tab: /images/logo.svg
 
+headerbg: 
+    #- '/images/header-leg.jpg'
+    - 'http://www.pilicn.com/wp-content/themes/pili/images/n-bg3.png'
+    - 'http://www.pilicn.com/wp-content/themes/pili/images/new-ban-bg.jpg'
+    - 'http://www.pilicn.com/wp-content/themes/pili/images/g-bg12.jpg'
+  
 menu:
   home: /
   category: /categories
-  about: https://mablog.coding.me/cv/
-  github: https://github.com/MaLuns
-  bilibili: https://space.bilibili.com/12763040
-
-# 自动滚动到 <!-- more --> 处
-scroll_to_more: true
+  links: /links
+  about: //mablog.coding.me/cv/
+  github: //github.com/MaLuns
+  bilibili: //space.bilibili.com/12763040
+  qq: tencent://message/?uin=384399021&amp;Site=有事Q我&amp;Menu=yes
 
 user:
   avatar: images/avatar.jpg
