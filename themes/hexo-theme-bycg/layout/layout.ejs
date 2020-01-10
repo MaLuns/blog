@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <%- partial('./_partial/head') %>
-    <body>
+<%- partial('./components/head') %>
+
+<body>
+    <div class="app">
         <%- body %>
-        <%- partial('./_partial/footer') %>
-        <%- partial('./_partial/script') %>
-    </body>
+    </div>
+    <%- partial('./components/footer') %>
+    <%- partial('./components/script') %>
+</body>
+
 </html>

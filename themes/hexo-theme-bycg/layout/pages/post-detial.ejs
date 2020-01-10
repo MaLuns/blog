@@ -1,15 +1,21 @@
-<div style="height: 500px;background: #040404;">
-  <canvas id="c" width="1080" height="400"></canvas>
+<div style="height: 500px;    background-image: url(http://www.pilicn.com/wp-content/themes/pili/images/n-bg00.jpg);
+background-position: bottom;">
+  <!-- <canvas id="c" width="1080" height="400"></canvas> -->
   <div class="shinchou-menu" style="top: 200px;right: 50%; transform: translateX(50%);">
     <a>
       <%- post.title %>
     </a>
   </div>
 </div>
-<div style="margin-top: -100px;">
+<div>
   <div
-    style="width: 750px;margin: auto;left: 0;right: 0;background: #fff;padding: 20px;box-shadow: 0 0 1px 0 #00000036;">
+    style="width: 750px;margin: auto;left: 0;right: 0;background: #fff;padding: 80px 20px 0;">
     <%- post.content %>
+  </div>
+  <div>上一篇</div>
+  <div>下一篇
+    
+    <% console.log(post.next) %>
   </div>
 </div>
 <div class="testttt">
