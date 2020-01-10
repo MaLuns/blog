@@ -20,8 +20,8 @@ favicon:
 
 headerbg: 
     #- '/images/header-leg.jpg'
-    - 'http://www.pilicn.com/wp-content/themes/pili/images/n-bg3.png'
-    - 'http://www.pilicn.com/wp-content/themes/pili/images/new-ban-bg.jpg'
+    #- 'http://www.pilicn.com/wp-content/themes/pili/images/n-bg3.png'
+    - 'http://www.pilicn.com/wp-content/themes/pili/images/n-bg00.jpg'
     - 'http://www.pilicn.com/wp-content/themes/pili/images/g-bg12.jpg'
   
 menu:
