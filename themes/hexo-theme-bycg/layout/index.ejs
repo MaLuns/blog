@@ -15,7 +15,7 @@
                 <ul class="menu">
                     <% for (const key in theme.menu) { %>
                     <li title="<%= __(`menu.${key}`) %>">
-                        <a href="<%- url_for(theme.menu[key])%>">
+                        <a href="<%- (key=='qq')?theme.menu[key]:url_for(theme.menu[key])%>" >
                             <!-- <i class="iconfont cg-<%- key %>"></i> -->
                             <!-- <%= __(`menu.${key}`) %> -->
                             <svg class="cg-icon" aria-hidden="true">
@@ -49,32 +49,32 @@
             <% page.posts.each(function(post,postIndex){ %>
                     <%- partial('./components/index-card',{ post, index: true,postIndex}) %>
                     <% }) %>
-                    </section>
-                    <div id="loader" class="loaded">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30"
-                            style="enable-background:new 0 0 50 50;" xml:space="preserve">
-                            <rect x="0" y="13" width="4" height="5" fill="#333">
-                                <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0s"
-                                    dur="0.6s" repeatCount="indefinite" />
-                                <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0s" dur="0.6s"
-                                    repeatCount="indefinite" />
-                            </rect>
-                            <rect x="10" y="13" width="4" height="5" fill="#333">
-                                <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.15s"
-                                    dur="0.6s" repeatCount="indefinite" />
-                                <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.15s"
-                                    dur="0.6s" repeatCount="indefinite" />
-                            </rect>
-                            <rect x="20" y="13" width="4" height="5" fill="#333">
-                                <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.3s"
-                                    dur="0.6s" repeatCount="indefinite" />
-                                <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.3s"
-                                    dur="0.6s" repeatCount="indefinite" />
-                            </rect>
-                        </svg>
-                    </div>
-</main>
+        </section>
+        <div id="loader" class="loaded">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30"
+                style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                <rect x="0" y="13" width="4" height="5" fill="#333">
+                    <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0s"
+                        dur="0.6s" repeatCount="indefinite" />
+                    <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0s" dur="0.6s"
+                        repeatCount="indefinite" />
+                </rect>
+                <rect x="10" y="13" width="4" height="5" fill="#333">
+                    <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.15s"
+                        dur="0.6s" repeatCount="indefinite" />
+                    <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.15s"
+                        dur="0.6s" repeatCount="indefinite" />
+                </rect>
+                <rect x="20" y="13" width="4" height="5" fill="#333">
+                    <animate attributeName="height" attributeType="XML" values="5;21;5" begin="0.3s"
+                        dur="0.6s" repeatCount="indefinite" />
+                    <animate attributeName="y" attributeType="XML" values="13; 5; 13" begin="0.3s"
+                        dur="0.6s" repeatCount="indefinite" />
+                </rect>
+            </svg>
+        </div>
+    </main>
 </main>
 <div class="menu-list">
     <ul>
@@ -116,9 +116,10 @@
 <script>
     window.IndexConfig={
         current:<%= page.current %>,
-                total:<%= page.total %>,
-                url:"<%= url_for('/')%>",
-                loadMore:false,
-                videoUrl:['https://download.daidr.me/o_1c9tl2261147r10g67pme355i7a.mp4']
-                }
-                </script>
+        total:<%= page.total %>,
+        url:"<%= url_for('/')%>",
+        loadMore:false,
+        videoUrl:['https://download.daidr.me/o_1c9tl2261147r10g67pme355i7a.mp4'],
+        headerbg:<%- JSON.stringify(theme.headerbg) %>
+    }
+</script>
