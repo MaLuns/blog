@@ -12,11 +12,29 @@ background-position: bottom;">
     style="width: 750px;margin: auto;left: 0;right: 0;background: #fff;padding: 80px 20px 0;">
     <%- post.content %>
   </div>
-  <div>上一篇</div>
-  <div>下一篇
-    
-    <% console.log(post.next) %>
-  </div>
+  <% if(post.prev || post.next){ %>
+    <div class="prev-next-content">
+        <div class="btn-prev">
+            <% if(post.prev){ %>
+                <a href="<%- url_for(post.prev.path) %>">
+                <i class="cg-paging-left iconfont"></i> <%- post.prev.title %>
+                </a>
+            <% } else{%>
+                <span></span>
+            <%}%>
+        </div>
+        <div class="btn-next">
+            <% if(post.next){ %>
+                <a href="<%- url_for(post.next.path) %>">
+                <%- post.next.title %> <i class="cg-paging-right iconfont"></i>
+                </a>
+            <% } else{%>
+                <span></span>
+            <%}%>
+        </div>
+    </div>
+<% } %>
+
 </div>
 <div class="testttt">
 
