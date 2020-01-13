@@ -2,36 +2,49 @@
 
 * {
     padding: 0;
-    margin : 0;
+    margin: 0;
 }
 
 .cg-icon {
-    width         : 1em;
-    height        : 1em;
+    width: 1em;
+    height: 1em;
     vertical-align: -0.15em;
-    fill          : currentColor;
-    overflow      : hidden;
+    fill: currentColor;
+    overflow: hidden;
 }
 
 html,
 body {
-    cursor     : url(../images/cursor.ico), auto;
-    position   : relative;
+    cursor: url(../images/cursor.ico), auto;
     font-family: "PingFang SC", "Microsoft YaHei", Lato, sans-serif;
-    font-size  : 14px;
+    font-size: 14px;
     line-height: 2;
-    color      : #555;
+    color: #555;
+    position: relative;
+
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+.app {
+    padding-bottom: 100px;
 }
 
 .container {
-    position  : relative;
+    position: relative;
     min-height: 100%;
 }
 
 a {
     text-decoration: none;
-    outline        : 0;
-    word-wrap      : break-word;
+    outline: 0;
+    word-wrap: break-word;
 }
 
 h2,
@@ -42,25 +55,24 @@ h6 {
     margin: 20px 0 15px;
 }
 
-
 p {
     margin: 0 0 20px 0;
 }
 
 blockquote {
-    margin          : 0;
-    padding         : 0;
-    padding         : 0 15px;
+    margin: 0;
+    padding: 0;
+    padding: 0 15px;
     background-color: #ecf8ff;
-    border-radius   : 4px 0 0 4px;
-    border-left     : 4px solid #50bfff;
+    border-radius: 4px 0 0 4px;
+    border-left: 4px solid #50bfff;
 }
 
 img {
-    display  : block;
-    margin   : auto;
+    display: block;
+    margin: auto;
     max-width: 100%;
-    height   : auto;
+    height: auto;
 }
 
 .text-center {
@@ -70,13 +82,13 @@ img {
 
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
 ::-webkit-scrollbar {
-    width           : 6px;
-    height          : 6px;
+    width: 6px;
+    height: 6px;
     background-color: #eee;
 }
 
 #mo-nav::-webkit-scrollbar {
-    width  : 0px;
+    width: 0px;
     opacity: 0;
 }
 
@@ -94,4 +106,5 @@ img {
 @import "./_common/header.less";
 @import "./_common/footer.less";
 @import "./_common/home.less";
+@import "./_common/detial-header.less";
 @import "./phone/index.less";

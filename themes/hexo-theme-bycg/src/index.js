@@ -15,16 +15,22 @@ $(function () {
         var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
         //如果滚动条高度加上窗口可视高度大于网页高度
 
-        console.log(Math.round(scrollTop / (htmlHeight - clientHeight) * 100))
+        /* console.log(Math.round(scrollTop / (htmlHeight - clientHeight) * 100))
 
-        console.log(scrollTop, clientHeight, htmlHeight);
+        console.log(scrollTop, clientHeight, htmlHeight); */
         if (scrollTop + clientHeight > htmlHeight) {
             APPX.LoadMore();
         }
+        if (scrollTop > 500) {
+            $("#back-top").addClass("show")
+        } else {
+            $("#back-top").removeClass("show")
+        }
     })
 
-    APPX.LoadHeaderBg()
+    APPX.LoadHeaderBg();
     APPX.LoadVideo();
+    APPX.BackTop();
 })
 
 var APPX = {
@@ -109,5 +115,13 @@ var APPX = {
                 "background-image": `url(${_t})`
             });
         }
+    },
+    BackTop() {
+        $("#back-top").on("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        })
     }
 }
