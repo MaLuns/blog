@@ -1,0 +1,59 @@
+.detial-header {
+    position: relative;
+    height: 500px;
+    background-image: url(http://www.pilicn.com/wp-content/themes/pili/images/n-bg00.jpg);
+    background-position: bottom;
+
+    .links-title {
+        text-align: center;
+        color: #fff;
+        position: absolute;
+        top: 200px;
+        font-size: 30px;
+        border-bottom: 2px solid;
+        width: 200px;
+        margin: auto;
+        left: 0;
+        right: 0;
+    }
+
+    .post-detial-title {
+        width: 750px;
+        color: #fff;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 50px;
+        margin: auto;
+
+        >h2 {
+            font-weight: 500;
+            font-size: 30px;
+            position: relative;
+
+            &::before {
+                position: absolute;
+                content: " ";
+                height: 1px;
+                background: #fff;
+                bottom: 0;
+                animation: lineWidth 2500ms;
+                animation-fill-mode: forwards;
+            }
+
+            @keyframes lineWidth {
+                0% {
+                    width: 0%;
+                }
+
+                100% {
+                    width: 100%;
+                }
+            }
+        }
+
+        a {
+            color: #fff;
+        }
+    }
+}

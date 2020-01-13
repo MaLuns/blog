@@ -38,3 +38,17 @@ user:
   desc:  醒，亦在人间；梦，亦在人间
 
 rss: atom.xml
+
+links:
+  - name: hexo
+    url: https://hexo.io/
+    image: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+    desc: 快速、简洁且高效的博客框架
+  - name: 随心
+    url: https://uiluil.com/
+    image: https://uiluil.com/medias/logo.png
+    desc: 从来没有真正的绝境, 只有心灵的迷途
+  - name: 白云苍狗
+    url: https://www.imalun.com/
+    image: https://www.imalun.com/images/avatar.jpg
+    desc: 醒，亦在人间；梦，亦在人间
