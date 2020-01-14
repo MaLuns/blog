@@ -1,5 +1,5 @@
 <%# 首页 %>
-<header class="header fadeIn animated">
+<header class="header">
     <div class="header-content">
         <div id="user-center" class="user-center">
             <div>
@@ -41,12 +41,12 @@
         <div id="video-btn" class="video-btn cg-bofang iconfont loadvideo"></div>
         <div class="video-msg"></div>
     </div>
-
 </header>
+
 <section id="posts" class="posts-expand">
     <% page.posts.each(function(post,postIndex){ %>
-            <%- partial('./components/index-card',{ post, index: true,postIndex}) %>
-            <% }) %>
+        <%- partial('./components/index-card',{ post, index: true,postIndex}) %>
+    <% }) %>
 </section>
 <div id="loader" class="loaded">
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
