@@ -47,12 +47,14 @@ self.addEventListener('fetch', function (event) {
             maxEntries: maxEntries
         }
     });
+    
     self.toolbox.router.get('/css/(.*)', self.toolbox.cacheFirst, {
         cache: {
             name: staticAssetsCacheName,
             maxEntries: maxEntries
         }
     });
+
     self.toolbox.router.get('/fonts/(.*)', self.toolbox.cacheFirst, {
         cache: {
             name: staticAssetsCacheName,
@@ -72,7 +74,7 @@ self.addEventListener('fetch', function (event) {
         origin: /busuanzi\.ibruce\.info/,
         cache: {
             name: staticAssetsCacheName,
-            maxEntries: maxEntries
+            maxEntries: 3
         }
     })
 
