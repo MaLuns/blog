@@ -1,9 +1,6 @@
 <%# 分类页面 %>
 <%- partial('../components/detial-header', {post: page,title:'分类'}) %>
-<div class="post post-block ">
-    <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">分类</h1>
-        <div class="post-meta">目前共计<%- site.categories.length %>个分类</div>
-    </header>
+<div class="fadeInUp animated category-card">
+    <h2>目前共计 <%- site.categories.length %> 个分类</h2>
     <%- list_categories() %>
 </div>

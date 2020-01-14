@@ -4,9 +4,9 @@
 
 # Site
 title: 白云苍狗
-subtitle: '网站副标题'
-description: '网站描述'
-keywords:
+subtitle: 白云苍狗的个人博客
+description: 学习.Net,前端时常两年半的，菜鸡程序猿
+keywords: C#,.Net,JavaScript,HTML,CSS
 author: 白云苍狗
 language: zh-cn
 timezone: ''
@@ -117,3 +117,34 @@ feed:
   content_limit_delim: ' '
   order_by: -date
   autodiscovery: true
+
+#Site Map
+sitemap:
+  path: sitemap.xml
+
+#
+html_minifier:
+  enable: true
+  ignore_error: false
+  exclude:
+  
+css_minifier:
+  enable: true
+  exclude: 
+    - '*.min.css'
+
+js_minifier:
+  enable: false
+  mangle: true
+  output:
+  compress:
+  exclude: 
+    - '*.min.js'
+
+image_minifier: 
+  enable: false # 图片不压缩
+  interlaced: false
+  multipass: false
+  optimizationLevel: 2
+  pngquant: false
+  progressive: false

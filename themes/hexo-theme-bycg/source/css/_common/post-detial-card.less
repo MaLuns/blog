@@ -1,0 +1,65 @@
+.frind-card,
+.category-card {
+    position: relative;
+    width: 750px;
+    margin: auto;
+    list-style: none;
+    padding: 20px;
+    background: #fff;
+    margin-top: -100px;
+    border-radius: 10px 10px 0 0;
+}
+
+.frind-card {
+    .frind-card-item {
+        position: relative;
+        padding: 10px 0;
+        margin: 10px;
+        transition: all 0.3s;
+        border-radius: 5px;
+
+        >a {
+            display: flex;
+            align-items: center;
+            color: #525252;
+            overflow: hidden;
+
+            img {
+                width: 60px;
+                height: 60px;
+                margin: 0 20px;
+                border-radius: 50%;
+                box-shadow: 0 0 3px 0 #3035995c;
+            }
+
+            >div {
+                flex: 1;
+
+                h3,
+                p {
+                    margin: 0;
+                }
+            }
+        }
+
+        &:hover {
+            background-color: rgba(0, 137, 255, 0.08);
+        }
+    }
+}
+
+.category-card {
+    .category-list {
+        list-style: none;
+
+        .category-list-count {
+            &::before {
+                content: " ( ";
+            }
+
+            &::after {
+                content: " ) ";
+            }
+        }
+    }
+}

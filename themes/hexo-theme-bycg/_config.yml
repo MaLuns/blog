@@ -21,11 +21,10 @@ favicon:
 headerbg: 
     #- '/images/header-leg.jpg'
     #- 'http://www.pilicn.com/wp-content/themes/pili/images/n-bg3.png'
-    - 'http://www.pilicn.com/wp-content/themes/pili/images/n-bg00.jpg'
-    - 'http://www.pilicn.com/wp-content/themes/pili/images/g-bg12.jpg'
+    - '/images/n-bg00.jpg'
+    - '/images/g-bg12.jpg'
   
 menu:
-  home: /
   category: /categories
   links: /links
   about: //mablog.coding.me/cv/

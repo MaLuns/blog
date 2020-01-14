@@ -3,10 +3,19 @@
     <meta name="x5-fullscreen" content="true">
     <meta name="full-screen" content="yes">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <% if (page.keywords){ %>
+    <meta name="keywords" content="<%= page.keywords %>,<%= config.keywords %>">
+    <% } else if (config.keywords){ %>
+    <meta name="keywords" content="<%= config.keywords %>">
+    <%} %>
+    <% if(config.description){%>
+    <meta name="description" content="<%- config.description %>">
+    <%}%>
+    
     <title><%= config.title %></title>
-
     <link rel="icon" type="image/png" sizes="32x32" href="<%= url_for(theme.favicon.narmal) %>?v=<%= theme.version %>">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1518765_srqlo2vvmu.css">
+    <link rel="manifest" href="/manifest.json">
     <%- css('css/style') %>
     <%- css('css/highlight/highlight') %>
 </head>

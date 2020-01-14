@@ -1,7 +1,6 @@
 <%# 分类详情 %>
 <%- partial('./components/detial-header', {post: {type:'categories'},title:page.category}) %>
-<div class="post-block archive post">
-    <div id="posts" class="posts-collapse">
+<div class="fadeInUp animated category-card">
         <h3 class="archive-page-counter">
             共计 <%- page.posts.length %> 篇。 (゜-゜)つロ 干杯~
         </h3>
@@ -22,5 +21,4 @@
             </div>
             <% }) %>
         </div>
-    </div>
 </div>
