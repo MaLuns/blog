@@ -34,6 +34,13 @@ self.addEventListener('fetch', function (event) {
     self.toolbox.options.debug = false;
     self.toolbox.options.networkTimeoutSeconds = 3;
 
+    self.toolbox.router.get("/(.*)\.png", self.toolbox.cacheFirst, {
+        cache: {
+            name: staticImageCacheName,
+            maxEntries: maxEntries
+        }
+    });
+
     self.toolbox.router.get("/images/(.*)", self.toolbox.cacheFirst, {
         cache: {
             name: staticImageCacheName,
@@ -47,7 +54,7 @@ self.addEventListener('fetch', function (event) {
             maxEntries: maxEntries
         }
     });
-    
+
     self.toolbox.router.get('/css/(.*)', self.toolbox.cacheFirst, {
         cache: {
             name: staticAssetsCacheName,
@@ -70,8 +77,16 @@ self.addEventListener('fetch', function (event) {
         }
     });
 
+    /* self.toolbox.router.get("/(.*)", self.toolbox.cacheFirst, {
+        origin: /busuanzi.ibruce.info/,
+        cache: {
+            name: staticAssetsCacheName,
+            maxEntries: 3
+        }
+    }) */
+
     self.toolbox.router.get("/(.*)", self.toolbox.cacheFirst, {
-        origin: /busuanzi\.ibruce\.info/,
+        origin: /at\.alicdn\.com/,
         cache: {
             name: staticAssetsCacheName,
             maxEntries: 3
@@ -84,6 +99,7 @@ self.addEventListener('fetch', function (event) {
             maxEntries: maxEntries
         }
     });
+
 
     self.addEventListener("install", function (event) {
         return event.waitUntil(self.skipWaiting())

@@ -2,9 +2,9 @@
   <div class="post-card">
     <div class="<%- postIndex%2==0?'right':'left'%> post-card-img">
       <% if(post.photos.length >0) {%>
-        <img src="<%- url_for(post.photos[0]) %>" />
+        <img src="<%- url_for(post.photos[0]) %>" alt="" />
       <% }else{ %>
-        <img src="<%- url_for('/images/notimage.png') %>" />
+        <img src="<%- url_for('/images/notimage.png') %>" alt="" />
       <%}%>
     </div>
     <div class="<%- postIndex%2==0?'left':'right'%> post-card-txt">
