@@ -90,7 +90,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/ hexo-theme-sagiri-master hexo-theme-freemind
-theme: jekyll-theme-cayman
+theme: hexo-theme-bycg
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
