@@ -6,6 +6,21 @@
     <div class="app">
         <%- body %>
     </div>
+    <div id="container"></div>
+    <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+    <script src="https://jjeejj.github.io/js/gitment.js"></script>
+    <script>
+    var gitment = new Gitment({
+
+        owner: 'MaLuns',
+        repo: 'MalBlog',
+        oauth: {
+            client_id: 'b971d416833059d04dc7',
+            client_secret: '92cacb8f281b908089f86701b66cc9afa11772db',
+        },
+    })
+    gitment.render('container')
+    </script>
     <%- partial('./components/footer') %>
     <%- partial('./components/back-top') %>
     <%- partial('./components/script') %>
