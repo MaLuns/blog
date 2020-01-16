@@ -5,7 +5,7 @@ post_wordcount:
   totalcount: false       # 网站 字数统计
   separated_meta: true
 
-version: 0.0.1
+version: 0.0.2
 
 highlight_theme: normal
 
@@ -38,14 +38,18 @@ user:
 
 rss: atom.xml
 
-gitment:
-  enable: true
-  githubID: yourid
-  repo: yourrepo
-  ClientID: b971d416833059d04dc7
-  ClientSecret: 92cacb8f281b908089f86701b66cc9afa11772db
-  lazy: true
+# 
+comment: true
 
+# gitalk
+gitalk:
+  createIssueManually: true
+  owner: MaLuns
+  repo: MalBlog
+  clientID: b971d416833059d04dc7
+  clientSecret: 92cacb8f281b908089f86701b66cc9afa11772db
+
+# 友联
 links:
   - name: hexo
     url: https://hexo.io/

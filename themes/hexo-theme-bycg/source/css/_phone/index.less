@@ -4,43 +4,50 @@
             display: none;
         }
 
-        >.main {
+        .posts-expand {
             width: auto;
             margin: 20px;
 
-            .posts-expand {
-                .post {
-                    position: relative;
-                    padding: 0;
-                    margin: 0;
-                    border-radius: 0;
-                    box-shadow: none;
-                    border-bottom: 1px solid #d6d6d6;
+            .post {
+                position: relative;
+                padding: 0;
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+                border-bottom: 1px solid #d6d6d6;
 
-                    .post-card {
-                        height: auto;
+                .post-card {
+                    height: auto;
 
-                        .left,
-                        .right {
-                            width: 100%;
-                            position: static;
+                    .left,
+                    .right {
+                        width: 100%;
+                        position: static;
+                        text-align: left;
+
+                        .post-meta {
                             text-align: left;
-
-                            .post-meta {
-                                text-align: left;
-                            }
-
-                            img{
-                                max-height: 200px;
-                            }
                         }
 
-                        .select-more {
-                            display: none;
+                        img {
+                            max-height: 200px;
                         }
+                    }
+
+                    .select-more {
+                        display: none;
                     }
                 }
             }
         }
+    }
+
+    .back-top {
+        display: none;
+    }
+
+    .post-detial {
+        width: auto;
+        margin: 0 1em;
     }
 }
