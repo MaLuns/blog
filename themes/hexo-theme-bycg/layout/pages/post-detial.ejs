@@ -1,7 +1,6 @@
 <%- partial('../components/detial-header', {post: page}) %>
 <div class="fadeInUp animated">
-  <div
-    style="width: 750px;margin: auto;left: 0;right: 0;background: #fff;padding: 80px 20px 0;">
+  <div class="post-detial" >
     <%- post.content %>
     <% if(post.prev || post.next){ %>
       <div class="prev-next-content">
@@ -18,33 +17,10 @@
               <%}%>
           </div>
       </div>
-  <% } %>
+    <% } %>
+    <% if(theme.comment && post.comment){ %>
+      <%- partial('../components/comments',{post}) %>
+    <% }%>
   </div>
 </div>
-<div class="testttt">
-
-</div>
-<!-- <script>
-  let types = "<%= post.categories.data[0].name %>";
-  let letters = (
-    types +
-    "·" +
-    document
-    .querySelectorAll(".shinchou-menu a")[0]
-    .textContent.replace(/[\r\n]/g, "")
-    .replace(/\ +/g, "")
-  ).split("");
-
-  document.querySelectorAll(".shinchou-menu a")[0].textContent = "";
-  letters.forEach((letter, i) => {
-    if (letter != " " && letter != "") {
-      let span = document.createElement("span");
-      span.textContent = letter;
-      if (i < types.length) {
-        span.className = "highlight-txt";
-      }
-      span.style.transitionDelay = `${i / 10}s`;
-      document.querySelectorAll(".shinchou-menu a")[0].append(span);
-    }
-  });
-</script> -->
+<div class="post-detial-progress-bar"></div>
