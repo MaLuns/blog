@@ -18,6 +18,7 @@ comment: true
 
 SVN 工具使用TortoiseSVN. 为了简化操这里直接使用 TortoiseProc.exe(TortoiseSVN的GUI程序) 所提供的命令行,对项目进行更新等操作
 使用Demo 
+
 ```
 TortoiseProc.exe /command:commit
                  /path:"c:\svn_wc\file1.txt*c:\svn_wc\file2.txt"
@@ -33,6 +34,7 @@ TortoiseProc.exe /command:commit
 /logmsg 提交备注信息
 
 ```
+
 具体的使用方式可以在 TortoiseSVN 提供帮助文档里去查看
 
 ![](/images/20200102174220.png)
@@ -45,6 +47,7 @@ TortoiseProc.exe /command:commit
 ![](/images/20200102162138.png)
 
 json 配置文件如下
+
 ``` json
 {
     "FilePath": "C:\\Test.cs",//路径
@@ -53,7 +56,9 @@ json 配置文件如下
     "Params": [] //参数
 }
 ```
+
 假如 Test.cs 文件需要修改内如下
+
 ```C# 
     public static string SerVer = "V7.6.0";
 
@@ -128,6 +133,7 @@ public class CSharpRunCode
 ```
 
 使用方法
+
 ``` c#
 //FunctionName 配置中函数名
 //FilePath 文件路径
@@ -158,6 +164,7 @@ Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine($"新值:【{result}】");
 Console.ForegroundColor = ConsoleColor.White;
 ```
+
 执行结果
 ![](/images/20200102163249.png)
 
@@ -334,16 +341,21 @@ class CMD
         }
     }
 ```
+
 devenv 具体参数可以参考[微软官网文档](https://docs.microsoft.com/zh-CN/visualstudio/ide/reference/devenv-command-line-switches?view=vs-2017)
 示例
+
 ``` c#
 //DevenvDirPath devenv 所在目录
 CMD_RES res = CMD.RunCmd("@echo off ", $"{DevenvDirPath.Substring(0,1)}:",$"cd {DevenvDirPath}",$"devenv 项目路径  /rebuild Release");
 ```
+
 devenv 回输出,然后判断是否全部编译成功
+
 ```
 成功x个        失败x个        跳过x个
 ```
+
 文件编译好之后,就是对文件的拷贝操作了这里就不描述了
 
 效果如下

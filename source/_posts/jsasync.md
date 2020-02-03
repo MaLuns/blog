@@ -43,6 +43,7 @@ comment: true
 
 ### 线程的阻塞 ###
 下面这段代码打破了我对JavaScript事件的成见。
+
 ``` javascript
 //EventModel/loopBlockingTimeout.js 
 var start = new Date; 
@@ -93,6 +94,7 @@ while (atLeastOneEventIsQueued) {
 创造Node.js，并不是为了人们能在服务器上运行JavaScript，仅仅是因为Ryan Dahl想要一个建立在某高级语言之上的事件驱动型服务器框架。JavaScript碰巧就是适合干这个的语言。为什么？因为JavaScript语言可以完美地实现非阻塞式I/O。
 
 在其他语言中，一不小心就会“阻塞”应用（通常是运行循环）直到完成I/O请求为止。而在JavaScript中，这种阻塞方式几乎沦为无稽之谈。类似如下的循环将永远运行下去，不可能停下来。
+
 ``` js
 var ajaxRequest = new XMLHttpRequest; 
 ajaxRequest.open('GET', url); 
@@ -308,10 +310,13 @@ function runCalculation(formula, callback) {
 ### 返值与回调的混搭 ###
 
 在以上两种runCalculation实现中，有时会用到返值技术。这是出于简洁的目的而随意作出的选择。下面这行代码
+
 ``` js 
 return callback(calculationCache[formula]);  
 ```
+
 很容易即可改写成
+
 ``` js 
 callback(calculationCache[formula]); 
 return; 
@@ -320,6 +325,7 @@ return;
 这是因为并没有打算使用这个返值。这是JavaScript的一种普遍做法，而且通常无害。
 
 不过，有些函数既返回有用的值，又要取用回调。这类情况下，切记回调有可能被同步调用（返值之前），也有可能被异步调用（返值之后）。永远不要定义一个潜在同步而返值却有可能用于回调的函数。举个例子，下面这个负责打开WebSocket连接以连至给定服务器的函数（使用缓存技术以确保每个服务器只有一个连接）就违反了上述规则。
+
 ``` js
 var webSocketCache = {}; 
 function openWebSocket(serverAddress, callback) { 
@@ -368,6 +374,7 @@ if (socket.readyState === WebSocket.OPEN) {
 ## 异步错误的处理 ##
 
 像很多时髦的语言一样，JavaScript也允许抛出异常，随后再用一个try/catch语句块捕获。如果抛出的异常未被捕获，大多数JavaScript环境都会提供一个有用的堆栈轨迹。举个例子，下面这段代码由于'{'为无效JSON对象而抛出异常。
+
 ```js
 //EventModel/stackTrace.js 
 function JSONToObject(jsonStr) { 
@@ -380,6 +387,7 @@ SyntaxError: Unexpected end of input
     at JSONToObject (/AsyncJS/stackTrace.js:2:15)     
     at Object.<anonymous> (/AsyncJS/stackTrace.js:4:11) 
 ```
+
 堆栈轨迹不仅告诉我们哪里抛出了错误，而且说明了最初出错的地方：第4行代码。遗憾的是，自顶向下地跟踪异步错误起源并不都这么直截了当。在本节中，我们会看到为什么throw很少用作回调内错误处理的正确工具，还会了解如何设计异步API以绕开这一局限。
 
 ### 回调内抛出的错误 ###
@@ -470,6 +478,7 @@ process.on('uncaughtException', function(err) {
 >请勿使用uncaughtException，而应使用Domain对象。Domain对象又是什么？你可能会这样问。
 
 Domain对象是事件化对象（第2章会详细讨论），它将throw转化为'error'事件。下面是一个例子。
+
 ```js
 //EventModel/domainThrow.js 
 var myDomain = require('domain').create();
@@ -489,11 +498,13 @@ Error ignored!
 
 ### 抛出还是不抛出 ###
 遇到错误时，最简单的解决方法就是抛出这个错误。在Node代码中，大家会经常看到类似这样的回调：
+
 ``` js
 function(err) {
     if (err) throw err;   // ... 
 }
 ```
+
 在第4章中，我们会经常沿用这一做法。但是，在成品应用中，允许例行的异常及致命的错误像踢皮球一样踢给全局处理器，这是不可接受的。回调中的throw相当于JavaScript写手在说“现在我还不想考虑这个”。
 
 如果抛出那些自己知道肯定会被捕获的异常呢？这种做法同样凶险万分。2011年，Isaac Schlueter（npm的开发者，在任的Node开发负责人）就主张try/catch是一种“反模式”的方式。
@@ -525,6 +536,7 @@ function checkPassword(username, passwordGuess, callback) {
 这段代码有什么问题呢？目前为止，没有任何问题。它能用，而且简洁明了。但是，如果试图向其添加新特性，它就会变得毛里毛躁、险象环生，比如去处理那个数据库错误，而不是抛出错误（请参阅1.4.3节）、记录尝试访问数据库的次数、阻塞访问数据库，等等。
 
 嵌套式回调诱惑我们通过添加更多代码来添加更多特性，而不是将这些特性实现为可管理、可重用的代码片段。checkPassword有一种可以避免出现上述苗头的等价实现方式，如下：
+
 ```js
 function checkPassword(username, passwordGuess, callback) {
     var passwordHash; var queryStr = 'SELECT * FROM user WHERE username = ?';
