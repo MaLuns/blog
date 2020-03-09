@@ -10,7 +10,7 @@
     <div class="<%- postIndex%2==0?'left':'right'%> post-card-txt">
       <div>
         <span class="post-time">
-          <time datetime="<%= date_xml(post.date) %>" title="<%= date_xml(post.created) %>" itemprop="datePublished">
+          <time datetime="<%= date_xml(post.date) %>" title="<%= date_xml(post.date) %>" itemprop="datePublished">
             <i class="cg-shijian iconfont"></i> 发布于 <%= date(post.date,config.date_format) %>
           </time>
         </span>
@@ -30,8 +30,10 @@
       <div class="post-excerpt">
         <%if(post.excerpt){%> 
             <%- post.excerpt.substring(0,70) %> 
+            <%- post.excerpt.length>70?'...':'' %>
         <%}else{%>
            <%- post.content.substring(0,70)%> 
+           <%- post.content.length>70?'...':'' %>
         <%}%>
       </div>
       <div class="select-more">
