@@ -57,6 +57,9 @@ var APPX = {
     },
     SPlay() {
         APPX.bgvideo[0].play();
+        APPX.bgvideo.css({
+            "background": "#000"
+        });
         $('.video-msg').css({
             "bottom": "-80px"
         })

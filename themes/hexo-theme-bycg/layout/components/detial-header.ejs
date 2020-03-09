@@ -22,12 +22,14 @@
           <span>
             <%- date(post.date) %>
           </span>
+          <% if(theme.busuanzi){ %>
           <span id="busuanzi_container_page_pv">
             <span class="post-meta-divider">•</span>
             预览
             <span id="busuanzi_value_page_pv"></span>
             次
           </span>
+          <% } %>
       </div>
     </div>
   <%}%>

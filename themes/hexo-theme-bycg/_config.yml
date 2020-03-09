@@ -5,7 +5,7 @@ post_wordcount:
   totalcount: false       # 网站 字数统计
   separated_meta: true
 
-version: 0.0.2
+version: 0.0.3
 
 highlight_theme: normal
 
@@ -23,6 +23,7 @@ headerbg:
     #- 'http://www.pilicn.com/wp-content/themes/pili/images/n-bg3.png'
     - '/images/n-bg00.jpg'
     - '/images/g-bg12.jpg'
+    - '/images/n-bg4.jpg'
   
 menu:
   category: /categories
@@ -41,6 +42,9 @@ rss: atom.xml
 # 
 comment: true
 
+# 
+busuanzi: false
+
 # gitalk
 gitalk:
   createIssueManually: true
@@ -49,7 +53,7 @@ gitalk:
   clientID: b971d416833059d04dc7
   clientSecret: 92cacb8f281b908089f86701b66cc9afa11772db
 
-# 友联
+# 友链
 links:
   - name: hexo
     url: https://hexo.io/
