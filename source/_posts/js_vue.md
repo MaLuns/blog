@@ -4,7 +4,7 @@ comment: true
 date: 2020-03-06 20:38:27
 tags:
 categories: 记录类
-photos: ['https://vueschool.io/img/svg/vueschool_hero.svg']
+photos: ['/images/js_vue_source_study_logo.png']
 ---
 
 之前也用了一段时间Vue，对其用法也较为熟练了，但是对各种用法和各种api使用都是只知其然而不知其所以然。最近利用空闲时间尝试的去看看Vue的源码，以便更了解其具体原理实现，跟着学习学习。
