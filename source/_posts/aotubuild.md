@@ -4,6 +4,7 @@ date: 2020-01-02 10:16:09
 tags: 
 categories: 记录类
 comment: true
+photos: ['/images/aotubuild_logo.png']
 ---
 
 想要实现自动化编译并生产打包替换文件,首要的对项目进行编译生成.一般编译 donnet 项目有三种方式 csc.exe , MSbuild(不需要安装vs) , devenv(需要安装vs).因为自己已经安装了vs了,所以直接使用devenv去编译程序了
