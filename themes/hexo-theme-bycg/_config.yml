@@ -18,19 +18,12 @@ favicon:
   apple_touch_icon: /images/apple-touch-icon-next.png
   safari_pinned_tab: /images/logo.svg
 
-headerbg: 
-    #- '/images/header-leg.jpg'
-    #- 'http://www.pilicn.com/wp-content/themes/pili/images/n-bg3.png'
-    - '/images/n-bg00.jpg'
-    - '/images/g-bg12.jpg'
-    - '/images/n-bg4.jpg'
-  
 menu:
   category: /categories
   links: /links
   about: //mablog.coding.me/cv/
   github: //github.com/MaLuns
-  bilibili: //space.bilibili.com/12763040
+  # bilibili: //space.bilibili.com/12763040
   qq: tencent://message/?uin=384399021&amp;Site=有事Q我&amp;Menu=yes
 
 user:
@@ -38,6 +31,11 @@ user:
   desc:  醒，亦在人间；梦，亦在人间
 
 rss: atom.xml
+
+#oss
+oss: 
+  url: https://blog-1259142607.cos.ap-chengdu.myqcloud.com
+  theme: https://blog-1259142607.cos.ap-chengdu.myqcloud.com/theme
 
 # 
 comment: true
