@@ -1,0 +1,72 @@
+.phone-menu {
+    height    : 50px;
+    background: rgb(24, 24, 24);
+    display   : none;
+    color     : #000;
+
+    .phone-menu-list {
+        top       : 0;
+        position  : absolute;
+        background: #FFEB3B;
+        width     : 100%;
+        z-index   : 99;
+        transition: .5s;
+        height    : 0;
+        opacity   : 0;
+        overflow  : hidden;
+
+        ul {
+            position  : absolute;
+            transform : translateY(-50%);
+            width     : 100%;
+            top       : 50%;
+            list-style: none;
+            font-size : 16px;
+            padding   : 0;
+
+            li {
+                text-align                    : center;
+                /*                 line-height: 50px;
+                height                        : 50px; */
+
+                a {
+                    display        : inline-block;
+                    padding        : 15px 0;
+                    font-size      : 24px;
+                    font-family    : "Quicksand", sans-serif;
+                    text-transform : uppercase;
+                    font-weight    : 700;
+                    letter-spacing : 1px;
+                    color          : inherit;
+                    text-decoration: none;
+                    position       : relative;
+
+                    &:before,
+                    &:after {
+                        position        : absolute;
+                        content         : "";
+                        display         : block;
+                        width           : 15px;
+                        background-color: #252525;
+                        border-color    : #252525;
+                        opacity         : 1;
+                        height          : 2px;
+                        top             : 50%;
+                    }
+
+                    &:before {
+                        left       : 0;
+                        right      : auto;
+                        margin-left: -20px;
+                    }
+
+                    &:after {
+                        left        : auto;
+                        right       : 0;
+                        margin-right: -20px;
+                    }
+                }
+            }
+        }
+    }
+}

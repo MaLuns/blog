@@ -1,0 +1,27 @@
+<div class="phone-menu">
+    <div id="phone-menu-btn" style="height: 50px;background:rgb(36, 138, 255);display: inline-block;width: 50px;">
+        按钮
+    </div>
+    <div id="phone-menu-list" class="phone-menu-list">
+        <ul>
+            <li title="首页">
+                <a href="/">首页</a>
+            </li>
+            <% for (const key in theme.menu) { %>
+            <li title="<%= __(`menu.${key}`) %>">
+                <a href="<%- (key=='qq')?theme.menu[key].url:url_for(theme.menu[key].url)%>">
+                    <%- theme.menu[key].title %>
+                </a>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+</div>
+<script>
+    document.getElementById("phone-menu-btn").addEventListener("click", function () {
+        $("#phone-menu-list").css({ height: "100vh", opacity: 1 })
+    })
+    document.getElementById("phone-menu-list").addEventListener("click", function () {
+        $("#phone-menu-list").css({ height: "0", opacity: 0 })
+    })
+</script>

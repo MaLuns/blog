@@ -19,12 +19,22 @@ favicon:
   safari_pinned_tab: /images/logo.svg
 
 menu:
-  category: /categories
-  links: /links
-  about: //mablog.coding.me/cv/
-  github: //github.com/MaLuns
+  category: 
+    title: 分类
+    url: /categories
+  links:
+    title: 友链接
+    url: /links
+  about: 
+    title: 关于我
+    url: //mablog.coding.me/cv/
+  github:
+    title: GitHub 
+    url: //github.com/MaLuns
   # bilibili: //space.bilibili.com/12763040
-  qq: tencent://message/?uin=384399021&amp;Site=有事Q我&amp;Menu=yes
+  qq: 
+    title: 联系我
+    url: tencent://message/?uin=384399021&amp;Site=有事Q我&amp;Menu=yes
 
 user:
   avatar: images/avatar.jpg
