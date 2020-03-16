@@ -1,37 +1,37 @@
 .posts-expand {
-  position: relative;
-  width: 750px;
-  margin: 0 auto;
+  position   : relative;
+  width      : 750px;
+  margin     : 0 auto;
   user-select: none;
 
   .post {
-    position: relative;
-    padding: 20px;
-    margin: 80px 0 0;
+    position     : relative;
+    padding      : 20px;
+    margin       : 80px 0 0;
     border-radius: 5px;
-    min-height: 300px;
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.18);
-    user-select: none;
+    min-height   : 300px;
+    box-shadow   : 0px 0px 2px rgba(0, 0, 0, 0.18);
+    user-select  : none;
 
     .post-card {
-      height: 300px;
+      height  : 300px;
       overflow: hidden;
       position: relative;
 
       .right,
       .left {
-        height: inherit;
+        height  : inherit;
         position: absolute;
-        width: 49%;
+        width   : 49%;
 
         &.post-card-img {
           overflow: hidden;
         }
 
         >img {
-          height: 100%;
+          height    : 100%;
           object-fit: cover;
-          max-width: 100%;
+          max-width : 100%;
           transition: all 0.3s;
 
           &:hover {
@@ -40,10 +40,10 @@
         }
       }
 
-      .post-time {
+      .post-push-time {
         font-size: 12px;
-        color: #888;
-        display: block;
+        color    : #888;
+        display  : block;
       }
 
       .post-title {
@@ -55,11 +55,11 @@
       }
 
       .post-meta {
-        text-align: left;
-        margin: 5px;
-        color: #999;
+        text-align : left;
+        margin     : 5px;
+        color      : #999;
         font-family: "PingFang SC", "Microsoft YaHei", Lato, sans-serif;
-        font-size: 12px;
+        font-size  : 12px;
 
         .post-meta-divider {
           margin: 0 0.5em;
@@ -72,15 +72,19 @@
         .post-consuming-time {
           color: #ff3f1a;
         }
+
+        .post-push-time {
+          display: none;
+        }
       }
 
       .post-excerpt {
-        text-align: left;
-        font-size: 18px;
-        color: rgb(125, 125, 125);
+        text-align : left;
+        font-size  : 18px;
+        color      : rgb(125, 125, 125);
         font-family: cursive;
         line-height: 1.5;
-        margin: 10px 0;
+        margin     : 10px 0;
       }
 
       .left {
@@ -88,7 +92,7 @@
       }
 
       .right {
-        right: 0;
+        right     : 0;
         text-align: right;
 
         .post-meta {
@@ -97,15 +101,15 @@
 
         .select-more {
           right: 2px;
-          left: auto;
+          left : auto;
         }
       }
 
       .select-more {
         position: absolute;
-        bottom: 20px;
-        left: 2px;
-        height: 28px;
+        bottom  : 20px;
+        left    : 2px;
+        height  : 28px;
       }
     }
 
@@ -113,15 +117,15 @@
 }
 
 .img-wrap {
-  position: fixed;
+  position  : fixed;
   background: #00000073;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  cursor: zoom-out;
-  z-index: 20;
-  transform: scale(0);
+  top       : 0;
+  width     : 100vw;
+  height    : 100vh;
+  display   : flex;
+  cursor    : zoom-out;
+  z-index   : 20;
+  transform : scale(0);
 
   &.show {
     transform: scale(1);
@@ -130,33 +134,33 @@
 
 .menu-list {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
+  bottom  : 20px;
+  right   : 20px;
+  display : none;
 
   >ul {
     list-style: none;
 
     >li {
-      height: 60px;
-      width: 60px;
-      background: #409EFF;
+      height       : 60px;
+      width        : 60px;
+      background   : #409EFF;
       border-radius: 50%;
-      margin: 20px 0;
+      margin       : 20px 0;
 
       &.menu-nav {
         .menu {
           list-style: none;
 
           li {
-            text-align: center;
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            line-height: 60px;
-            background: #409EFF;
+            text-align   : center;
+            position     : absolute;
+            width        : 60px;
+            height       : 60px;
+            line-height  : 60px;
+            background   : #409EFF;
             border-radius: 50%;
-            bottom: -80px;
+            bottom       : -80px;
 
             a {
               color: #fff;
@@ -169,19 +173,19 @@
         }
 
         .hamRotate {
-          cursor: pointer;
+          cursor             : pointer;
           tap-highlight-color: transparent;
-          transition: transform 400ms;
-          -moz-user-select: none;
-          user-select: none;
-          -ms-user-select: none;
-          user-select: none;
+          transition         : transform 400ms;
+          -moz-user-select   : none;
+          user-select        : none;
+          -ms-user-select    : none;
+          user-select        : none;
 
           .line {
-            fill: none;
-            transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-            stroke: rgb(255, 255, 255);
-            stroke-width: 5.5;
+            fill          : none;
+            transition    : stroke-dasharray 400ms, stroke-dashoffset 400ms;
+            stroke        : rgb(255, 255, 255);
+            stroke-width  : 5.5;
             stroke-linecap: round;
           }
 
@@ -245,9 +249,9 @@
 }
 
 .loading {
-  width: 100%;
+  width     : 100%;
   text-align: center;
-  padding: 1em;
+  padding   : 1em;
 
   svg path,
   svg rect {
@@ -258,51 +262,51 @@
 
 .shinchou-menu,
 .select-more {
-  box-shadow: 0 0 2px 0 #000;
-  position: absolute;
-  z-index: 10;
+  box-shadow : 0 0 2px 0 #000;
+  position   : absolute;
+  z-index    : 10;
   line-height: 1;
 
   a {
-    position: relative;
-    display: inline-flex;
-    padding: 6px 2px;
-    color: black;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1;
+    position       : relative;
+    display        : inline-flex;
+    padding        : 6px 2px;
+    color          : black;
+    font-size      : 16px;
+    font-weight    : 700;
+    line-height    : 1;
     text-decoration: none;
-    overflow: hidden;
+    overflow       : hidden;
 
     &::before {
-      position: absolute;
-      content: "";
-      top: 0;
-      left: 0;
-      z-index: -2;
-      width: 100%;
-      height: 100%;
+      position  : absolute;
+      content   : "";
+      top       : 0;
+      left      : 0;
+      z-index   : -2;
+      width     : 100%;
+      height    : 100%;
       background: black;
     }
 
     &:hover span {
-      color: white !important;
+      color      : white !important;
       text-shadow: 0 0 10px #00acf0;
     }
 
     span {
-      position: relative;
-      margin: 0 5px 0 4px;
+      position  : relative;
+      margin    : 0 5px 0 4px;
       transition: 0.3s;
 
       &.highlight-txt::before {
-        position: absolute;
-        content: "";
-        top: -3px;
-        left: -3px;
-        bottom: -3px;
-        right: -3px;
-        z-index: -1;
+        position  : absolute;
+        content   : "";
+        top       : -3px;
+        left      : -3px;
+        bottom    : -3px;
+        right     : -3px;
+        z-index   : -1;
         background: #00acf0;
       }
 
@@ -320,10 +324,10 @@
 }
 
 .back-top {
-  font-size: 80px;
-  position: fixed;
-  right: -200px;
-  bottom: 0;
+  font-size : 80px;
+  position  : fixed;
+  right     : -200px;
+  bottom    : 0;
   transition: all 0.5s;
 
   &.show {
