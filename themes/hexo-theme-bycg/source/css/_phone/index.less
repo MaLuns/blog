@@ -1,32 +1,49 @@
 @media (max-width: 750px) {
     .app {
+        padding-bottom: 50px;
+
         >.header {
             display: none;
         }
 
         .posts-expand {
-            width: auto;
+            width : auto;
             margin: 20px;
 
             .post {
-                position: relative;
-                padding: 0;
-                margin: 0;
+                position     : relative;
+                padding      : 0;
+                margin       : 0;
                 border-radius: 0;
-                box-shadow: none;
+                box-shadow   : none;
                 border-bottom: 1px solid #d6d6d6;
+                min-height   : auto;
 
                 .post-card {
                     height: auto;
 
+                    .post-card-img {
+                        display: none
+                    }
+
                     .left,
                     .right {
-                        width: 100%;
-                        position: static;
+                        width     : 100%;
+                        position  : static;
                         text-align: left;
+
+                        .post-push-time {
+                            display: none;
+                        }
 
                         .post-meta {
                             text-align: left;
+                            margin    : 5px 5px 5px 0;
+
+                            .post-push-time {
+                                display: inline;
+                                color  : #006493;
+                            }
                         }
 
                         img {
@@ -40,6 +57,43 @@
                 }
             }
         }
+
+        .detial-header {
+            height : auto;
+            padding: 1em;
+
+            .post-detial-title {
+                width     : auto;
+                position  : static;
+                text-align: center;
+
+                h2 {
+                    font-size: 20px;
+                    margin   : 0;
+
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+
+            .links-title {
+                text-align: center;
+                position  : static;
+                font-size : 20px;
+            }
+        }
+
+        .post-detial {
+            padding: 10px 20px 0;
+        }
+
+        .frind-card,
+        .category-card {
+            position  : static;
+            margin-top: 0;
+            width     : auto;
+        }
     }
 
     .back-top {
@@ -47,7 +101,7 @@
     }
 
     .post-detial {
-        width: auto;
+        width : auto;
         margin: 0 1em;
     }
 }

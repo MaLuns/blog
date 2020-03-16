@@ -34,7 +34,7 @@ rss: atom.xml
 
 #oss
 oss: 
-  url: https://blog-1259142607.cos.ap-chengdu.myqcloud.com
+  url: https://ex-1259142607.cos.ap-chengdu.myqcloud.com
   theme: https://blog-1259142607.cos.ap-chengdu.myqcloud.com/theme
 
 # 
