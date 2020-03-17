@@ -5,7 +5,7 @@ post_wordcount:
   totalcount: false       # 网站 字数统计
   separated_meta: true
 
-version: 0.0.3
+version: 0.0.4
 
 highlight_theme: normal
 
@@ -47,11 +47,11 @@ oss:
   url: https://ex-1259142607.cos.ap-chengdu.myqcloud.com
   theme: https://blog-1259142607.cos.ap-chengdu.myqcloud.com/theme
 
-# 
-comment: true
-
-# 
+# 卜算子
 busuanzi: false
+
+# 开启评论
+comment: true
 
 # gitalk
 gitalk:

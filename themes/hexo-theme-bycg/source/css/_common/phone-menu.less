@@ -1,18 +1,57 @@
 .phone-menu {
-    height    : 50px;
-    background: rgb(24, 24, 24);
-    display   : none;
-    color     : #000;
+    display : none;
+    color   : #000;
+    position: fixed;
+    bottom  : 20px;
+    right   : 10px;
+    z-index : 60;
+
+    #phone-menu-btn {
+        background   : #807a91;
+        display      : inline-block;
+        line-height  : 1;
+        border-radius: 50%;
+        box-shadow: 0 0 6px 0 #0000005c;
+
+        .phone-menu-btn-svg {
+            tap-highlight-color        : transparent;
+            -webkit-tap-highlight-color: transparent;
+            cursor                     : pointer;
+            transition                 : transform 400ms;
+            -moz-user-select           : none;
+            user-select                : none;
+            -ms-user-select            : none;
+            user-select                : none;
+
+            .line {
+                fill          : none;
+                transition    : stroke-dasharray 400ms, stroke-dashoffset 400ms;
+                stroke        : rgb(255, 255, 255);
+                stroke-width  : 5.5;
+                stroke-linecap: round;
+            }
+
+            .top {
+                stroke-dasharray: 40 139;
+            }
+
+            .bottom {
+                stroke-dasharray: 40 180;
+            }
+        }
+
+    }
 
     .phone-menu-list {
-        top       : 0;
-        position  : absolute;
+        position  : fixed;
         background: #FFEB3B;
+        top       : 0;
+        left      : 0;
+        height    : 0;
         width     : 100%;
+        opacity   : 0;
         z-index   : 99;
         transition: .5s;
-        height    : 0;
-        opacity   : 0;
         overflow  : hidden;
 
         ul {
@@ -25,24 +64,24 @@
             padding   : 0;
 
             li {
-                text-align                    : center;
-                /*                 line-height: 50px;
-                height                        : 50px; */
+                text-align: center;
 
                 a {
-                    display        : inline-block;
-                    padding        : 15px 0;
-                    font-size      : 24px;
-                    font-family    : "Quicksand", sans-serif;
-                    text-transform : uppercase;
-                    font-weight    : 700;
-                    letter-spacing : 1px;
-                    color          : inherit;
-                    text-decoration: none;
-                    position       : relative;
+                    display                    : inline-block;
+                    padding                    : 15px 0;
+                    font-size                  : 24px;
+                    font-family                : "Quicksand", sans-serif;
+                    text-transform             : uppercase;
+                    font-weight                : 700;
+                    letter-spacing             : 1px;
+                    color                      : inherit;
+                    text-decoration            : none;
+                    position                   : relative;
+                    tap-highlight-color        : transparent;
+                    -webkit-tap-highlight-color: transparent;
 
-                    &:before,
-                    &:after {
+                    &.action:before,
+                    &.action:after {
                         position        : absolute;
                         content         : "";
                         display         : block;
@@ -54,13 +93,13 @@
                         top             : 50%;
                     }
 
-                    &:before {
+                    &.action:before {
                         left       : 0;
                         right      : auto;
                         margin-left: -20px;
                     }
 
-                    &:after {
+                    &.action:after {
                         left        : auto;
                         right       : 0;
                         margin-right: -20px;
