@@ -3,7 +3,23 @@
         padding-bottom: 50px;
 
         >.header {
-            display: none;
+            height     : 56px;
+            text-align : center;
+            line-height: 56px;
+
+            &::after {
+                content    : '白云苍狗';
+                color      : #e3e3e3;
+                font-size  : 28px;
+                font-family: cursive;
+                font-weight: bold;
+            }
+
+            .header-name,
+            .video-content,
+            .header-content {
+                display: none;
+            }
         }
 
         .posts-expand {
