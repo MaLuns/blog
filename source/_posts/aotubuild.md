@@ -4,7 +4,7 @@ date: 2020-01-02 10:16:09
 tags: 
 categories: 记录类
 comment: true
-photos: ['/images/aotubuild_logo.png']
+photos: ['/images/logo/aotubuild_logo.png']
 ---
 
 想要实现自动化编译并生产打包替换文件,首要的对项目进行编译生成.一般编译 donnet 项目有三种方式 csc.exe , MSbuild(不需要安装vs) , devenv(需要安装vs).因为自己已经安装了vs了,所以直接使用devenv去编译程序了
@@ -13,7 +13,7 @@ photos: ['/images/aotubuild_logo.png']
 
 大致流程如下
 
-![](/images/20200102105829.png)
+![](/images/posts/aotubuild/20200102105829.png)
 
 # SVN 更新提交文件 #
 
@@ -38,14 +38,14 @@ TortoiseProc.exe /command:commit
 
 具体的使用方式可以在 TortoiseSVN 提供帮助文档里去查看
 
-![](/images/20200102174220.png)
+![](/images/posts/aotubuild/20200102174220.png)
 
 # 动态去修改程序版本和日期 #
 
 因为项目的日期和版本是写死在了程序里的,每次给测试生产替换文件时候都得去修改程序日期.大致思路是通过正则去修改文件.考虑到需要后面可能需要修改的地方较多,目前是通过Json去配置需要修改文件 和 对应正则 和 调用的方法(获取的值).为了提供修改灵活性,目前是通过 CSharpCodeProvider 去编译 C# 文件,来方便随时修改获取新的值得规则
 
 大致流程如下
-![](/images/20200102162138.png)
+![](/images/posts/aotubuild/20200102162138.png)
 
 json 配置文件如下
 
@@ -167,12 +167,12 @@ Console.ForegroundColor = ConsoleColor.White;
 ```
 
 执行结果
-![](/images/20200102163249.png)
+![](/images/posts/aotubuild/20200102163249.png)
 
 # 使用 devenv 进行编译 #
 
 VS 安装的是2017,devenv 正常路径应该是 [C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE] 下,网上一堆动态查找 devenv 路径的方法.最后感觉通过注册表方式比较靠谱,[参考这篇](https://www.cnblogs.com/lovecsharp094/p/8952327.html)
-![](/images/20200102152424.png)
+![](/images/posts/aotubuild/20200102152424.png)
 
 具体实现
 
@@ -360,4 +360,4 @@ devenv 回输出,然后判断是否全部编译成功
 文件编译好之后,就是对文件的拷贝操作了这里就不描述了
 
 效果如下
-![](/images/20200102175312.png)
+![](/images/posts/aotubuild/20200102175312.png)

@@ -4,7 +4,7 @@ date: 2020-03-03 10:16:09
 tags: 
 categories: 记录类
 comment: true
-photos: ['/images/js_prototype_logo.png','/images/js_prototype_log_head.png']
+photos: ['/images/logo/js_prototype_logo.png']
 ---
 说到 prototype、\_\_proto\_\_ 首先就得去理解 JavaScript 语言的继承机制。在典型的面向对象的语言中，如C#，都存在类（class）的概念, 类就是对象的模板，对象就是类的实例。C# 中的 继承允许我们根据一个类来定义另一个类，这使得创建和维护应用程序变得更容易。同时也有利于重用代码和节省开发时间。在 JavaScript 是不存在 类 和 子类 概念的,全靠原型链的模式来实现继承 (后面出class在这基础上的语法糖)。
 
