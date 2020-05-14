@@ -171,3 +171,70 @@ attachShadow 参数
 
 
 ## HTML模板(HTML templates) ##
+template 主要作用就是避免重复去创建那些标签结构。比如当一个组件被重复使用时候，如果不用模板的话，会一遍又一遍的去创建组件类的标签结构，使用 template 这样会避免这样重复的创建标签结构。
+
+template 不会再DOM上显示，举例：
+``` html
+<template id="my-template">
+    <div>
+        HTML 模板
+    </div>
+</template>
+```
+使用js去获取它
+
+``` js
+let template = document.getElementById('my-template');
+document.body.appendChild(template.content);
+```
+
+## 把三个组合起来 ##
+``` html
+<my-div>
+    <h4>Web Components</h4>
+</my-div>
+
+<template id="my-template">
+    <style>
+        ul {
+            list-style: disc;
+            padding-left: 1.5em;
+        }
+
+        li {
+            height: 30px;
+        }
+
+        li+li {
+            border-top: 1px solid #f1f1f1;
+        }
+    </style>
+    <div>
+        <slot></slot>
+        <ul>
+            <li>sustom elements</li>
+            <li>shadow dom</li>
+            <li>template</li>
+        </ul>
+    </div>
+</template>
+
+<script>
+    customElements.define('my-div',
+        class extends HTMLElement {
+            constructor() {
+                super();
+                let template = document.getElementById('my-template');
+                let templateContent = template.content;
+
+                const shadowRoot = this.attachShadow({ mode: 'open' })
+
+                shadowRoot.appendChild(templateContent.cloneNode(true));
+            }
+        })
+</script>
+```
+
+
+
+
