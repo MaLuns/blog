@@ -5,7 +5,7 @@ post_wordcount:
   totalcount: false       # 网站 字数统计
   separated_meta: true
 
-version: 0.0.5.0
+version: 0.0.6.0
 
 highlight_theme: normal
 

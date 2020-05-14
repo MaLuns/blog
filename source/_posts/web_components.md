@@ -4,7 +4,7 @@ date: 2020-05-10 10:16:09
 tags: 
 categories: 记录类
 comment: true
-photos: ['/images/logo/admin_template.png']
+photos: ['/images/logo/web_conponents.png']
 ---
 组件是前端的发展方向，现在流行的 React 和 Vue 都是组件框架。如今Web Components被越来越多的浏览器所支持,Web Components或许是未来的方向。
 <!-- more -->
@@ -188,34 +188,54 @@ let template = document.getElementById('my-template');
 document.body.appendChild(template.content);
 ```
 
-## 把三个组合起来 ##
+## 组合使用 ##
+
 ``` html
-<my-div>
-    <h4>Web Components</h4>
+<my-div image='/images/logo/admin_template.png'>
+    <h4 slot='header'>Web Components</h4>
+    <div slot='footer'>
+        slot footer
+    </div>
 </my-div>
 
 <template id="my-template">
     <style>
+        .card{
+            padding: 10px 20px;
+            box-shadow: 0 0 5px 0 #00000038;
+            border-radius: 5px;
+            display: inline-block;
+        }
         ul {
             list-style: disc;
             padding-left: 1.5em;
         }
-
         li {
             height: 30px;
         }
-
         li+li {
             border-top: 1px solid #f1f1f1;
         }
+        img{
+            width:250px
+        }
+        .header{
+            margin-bottom: 10px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        .footer{
+            margin-top: 10px;
+            border-top: 1px solid #f1f1f1;
+        }
     </style>
-    <div>
-        <slot></slot>
-        <ul>
-            <li>sustom elements</li>
-            <li>shadow dom</li>
-            <li>template</li>
-        </ul>
+    <div class='card'>
+        <div class='header'>
+            <slot name='header'></slot>
+        </div>
+        <img>
+        <div class='footer'>
+            <slot name='footer'></slot>
+        </div>
     </div>
 </template>
 
@@ -225,16 +245,78 @@ document.body.appendChild(template.content);
             constructor() {
                 super();
                 let template = document.getElementById('my-template');
-                let templateContent = template.content;
+                let templateContent = template.content.cloneNode(true);
 
                 const shadowRoot = this.attachShadow({ mode: 'open' })
 
-                shadowRoot.appendChild(templateContent.cloneNode(true));
+                templateContent.querySelector('img').setAttribute('src', this.getAttribute('image'));
+                shadowRoot.appendChild(templateContent);
             }
         })
 </script>
+
 ```
 
+<my-div image='/images/logo/web_conponents.png'>
+    <h4 slot='header'>Web Components</h4>
+    <div slot='footer'>
+        slot footer
+    </div>
+</my-div>
 
+<template id="my-template">
+    <style>
+        .card{
+            padding: 10px 20px;
+            box-shadow: 0 0 5px 0 #00000038;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        ul {
+            list-style: disc;
+            padding-left: 1.5em;
+        }
+        li {
+            height: 30px;
+        }
+        li+li {
+            border-top: 1px solid #f1f1f1;
+        }
+        img{
+            width:250px
+        }
+        .header{
+            margin-bottom: 10px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        .footer{
+            margin-top: 10px;
+            border-top: 1px solid #f1f1f1;
+        }
+    </style>
+    <div class='card'>
+        <div class='header'>
+            <slot name='header'></slot>
+        </div>
+        <img>
+        <div class='footer'>
+            <slot name='footer'></slot>
+        </div>
+    </div>
+</template>
 
+<script>
+    customElements.define('my-div',
+        class extends HTMLElement {
+            constructor() {
+                super();
+                let template = document.getElementById('my-template');
+                let templateContent = template.content.cloneNode(true);
 
+                const shadowRoot = this.attachShadow({ mode: 'open' })
+
+                templateContent.querySelector('img').setAttribute('src', this.getAttribute('image'));
+                shadowRoot.appendChild(templateContent);
+            }
+        })
+</script>
