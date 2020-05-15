@@ -1,3 +1,20 @@
+---
+title: node 实现简单 http 转发
+date: 2020-05-12 17:50:55
+tags: 
+categories: 记录类
+comment: true
+---
+
+
+由于同源策略的限制，前端想要随便调用别人的数据没有那么容易，利用jsonp去调用虽然可以，但是也得别人支持，而且还只能是get 请求。想要随便调用别人数据，最简单就是弄一个代理服务，实现数据的转发。
+<!-- more -->
+
+## node 实现透明转发 ##
+
+主要就是使用 stream.pipe()，将请求得流写入自己写得请求中，再将请求到的数据写入响应流中
+简单实现例子
+
 ``` js
 const http = require('http')
 const https = require('https')
@@ -28,8 +45,7 @@ if (argv.length < 3) {
 }
 
 
-https.createServer(function (req, res) {
-    console.log(config.type)
+http.createServer(function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers", "content-type");
     res.setHeader("Access-Control-Allow-Methods", "DELETE,PUT,POST,GET,OPTIONS");
