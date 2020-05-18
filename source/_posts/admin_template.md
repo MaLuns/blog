@@ -5,6 +5,7 @@ tags:
 categories: 记录类
 comment: true
 photos: ['/images/logo/admin_template.png']
+keywords: admin-template,vue,element,后台模板
 ---
 
 闲来没事，又开始造轮子玩玩了，用vue + element-ui 撸个后台模板。
