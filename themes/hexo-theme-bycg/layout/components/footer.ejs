@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer  fadeInUp animated">
     <div class="footer-inner">
         <div>© <span itemprop="copyrightYear"><%= date(Date.now(), "YYYY") %></span> <%=  config.title  %>.</div>
         <div>
@@ -10,7 +10,7 @@
     <script language="javascript">
         function show_date_time() {
             window.setTimeout("show_date_time()", 1000);
-            BirthDay = new Date("11/19/2019 17:00:00"); //这个日期是可以修改的
+            BirthDay = new Date("11/19/2019 17:00:00");
             today = new Date();
             timeold = (today.getTime() - BirthDay.getTime());
             sectimeold = timeold / 1000

@@ -21,7 +21,7 @@ module.exports = {
                         loader: require.resolve('babel-loader'),
                         options: {
                             compact: true,
-                            presets: ['env']
+                            presets: ['@babel/preset-env']
                         }
                     }
                 ]
