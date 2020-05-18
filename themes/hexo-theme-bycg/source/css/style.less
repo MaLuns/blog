@@ -15,13 +15,12 @@
 
 html,
 body {
-    cursor     : url(../images/cursor.ico), auto;
-    font-family: "PingFang SC", "Microsoft YaHei", Lato, sans-serif;
-    font-size  : 14px;
-    line-height: 2;
-    color      : #555;
-    position   : relative;
-
+    cursor         : url(../images/cursor.ico), auto;
+    font-family    : "PingFang SC", "Microsoft YaHei", Lato, sans-serif;
+    font-size      : 14px;
+    line-height    : 2;
+    color          : #555;
+    /*  position   : relative; */
 }
 
 html {
@@ -29,15 +28,6 @@ html {
 }
 
 body {
-    min-height: 100%;
-}
-
-.app {
-    padding-bottom: 100px;
-}
-
-.container {
-    position  : relative;
     min-height: 100%;
 }
 
@@ -77,6 +67,16 @@ img {
     margin   : auto;
     max-width: 100%;
     height   : auto;
+}
+
+.app {
+    padding-bottom: 100px;
+    min-height    : calc(100vh - 161px);
+}
+
+.container {
+    position  : relative;
+    min-height: 100%;
 }
 
 .text-center {

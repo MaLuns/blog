@@ -10,11 +10,11 @@
     <%}else if(config.description){%>
         <meta name="description" content="<%= config.description %>">
     <%}%>
-    <title><%= config.title %><%= ' - ' + page.title %></title>
+    <title><%= config.title %><%= (!!page.title?' - ' + page.title:'') %></title>
     <link rel="icon" type="image/png" sizes="32x32" href="<%= url_for(theme.favicon.narmal) %>?v=<%= theme.version %>">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1518765_srqlo2vvmu.css">
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/android-chrome-192x192.png">
-    <%- css('css/highlight/highlight?v='+theme.version) %>
+    <%- css('css/highlight/highlight.css?v='+theme.version) %>
     <%- css('css/style.css?v='+theme.version) %>
 </head>
