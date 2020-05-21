@@ -25,13 +25,17 @@
             </time>
             <span class="post-meta-divider">•</span>
         </span>
+        <%if(theme.post_wordcount.wordcount){%> 
         <span class="post-wordcount">
           <span class="post-meta-item-text"><%- __('post.word_count',wordcount(post.content)) %></span>
           <span class="post-meta-divider">•</span>
         </span>
+        <%}%>
+        <%if(theme.post_wordcount.min2read){%> 
         <span class="post-consuming-time">
           <span class="post-meta-item-text"><%- __('post.min2read',min2read(post.content)) %></span>
         </span>
+        <%}%>
       </div>
       <div class="post-excerpt">
         <%if(post.excerpt){%> 
