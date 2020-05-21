@@ -14,9 +14,7 @@
             <ul class="menu">
                 <% for (const key in theme.menu) { %>
                     <li title="<%= __(`menu.${key}`) %>">
-                        <a href="<%- (key=='qq')?theme.menu[key]:url_for(theme.menu[key].url)%>" >
-                            <!-- <i class="iconfont cg-<%- key %>"></i> -->
-                            <!-- <%= __(`menu.${key}`) %> -->
+                        <a href="<%- (key=='qq')?theme.menu[key].url:url_for(theme.menu[key].url)%>" >
                             <svg class="cg-icon" aria-hidden="true">
                                 <use xlink:href="#cg-<%- key %>"></use>
                             </svg>

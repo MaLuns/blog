@@ -121,7 +121,7 @@ feed:
 sitemap:
   path: sitemap.xml
 
-#
+#压缩
 html_minifier:
   enable: true
   ignore_error: false
@@ -147,3 +147,11 @@ image_minifier:
   optimizationLevel: 2
   pngquant: false
   progressive: false
+
+
+#jsdelivrUrl
+jsdelivrUrl:
+  enable: true
+  css: //cdn.jsdelivr.net/gh/MaLuns/MalBlog@gh-pages/css
+  js: //cdn.jsdelivr.net/gh/MaLuns/MalBlog@gh-pages/js
+  img: //cdn.jsdelivr.net/gh/MaLuns/MalBlog@gh-pages/images

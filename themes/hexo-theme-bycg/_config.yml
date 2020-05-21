@@ -1,22 +1,17 @@
-post_wordcount:
-  item_text: true
-  wordcount: true         # 单篇 字数统计
-  min2read: true          # 单篇 阅读时长
-  totalcount: false       # 网站 字数统计
-  separated_meta: true
-
 version: 0.0.7.2
-
-highlight_theme: normal
 
 favicon:
   visibilitychange: true
-  narmal: /images/favicon.png #/images/favicon.ico
+  narmal: /images/favicon.png
   hidden: /images/failure.ico
   show_text: (/≧▽≦/)咦！又好了！
   hide_text: (●—●)喔哟，崩溃啦！
   apple_touch_icon: /images/apple-touch-icon-next.png
   safari_pinned_tab: /images/logo.svg
+
+post_wordcount:
+  wordcount: true         # 单篇 字数统计
+  min2read: true          # 单篇 阅读时长
 
 menu:
   category: 
@@ -31,7 +26,6 @@ menu:
   github:
     title: GitHub 
     url: //github.com/MaLuns
-  # bilibili: //space.bilibili.com/12763040
   qq: 
     title: 联系我
     url: tencent://message/?uin=384399021&amp;Site=有事Q我&amp;Menu=yes
