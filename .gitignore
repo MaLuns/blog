@@ -6,6 +6,7 @@ node_modules/
 public/
 .deploy*/
 .vs
+.vscode
 demo
 themes/hexo-theme-freemind
 themes/hexo-theme-sagiri
