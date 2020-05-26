@@ -1,0 +1,5 @@
+<section id="posts" class="posts-expand">
+    <% page.posts.each(function(post,postIndex){ %>
+    <%- partial('./components/index-article',{ post, index: true,postIndex}) %>
+    <% }) %>
+</section>
