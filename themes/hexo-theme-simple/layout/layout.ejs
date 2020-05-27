@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+</head>
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1518765_110vzg0cl1np.css">
+<%- css('css/index.css') %>
+
+<body>
+    <header class="layout-header">
+    </header>
+    <div class="layout-content">
+        <header class="layout-content-header">
+
+        </header>
+        <div class="layout-content-main">
+            <aside class="layout-content-main-aside">
+                <div class="aside-nav-card shadow">
+                    <header>
+                        <h2>白云苍狗</h2>
+                        <p>亦在人间</p>
+                    </header>
+                    <ul>
+                        <li class="action">
+                            <i class="iconfont cg-gitee"></i> 首页
+                        </li>
+                        <li>
+                            <i class="iconfont cg-rss"></i> RSS
+                        </li>
+                        <li>
+                            <i class="iconfont cg-about"></i> 碎碎念
+                        </li>
+                    </ul>
+                </div>
+                <div class="user-card shadow">
+                    <img src="./images/avatar.jpg" alt="" class="avatar">
+                    <div>
+                        <p style="margin: 20px;">Cold</p>
+                        <div class="post-state">
+                            <div>
+                                <span class="item-count">47</span>
+                                <span>文章</span>
+                            </div>
+                            <div>
+                                <span class="item-count">4</span>
+                                <span>分类</span>
+                            </div>
+                            <div>
+                                <span class="item-count">0</span>
+                                <span>标签</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <main>
+                <%- body %>
+            </main>
+        </div>
+    </div>
+    <footer class="layout-footer">
+
+    </footer>
+    <!--  <com-settings></com-settings> -->
+    <div class="float-action-buttons">
+        <com-tips dir="left" tips="滚回去" style="display: block;">
+            <button class="btn">
+                <i class="iconfont cg-backtop"></i>
+            </button>
+        </com-tips>
+
+        <com-popover>
+            <com-tips dir="left" tips="设置">
+                <button class="btn" id="setbtn">
+                    <i class="iconfont cg-shezhi"></i>
+                </button>
+            </com-tips>
+            <com-popcon u-none>
+                <div id="settingsPopup" class="shadow">
+                    <div class="settings-item">
+                        <div class="settings-item-lable"> 夜间模式 </div>
+                        <com-switch id="lightSwitch"></com-switch>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-item-lable"> 字体 </div>
+                        <com-radio-group name="lan" defaultvalue="sans-serif">
+                            <com-radio>sans-serif</com-radio>
+                            <com-radio>monospace</com-radio>
+                        </com-radio-group>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-item-lable">阴影</div>
+                        <com-radio-group id="boxShadowBlur" defaultvalue="5">
+                            <com-radio value="0">无</com-radio>
+                            <com-radio value="5">浅</com-radio>
+                            <com-radio value="15">深</com-radio>
+                        </com-radio-group>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-item-lable">滤镜</div>
+                        <com-radio-group id="" defaultvalue="sunset">
+                            <com-radio value="none">关闭</com-radio>
+                            <com-radio value="sunset">日落</com-radio>
+                            <com-radio value="sunrise">日出</com-radio>
+                        </com-radio-group>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-item-lable">圆角</div>
+                        <com-slider id="radiusSlider" showtips suffix="px" min="0" max="20"></com-slider>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-item-lable">主题色</div>
+                        <com-color-picker id="themeColorPicker" defaultvalue="#15bbf2" dir="topright"></com-color-picker>
+                    </div>
+                </div>
+            </com-popcon>
+        </com-popover>
+    </div>
+    <script src="js/index.min.js"></script>
+    <script>
+
+        document.getElementById("lightSwitch").addEventListener('change', function (ev) {
+            if (ev.detail.checked) {
+                document.body.style.setProperty('--bg-img-url', `url('/images/sunset.jpg')`);
+                document.body.style.setProperty('--darkThemeColor', '#424242');
+                document.body.style.setProperty('--darkFontColor', '#eee');
+            } else {
+                document.body.style.setProperty('--bg-img-url', `url('/images/sunrise.jpg')`);
+                document.body.style.removeProperty('--darkFontColor');
+                document.body.style.removeProperty('--darkThemeColor')
+            }
+        })
+
+        document.getElementById("radiusSlider").addEventListener('input', function (ev) {
+            document.body.style.setProperty('--radius', ev.detail.value + 'px');
+        })
+
+        document.getElementById("boxShadowBlur").addEventListener('change', function (ev) {
+            document.body.style.setProperty('--box-shadow-blur', ev.detail.value + 'px');
+        })
+
+        document.getElementById("themeColorPicker").addEventListener('change', function (ev) {
+            document.body.style.setProperty('--themeColor', this.color.toHEXA().toString());
+        })
+    </script>
+</body>
+
+</html>

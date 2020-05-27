@@ -89,8 +89,8 @@ ignore:
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/ hexo-theme-sagiri-master hexo-theme-freemind
-theme: hexo-theme-bycg
+## Themes: https://hexo.io/themes/  #hexo-theme-bycg
+theme: hexo-theme-simple
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -154,4 +154,4 @@ jsdelivrUrl:
   enable: true
   css: //cdn.jsdelivr.net/gh/MaLuns/MalBlog@gh-pages/css
   js: //cdn.jsdelivr.net/gh/MaLuns/MalBlog@gh-pages/js
-  img: //cdn.jsdelivr.net/gh/MaLuns/MalBlog@gh-pages/images
+  img: //cdn.jsdelivr.net/gh/MaLuns/MalBlog@gh-pages/

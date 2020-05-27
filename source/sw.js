@@ -55,7 +55,7 @@ self.addEventListener('fetch', function (event) {
         }
     });
 
-    self.toolbox.router.get('/css/(.*)', self.toolbox.cacheFirst, {
+    self.toolbox.router.get('/css/(.*)', self.toolbox.networkFirst, {
         cache: {
             name: staticAssetsCacheName,
             maxEntries: maxEntries
