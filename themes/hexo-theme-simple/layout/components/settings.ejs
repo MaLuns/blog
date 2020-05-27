@@ -1,0 +1,55 @@
+<div class="float-action-buttons">
+    <com-tips dir="left" tips="滚回去" style="display: block;">
+        <button class="btn" id="back-top">
+            <i class="iconfont cg-backtop"></i>
+        </button>
+    </com-tips>
+
+    <com-popover>
+        <com-tips dir="left" tips="设置">
+            <button class="btn" id="setbtn">
+                <i class="iconfont cg-shezhi"></i>
+            </button>
+        </com-tips>
+        <com-popcon u-none>
+            <div id="settingsPopup" class="shadow">
+                <div class="settings-item">
+                    <div class="settings-item-lable"> 夜间模式 </div>
+                    <com-switch id="lightSwitch"></com-switch>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-lable"> 字体 </div>
+                    <com-radio-group name="lan" defaultvalue="sans-serif">
+                        <com-radio>sans-serif</com-radio>
+                        <com-radio>monospace</com-radio>
+                    </com-radio-group>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-lable">阴影</div>
+                    <com-radio-group id="boxShadowBlur" defaultvalue="5">
+                        <com-radio value="0">无</com-radio>
+                        <com-radio value="5">浅</com-radio>
+                        <com-radio value="15">深</com-radio>
+                    </com-radio-group>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-lable">滤镜</div>
+                    <com-radio-group id="filterColor" defaultvalue="sunset">
+                        <com-radio value="none">关闭</com-radio>
+                        <com-radio value="sunset">日落</com-radio>
+                        <com-radio value="sunrise">日出</com-radio>
+                    </com-radio-group>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-lable">圆角</div>
+                    <com-slider id="radiusSlider" showtips suffix="px" min="0" max="20"></com-slider>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-lable">主题色</div>
+                    <com-color-picker id="themeColorPicker" defaultvalue="#15bbf2" dir="topright">
+                    </com-color-picker>
+                </div>
+            </div>
+        </com-popcon>
+    </com-popover>
+</div>

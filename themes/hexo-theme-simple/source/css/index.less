@@ -15,7 +15,7 @@
 
 @media screen and (min-width:1700px) {
     body {
-        --layout-content-main_maxwidth: 1500px;
+        --layoutContentMainMaxwidth: 1500px;
     }
 }
 
@@ -33,10 +33,25 @@ body {
     background-size      : cover;
     background-repeat    : no-repeat;
     background-attachment: fixed;
-    color                : #525f7f;
-    font-family          : var(--font-family);
+    color                : var(--fontColor, #525f7f);
+    font-family          : var(--fontFamily);
     transition           : background 0.3s;
+
+    &::after {
+        content       : '';
+        position      : fixed;
+        left          : 0;
+        top           : 0;
+        right         : 0;
+        bottom        : 0;
+        height        : 100vh;
+        width         : 100vw;
+        background    : rgba(0, 0, 0, 0.2);
+        z-index       : 999999999;
+        pointer-events: none;
+    }
 }
+
 
 .shadow {
     box-shadow: ~'0 0 var(--boxShadowBlur) 0 var(--boxShadowColor)';
@@ -52,8 +67,8 @@ a {
 /****/
 
 .layout-header {
-    height    : var(--layout-header_height);
-    background: ~'rgba(var(--themeColor_rgb),0.5)';
+    height    : var(--layoutHeaderHeight);
+    background: ~'rgba(var(--themeColorRgb),0.3)';
 }
 
 .layout-content {
@@ -65,11 +80,11 @@ a {
     .layout-content-main {
         display        : flex;
         justify-content: center;
-        max-width      : var(--layout-content-main_maxwidth);
+        max-width      : var(--layoutContentMainMaxwidth);
         margin         : auto;
 
         .layout-content-main-aside {
-            width  : var(--layout-content-aside_width);
+            width  : var(--layoutContentAsideWidth);
             padding: 0 20px;
 
             .aside-nav-card {
@@ -77,7 +92,7 @@ a {
                 overflow     : hidden;
 
                 >header {
-                    background     : var(--themeColor);
+                    background     : var(--darkBase2, var(--themeColor));
                     height         : 120px;
                     text-align     : center;
                     color          : var(--darkFontColor, #fff);
@@ -91,16 +106,16 @@ a {
                 }
 
                 >ul {
-                    background: var(--darkThemeColor, var(--white));
+                    background: var(--darkBase, var(--white));
                     list-style: none;
                     padding   : 10px 0;
 
                     li {
+                        color      : var(--darkFontColor, #38b1d0) !important;
                         transition : all .3s;
                         height     : 36px;
                         line-height: 36px;
                         padding    : 0 10px;
-                        color      : var(--darkFontColor, #38b1d0) !important;
                         cursor     : pointer;
                         font-size  : 14px;
                         display    : flex;
@@ -108,11 +123,11 @@ a {
                         user-select: none;
 
                         &:hover {
-                            background-color: #f1f1f1;
+                            background-color: var(--darkAction, var(--action, #f1f1f1));
                         }
 
                         &.action {
-                            background-color: #f1f1f1;
+                            background-color: var(--darkAction, var(--action, #f1f1f1));
                         }
 
                         i {
@@ -125,7 +140,7 @@ a {
             }
 
             .user-card {
-                background   : var(--white);
+                background   : var(--darkBase, var(--white));
                 border-radius: var(--radius);
                 text-align   : center;
                 margin-top   : 10px;
@@ -147,9 +162,19 @@ a {
                         flex-direction: column;
                         width         : 60px;
                         font-size     : 14px;
+                        position      : relative;
 
-                        &+div {
-                            border-left: 1px solid #f1f1f1;
+                        &+div::after {
+                            content      : '';
+                            height       : 20px;
+                            width        : 4px;
+                            background   : var(--darkBase2, var(--themeColor, #15bbf2));
+                            position     : absolute;
+                            top          : 0;
+                            bottom       : 0;
+                            margin       : auto;
+                            border-radius: 2px;
+                            left         : -2px;
                         }
 
                         .item-count {
@@ -166,7 +191,7 @@ a {
             padding: 0 20px;
 
             article {
-                background   : var(--darkThemeColor, var(--white));
+                background   : var(--darkBase, var(--white));
                 border-radius: var(--radius);
                 min-height   : 100px;
                 margin-bottom: 30px;
@@ -188,7 +213,6 @@ a {
                 .post-content {
                     padding    : 0 20px 20px;
                     line-height: 1.8;
-                    color      : var(--darkFontColor, #000);
                 }
             }
         }
@@ -201,16 +225,16 @@ a {
 
 
 .float-action-buttons {
-    position  : fixed;
-    bottom    : 35px;
-    right     : 20px;
-    z-index   : 1000;
-    height    : max-content;
-    transition: all .3s ease;
+    position      : fixed;
+    bottom        : 35px;
+    right         : 20px;
+    z-index       : 1000;
+    height        : max-content;
+    /*  transition: all .3s ease; */
 
     .btn {
         color           : var(--themeColor);
-        background-color: var(--white);
+        background-color: var(--darkBase, var(--white));
         width           : 42px;
         height          : 42px;
         display         : block;
@@ -235,11 +259,12 @@ a {
     #settingsPopup {
         border-radius: var(--radius);
         position     : absolute;
-        background   : #fff;
+        background   : var(--darkBase, var(--white));
         right        : 5px;
         bottom       : 10px;
         padding      : 10px 25px;
         width        : max-content;
+        user-select  : none;
 
         .settings-item {
             margin : 1rem 0;
@@ -257,19 +282,19 @@ a {
 ::-webkit-scrollbar {
     width           : 8px;
     height          : 8px;
-    background-color: ~'rgba(var(--black_rgb), 0)';
+    background-color: ~'rgba(var(--black-rgb), 0)';
 }
 
 ::-webkit-scrollbar-track {
-    background-color: ~'rgba(var(--black_rgb), 0.05)';
+    background-color: ~'rgba(var(--black-rgb), 0.05)';
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: ~'rgba(var(--black_rgb), 0.2)';
+    background-color: ~'rgba(var(--black-rgb), 0.2)';
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: ~'rgba(var(--themeColor_rgb), 0.8)';
+    background-color: ~'rgba(var(--darkBaseRgb,var(--themeColorRgb)), 0.8)';
 }
 
 *::selection {

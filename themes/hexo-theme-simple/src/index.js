@@ -7,3 +7,4 @@ import './component/com-radio'
 
 
 import './cursor-effects'
+import './app'
