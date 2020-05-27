@@ -113,7 +113,8 @@
                     </div>
                     <div class="settings-item">
                         <div class="settings-item-lable">主题色</div>
-                        <com-color-picker id="themeColorPicker" defaultvalue="#15bbf2" dir="topright"></com-color-picker>
+                        <com-color-picker id="themeColorPicker" defaultvalue="#15bbf2" dir="topright">
+                        </com-color-picker>
                     </div>
                 </div>
             </com-popcon>
@@ -121,29 +122,24 @@
     </div>
     <script src="js/index.min.js"></script>
     <script>
-
         document.getElementById("lightSwitch").addEventListener('change', function (ev) {
             if (ev.detail.checked) {
-                document.body.style.setProperty('--bg-img-url', `url('/images/sunset.jpg')`);
-                document.body.style.setProperty('--darkThemeColor', '#424242');
-                document.body.style.setProperty('--darkFontColor', '#eee');
+                document.documentElement.classList.add('dark')
             } else {
-                document.body.style.setProperty('--bg-img-url', `url('/images/sunrise.jpg')`);
-                document.body.style.removeProperty('--darkFontColor');
-                document.body.style.removeProperty('--darkThemeColor')
+                document.documentElement.classList.remove('dark')
             }
         })
 
         document.getElementById("radiusSlider").addEventListener('input', function (ev) {
-            document.body.style.setProperty('--radius', ev.detail.value + 'px');
+            document.documentElement.style.setProperty('--radius', ev.detail.value + 'px');
         })
 
         document.getElementById("boxShadowBlur").addEventListener('change', function (ev) {
-            document.body.style.setProperty('--box-shadow-blur', ev.detail.value + 'px');
+            document.documentElement.style.setProperty('--box-shadow-blur', ev.detail.value + 'px');
         })
 
         document.getElementById("themeColorPicker").addEventListener('change', function (ev) {
-            document.body.style.setProperty('--themeColor', this.color.toHEXA().toString());
+            document.documentElement.style.setProperty('--baseC', this.color.toHEXA().toString());
         })
     </script>
 </body>
