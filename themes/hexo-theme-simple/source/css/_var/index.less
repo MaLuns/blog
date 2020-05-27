@@ -1,0 +1,34 @@
+//基础
+:root {
+    --radius        : 3px;
+    --boxShadowBlur : 5px;
+    --boxShadowColor: #0000001c;
+    --bgImgUrl      : url('/images/sunrise.jpg');
+    --font-family   : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    //layout
+    --layout-header_height        : 80px;
+    --layout-content-main_maxwidth: 1200px;
+    --layout-content-aside_width  : 280px;
+}
+
+//色系
+//dark>>light>>base
+:root {
+    //base
+    --base     : #15bbf2;
+    --white    : #fff;
+    --black    : #000;
+    --black_rgb: 0, 0, 0;
+
+    &.dark {
+        --dark-base: #424242;
+        --bgImgUrl : url('/images/sunset.jpg');
+    }
+
+    //
+    --themeColor            : var(--dark-base, var(--base)); //主题色
+    --themeColor_rgb        : var(--dark_rgb, 21, 187, 242); //主题色 rgb 值
+    --themeBgColor_fontColor: var(--darkFontColor_theme, var(--white)); //背景色是主题色,字体颜色
+    --themeFontColor        : var(--darkFontColor, #525f7f);
+}
