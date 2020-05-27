@@ -1,0 +1,25 @@
+<article class="shadow">
+    <header class="post-header">
+        <h2 class="post-title">
+            <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+        </h2>
+        <div class="post-meta">
+            <span class="post-push-time">
+                <time datetime="<%= date_xml(post.date) %>" title="<%= date_xml(post.date) %>" itemprop="datePublished">
+                    <%= date(post.date,config.date_format) %>
+                </time>
+                <span class="post-meta-divider">•</span>
+            </span>
+            <span class="post-wordcount">
+                <span class="post-meta-item-text">共2.1k字</span>
+                <span class="post-meta-divider">•</span>
+            </span>
+            <span class="post-consuming-time">
+                <span class="post-meta-item-text">约9分钟</span>
+            </span>
+        </div>
+    </header>
+    <div class="post-content">
+        之前也用了一段时间Vue，对其用法也较为熟练了，但是对各种用法和各种api使用都是只知其然而不知其所以然。最近利用空闲时间尝试的去看看Vue的源码，以便更了解其具体原理实现，跟着学习学习。
+    </div>
+</article>

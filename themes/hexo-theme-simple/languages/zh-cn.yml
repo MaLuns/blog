@@ -1,0 +1,16 @@
+menu:
+  home: 首页
+  archives: 归档
+  category: 分类
+  tags: 标签
+  about: 关于
+  github: gayhub
+  weibo: 微博
+  bilibili: b站
+  links: 友链
+  qq: QQ
+
+post:
+  read_more: 阅读全文
+  word_count: 共%s字
+  min2read: 约%s分钟
