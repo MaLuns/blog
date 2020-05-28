@@ -7,8 +7,7 @@ comment: true
 ---
 
 首先新建 index.js,a.js,b.js 三个文件,index.js 配置为入口,index.js 分别加载a.js,b.js文件, b.js加载a.js文件,js中代码如下
-
-<!--More-->
+<!-- more -->
 
 ``` javascript
 //index.js

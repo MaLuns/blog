@@ -3,3 +3,11 @@
         <%- partial('./components/index-article',{ post, index: true,postIndex}) %>
     <% }) %>
 </section>
+<script>
+    window.IndexConfig = {
+        current:<%= page.current %>,
+        total:<%= page.total %>,
+        url: "<%= url_for('/')%>",
+        loadMore: false,
+    }
+</script>

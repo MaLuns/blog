@@ -1,0 +1,16 @@
+<%- partial('../components/detial-header', {post: page,title:'友情链接'}) %>
+<div class="fadeInUp animated">
+    <ul class="frind-card">
+        <% theme.links.forEach(item=>{%>
+        <li class="frind-card-item">
+            <a href='<%- item.url %>' target='_blank'>
+                <img class="" src="<%- item.image %>">
+                <div>
+                    <h3><%- item.name %></h3>
+                    <p><%- item.desc %></p>
+                </div>
+            </a>
+        </li>
+        <%})%>
+    </ul>
+</div>

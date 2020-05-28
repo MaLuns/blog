@@ -31,7 +31,7 @@ menu:
     url: tencent://message/?uin=384399021&amp;Site=有事Q我&amp;Menu=yes
 
 user:
-  avatar: images/avatar.jpg
+  avatar: /images/avatar.jpg
   desc:  醒，亦在人间；梦，亦在人间
 
 rss: atom.xml
