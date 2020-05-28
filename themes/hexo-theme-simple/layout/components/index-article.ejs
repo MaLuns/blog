@@ -10,16 +10,29 @@
                 </time>
                 <span class="post-meta-divider">•</span>
             </span>
+            <%if(theme.post_wordcount.wordcount){%>
             <span class="post-wordcount">
-                <span class="post-meta-item-text">共2.1k字</span>
+                <span class="post-meta-item-text"><%- __('post.word_count',wordcount(post.content)) %></span>
                 <span class="post-meta-divider">•</span>
             </span>
+            <%}%>
+            <%if(theme.post_wordcount.min2read){%>
             <span class="post-consuming-time">
-                <span class="post-meta-item-text">约9分钟</span>
+                <span class="post-meta-item-text"><%- __('post.min2read',min2read(post.content)) %></span>
             </span>
+            <%}%>
         </div>
+        <% if(post.photos.length >0) {%>
+            <img class="bg-img" src="<%- url_for(post.photos[0]) %>" alt="" />
+        <%}%>
     </header>
     <div class="post-content">
-        之前也用了一段时间Vue，对其用法也较为熟练了，但是对各种用法和各种api使用都是只知其然而不知其所以然。最近利用空闲时间尝试的去看看Vue的源码，以便更了解其具体原理实现，跟着学习学习。
+        <%if(post.excerpt){%>
+            <%- post.excerpt.substring(0,200) %>
+            <%- post.excerpt.length>200?'...':'' %>
+        <%}else{%>
+            <%- post.content.substring(0,200)%>
+            <%- post.content.length>200?'...':'' %>
+        <%}%>
     </div>
 </article>

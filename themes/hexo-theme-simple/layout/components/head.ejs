@@ -18,13 +18,15 @@
     <%- css('css/index.css?v='+theme.version) %>
     <script>
         (function () {
-            let setting = localStorage.getItem('setting') ? JSON.parse(localStorage.getItem('setting')) : {}
+            let setting = localStorage.getItem('setting') ? JSON.parse(localStorage.getItem('setting')) : {};
             let root = document.documentElement;
             for (const key in setting) {
                 if (key === 'lightSwitch') {
                     root.classList[setting[key] ? 'add' : 'remove']('dark');
                 } else {
-                    root.style.setProperty(setting[key].cssKey, setting[key].cssVal)
+                    setting[key].css.forEach(item => {
+                        root.style.setProperty(item.key, item.val);
+                    });
                 }
             }
         })()

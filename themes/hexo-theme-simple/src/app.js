@@ -14,39 +14,41 @@ $(function () {
     })
 
     $("#filterColor").on('change', function (ev) {
+        let val = ev.detail.value;
         root.style.setProperty('--filterColor', ev.detail.value + 'px');
         app.setSetting('filterColor', {
-            cssKey: '--filterColor',
-            cssVal: ev.detail.value + 'px',
-            val: ev.detail.value
+            val, css: [{ key: '--filterColor', val: val + 'px' }]
         })
     })
 
     $("#radiusSlider").on('input', function (ev) {
-        root.style.setProperty('--radius', ev.detail.value + 'px');
+        let val = ev.detail.value;
+        root.style.setProperty('--radius', val + 'px');
         app.setSetting('radiusSlider', {
-            cssKey: '--radius',
-            cssVal: ev.detail.value + 'px',
-            val: ev.detail.value
+            val, css: [{ key: '--radius', val: val + 'px' }]
         })
     })
 
     $("#boxShadowBlur").on('change', function (ev) {
-        root.style.setProperty('--boxShadowBlur', ev.detail.value + 'px');
+        let val = ev.detail.value;
+        root.style.setProperty('--boxShadowBlur', val + 'px');
         app.setSetting('boxShadowBlur', {
-            cssKey: '--boxShadowBlur',
-            cssVal: ev.detail.value + 'px',
-            val: ev.detail.value
+            val, css: [{ key: '--boxShadowBlur', val: val + 'px' }]
         })
     })
 
     $("#themeColorPicker").on('change', function (ev) {
         let rgba = this.color.toRGBA();
-        root.style.setProperty('--baseRgb', `${rgba[0]},${rgba[1]},${rgba[2]}`)
-        root.style.setProperty('--base', this.color.toHEXA().toString());
+        let rgb = `${rgba[0]},${rgba[1]},${rgba[2]}`;
+        let hexa = this.color.toHEXA().toString();
+        root.style.setProperty('--baseRgb', rgb)
+        root.style.setProperty('--base', hexa);
+        app.setSetting('themeColorPicker', {
+            css: [{ key: '--baseRgb', val: rgb }, { key: '--base', val: hexa }],
+            val: hexa
+        })
     })
 
-    //下拉自动刷新
     $(window).scroll(function () {
         var htmlHeight = document.body.scrollHeight || root.scrollHeight;
         var clientHeight = $(this).height() + 100;
@@ -61,7 +63,8 @@ $(function () {
             $("#back-top").removeClass("show")
         }
     })
-    app.initSetting()
+
+    app.initSetting();
 })
 
 
@@ -96,10 +99,10 @@ const app = {
                     $("#lightSwitch").attr('checked', setting[key])
                     break
                 case 'filterColor':
-                    $("#filterColor").attr('checked', setting[key].val)
-                    break
                 case 'radiusSlider':
-                    document.getElementById("radiusSlider").value = setting[key].val;
+                case 'boxShadowBlur':
+                case 'themeColorPicker':
+                    document.getElementById(key).value = setting[key].val;
                     break
                 default:
                     break

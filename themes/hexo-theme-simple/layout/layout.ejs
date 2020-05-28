@@ -11,45 +11,7 @@
 
         </header>
         <div class="layout-content-main">
-            <aside class="layout-content-main-aside">
-                <div class="aside-nav-card shadow">
-                    <header>
-                        <h2>白云苍狗</h2>
-                        <p>亦在人间</p>
-                    </header>
-                    <ul>
-                        <li class="action">
-                            <i class="iconfont cg-gitee"></i> 首页
-                        </li>
-                        <li>
-                            <i class="iconfont cg-rss"></i> RSS
-                        </li>
-                        <li>
-                            <i class="iconfont cg-about"></i> 碎碎念
-                        </li>
-                    </ul>
-                </div>
-                <div class="user-card shadow">
-                    <img src="./images/avatar.jpg" alt="" class="avatar">
-                    <div>
-                        <p style="margin: 20px;">Cold</p>
-                        <div class="post-state">
-                            <div>
-                                <span class="item-count">47</span>
-                                <span>文章</span>
-                            </div>
-                            <div>
-                                <span class="item-count">4</span>
-                                <span>分类</span>
-                            </div>
-                            <div>
-                                <span class="item-count">0</span>
-                                <span>标签</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
+            <%- partial('./components/aside') %>
             <main>
                 <%- body %>
             </main>
