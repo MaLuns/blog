@@ -1,38 +1,40 @@
 <article class="shadow">
     <header class="post-header">
-        <h2 class="post-title">
-            <a href="<%- url_for(post.path) %>"><%= post.title %></a>
-        </h2>
-        <div class="post-meta">
-            <span class="post-push-time">
-                <time datetime="<%= date_xml(post.date) %>" title="<%= date_xml(post.date) %>" itemprop="datePublished">
-                    <%= date(post.date,config.date_format) %>
-                </time>
-                <span class="post-meta-divider">•</span>
-            </span>
-            <%if(theme.post_wordcount.wordcount){%>
-            <span class="post-wordcount">
-                <span class="post-meta-item-text"><%- __('post.word_count',wordcount(post.content)) %></span>
-                <span class="post-meta-divider">•</span>
-            </span>
-            <%}%>
-            <%if(theme.post_wordcount.min2read){%>
-            <span class="post-consuming-time">
-                <span class="post-meta-item-text"><%- __('post.min2read',min2read(post.content)) %></span>
-            </span>
-            <%}%>
+        <div class="post-container">
+            <h2 class="post-title">
+                <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+            </h2>
+            <div class="post-meta">
+                <span class="post-push-time">
+                    <time datetime="<%= date_xml(post.date) %>" title="<%= date_xml(post.date) %>" itemprop="datePublished">
+                        <%= date(post.date,config.date_format) %>
+                    </time>
+                    <span class="post-meta-divider">•</span>
+                </span>
+                <%if(theme.post_wordcount.wordcount){%>
+                <span class="post-wordcount">
+                    <span class="post-meta-item-text"><%- __('post.word_count',wordcount(post.content)) %></span>
+                    <span class="post-meta-divider">•</span>
+                </span>
+                <%}%>
+                <%if(theme.post_wordcount.min2read){%>
+                <span class="post-consuming-time">
+                    <span class="post-meta-item-text"><%- __('post.min2read',min2read(post.content)) %></span>
+                </span>
+                <%}%>
+            </div>
         </div>
-        <% if(post.photos.length >0) {%>
-            <img class="bg-img" src="<%- url_for(post.photos[0]) %>" alt="" />
-        <%}%>
     </header>
-    <div class="post-content">
-        <%if(post.excerpt){%>
-            <%- post.excerpt.substring(0,200) %>
-            <%- post.excerpt.length>200?'...':'' %>
+    <div class="post-content <%- index?'':'post-content-detail' %>">
+        <% if(index){%>
+            <%if(post.excerpt){%>
+                <%-  post.excerpt %>
+            <%}else{%>
+                <%- post.content.substring(0,200)%>
+                <%- post.content.length>200?'...':'' %>
+            <%}%>
         <%}else{%>
-            <%- post.content.substring(0,200)%>
-            <%- post.content.length>200?'...':'' %>
+            <%- post.content %>
         <%}%>
     </div>
 </article>

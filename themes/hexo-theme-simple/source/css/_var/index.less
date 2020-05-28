@@ -7,35 +7,43 @@
     --fontFamily    : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
     //layout
-    --layoutHeaderHeight       : 80px;
+    --layoutHeaderHeight       : 60px;
     --layoutContentMainMaxwidth: 1200px;
     --layoutContentAsideWidth  : 280px;
+
+    //
+    --transitionTime: .35s ease;
 }
 
 //色系
 //dark>>light>>base
 :root {
     //base
-    --base     : #15bbf2;
-    --baseRgb  : 21, 187, 241;
-    --white    : #ffffff;
-    --black    : #000000;
-    --action   : #f1f1f1;
-    --fontColor: #525f7f;
+    --base       : #15bbf2;
+    --baseRgb    : 21, 187, 241;
+    --white      : #ffffff;
+    --black      : #000000;
+    --action     : #f1f1f1;
+    --fontColor  : #525f7f;
+    --footerColor: #125162;
 
     &.dark {
         --darkBase     : #424242;
         --darkBaseRgb  : 66, 66, 66;
         --darkBase2    : #353535;
+        --darkBase2Rgb : 53, 53, 53;
         --fontColor    : #eeeeee;
         --darkFontColor: #eeeeee;
         --bgImgUrl     : url('/images/sunset.jpg');
         --darkAction   : #606060;
+        --footerColor  : #27213d;
     }
 
     //
-    --themeColor    : var(--base); //主题色
-    --themeColorRgb : var(--darkRgb, var(--baseRgb)); //主题色 rgb 值
+    --themeColor     : var(--base); //主题色
+    --themeColorRgb  : var(--darkBaseRgb, var(--baseRgb)); //主题色 rgb 值
+    --themeColorRgb2 : var(--darkBase2Rgb, var(--baseRgb)); //主题色 rgb 值
 
     --filterColor:transparent;
+
 }

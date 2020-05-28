@@ -15,9 +15,13 @@ $(function () {
 
     $("#filterColor").on('change', function (ev) {
         let val = ev.detail.value;
-        root.style.setProperty('--filterColor', ev.detail.value + 'px');
+        let cssval = val == 'none' ? 'transparent' :
+            (val == 'sunset' ? '#cbcca22b' : '#ca7c7c26');
+        root.style.setProperty('--filterColor', cssval);
         app.setSetting('filterColor', {
-            val, css: [{ key: '--filterColor', val: val + 'px' }]
+            val, css: [{
+                key: '--filterColor', val: cssval
+            }]
         })
     })
 
@@ -57,10 +61,15 @@ $(function () {
         if (scrollTop + clientHeight > htmlHeight) {
             app.LoadMore();
         }
-        if (scrollTop > 500) {
-            $("#back-top").addClass("show")
+        if (scrollTop > 100) {
+            $(".layout-header").addClass('fixed')
         } else {
-            $("#back-top").removeClass("show")
+            $(".layout-header").removeClass('fixed')
+        }
+        if (scrollTop > 500) {
+            $(".backtop").addClass("show")
+        } else {
+            $(".backtop").removeClass("show")
         }
     })
 

@@ -1,0 +1,91 @@
+.post-content-detail {
+    #more {
+        display: none;
+    }
+
+    p {
+        margin     : 2px 2px 10px;
+        font-size  : 1.05rem;
+        line-height: 1.85rem;
+    }
+
+    blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    a {
+        padding        : 0 2px;
+        color          : #42b983;
+        font-weight    : 500;
+        text-decoration: underline;
+        word-wrap      : break-word;
+    }
+
+
+    img {
+        max-width: 100%;
+        height   : auto;
+        cursor   : pointer;
+    }
+
+    video {
+        display   : block;
+        margin    : 30px auto;
+        box-shadow: 0 5px 35px 0 rgba(0, 0, 0, .2), 0 10px 35px -11px rgba(0, 0, 0, .6);
+        cursor    : pointer;
+    }
+
+
+    ol,
+    ul {
+        display     : block;
+        padding-left: 2em !important;
+        word-spacing: 0.05rem;
+    }
+
+    ul li,
+    ol li {
+        display    : list-item;
+        line-height: 1.8rem;
+        font-size  : 1rem;
+    }
+
+    ul li {
+        list-style-type: disc;
+    }
+
+    ul ul li {
+        list-style-type: circle;
+    }
+
+}
+
+::-webkit-scrollbar {
+    width           : 8px;
+    height          : 8px;
+    background-color: ~'rgba(var(--themeColorRgb), 0)';
+}
+
+::-webkit-scrollbar-track {
+    background-color: ~'rgba(var(--themeColorRgb), 0.05)';
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: ~'rgba(var(--themeColorRgb), 0.4)';
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: ~'rgba(var(--darkBaseRgb,var(--themeColorRgb)), 0.8)';
+}
+
+*::selection {
+    background-color: #cce2ff;
+}
+
+*::-moz-selection {
+    background-color: #cce2ff;
+}
+
+*::-webkit-selection {
+    background-color: #cce2ff;
+}

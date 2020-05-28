@@ -1,6 +1,8 @@
 @charset "utf-8";
 
 @import './_var/index.less';
+@import './_com/hithlight.less';
+@import './_com/index.less';
 
 * {
     padding   : 0;
@@ -35,7 +37,7 @@ body {
     background-attachment: fixed;
     color                : var(--fontColor, #525f7f);
     font-family          : var(--fontFamily);
-    transition           : background-image 0.3s;
+    transition           : background-image var(--transitionTime);
 
     &::after {
         content       : '';
@@ -46,7 +48,7 @@ body {
         bottom        : 0;
         height        : 100vh;
         width         : 100vw;
-        background    : rgba(0, 0, 0, 0.2);
+        background    : var(--filterColor, transition);
         z-index       : 999999999;
         pointer-events: none;
     }
@@ -68,7 +70,29 @@ a {
 
 .layout-header {
     height    : var(--layoutHeaderHeight);
-    background: ~'rgba(var(--themeColorRgb),0.3)';
+    transition: background var(--transitionTime);
+    position  : fixed;
+    width     : 100%;
+    z-index   : 10;
+
+    &.fixed {
+        background: ~'rgba(var(--themeColorRgb2),0.8)';
+    }
+
+    .nav {
+        width      : 100%;
+        max-width  : var(--layoutContentMainMaxwidth);
+        margin     : auto;
+        display    : flex;
+        height     : 100%;
+        align-items: center;
+
+        a {
+            font-weight: 600;
+            color      : #fff;
+            margin     : 0 20px;
+        }
+    }
 }
 
 .layout-content {
@@ -83,6 +107,7 @@ a {
         max-width      : var(--layoutContentMainMaxwidth);
         margin         : auto;
 
+
         .layout-content-main-aside {
             width  : var(--layoutContentAsideWidth);
             padding: 0 20px;
@@ -92,10 +117,11 @@ a {
                 overflow     : hidden;
 
                 >header {
+                    color          : var(--darkFontColor, #fff);
                     background     : var(--darkBase2, var(--themeColor));
+                    transition     : all var(--transitionTime);
                     height         : 120px;
                     text-align     : center;
-                    color          : var(--darkFontColor, #fff);
                     display        : flex;
                     flex-direction : column;
                     justify-content: center;
@@ -107,12 +133,13 @@ a {
 
                 >ul {
                     background: var(--darkBase, var(--white));
+                    transition: all var(--transitionTime);
                     list-style: none;
                     padding   : 10px 0;
 
                     li {
+                        transition : all var(--transitionTime);
                         color      : var(--darkFontColor, #38b1d0) !important;
-                        transition : all .3s;
                         height     : 36px;
                         line-height: 36px;
                         padding    : 0 10px;
@@ -142,6 +169,7 @@ a {
             .user-card {
                 background   : var(--darkBase, var(--white));
                 border-radius: var(--radius);
+                transition   : all var(--transitionTime);
                 text-align   : center;
                 margin-top   : 10px;
                 padding      : 20px 0;
@@ -187,39 +215,52 @@ a {
         }
 
         >main {
-            flex   : 1;
-            padding: 0 20px;
+            flex    : 1;
+            padding : 0 20px;
+            overflow: hidden;
 
             article {
                 background   : var(--darkBase, var(--white));
                 border-radius: var(--radius);
+                transition   : all var(--transitionTime);
                 min-height   : 100px;
                 margin-bottom: 30px;
+                overflow     : hidden;
 
                 .post-header {
-                    padding   : 20px 0;
                     text-align: center;
                     position  : relative;
                     overflow  : hidden;
                     z-index   : 1;
+                    min-height: 100px;
 
-                    .post-title {
-                        color: var(--darkFontColor, var(--themeColor))
+                    .post-container {
+                        position: absolute;
+                        bottom  : 10px;
+                        width   : 100%;
+
+                        .post-title {
+                            color     : var(--darkFontColor, var(--themeColor));
+                            transition: all var(--transitionTime);
+
+                            &:hover {
+                                letter-spacing: 1px;
+                            }
+                        }
+
+                        .post-meta {
+                            font-size: 14px;
+                        }
                     }
 
-                    .post-meta {
-                        font-size : 14px;
-                        margin-top: 16px;
-                    }
 
                     .bg-img {
-                        position  : absolute;
-                        z-index   : -1;
-                        width     : 100%;
-                        object-fit: cover;
-                        top       : 0;
-                        left      : 0;
-                        opacity   : 0.1;
+                        z-index       : -2;
+                        width         : 100%;
+                        min-height    : 250px;
+                        max-height    : 25vh;
+                        object-fit    : cover;
+                        pointer-events: none;
 
                         &::before {
                             content   : '';
@@ -228,13 +269,13 @@ a {
                             height    : 100%;
                             top       : 0;
                             left      : 0;
-                            background: #000;
+                            background: #000000b0;
                         }
                     }
                 }
 
                 .post-content {
-                    padding    : 0 20px 20px;
+                    padding    : 20px;
                     line-height: 1.8;
                 }
             }
@@ -243,7 +284,15 @@ a {
 }
 
 .layout-footer {
-    height: 200px;
+    background     : var(--footerColor, #125162);
+    transition     : all var(--transitionTime);
+    color          : #90949e;
+    height         : 100px;
+    margin-top     : 200px;
+    text-align     : center;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
 }
 
 
@@ -263,7 +312,7 @@ a {
         margin-top      : .5rem;
         border-radius   : 3px;
         border-style    : none;
-        transition      : all .3s;
+        transition      : all var(--transitionTime);
         cursor          : pointer;
         position        : relative;
         outline         : none;
@@ -278,10 +327,24 @@ a {
         }
     }
 
+    .backtop {
+        opacity       : 0;
+        transform     : translateY(100%);
+        transition    : all var(--transitionTime);
+        pointer-events: none;
+
+        &.show {
+            transform     : translateY(0);
+            opacity       : 1;
+            pointer-events: all;
+        }
+    }
+
     #settingsPopup {
-        border-radius: var(--radius);
         position     : absolute;
+        border-radius: var(--radius);
         background   : var(--darkBase, var(--white));
+        transition   : all var(--transitionTime);
         right        : 5px;
         bottom       : 10px;
         padding      : 10px 25px;
@@ -298,35 +361,4 @@ a {
             }
         }
     }
-}
-
-
-::-webkit-scrollbar {
-    width           : 8px;
-    height          : 8px;
-    background-color: ~'rgba(var(--black-rgb), 0)';
-}
-
-::-webkit-scrollbar-track {
-    background-color: ~'rgba(var(--black-rgb), 0.05)';
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: ~'rgba(var(--black-rgb), 0.2)';
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: ~'rgba(var(--darkBaseRgb,var(--themeColorRgb)), 0.8)';
-}
-
-*::selection {
-    background-color: #cce2ff;
-}
-
-*::-moz-selection {
-    background-color: #cce2ff;
-}
-
-*::-webkit-selection {
-    background-color: #cce2ff;
 }
