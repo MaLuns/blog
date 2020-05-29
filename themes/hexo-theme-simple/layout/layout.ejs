@@ -1,22 +1,18 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="<%- theme.language %>">
 
 <%- partial('./components/head') %>
 
 <body>
-    <%- partial('./components/header') %>
+    <%- partial('./components/layout-header') %>
     <div class="layout-content">
-        <header class="layout-content-header">
-
-        </header>
-        <div class="layout-content-main">
-            <%- partial('./components/aside') %>
-            <main>
-                <%- body %>
-            </main>
+        <%- partial('./components/layout-content-header') %>
+        <div class="layout-content-content">
+            <%- partial('./components/layout-content-aside') %>
+            <%- partial('./components/layout-content-main') %>
         </div>
     </div>
-    <%- partial('./components/footer') %>
+    <%- partial('./components/layout-footer') %>
     <%- partial('./components/settings') %>
     <%- partial('./components/script') %>
 </body>

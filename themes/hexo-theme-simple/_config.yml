@@ -1,5 +1,10 @@
 version: 0.1.0
 
+user:
+  name: 白云苍狗
+  avatar: /images/avatar.jpg
+  desc: 醒，亦在人间；梦，亦在人间
+
 favicon:
   visibilitychange: true
   narmal: /images/favicon.png
@@ -10,50 +15,30 @@ favicon:
   safari_pinned_tab: /images/logo.svg
 
 post_wordcount:
-  wordcount: true         # 单篇 字数统计
-  min2read: true          # 单篇 阅读时长
+  wordcount: true # 单篇 字数统计
+  min2read: true # 单篇 阅读时长
 
 menu:
-  category: 
-    title: 分类
-    url: /categories
-  links:
-    title: 友链接
-    url: /links
-  about: 
-    title: 关于我
-    url: //cv.imalun.com
-  github:
-    title: GitHub 
-    url: //github.com/MaLuns
-  qq: 
-    title: 联系我
-    url: tencent://message/?uin=384399021&amp;Site=有事Q我&amp;Menu=yes
-
-user:
-  avatar: /images/avatar.jpg
-  desc:  醒，亦在人间；梦，亦在人间
+  nav:
+    - title: 白云苍狗
+      url: /
+    - title: 友链
+      url: /links
+    - title: 留言
+      url: /comment
+    - title: 关于
+      url: /about
+  aside:
+    - title: 首页
+      url: /
+    - title: 碎碎念
+      url: /message
+    - title: RSS
+      url: /atom.xml
+    - title: 联系我
+      url: tencent://message/?uin=384399021&amp;Site=有事Q我&amp;Menu=yes
 
 rss: atom.xml
-
-#oss
-oss: 
-  url: https://ex-1259142607.cos.ap-chengdu.myqcloud.com
-  theme: https://blog-1259142607.cos.ap-chengdu.myqcloud.com/theme
-
-# 卜算子
-busuanzi: false
-
-# 开启评论
-comment: true
-
-# gitalk
-gitalk:
-  createIssueManually: true
-  owner: MaLuns
-  repo: MalBlog
-  clientID: b971d416833059d04dc7
-  clientSecret: 92cacb8f281b908089f86701b66cc9afa11772db
 
 # 友链
 links:
@@ -69,4 +54,3 @@ links:
     url: https://www.imalun.com/
     image: https://www.imalun.com/images/avatar.jpg
     desc: 醒，亦在人间；梦，亦在人间
-

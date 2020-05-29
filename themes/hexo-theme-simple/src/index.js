@@ -7,5 +7,7 @@ import './component/com-radio'
 import './component/com-input'
 import './component/com-message'
 
-import './cursor-effects'
+
 import './app'
+import './cursor-effects'
+import './aplayer'
