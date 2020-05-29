@@ -5,9 +5,10 @@
 @import './_com/index.less';
 
 * {
-    padding   : 0;
-    margin    : 0;
-    box-sizing: border-box;
+    padding           : 0;
+    margin            : 0;
+    -webkit-box-sizing: border-box;
+    box-sizing        : border-box;
 }
 
 
@@ -37,6 +38,7 @@ body {
     background-attachment: fixed;
     color                : var(--fontColor, #525f7f);
     font-family          : var(--fontFamily);
+    -webkit-transition   : background-image var(--transitionTime);
     transition           : background-image var(--transitionTime);
 
     &::after {
@@ -48,7 +50,7 @@ body {
         bottom        : 0;
         height        : 100vh;
         width         : 100vw;
-        background    : var(--filterColor, transition);
+        background    : var(--filterColor, transparent);
         z-index       : 999999999;
         pointer-events: none;
     }
@@ -56,7 +58,8 @@ body {
 
 
 .shadow {
-    box-shadow: ~'0 0 var(--boxShadowBlur) 0 var(--boxShadowColor)';
+    -webkit-box-shadow: ~'0 0 var(--boxShadowBlur) 0 var(--boxShadowColor)';
+    box-shadow        : ~'0 0 var(--boxShadowBlur) 0 var(--boxShadowColor)';
 }
 
 a {
@@ -69,23 +72,29 @@ a {
 /****/
 
 .layout-header {
-    height    : var(--layoutHeaderHeight);
-    transition: background var(--transitionTime);
-    position  : fixed;
-    width     : 100%;
-    z-index   : 10;
+    height            : var(--layoutHeaderHeight);
+    -webkit-transition: background var(--transitionTime);
+    transition        : background var(--transitionTime);
+    position          : fixed;
+    width             : 100%;
+    z-index           : 10;
+    background        : transparent;
 
     &.fixed {
         background: ~'rgba(var(--themeColorRgb2),0.8)';
     }
 
     .nav {
-        width      : 100%;
-        max-width  : var(--layoutContentMainMaxwidth);
-        margin     : auto;
-        display    : flex;
-        height     : 100%;
-        align-items: center;
+        width            : 100%;
+        max-width        : var(--layoutContentMainMaxwidth);
+        margin           : auto;
+        display          : -webkit-box;
+        display          : -ms-flexbox;
+        display          : flex;
+        height           : 100%;
+        -webkit-box-align: center;
+        -ms-flex-align   : center;
+        align-items      : center;
 
         a {
             font-weight: 600;
@@ -101,14 +110,18 @@ a {
         height: 300px;
     }
 
-    .layout-content-main {
-        display        : flex;
-        justify-content: center;
-        max-width      : var(--layoutContentMainMaxwidth);
-        margin         : auto;
+    .layout-content-content {
+        display         : -webkit-box;
+        display         : -ms-flexbox;
+        display         : flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack   : center;
+        justify-content : center;
+        max-width       : var(--layoutContentMainMaxwidth);
+        margin          : auto;
 
 
-        .layout-content-main-aside {
+        .layout-content-aside {
             width  : var(--layoutContentAsideWidth);
             padding: 0 20px;
 
@@ -117,14 +130,22 @@ a {
                 overflow     : hidden;
 
                 >header {
-                    color          : var(--darkFontColor, #fff);
-                    background     : var(--darkBase2, var(--themeColor));
-                    transition     : all var(--transitionTime);
-                    height         : 120px;
-                    text-align     : center;
-                    display        : flex;
-                    flex-direction : column;
-                    justify-content: center;
+                    color                : var(--darkFontColor, #fff);
+                    background           : var(--darkBase2, var(--themeColor));
+                    -webkit-transition   : all var(--transitionTime);
+                    transition           : all var(--transitionTime);
+                    height               : 120px;
+                    text-align           : center;
+                    display              : -webkit-box;
+                    display              : -ms-flexbox;
+                    display              : flex;
+                    -webkit-box-orient   : vertical;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction   : column;
+                    flex-direction       : column;
+                    -webkit-box-pack     : center;
+                    -ms-flex-pack        : center;
+                    justify-content      : center;
 
                     p {
                         margin-top: 10px;
@@ -132,22 +153,31 @@ a {
                 }
 
                 >ul {
-                    background: var(--darkBase, var(--white));
-                    transition: all var(--transitionTime);
-                    list-style: none;
-                    padding   : 10px 0;
+                    background        : var(--darkBase, var(--white));
+                    -webkit-transition: all var(--transitionTime);
+                    transition        : all var(--transitionTime);
+                    list-style        : none;
+                    padding           : 10px 0;
 
                     li {
-                        transition : all var(--transitionTime);
-                        color      : var(--darkFontColor, #38b1d0) !important;
-                        height     : 36px;
-                        line-height: 36px;
-                        padding    : 0 10px;
-                        cursor     : pointer;
-                        font-size  : 14px;
-                        display    : flex;
-                        align-items: center;
-                        user-select: none;
+                        -webkit-transition : all var(--transitionTime);
+                        transition         : all var(--transitionTime);
+                        color              : var(--darkFontColor, #38b1d0) !important;
+                        height             : 36px;
+                        line-height        : 36px;
+                        padding            : 0 10px;
+                        cursor             : pointer;
+                        font-size          : 14px;
+                        display            : -webkit-box;
+                        display            : -ms-flexbox;
+                        display            : flex;
+                        -webkit-box-align  : center;
+                        -ms-flex-align     : center;
+                        align-items        : center;
+                        -webkit-user-select: none;
+                        -moz-user-select   : none;
+                        -ms-user-select    : none;
+                        user-select        : none;
 
                         &:hover {
                             background-color: var(--darkAction, var(--action, #f1f1f1));
@@ -167,12 +197,16 @@ a {
             }
 
             .user-card {
-                background   : var(--darkBase, var(--white));
-                border-radius: var(--radius);
-                transition   : all var(--transitionTime);
-                text-align   : center;
-                margin-top   : 10px;
-                padding      : 20px 0;
+                background        : var(--darkBase, var(--white));
+                border-radius     : var(--radius);
+                -webkit-transition: all var(--transitionTime);
+                transition        : all var(--transitionTime);
+                text-align        : center;
+                position          : -webkit-sticky;
+                position          : sticky;
+                top               : calc(var(--layoutHeaderHeight) + 20px);
+                margin-top        : 10px;
+                padding           : 20px 0;
 
                 .avatar {
                     width        : 35%;
@@ -180,17 +214,28 @@ a {
                 }
 
                 .post-state {
-                    display        : flex;
-                    justify-content: center;
-                    align-items    : center;
-                    margin         : 20px 10px;
+                    display          : -webkit-box;
+                    display          : -ms-flexbox;
+                    display          : flex;
+                    -webkit-box-pack : center;
+                    -ms-flex-pack    : center;
+                    justify-content  : center;
+                    -webkit-box-align: center;
+                    -ms-flex-align   : center;
+                    align-items      : center;
+                    margin           : 20px 10px;
 
                     >div {
-                        display       : flex;
-                        flex-direction: column;
-                        width         : 60px;
-                        font-size     : 14px;
-                        position      : relative;
+                        display              : -webkit-box;
+                        display              : -ms-flexbox;
+                        display              : flex;
+                        -webkit-box-orient   : vertical;
+                        -webkit-box-direction: normal;
+                        -ms-flex-direction   : column;
+                        flex-direction       : column;
+                        width                : 60px;
+                        font-size            : 14px;
+                        position             : relative;
 
                         &+div::after {
                             content      : '';
@@ -214,18 +259,21 @@ a {
             }
         }
 
-        >main {
-            flex    : 1;
-            padding : 0 20px;
-            overflow: hidden;
+        .layout-content-main {
+            -webkit-box-flex: 1;
+            -ms-flex        : 1;
+            flex            : 1;
+            padding         : 0 20px;
+            overflow        : hidden;
 
             article {
-                background   : var(--darkBase, var(--white));
-                border-radius: var(--radius);
-                transition   : all var(--transitionTime);
-                min-height   : 100px;
-                margin-bottom: 30px;
-                overflow     : hidden;
+                background        : var(--darkBase, var(--white));
+                border-radius     : var(--radius);
+                -webkit-transition: all var(--transitionTime);
+                transition        : all var(--transitionTime);
+                min-height        : 100px;
+                margin-bottom     : 30px;
+                overflow          : hidden;
 
                 .post-header {
                     text-align: center;
@@ -240,8 +288,9 @@ a {
                         width   : 100%;
 
                         .post-title {
-                            color     : var(--darkFontColor, var(--themeColor));
-                            transition: all var(--transitionTime);
+                            color             : var(--darkFontColor, var(--themeColor));
+                            -webkit-transition: all var(--transitionTime);
+                            transition        : all var(--transitionTime);
 
                             &:hover {
                                 letter-spacing: 1px;
@@ -259,6 +308,7 @@ a {
                         width         : 100%;
                         min-height    : 250px;
                         max-height    : 25vh;
+                        -o-object-fit : cover;
                         object-fit    : cover;
                         pointer-events: none;
 
@@ -284,15 +334,23 @@ a {
 }
 
 .layout-footer {
-    background     : var(--footerColor, #125162);
-    transition     : all var(--transitionTime);
-    color          : #90949e;
-    height         : 100px;
-    margin-top     : 200px;
-    text-align     : center;
-    display        : flex;
-    flex-direction : column;
-    justify-content: center;
+    background           : var(--footerColor, #125162);
+    -webkit-transition   : all var(--transitionTime);
+    transition           : all var(--transitionTime);
+    color                : #90949e;
+    height               : 100px;
+    margin-top           : 200px;
+    text-align           : center;
+    display              : -webkit-box;
+    display              : -ms-flexbox;
+    display              : flex;
+    -webkit-box-orient   : vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction   : column;
+    flex-direction       : column;
+    -webkit-box-pack     : center;
+    -ms-flex-pack        : center;
+    justify-content      : center;
 }
 
 
@@ -301,21 +359,24 @@ a {
     bottom  : 35px;
     right   : 20px;
     z-index : 1000;
+    height  : -webkit-max-content;
+    height  : -moz-max-content;
     height  : max-content;
 
     .btn {
-        color           : var(--themeColor);
-        background-color: var(--darkBase, var(--white));
-        width           : 42px;
-        height          : 42px;
-        display         : block;
-        margin-top      : .5rem;
-        border-radius   : 3px;
-        border-style    : none;
-        transition      : all var(--transitionTime);
-        cursor          : pointer;
-        position        : relative;
-        outline         : none;
+        color             : var(--themeColor);
+        background-color  : var(--darkBase, var(--white));
+        width             : 42px;
+        height            : 42px;
+        display           : block;
+        margin-top        : .5rem;
+        border-radius     : 3px;
+        border-style      : none;
+        -webkit-transition: all var(--transitionTime);
+        transition        : all var(--transitionTime);
+        cursor            : pointer;
+        position          : relative;
+        outline           : none;
 
         i {
             font-size: 16px;
@@ -328,36 +389,49 @@ a {
     }
 
     .backtop {
-        opacity       : 0;
-        transform     : translateY(100%);
-        transition    : all var(--transitionTime);
-        pointer-events: none;
+        opacity           : 0;
+        -webkit-transform : translateY(100%);
+        transform         : translateY(100%);
+        -webkit-transition: all var(--transitionTime);
+        transition        : all var(--transitionTime);
+        pointer-events    : none;
 
         &.show {
-            transform     : translateY(0);
-            opacity       : 1;
-            pointer-events: all;
+            -webkit-transform: translateY(0);
+            transform        : translateY(0);
+            opacity          : 1;
+            pointer-events   : all;
         }
     }
 
     #settingsPopup {
-        position     : absolute;
-        border-radius: var(--radius);
-        background   : var(--darkBase, var(--white));
-        transition   : all var(--transitionTime);
-        right        : 5px;
-        bottom       : 10px;
-        padding      : 10px 25px;
-        width        : max-content;
-        user-select  : none;
+        position           : absolute;
+        border-radius      : var(--radius);
+        background         : var(--darkBase, var(--white));
+        -webkit-transition : all var(--transitionTime);
+        transition         : all var(--transitionTime);
+        right              : 5px;
+        bottom             : 10px;
+        padding            : 10px 25px;
+        width              : -webkit-max-content;
+        width              : -moz-max-content;
+        width              : max-content;
+        -webkit-user-select: none;
+        -moz-user-select   : none;
+        -ms-user-select    : none;
+        user-select        : none;
 
         .settings-item {
             margin : 1rem 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
 
             .settings-item-lable {
-                flex        : 1;
-                margin-right: 20px;
+                -webkit-box-flex: 1;
+                -ms-flex        : 1;
+                flex            : 1;
+                margin-right    : 20px;
             }
         }
     }
