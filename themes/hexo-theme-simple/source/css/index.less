@@ -107,7 +107,146 @@ a {
 .layout-content {
 
     .layout-content-header {
-        height: 300px;
+        height: 42vh;
+
+        .shape {
+            position: absolute;
+            z-index : -1;
+            top     : 0;
+            width   : 100%;
+            height  : 100%;
+            height  : 65vh;
+
+            span {
+                position     : absolute;
+                width        : 120px;
+                height       : 120px;
+                border-radius: 50%;
+            }
+
+            :nth-child(1) {
+                bottom    : auto;
+                left      : -4%;
+                background: rgba(255, 255, 255, .1);
+            }
+
+            :nth-child(2) {
+                top       : 10%;
+                right     : 4%;
+                background: rgba(255, 255, 255, .1);
+            }
+
+            :nth-child(3) {
+                top       : 280px;
+                right     : 5.66666%;
+                background: rgba(255, 255, 255, .3);
+            }
+
+            :nth-child(4) {
+                top       : 320px;
+                right     : 7%;
+                background: rgba(255, 255, 255, .15);
+            }
+
+            :nth-child(5) {
+                top       : 38%;
+                right     : auto;
+                left      : 1%;
+                background: rgba(255, 255, 255, .05);
+            }
+
+            :nth-child(6) {
+                top       : 44%;
+                right     : auto;
+                left      : 10%;
+                width     : 200px;
+                height    : 200px;
+                background: rgba(255, 255, 255, .15);
+            }
+
+            :nth-child(7) {
+                right     : 36%;
+                bottom    : 50%;
+                background: rgba(255, 255, 255, .04);
+            }
+
+            :nth-child(8) {
+                right     : 2%;
+                bottom    : 70px;
+                background: rgba(255, 255, 255, .2);
+            }
+
+            :nth-child(9) {
+                right     : 2%;
+                bottom    : 1%;
+                background: rgba(255, 255, 255, .1);
+            }
+
+            :nth-child(10) {
+                right     : auto;
+                bottom    : 1%;
+                left      : 1%;
+                background: rgba(255, 255, 255, .05);
+            }
+        }
+
+        .banner {
+            position  : absolute;
+            left      : 0;
+            right     : 0;
+            margin-top: 20vh;
+            text-align: center;
+
+            .title-inner {
+                font-size: 1.8rem;
+                color    : #ddd;
+            }
+
+            .user-des {
+                color      : #ddd;
+                height     : 40px;
+                font-size  : 16px;
+                line-height: 30px;
+                padding    : 5px 20px 5px 0px;
+                margin-top : 20px;
+                display    : inline-block;
+                background : ~'rgba(var(--themeColorRgb2),0.08)';
+
+                span {
+                    display     : inline-block;
+                    overflow    : hidden;
+                    white-space : nowrap;
+                    border-right: 2px solid;
+                    position    : relative;
+                    padding     : 0 1em;
+                }
+
+                @keyframes typing {
+                    from {
+                        width: 0;
+                    }
+                }
+
+                @keyframes caret {
+                    50% {
+                        border-color: transparent;
+                    }
+                }
+            }
+        }
+
+        &::before {
+            content       : '';
+            width         : 100%;
+            position      : absolute;
+            left          : 0;
+            top           : 0;
+            height        : 120px;
+            background    : linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 35%, rgba(0, 0, 0, 0) 100%);
+            display       : block;
+            z-index       : -1;
+            pointer-events: none;
+        }
     }
 
     .layout-content-content {
@@ -187,7 +326,7 @@ a {
                             background-color: var(--darkAction, var(--action, #f1f1f1));
                         }
 
-                        i {
+                        .cg-icon {
                             font-size   : 22px;
                             font-weight : 700;
                             margin-right: 8px;
@@ -288,7 +427,7 @@ a {
                         width   : 100%;
 
                         .post-title {
-                            color             : var(--darkFontColor, var(--themeColor));
+                            color             : var(--themeColor);
                             -webkit-transition: all var(--transitionTime);
                             transition        : all var(--transitionTime);
 

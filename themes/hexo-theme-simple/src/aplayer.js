@@ -7,7 +7,7 @@ const apFixed = new APlayer({
     fixed: true,
 });
 $.ajax({
-    url: 'https://api.i-meto.com/meting/api?server=netease&type=playlist&id=35798529',
+    url: 'https://api.i-meto.com/meting/api?server=netease&type=playlist&id=450572462',
     success: function (list) {
         apFixed.list.add(list);
     }

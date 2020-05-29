@@ -3,12 +3,13 @@ version: 0.1.0
 user:
   name: 白云苍狗
   avatar: /images/avatar.jpg
+  title: 一觉游仙好梦，任它竹冷松寒。轩辕事，古今谈，风流河山。沉醉负白首，舒怀成大观。醒，亦在人间；梦，亦在人间
   desc: 醒，亦在人间；梦，亦在人间
 
 favicon:
   visibilitychange: true
   narmal: /images/favicon.png
-  hidden: /images/failure.ico
+  hidden: /images/failure.png
   show_text: (/≧▽≦/)咦！又好了！
   hide_text: (●—●)喔哟，崩溃啦！
   apple_touch_icon: /images/apple-touch-icon-next.png
@@ -31,12 +32,16 @@ menu:
   aside:
     - title: 首页
       url: /
-    - title: 碎碎念
-      url: /message
+      icon: home
     - title: RSS
       url: /atom.xml
+      icon: rss
+    - title: 碎碎念
+      url: /message
+      icon: message
     - title: 联系我
       url: tencent://message/?uin=384399021&amp;Site=有事Q我&amp;Menu=yes
+      icon: qq
 
 rss: atom.xml
 
