@@ -12,23 +12,21 @@
     <%}%>
     <title><%= config.title %><%= (!!page.title?' - ' + page.title:'') %></title>
     <link rel="icon" type="image/png" sizes="32x32" href="<%= url_for(theme.favicon.narmal) %>?v=<%= theme.version %>">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1518765_110vzg0cl1np.css">
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/android-chrome-192x192.png">
     <%- css('css/index.css?v='+theme.version) %>
-    <script>
-        (function () {
-            let setting = localStorage.getItem('setting') ? JSON.parse(localStorage.getItem('setting')) : {};
-            let root = document.documentElement;
-            for (const key in setting) {
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1518765_110vzg0cl1np.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/MoePlayer/APlayer@1.10.1/dist/APlayer.min.css">
+    <script type="text/javascript">
+        ~function () {
+            let setting = localStorage.getItem('setting') ? JSON.parse(localStorage.getItem('setting')) : {}; let root = document.documentElement;
+            for (let key in setting) {
                 if (key === 'lightSwitch') {
-                    root.classList[setting[key] ? 'add' : 'remove']('dark');
+                    root.classList[setting[key] ? 'add' : 'remove']('dark')
                 } else {
-                    setting[key].css.forEach(item => {
-                        root.style.setProperty(item.key, item.val);
-                    });
+                    setting[key].css.forEach(item => { root.style.setProperty(item.key, item.val); })
                 }
             }
-        })()
+        }();
     </script>
 </head>
