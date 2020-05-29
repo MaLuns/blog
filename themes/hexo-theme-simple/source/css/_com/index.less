@@ -61,6 +61,15 @@
 
 }
 
+
+.cg-icon {
+    width         : 1em;
+    height        : 1em;
+    vertical-align: -0.15em;
+    fill          : currentColor;
+    overflow      : hidden;
+}
+
 ::-webkit-scrollbar {
     width           : 8px;
     height          : 8px;
@@ -73,10 +82,12 @@
 
 ::-webkit-scrollbar-thumb {
     background-color: ~'rgba(var(--themeColorRgb), 0.4)';
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    border-radius   : 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: ~'rgba(var(--darkBaseRgb,var(--themeColorRgb)), 0.8)';
+    background-color: ~'rgba(var(--darkBaseRgb,var(--themeColorRgb)), 0.9)';
 }
 
 *::selection {

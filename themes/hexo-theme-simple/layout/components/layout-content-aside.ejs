@@ -8,7 +8,10 @@
             <% theme.menu.aside.forEach(item=>{%>
                 <a href="<%- item.url %>">
                     <li>
-                        <i class="iconfont cg-gitee"></i><%- item.title %>
+                        <svg class="cg-icon" aria-hidden="true">
+                            <use xlink:href="#cg-<%- item.icon %>"></use>
+                        </svg>
+                        <%- item.title %>
                     </li>
                 </a>
             <%})%>
