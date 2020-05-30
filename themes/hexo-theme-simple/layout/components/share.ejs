@@ -1,0 +1,298 @@
+<style>
+    /*Share.js*/
+    #share_container {
+        height: 38px;
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    #share,
+    #share_show {
+        width: max-content;
+        width: -moz-max-content;
+        transition: all .3s ease;
+    }
+
+    #share {
+        margin-left: auto;
+        max-width: 100%;
+        transform: translateY(50px);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #share_show {
+        position: absolute;
+        right: 0;
+        top: 0;
+        opacity: 1;
+    }
+
+    #share_container.opened #share {
+        transform: none;
+        opacity: 1;
+        pointer-events: unset;
+    }
+
+    #share_container.opened #share_show {
+        top: -50px;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #share_container.opened {
+        height: max-content;
+        height: -moa-max-content;
+        margin-bottom: 10px;
+        min-height: 38px;
+    }
+
+    #share_container .btn {
+        height: 36px;
+        padding: 0 15px;
+        line-height: 36px;
+        margin-left: 5px;
+        margin-right: 0;
+        margin-bottom: 15px;
+        min-width: 50px;
+    }
+
+    #share .icon-wechat {
+        position: relative;
+    }
+
+    #share .icon-wechat .wechat-qrcode {
+        position: absolute;
+        z-index: 2;
+        bottom: 50px;
+        right: 0px;
+        width: max-content;
+        width: -moz-max-content;
+        background: #fff;
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+        text-align: center;
+        padding: 15px 30px;
+        transition: visibility .25s, opacity .25s, transform .25s;
+        transform: translate(0, -10px) perspective(100px) rotateX(3deg);
+        opacity: 0;
+        border-radius: 3px;
+        pointer-events: none;
+    }
+
+    #share .icon-wechat:hover .wechat-qrcode {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    #share .wechat-qrcode:before {
+        position: absolute;
+        z-index: 3;
+        top: calc(100% - 1em - 2px);
+        right: 35px;
+        display: block;
+        width: 16px;
+        height: 16px;
+        content: '';
+        transform: rotate(-45deg) translateY(1rem);
+        border-radius: .2rem;
+        background: #fff;
+    }
+
+    #share .qrcode img {
+        margin: auto;
+    }
+
+    #share .wechat-qrcode h4 {
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+
+    #share .wechat-qrcode .help {
+        color: #000;
+        padding-top: 20px;
+        padding-bottom: 5px;
+    }
+
+    #share>a {
+        position: relative;
+    }
+
+    #share>a:before,
+    #share_show:before {
+        pointer-events: none;
+        position: absolute;
+        top: -50px;
+        right: 0px;
+        line-height: 25px;
+        width: max-content;
+        width: -moz-max-content;
+        text-align: center;
+        font-weight: normal;
+        color: #fff;
+        background: #32325d;
+        padding: 3px 10px;
+        font-size: 14px;
+        border-radius: 3px;
+        z-index: 3;
+        transition: all .3s ease;
+        transform: translateY(5px);
+        opacity: 0;
+    }
+
+    #share>a:hover:before,
+    #share_show:hover:before {
+        transform: translateY(0);
+        opacity: .7;
+    }
+
+    #share_show:before {
+        content: "\5206\4eab";
+        top: -40px;
+        height: max-content;
+        height: -moz-max-content;
+    }
+
+    #share .icon-douban:before {
+        content: "\5206\4eab\5230\8c46\74e3";
+    }
+
+    #share .icon-qq:before {
+        content: "\5206\4eab\5230\0020\0051\0051";
+    }
+
+    #share .icon-qzone:before {
+        content: "\5206\4eab\5230\0020\0051\0051\0020\7a7a\95f4";
+    }
+
+    #share .icon-weibo:before {
+        content: "\5206\4eab\5230\0020\5fae\535a";
+    }
+
+    #share .icon-facebook:before {
+        content: "\5206\4eab\5230\0020\0046\0061\0063\0065\0062\006f\006f\006b";
+    }
+
+    #share .icon-twitter:before {
+        content: "\5206\4eab\5230\0020\0054\0077\0069\0074\0074\0065\0072";
+    }
+
+    #share .icon-telegram:before {
+        content: "\5206\4eab\5230\0020\0054\0065\006c\0065\0067\0072\0061\006d";
+    }
+
+    #share .icon-copy-link:before {
+        content: "\590d\5236\94fe\63a5";
+    }
+</style>
+<div id="share_container">
+    <div id="share" data-initialized="true">
+        <a class="no-pjax icon-wechat">
+            <button class="btn btn-icon btn-success">
+                <span class="btn-inner--icon"><i class="fa fa-weixin"></i></span>
+            </button>
+        </a>
+        <a target="_blank" class="no-pjax icon-douban">
+            <button class="btn btn-icon btn-primary" style="background: #209261;border: none;">
+                豆
+            </button>
+        </a>
+        <a target="_blank" class="no-pjax icon-qq">
+            <button class="btn btn-icon btn-primary" style="background: #2196f3;border: none;">
+                <span class="btn-inner--icon"><i class="fa fa-qq"></i></span>
+            </button>
+        </a>
+        <a target="_blank" class="no-pjax icon-qzone">
+            <button class="btn btn-icon btn-primary" style="background: #ffc107;border: none;">
+                <span class="btn-inner--icon"><i class="fa fa-star"></i></span>
+            </button>
+        </a>
+        <a target="_blank" class="no-pjax icon-weibo">
+            <button class="btn btn-icon btn-warning">
+                <span class="btn-inner--icon"><i class="fa fa-weibo"></i></span>
+            </button>
+        </a>
+        <a target="_blank" class="no-pjax icon-facebook">
+            <button class="btn btn-icon btn-primary" style="background: #283593;border: none;">
+                <span class="btn-inner--icon"><i class="fa fa-facebook"></i></span>
+            </button>
+        </a>
+        <a target="_blank" class="no-pjax icon-twitter">
+            <button class="btn btn-icon btn-primary" style="background: #03a9f4;border: none;">
+                <span class="btn-inner--icon"><i class="fa fa-twitter"></i></span>
+            </button>
+        </a>
+        <a target="_blank" class="no-pjax icon-telegram" href="https://telegram.me/share/url?url=<?php echo urlencode(
+$_SERVER['HTTP_HOST']);?>&text=<?php echo urlencode(get_the_title());?>">
+            <button class="btn btn-icon btn-primary" style="background: #42a5f5;border: none;">
+                <span class="btn-inner--icon"><i class="fa fa-telegram"></i></span>
+            </button>
+        </a>
+        <a target="_blank" class="no-pjax icon-copy-link" id="share_copy_link">
+            <button class="btn btn-icon btn-default">
+                <span class="btn-inner--icon"><i class="fa fa-link"></i></span>
+            </button>
+        </a>
+    </div>
+    <button id="share_show" class="btn btn-icon btn-primary">
+        <span class="btn-inner--icon"><i class="fa fa-share"></i></span>
+    </button>
+</div>
+<script type="text/javascript">
+
+    socialShare = function (t, e) {
+        t = "string" == typeof t ? h(t) : t,
+            t.length === r && (t = [t]),
+            v(t, function (t) {
+                t.initialized || i(t, e)
+            })
+    }
+
+    socialShare("#share", {
+        title: '<?php echo addslashes(get_the_title()); ?>',
+        description: '<?php echo addslashes(wp_trim_words(get_the_content(), 50));?>',
+        wechatQrcodeTitle: "分享到微信",
+        wechatQrcodeHelper: '微信扫描二维码',
+        source: ''
+    });
+    $("#share_show")[0].onclick = function () {
+        $("#share_container").addClass("opened");
+    };
+    $("#share_copy_link")[0].onclick = function () {
+        let input = document.createElement('input');
+        document.body.appendChild(input);
+        input.setAttribute("value", window.location.href);
+        input.setAttribute("readonly", "readonly");
+        input.setAttribute("style", "opacity: 0;mouse-events:none;");
+        input.select();
+        if (document.execCommand('copy')) {
+            iziToast.show({
+                title: '链接已复制',
+                message: "链接已复制到剪贴板",
+                class: 'shadow',
+                position: 'topRight',
+                backgroundColor: '#2dce89',
+                titleColor: '#ffffff',
+                messageColor: '#ffffff',
+                iconColor: '#ffffff',
+                progressBarColor: '#ffffff',
+                icon: 'fa fa-check',
+                timeout: 5000
+            });
+        } else {
+            iziToast.show({
+                title: '复制失败',
+                message: "请手动复制链接",
+                class: 'shadow',
+                position: 'topRight',
+                backgroundColor: '#f5365c',
+                titleColor: '#ffffff',
+                messageColor: '#ffffff',
+                iconColor: '#ffffff',
+                progressBarColor: '#ffffff',
+                icon: 'fa fa-close',
+                timeout: 5000
+            });
+        }
+        document.body.removeChild(input);
+    };
+</script>
