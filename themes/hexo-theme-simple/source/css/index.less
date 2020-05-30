@@ -575,3 +575,40 @@ a {
         }
     }
 }
+
+.frind-card {
+    .frind-card-item {
+        position     : relative;
+        padding      : 10px 0;
+        margin       : 10px;
+        transition   : all var(--transitionTime);
+        border-radius: 5px;
+
+        >a {
+            display    : flex;
+            align-items: center;
+            overflow   : hidden;
+            color      : var(--fontColor, #525f7f);
+
+            img {
+                width        : 60px;
+                height       : 60px;
+                margin       : 0 20px;
+                border-radius: 50%;
+            }
+
+            >div {
+                flex: 1;
+
+                h3,
+                p {
+                    margin: 0;
+                }
+            }
+        }
+
+        &:hover {
+            background-color: rgba(0, 137, 255, 0.08);
+        }
+    }
+}

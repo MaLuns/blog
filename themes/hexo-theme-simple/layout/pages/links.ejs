@@ -1,4 +1,29 @@
-<div class="fadeInUp animated">
+<article class="shadow">
+    <header class="post-header">
+        <div class="post-container">
+            <h2 class="post-title">
+                友情链接
+            </h2>
+        </div>
+    </header>
+    <blockquote>
+        <p> 我的信息</p>
+        <p> 头像：<%- theme.url%><%- theme.user.avatar%></p>
+        <p> 名称：<%- theme.user.name %></p>
+        <p> 简介：<%- theme.user.desc %></p>
+        <p> 网址：<%- theme.url%></p>
+
+        <h5> 交换要求</h5>
+        贵站文章不少于10篇
+
+        贵站友链不少于5个
+
+        我喜欢的布局风格
+
+        二次元风格优先
+
+        留言不回复的代表我没意向OωO
+    </blockquote>
     <ul class="frind-card">
         <% theme.links.forEach(item=>{%>
         <li class="frind-card-item">
@@ -12,4 +37,4 @@
         </li>
         <%})%>
     </ul>
-</div>
+</article>
