@@ -23,12 +23,15 @@ menu:
   nav:
     - title: 白云苍狗
       url: /
-    - title: 友链
+    - title: 友情链接
       url: /links
+      icon: links
     - title: 留言
       url: /comment
+      icon: comment
     - title: 关于
       url: /about
+      icon: home
   aside:
     - title: 首页
       url: /

@@ -5,12 +5,9 @@
 @import './_com/index.less';
 
 * {
-    padding           : 0;
-    margin            : 0;
-    -webkit-box-sizing: border-box;
-    box-sizing        : border-box;
+    padding: 0;
+    margin : 0;
 }
-
 
 [u-none] {
     visibility: hidden;
@@ -96,10 +93,19 @@ a {
         -ms-flex-align   : center;
         align-items      : center;
 
+        svg {
+            width : 18px;
+            height: 18px;
+        }
+
         a {
             font-weight: 600;
             color      : #fff;
             margin     : 0 20px;
+
+            i {
+                margin-right: 5px;
+            }
         }
     }
 }
@@ -410,23 +416,21 @@ a {
                 border-radius     : var(--radius);
                 -webkit-transition: all var(--transitionTime);
                 transition        : all var(--transitionTime);
-                min-height        : 100px;
+                padding           : 20px;
                 margin-bottom     : 30px;
                 overflow          : hidden;
 
                 .post-header {
                     text-align: center;
-                    position  : relative;
                     overflow  : hidden;
                     z-index   : 1;
-                    min-height: 100px;
 
                     .post-container {
-                        position: absolute;
-                        bottom  : 10px;
-                        width   : 100%;
+                        bottom: 10px;
+                        width : 100%;
 
                         .post-title {
+                            display           : inline-block;
                             color             : var(--themeColor);
                             -webkit-transition: all var(--transitionTime);
                             transition        : all var(--transitionTime);
@@ -437,7 +441,9 @@ a {
                         }
 
                         .post-meta {
-                            font-size: 14px;
+                            margin-top : .5em;
+                            font-size  : 14px;
+                            line-height: 1.5;
                         }
                     }
 
@@ -491,7 +497,6 @@ a {
     -ms-flex-pack        : center;
     justify-content      : center;
 }
-
 
 .float-action-buttons {
     position: fixed;
@@ -576,39 +581,152 @@ a {
     }
 }
 
-.frind-card {
-    .frind-card-item {
-        position     : relative;
-        padding      : 10px 0;
-        margin       : 10px;
-        transition   : all var(--transitionTime);
-        border-radius: 5px;
+.links-card {
+    padding: 0 30px;
 
-        >a {
-            display    : flex;
-            align-items: center;
-            overflow   : hidden;
-            color      : var(--fontColor, #525f7f);
+    .post-header {
+        min-height: 100px;
+    }
 
-            img {
-                width        : 60px;
-                height       : 60px;
-                margin       : 0 20px;
-                border-radius: 50%;
+    .links-list {
+
+        .links-list-item {
+            transition   : all var(--transitionTime);
+            list-style   : none !important;
+            position     : relative;
+            padding      : 10px 0;
+            margin       : 10px 0;
+            border-radius: 5px;
+
+            >a {
+                color      : var(--fontColor, #525f7f);
+                display    : flex;
+                align-items: center;
+                overflow   : hidden;
+
+                img {
+                    width        : 60px;
+                    height       : 60px;
+                    margin       : 0 20px;
+                    border-radius: 50%;
+                }
+
+                >div {
+                    flex: 1;
+
+                    h3,
+                    p {
+                        margin: 0;
+                    }
+                }
             }
 
-            >div {
-                flex: 1;
+            &:hover {
+                background-color: rgba(0, 137, 255, 0.08);
+            }
+        }
+    }
+}
 
-                h3,
-                p {
-                    margin: 0;
-                }
+.post-content-tag {
+    margin-top : 20px;
+    display    : flex;
+    align-items: center;
+
+    svg {
+        margin-right: 5px;
+        width       : 20px;
+        height      : 20px;
+    }
+
+    span {
+        color           : #fff;
+        background-color: rgba(var(--themeColorRgb2), .8);
+        display         : inline-block;
+        margin          : 0 5px;
+        padding         : 0 10px;
+        border-radius   : 3px;
+        line-height     : 20px;
+    }
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    box-shadow   : 0 0 var(--boxShadowBlur) 0 var(--boxShadowColor);
+    background   : var(--darkBase2, var(--white));
+    padding      : 5px 0;
+    display      : inline-block;
+    border-radius: 3px;
+    flex         : 1;
+
+    .input-icon {
+        width     : 40px;
+        text-align: center;
+        display   : inline-block;
+    }
+
+    input {
+        background: var(--darkBase2, var(--white));
+        color     : var(--darkFontColor, --fontColor);
+        width     : 200px;
+        height    : 30px;
+        border    : none;
+
+        &:focus {
+            outline-offset: 0px;
+            outline       : none;
+        }
+    }
+
+    &.textarea {
+        padding: 10px;
+
+        textarea {
+            width     : 100%;
+            background: var(--darkBase2, var(--white));
+            color     : var(--darkFontColor, --fontColor);
+            overflow  : hidden;
+            resize    : none;
+            border    : none;
+            font-size : 16px;
+
+            &:focus {
+                outline-offset: 0px;
+                outline       : none;
+            }
+        }
+    }
+}
+
+.prev-next-content {
+    box-shadow     : 0 0 var(--boxShadowBlur) 0 var(--boxShadowColor);
+    background     : var(--darkBase, var(--white));
+    border-radius  : var(--radius);
+    padding        : 20px;
+    display        : flex;
+    justify-content: space-between;
+
+    >div {
+        flex  : 1;
+        margin: 0 20px;
+
+        >div {
+            font-size: 22px;
+
+            i {
+                font-size: 22px;
             }
         }
 
-        &:hover {
-            background-color: rgba(0, 137, 255, 0.08);
+        +div {
+            text-align: right;
+        }
+
+        >a {
+            font-size: 16px;
         }
     }
 }

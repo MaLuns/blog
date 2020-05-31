@@ -3,28 +3,47 @@
         <div class="post-container">
             <h2 class="post-title">
                 <% if(index){%>
-                    <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+                    <a href="<%- url_for(post.path) %>">「<%= post.title %>」</a>
                 <%}else{%>
-                    <%- post.title %>
+                    「<%- post.title %>」
                 <%}%>
             </h2>
             <div class="post-meta">
-                <span class="post-push-time">
-                    <time datetime="<%= date_xml(post.date) %>" title="<%= date_xml(post.date) %>" itemprop="datePublished">
-                        <%= date(post.date,config.date_format) %>
-                    </time>
-                    <span class="post-meta-divider">•</span>
-                </span>
+                <div>
+                    <span class="post-push-time">
+                        <time datetime="<%= date_xml(post.date) %>" title="<%= date_xml(post.date) %>" itemprop="datePublished">
+                           <i class="iconfont cg-shijian"></i> 
+                           <%= date(post.date,config.date_format) %>
+                        </time>
+                        <span class="post-meta-divider">•</span>
+                    </span>
+                    <span>
+                        <i class="iconfont cg-tag1"></i> 
+                        <%- post.categories.data[0].name %>
+                        <span class="post-meta-divider">•</span>
+                    </span>
+                    <span>
+                        <i class="iconfont cg-message"></i> 
+                        <%- post.categories.data[0].name %>
+                        <span class="post-meta-divider">•</span>
+                    </span>
+                </div>
                 <%if(theme.post_wordcount.wordcount){%>
-                <span class="post-wordcount">
-                    <span class="post-meta-item-text"><%- __('post.word_count',wordcount(post.content)) %></span>
-                    <span class="post-meta-divider">•</span>
-                </span>
+                    <span class="post-wordcount">
+                        <span class="post-meta-item-text">
+                            <i class="iconfont cg-wendang"></i> 
+                            <%- __('post.word_count',wordcount(post.content)) %>
+                        </span>
+                        <span class="post-meta-divider">•</span>
+                    </span>
                 <%}%>
                 <%if(theme.post_wordcount.min2read){%>
-                <span class="post-consuming-time">
-                    <span class="post-meta-item-text"><%- __('post.min2read',min2read(post.content)) %></span>
-                </span>
+                    <span class="post-consuming-time">
+                        <span class="post-meta-item-text">
+                            <i class="iconfont cg-shalou"></i> 
+                            <%- __('post.min2read',min2read(post.content)) %>
+                        </span>
+                    </span>
                 <%}%>
             </div>
         </div>
@@ -40,8 +59,19 @@
         <%}else{%>
             <%- post.content %>
         <%}%>
+        <% if(post.tags.length>0){ %>
+            <div class="post-content-tag">
+                <svg class="cg-icon" aria-hidden="true">
+                    <use xlink:href="#cg-tag"></use>
+                </svg>
+                <% post.tags.forEach(item => { %>
+                    <span><%- item.name %></span>
+                <% })%>
+            </div>
+        <%}%>
     </div>
 </article>
 <% if(!index){%>
     <%- partial('./share') %>
+    <%- partial('./next') %>
 <%}%>

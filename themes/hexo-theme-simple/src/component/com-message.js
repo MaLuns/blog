@@ -1,7 +1,10 @@
-
+import './com-icon.js';
 import './com-loading.js';
 
 class ComMessage extends HTMLElement {
+
+    static get observedAttributes() { return ['type','icon'] }
+
     constructor() {
         super();
         const shadowRoot = this.attachShadow({ mode: 'open' });
@@ -21,7 +24,7 @@ class ComMessage extends HTMLElement {
         .message{
             margin:auto;
             display:flex;
-            padding:10px 15px;
+            padding:3px 10px;
             margin-top:10px;
             align-items:center;
             font-size: 14px;
@@ -48,9 +51,16 @@ class ComMessage extends HTMLElement {
         :host([show][type="loading"]) com-loading{
             display:block;
         }
-
+        :host([show][type="loading"]) com-icon{
+            display:none;
+        }
+        :host com-icon{
+            color:var(--themeColor,#42b983);
+        }
+        
         </style>
         <div class="message">
+            <com-icon id="message-type" class="message-type" size="16"></com-icon>
             <com-loading></com-loading>
             <slot></slot>
         </div>
@@ -58,7 +68,11 @@ class ComMessage extends HTMLElement {
     }
 
     get show() {
-        return this.getAttribute('show') !== null;
+        return this.getAttribute('show')!==null;
+    }
+
+    get icon() {
+        return this.getAttribute('icon');
     }
 
     get type() {
@@ -69,10 +83,14 @@ class ComMessage extends HTMLElement {
         this.setAttribute('type', value);
     }
 
+    set icon(value) {
+        this.setAttribute('icon', value);
+    }
+
     set show(value) {
-        if (value === null || value === false) {
+        if(value===null||value===false){
             this.removeAttribute('show');
-        } else {
+        }else{
             this.setAttribute('show', '');
         }
     }
@@ -101,49 +119,54 @@ class ComMessage extends HTMLElement {
                 break;
         }
         return {
-            name: name,
-            color: color
+            name:name,
+            color:color
         }
     }
-
+    
     connectedCallback() {
         this.remove = false;
         this.messageType = this.shadowRoot.getElementById('message-type');
-        this.shadowRoot.addEventListener('transitionend', (ev) => {
-            if (ev.propertyName === 'transform' && !this.show) {
+        this.shadowRoot.addEventListener('transitionend',(ev)=>{
+            if(ev.propertyName === 'transform' && !this.show){
                 messageContent.removeChild(this);
                 this.dispatchEvent(new CustomEvent('close'));
             }
         })
-        this.type = this.type;
+        this.type= this.type;
         this.clientWidth;
     }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-        if (name == 'type' && this.messageType) {
-            if (newValue !== null) {
+    attributeChangedCallback (name, oldValue, newValue) {
+        if( name == 'type' && this.messageType){
+            if(newValue!==null){
                 this.messageType.name = this.typeMap(newValue).name;
                 this.messageType.color = this.typeMap(newValue).color;
+            }
+        }
+        if( name == 'icon' && this.messageType){
+            if(newValue!==null){
+                this.messageType.name = newValue;
             }
         }
     }
 }
 
-if (!customElements.get('com-message')) {
+if(!customElements.get('com-message')){
     customElements.define('com-message', ComMessage);
 }
 
 let messageContent = document.getElementById('message-content');
-if (!messageContent) {
+if(!messageContent){
     messageContent = document.createElement('div');
     messageContent.id = 'message-content';
-    messageContent.style = 'position:fixed; pointer-events:none; left:0; right:0; top:10px; z-index:51;';
+    messageContent.style='position:fixed; pointer-events:none; left:0; right:0; top:10px; z-index:51;';
     document.body.appendChild(messageContent);
 }
 
 export default {
 
-    info: function (text = '', duration, onclose) {
+    info: function(text='',duration,onclose) {
         const message = new ComMessage();
         message.timer && clearTimeout(message.timer);
         messageContent.appendChild(message);
@@ -151,13 +174,13 @@ export default {
         message.textContent = text;
         message.show = true;
         message.onclose = onclose;
-        message.timer = setTimeout(() => {
+        message.timer = setTimeout(()=>{
             message.show = false;
-        }, duration || 3000);
+        },duration||3000);
         return message;
     },
 
-    success: function (text = '', duration, onclose) {
+    success: function(text='',duration,onclose) {
         const message = new ComMessage();
         message.timer && clearTimeout(message.timer);
         messageContent.appendChild(message);
@@ -165,13 +188,13 @@ export default {
         message.textContent = text;
         message.show = true;
         message.onclose = onclose;
-        message.timer = setTimeout(() => {
+        message.timer = setTimeout(()=>{
             message.show = false;
-        }, duration || 3000);
+        },duration||3000);
         return message;
     },
 
-    error: function (text = '', duration, onclose) {
+    error: function(text='',duration,onclose) {
         const message = new ComMessage();
         message.timer && clearTimeout(message.timer);
         messageContent.appendChild(message);
@@ -179,13 +202,13 @@ export default {
         message.textContent = text;
         message.show = true;
         message.onclose = onclose;
-        message.timer = setTimeout(() => {
+        message.timer = setTimeout(()=>{
             message.show = false;
-        }, duration || 3000);
+        },duration||3000);
         return message;
     },
 
-    warning: function (text = '', duration, onclose) {
+    warning: function(text='',duration,onclose) {
         const message = new ComMessage();
         message.timer && clearTimeout(message.timer);
         messageContent.appendChild(message);
@@ -193,13 +216,13 @@ export default {
         message.textContent = text;
         message.show = true;
         message.onclose = onclose;
-        message.timer = setTimeout(() => {
+        message.timer = setTimeout(()=>{
             message.show = false;
-        }, duration || 3000);
+        },duration||3000);
         return message;
     },
 
-    loading: function (text = '', duration = 0, onclose) {
+    loading: function(text='',duration=0,onclose) {
         const message = new ComMessage();
         message.timer && clearTimeout(message.timer);
         messageContent.appendChild(message);
@@ -207,25 +230,26 @@ export default {
         message.textContent = text;
         message.show = true;
         message.onclose = onclose;
-        if (duration !== 0) {
-            message.timer = setTimeout(() => {
+        if(duration!==0){
+            message.timer = setTimeout(()=>{
                 message.show = false;
-            }, duration || 3000);
+            },duration||3000);
         }
         return message;
     },
 
-    show: function ({ text, duration, onclose }) {
+    show: function({text,duration,onclose,icon}) {
         const message = new ComMessage();
         message.timer && clearTimeout(message.timer);
         messageContent.appendChild(message);
-        message.textContent = text || '';
+        message.icon = icon;
+        message.textContent = text||'';
         message.show = true;
         message.onclose = onclose;
-        if (duration !== 0) {
-            message.timer = setTimeout(() => {
+        if(duration!==0){
+            message.timer = setTimeout(()=>{
                 message.show = false;
-            }, duration || 3000);
+            },duration||3000);
         }
         return message;
     }

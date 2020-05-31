@@ -1,7 +1,7 @@
 ---
 title: 解读 webpack 打包后js
 date: 2019-11-20 10:16:09
-tags: 
+tags: [webpack,require]
 categories: 记录类
 comment: true
 ---
