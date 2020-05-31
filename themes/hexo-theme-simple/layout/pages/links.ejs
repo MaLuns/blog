@@ -1,4 +1,4 @@
-<article class="shadow">
+<article class="shadow links-card">
     <header class="post-header">
         <div class="post-container">
             <h2 class="post-title">
@@ -6,35 +6,29 @@
             </h2>
         </div>
     </header>
-    <blockquote>
-        <p> 我的信息</p>
-        <p> 头像：<%- theme.url%><%- theme.user.avatar%></p>
-        <p> 名称：<%- theme.user.name %></p>
-        <p> 简介：<%- theme.user.desc %></p>
-        <p> 网址：<%- theme.url%></p>
-
-        <h5> 交换要求</h5>
-        贵站文章不少于10篇
-
-        贵站友链不少于5个
-
-        我喜欢的布局风格
-
-        二次元风格优先
-
-        留言不回复的代表我没意向OωO
-    </blockquote>
-    <ul class="frind-card">
-        <% theme.links.forEach(item=>{%>
-        <li class="frind-card-item">
-            <a href='<%- item.url %>' target='_blank'>
-                <img class="" src="<%- item.image %>">
-                <div>
-                    <h3><%- item.name %></h3>
-                    <p><%- item.desc %></p>
-                </div>
-            </a>
-        </li>
-        <%})%>
-    </ul>
+    <div>
+        <ul class="links-list">
+            <% theme.links.forEach(item=>{%>
+            <li class="links-list-item">
+                <a href='<%- item.url %>' target='_blank'>
+                    <img class="" src="<%- item.image %>">
+                    <div>
+                        <h3><%- item.name %></h3>
+                        <p><%- item.desc %></p>
+                    </div>
+                </a>
+            </li>
+            <%})%>
+        </ul>
+        <div style="padding: 15px 0 15px 20px;background: #000;margin: 20px 0;border-radius: 4px;">
+            欢迎互换友链
+        </div>
+        <blockquote>
+            <p> 我的信息</p>
+            <p> 头像：<%- theme.url%><%- theme.user.avatar%></p>
+            <p> 名称：<%- theme.user.name %></p>
+            <p> 简介：<%- theme.user.desc %></p>
+            <p> 网址：<%- theme.url%></p>
+        </blockquote>
+    </div>
 </article>

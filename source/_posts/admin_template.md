@@ -1,7 +1,7 @@
 ---
 title: 从零开始搭建一个后台模板
 date: 2020-04-15 10:16:09
-tags: 
+tags: [vue,vuex,vue-route,elemelt-ui]
 categories: 记录类
 comment: true
 photos: ['/images/logo/admin_template.png']

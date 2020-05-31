@@ -1,7 +1,12 @@
 <header class="layout-header">
     <nav class="nav">
         <% theme.menu.nav.forEach(item=>{%>
-            <a href="<%- item.url %>"><%- item.title %></a>
+            <a href="<%- item.url %>">
+                <% if(item.icon) { %>
+                    <i class="iconfont cg-<%- item.icon %>"></i>
+                <%}%>
+                <%- item.title %>
+            </a>
         <%})%>
     </nav>
 </header>

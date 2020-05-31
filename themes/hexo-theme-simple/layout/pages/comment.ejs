@@ -1,0 +1,46 @@
+<div class="comment">
+    <div class="row">
+        <div class="input-group">
+            <span class="input-icon">
+                <i class="iconfont cg-qq"></i>
+            </span>
+            <input type="text" placeholder="昵称">
+        </div>
+        <div class="input-group" style="margin: 0 20px;">
+            <span class="input-icon">
+                <i class="iconfont cg-about"></i>
+            </span>
+            <input type="text" placeholder="邮箱/QQ号">
+        </div>
+        <div class="input-group">
+            <span class="input-icon">
+                <i class="iconfont cg-links"></i>
+            </span>
+            <input type="text" placeholder="网站">
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-group textarea">
+            <textarea rows="10" placeholder="评论内容"></textarea>
+        </div>
+    </div>
+    <div class="">
+        <com-checkbox>Markdown</com-checkbox>
+        <com-checkbox>悄悄话</com-checkbox>
+        <com-checkbox>邮件提醒</com-checkbox>
+    </div>
+</div>
+<style>
+    .comment {
+        padding: 50px;
+        background: var(--darkBase, var(--white));
+        border-radius: var(--radius);
+        -webkit-transition: all var(--transitionTime);
+        transition: all var(--transitionTime);
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-around;
+    }
+</style>
