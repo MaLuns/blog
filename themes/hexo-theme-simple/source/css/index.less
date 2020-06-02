@@ -227,9 +227,21 @@ a {
                     padding     : 0 1em;
                 }
 
+                @-webkit-keyframes typing {
+                    from {
+                        width: 0;
+                    }
+                }
+
                 @keyframes typing {
                     from {
                         width: 0;
+                    }
+                }
+
+                @-webkit-keyframes caret {
+                    50% {
+                        border-color: transparent;
                     }
                 }
 
@@ -248,6 +260,7 @@ a {
             left          : 0;
             top           : 0;
             height        : 120px;
+            background    : -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), color-stop(35%, rgba(0, 0, 0, 0.15)), to(rgba(0, 0, 0, 0)));
             background    : linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 35%, rgba(0, 0, 0, 0) 100%);
             display       : block;
             z-index       : -1;
@@ -591,18 +604,23 @@ a {
     .links-list {
 
         .links-list-item {
-            transition   : all var(--transitionTime);
-            list-style   : none !important;
-            position     : relative;
-            padding      : 10px 0;
-            margin       : 10px 0;
-            border-radius: 5px;
+            -webkit-transition: all var(--transitionTime);
+            transition        : all var(--transitionTime);
+            list-style        : none !important;
+            position          : relative;
+            padding           : 10px 0;
+            margin            : 10px 0;
+            border-radius     : 5px;
 
             >a {
-                color      : var(--fontColor, #525f7f);
-                display    : flex;
-                align-items: center;
-                overflow   : hidden;
+                color            : var(--fontColor, #525f7f);
+                display          : -webkit-box;
+                display          : -ms-flexbox;
+                display          : flex;
+                -webkit-box-align: center;
+                -ms-flex-align   : center;
+                align-items      : center;
+                overflow         : hidden;
 
                 img {
                     width        : 60px;
@@ -612,7 +630,9 @@ a {
                 }
 
                 >div {
-                    flex: 1;
+                    -webkit-box-flex: 1;
+                    -ms-flex        : 1;
+                    flex            : 1;
 
                     h3,
                     p {
@@ -629,9 +649,13 @@ a {
 }
 
 .post-content-tag {
-    margin-top : 20px;
-    display    : flex;
-    align-items: center;
+    margin-top       : 20px;
+    display          : -webkit-box;
+    display          : -ms-flexbox;
+    display          : flex;
+    -webkit-box-align: center;
+    -ms-flex-align   : center;
+    align-items      : center;
 
     svg {
         margin-right: 5px;
@@ -650,68 +674,24 @@ a {
     }
 }
 
-.row {
-    margin-bottom: 20px;
-}
-
-.input-group {
-    box-shadow   : 0 0 var(--boxShadowBlur) 0 var(--boxShadowColor);
-    background   : var(--darkBase2, var(--white));
-    padding      : 5px 0;
-    display      : inline-block;
-    border-radius: 3px;
-    flex         : 1;
-
-    .input-icon {
-        width     : 40px;
-        text-align: center;
-        display   : inline-block;
-    }
-
-    input {
-        background: var(--darkBase2, var(--white));
-        color     : var(--darkFontColor, --fontColor);
-        width     : 200px;
-        height    : 30px;
-        border    : none;
-
-        &:focus {
-            outline-offset: 0px;
-            outline       : none;
-        }
-    }
-
-    &.textarea {
-        padding: 10px;
-
-        textarea {
-            width     : 100%;
-            background: var(--darkBase2, var(--white));
-            color     : var(--darkFontColor, --fontColor);
-            overflow  : hidden;
-            resize    : none;
-            border    : none;
-            font-size : 16px;
-
-            &:focus {
-                outline-offset: 0px;
-                outline       : none;
-            }
-        }
-    }
-}
-
 .prev-next-content {
-    box-shadow     : 0 0 var(--boxShadowBlur) 0 var(--boxShadowColor);
-    background     : var(--darkBase, var(--white));
-    border-radius  : var(--radius);
-    padding        : 20px;
-    display        : flex;
-    justify-content: space-between;
+    -webkit-box-shadow: 0 0 var(--boxShadowBlur) 0 var(--boxShadowColor);
+    box-shadow        : 0 0 var(--boxShadowBlur) 0 var(--boxShadowColor);
+    background        : var(--darkBase, var(--white));
+    border-radius     : var(--radius);
+    padding           : 20px;
+    display           : -webkit-box;
+    display           : -ms-flexbox;
+    display           : flex;
+    -webkit-box-pack  : justify;
+    -ms-flex-pack     : justify;
+    justify-content   : space-between;
 
     >div {
-        flex  : 1;
-        margin: 0 20px;
+        -webkit-box-flex: 1;
+        -ms-flex        : 1;
+        flex            : 1;
+        margin          : 0 20px;
 
         >div {
             font-size: 22px;

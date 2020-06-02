@@ -1,36 +1,42 @@
 import css from './index.less'
 import html from './index.html'
-/* import marked from 'marked' */
 import Emoji from './emojis/index'
+import { detect, createList, escape, unescape } from './libs/util'
+import marked from 'marked';
+import DOMPurify from 'dompurify';
+import tcp from './libs/tcb'
 
 class ComComment extends HTMLElement {
 
-    static get observedAttributes() { return ['atrid'] }
-
-
-
-    get emojicnd() {
-        return this.emojicnd
-    }
-
-    set emojicnd(value) {
-        this.emojicnd = value;
-    }
-
     constructor() {
         super()
+        this.sending = false;
+        this.dbs = new tcp('h-17b316', '6868595454')
+        this.detect = detect();
+
+        marked.setOptions({
+            gfm: true,
+            tables: true,
+            breaks: true,
+            pedantic: false,
+            sanitize: true,
+            smartLists: true,
+            smartypants: true
+        });
+
         this.render(this.attachShadow({ mode: 'open' }))
     }
 
-    render(shadowRoot = this.shadowRoot) {
+    async render(shadowRoot = this.shadowRoot) {
         shadowRoot.innerHTML = `<style>${css}</style>${html}`
+        await this.dbs._init();
         this._event_init(shadowRoot)
+        this._morelist()
+    }
 
-        let a = this.shadowRoot.getElementById("huifu");
-        let that = this;
-        a.addEventListener('click', function (e) {
-            this.parentElement.parentElement.appendChild(that.shadowRoot.getElementById("commentsss"))
-        })
+    async _morelist() {
+        let { data } = await this.dbs.getComment();
+        this.shadowRoot.querySelector(".list-content").appendChild(createList(data));
     }
 
     _event_init(shadowRoot = this.shadowRoot) {
@@ -43,42 +49,12 @@ class ComComment extends HTMLElement {
         this.sendBtn = shadowRoot.getElementById("send-btn");
 
         this.textarea.addEventListener('input', function () {
-            textarea_hidden.innerHTML = this.value;
+            textarea_hidden.innerHTML = DOMPurify.sanitize(marked(this.value));
+            
             this.style.height = textarea_hidden.offsetHeight + 40 + 'px';
         })
 
-        this.sendBtn.addEventListener('click', () => {
-            let comment = this.textarea.value;
-            let email = this.email_input.value;
-            let nick = this.nick_input.value || 'Anonymous';
-
-            if (comment == '') {
-                this.textarea.focus();
-                return;
-            }
-
-            if (nick.length < 3) {
-                this.nick_input.focus();
-                return;
-            }
-
-            if (email.length < 6 || email.indexOf('@') < 1 || email.indexOf('.') < 3) {
-                this.email_input.focus();
-                return;
-            }
-
-
-            this.dispatchEvent(new CustomEvent('send', {
-                detail: {
-                    alterID: '',
-                    ua: navigator.userAgent,
-                    nick,
-                    email,
-                    link: this.link_input.value,
-                    comment/* : marked(comment) */
-                }
-            }));
-        })
+        this.sendBtn.addEventListener('click', () => this._send())
 
     }
 
@@ -96,6 +72,48 @@ class ComComment extends HTMLElement {
                 })(key, emojiData[key])
             }
         }
+    }
+
+
+    _send() {
+        if (!this.sending) {
+            this.sending = false;
+            let comment = this.textarea.value;
+            let email = this.email_input.value;
+            let nick = this.nick_input.value || 'Anonymous';
+            /* 
+            if (comment == '') { this.textarea.focus(); return; }
+            if (nick.length < 3) { this.nick_input.focus(); return; }
+            if (email.length < 6 || email.indexOf('@') < 1 || email.indexOf('.') < 3) { this.email_input.focus(); return; } */
+
+            console.log(DOMPurify.sanitize(marked(comment)));
+            return;
+            let { browser, version, os, osVersion } = this.detect;
+            let parms = {
+                ua: navigator.userAgent,
+                browser: `${browser} ${version}`,
+                os: `${os} ${osVersion}`,
+                avatar: "https://gravatar.loli.net/avatar/d41d8cd98f00b204e9800998ecf8427e?d=mp&v=1.4.14",
+                nick,
+                email,
+                link: this.link_input.value,
+                content: comment,
+            }
+            this.dbs.addComment(parms).then(res => {
+                console.log(res)
+                this.sending = false;
+            })
+        }
+        /*  this.dispatchEvent(new CustomEvent('send', {
+             detail: {
+                 alterID: '',
+                 ua: navigator.userAgent,
+                 nick,
+                 email,
+                 link: this.link_input.value,
+                 comment : marked(comment) 
+             }
+         })); */
     }
 }
 
