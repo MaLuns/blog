@@ -7,7 +7,7 @@ import './component/com-radio'
 import './component/com-icon'
 import './component/com-checkbox'
 import ComMessage from './component/com-message'
-
+import './component/comment/src/index.min'
 window.ComMessage = ComMessage;
 
 import './app'
