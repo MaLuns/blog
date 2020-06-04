@@ -1,6 +1,7 @@
 const webpack = require('webpack');
+
 module.exports.baseConf = {
-    mode: 'development',
+    mode: 'production',
     module: {
         rules: [{
             test: /\.less$/,
@@ -19,7 +20,7 @@ module.exports.baseConf = {
             }
         }]
     },
-    plugins: [
+ /*    plugins: [
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
@@ -30,5 +31,5 @@ module.exports.baseConf = {
             },
             sourceMap: true
         })
-    ],
+    ], */
 }

@@ -1,5 +1,5 @@
-import * as tcb from 'tcb-js-sdk';
-
+/* import * as tcb from 'tcb-js-sdk';
+ */
 export default class tcbComment {
 
     constructor(env, hash) {
@@ -7,17 +7,14 @@ export default class tcbComment {
             return;
         }
         let app =
-            this.app = tcb.init({ env });
+            this.app = window.tcb.init({ env });
         this.limit = 50
         this.skip = 0
         this.hash = hash;
 
-        this._login()
+      /*   this._login() */
 
-        let db = this.db = app.database();
-        this._ = db.command;
-        this.comments = db.collection("comments");
-        this.article = db.collection("article");
+
     }
 
     async _init() {
@@ -34,8 +31,13 @@ export default class tcbComment {
 
     //登录
     async _login() {
+        console.log(1)
         let auth = this.app.auth();
         await auth.anonymousAuthProvider().signIn()
+        let db = this.db = this.app.database();
+        this._ = db.command;
+        this.comments = db.collection("comments");
+        this.article = db.collection("article");
     }
 
     //初始化评论
