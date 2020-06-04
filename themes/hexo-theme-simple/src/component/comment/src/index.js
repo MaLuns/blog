@@ -29,6 +29,7 @@ class ComComment extends HTMLElement {
 
     async render(shadowRoot = this.shadowRoot) {
         shadowRoot.innerHTML = `<style>${css}</style>${html}`
+        await this.dbs._login();
         await this.dbs._init();
         this._event_init(shadowRoot)
         this._morelist()
@@ -50,7 +51,7 @@ class ComComment extends HTMLElement {
 
         this.textarea.addEventListener('input', function () {
             textarea_hidden.innerHTML = DOMPurify.sanitize(marked(this.value));
-            
+
             this.style.height = textarea_hidden.offsetHeight + 40 + 'px';
         })
 
@@ -81,23 +82,22 @@ class ComComment extends HTMLElement {
             let comment = this.textarea.value;
             let email = this.email_input.value;
             let nick = this.nick_input.value || 'Anonymous';
-            /* 
+
             if (comment == '') { this.textarea.focus(); return; }
             if (nick.length < 3) { this.nick_input.focus(); return; }
-            if (email.length < 6 || email.indexOf('@') < 1 || email.indexOf('.') < 3) { this.email_input.focus(); return; } */
+            if (email.length < 6 || email.indexOf('@') < 1 || email.indexOf('.') < 3) { this.email_input.focus(); return; }
 
-            console.log(DOMPurify.sanitize(marked(comment)));
-            return;
+
             let { browser, version, os, osVersion } = this.detect;
             let parms = {
                 ua: navigator.userAgent,
                 browser: `${browser} ${version}`,
                 os: `${os} ${osVersion}`,
                 avatar: "https://gravatar.loli.net/avatar/d41d8cd98f00b204e9800998ecf8427e?d=mp&v=1.4.14",
-                nick,
-                email,
-                link: this.link_input.value,
-                content: comment,
+                nick: DOMPurify.sanitize(nick),
+                email: DOMPurify.sanitize(email),
+                link: DOMPurify.sanitize(this.link_input.value),
+                content: DOMPurify.sanitize(marked(comment)),
             }
             this.dbs.addComment(parms).then(res => {
                 console.log(res)
