@@ -9,7 +9,7 @@ if (process.argv.length > 2)
 else
     return;
  */
-console.log(baseConf)
+
 
 const config = merge(baseConf, {
     entry: path.resolve(__dirname, `./src/index.js`),

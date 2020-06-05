@@ -1,3 +1,7 @@
+import DOMPurify from 'dompurify';
+
+export const regTest = (reg) => (str) => reg.test(str)
+
 /**
  * 生成评论dom列表
  * @param {*} data 
@@ -10,40 +14,44 @@
  *  content,
  *  time,
  *  id,文章ID
+ *  at,
  *  childer:[]
  * }
  */
-export const createList = (data) => {
+export const createList = (data, topID = '') => {
     const fragment = document.createDocumentFragment();
+    const rtest = regTest(/^https?\:\/\//);
 
     data.forEach(item => {
-        let dom = create('div', { class: "c-item", id: item._id })
+        let { _id, avatar, link, nick, date, browser, os, at, childer, content } = item;
 
-        let img = create('img', { class: 'user-img', src: item.avatar });
-        let vh = create('div', { class: "vh" })
+        let idpath = topID === '' ? _id : topID + ',' + _id;
 
-        let head = create('div', { class: "c-head" })
-        head.innerHTML = `${!!item.link ?
-            `<a class="c-nick" rel="nofollow" href="${item.link}" target="_blank">${item.nick}</a>` :
-            `<span class="c-nick">${item.nick}</span>`}
-                <span class="c-sys">${item.browser}</span>
-                <span class="c-sys">${item.os}</span>`
+        let dom = create('div', { class: "c-item", id: _id })
+        let imgDom = create('img', { class: 'user-img', src: avatar || 'https://gw.alicdn.com/tps/TB1W_X6OXXXXXcZXVXXXXXXXXXX-400-400.png' });
+        let vhDom = create('div', { class: "vh" })
 
-        let meta = create('div', { class: "c-meta" })
-        meta.innerHTML = `
-                    <span class="c-time">${timeAgo(new Date(item.date))}</span>
-                    <span class="c-at" data-id='${item._id}'>回复</span>`
 
-        let content = create('div', { class: "c-content", id: item._id })
-        content.innerHTML = item.content;
+        let headDom = create('div', { class: "c-head" })
+        let links = link ? rtest(link) ? link : 'http://' + link : ''
+        headDom.innerHTML = `${!!links ? `<a class="c-nick" rel="nofollow" href="${links}" target="_blank">${nick}</a>` : `<span class="c-nick">${nick}</span>`}<span class="c-sys">${browser}</span><span class="c-sys">${os}</span>`
 
-        let quote = create('div', { class: "c-quote", id: item._id })
-        if (!!item.childer)
-            quote.appendChild(createList(item.childer))
+        let metaDom = create('div', { class: "c-meta" })
+        metaDom.innerHTML = `<span class="c-time">${timeAgo(new Date(date))}</span><span class="c-at" data-idpath='${idpath}' data-id='${_id}'>回复</span>`
 
-        appendChild(vh, head, meta, content, quote)
+        let contentDom = create('div', { class: "c-content", id: 'content' + _id })
+        let atlink = !!at ? rtest(at.links) ? at.links : 'http://' + at.links : ''
+        let atdom = !!at ? `<div>${!!atlink ? `<a class="c-atlink" rel="nofollow" href="${atlink}" target="_blank">@${at.nick}</a>` : `<span class="c-atlink">@${at.nick}</span>`}</div>` : ''
+        contentDom.innerHTML = atdom + DOMPurify.sanitize(content);
 
-        appendChild(dom, img, vh);
+        let editDom = create('div', { class: 'list-edit' })
+
+        let quoteDom = create('div', { class: "c-quote", id: 'quote' + _id })
+        if (!!childer) quoteDom.appendChild(createList(childer, idpath))
+
+        appendChild(vhDom, headDom, metaDom, contentDom, editDom, quoteDom)
+
+        appendChild(dom, imgDom, vhDom);
 
         fragment.appendChild(dom)
     })
@@ -132,13 +140,14 @@ export const timeAgo = (date) => {
 export const dateFormat = (date) => {
     var vDay = padWithZeros(date.getDate(), 2);
     var vMonth = padWithZeros(date.getMonth() + 1, 2);
-    var vYear = padWithZeros(date.getFullYear(), 2);
-    // var vHour = padWithZeros(date.getHours(), 2);
-    // var vMinute = padWithZeros(date.getMinutes(), 2);
-    // var vSecond = padWithZeros(date.getSeconds(), 2);
-    return `${vYear}-${vMonth}-${vDay}`;
+    return `${date.getFullYear()}-${vMonth}-${vDay}`;
 }
 
+/**
+ * 补0
+ * @param {*} vNumber 
+ * @param {*} width 
+ */
 export const padWithZeros = (vNumber, width) => {
     var numAsString = vNumber.toString();
     while (numAsString.length < width) {
@@ -407,15 +416,25 @@ const reHasUnescapedHtml = RegExp(reUnescapedHtml.source)
 const reEscapedHtml = /&(?:amp|lt|gt|quot|#39|#x60|#x5c);/g
 const reHasEscapedHtml = RegExp(reEscapedHtml.source)
 
+export const escape = (s) => (s && reHasUnescapedHtml.test(s)) ? s.replace(reUnescapedHtml, (chr) => escapeMap[chr]) : s
 
-export const escape = (s) => {
-    return (s && reHasUnescapedHtml.test(s)) ?
-        s.replace(reUnescapedHtml, (chr) => escapeMap[chr]) :
-        s
+export const unescape = (s) => (s && reHasEscapedHtml.test(s)) ? s.replace(reEscapedHtml, (entity) => unescapeMap[entity]) : s
+
+
+/**
+ * 
+ * @param {*} data 数据源
+ * @param {*} path 路径
+ * @param {*} key  key
+ */
+export const pathToData = (data, path, key = '') => {
+    path = path.split(',')
+
+    path.forEach((item, index) => {
+        let idx = data.findIndex(i => i._id == item);
+        data = (key == '' || index == path.length - 1) ? data[idx] : data[idx][key]
+    })
+    return data;
 }
 
-export const unescape = (s) => {
-    return (s && reHasEscapedHtml.test(s)) ?
-        s.replace(reEscapedHtml, (entity) => unescapeMap[entity]) :
-        s
-}
+

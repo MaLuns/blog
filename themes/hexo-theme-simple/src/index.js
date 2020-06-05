@@ -6,11 +6,17 @@ import './component/com-tips'
 import './component/com-radio'
 import './component/com-icon'
 import './component/com-checkbox'
-import ComMessage from './component/com-message'
 import './component/comment/src/index'
+
+import ComMessage from './component/com-message'
+
 window.ComMessage = ComMessage;
 
 import './app'
 import './cursor-effects'
 import './aplayer'
 import './title'
+
+window.verification = function (success) {
+    console.log(success)
+}
