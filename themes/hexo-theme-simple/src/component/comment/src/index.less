@@ -1,6 +1,6 @@
 .list {
-    padding           : 20px;
-    margin-bottom     : 20px;
+    padding           : var(--padding, 20px);
+    margin-bottom     : var(--marginBottom, 20px);
     background        : var(--darkBase, var(--white, #fff));
     border-radius     : var(--radius, 3px);
     -webkit-transition: all var(--transitionTime, 0.3s ease);
@@ -32,13 +32,9 @@
                         font-weight    : 500;
                         margin-right   : .875em;
                         cursor         : pointer;
-                        color          : #1abc9c;
+                        color          : var(--themeColor, #000);
                         text-decoration: none;
                         display        : inline-block;
-
-                        &:hover {
-                            color: #D7191A;
-                        }
                     }
 
                     .c-sys {
@@ -51,11 +47,7 @@
                         margin-right    : .3em;
                     }
 
-                    @media screen and (max-width:520px) {
-                        .c-sys {
-                            display: none;
-                        }
-                    }
+
                 }
 
                 .c-meta {
@@ -81,6 +73,10 @@
                 .c-content {
                     margin: 10px 0;
                 }
+
+                #close-btn {
+                    display: inline-block;
+                }
             }
 
             &:hover>.vh>.c-meta>.c-at {
@@ -101,14 +97,7 @@
     }
 }
 
-.emoji-img {
-    max-width     : 25px;
-    vertical-align: bottom;
-    margin        : 0 1px;
-    display       : inline-block;
-}
-
-.c {
+.edit-content {
     padding           : 20px;
     background        : var(--darkBase, var(--white, #fff));
     border-radius     : var(--radius, 3px);
@@ -121,12 +110,11 @@
     }
 
     .input-group {
-        box-shadow   : 0 0 var(--boxShadowBlur, 2px) 0 var(--boxShadowColor, #0000001c);
-        background   : var(--darkBase2, var(--white, #fff));
         display      : inline-block;
         padding      : 5px 0;
         border-radius: 3px;
         flex         : 1;
+        border-bottom: 1px dashed var(--darkFontColor, var(--fontColor, #525f7f));
 
         .input-icon {
             width     : 40px;
@@ -135,11 +123,12 @@
         }
 
         input {
-            background: var(--darkBase2, var(--white, #fff));
-            color     : var(--darkFontColor, --fontColor, #525f7f);
+            background: var(--darkBase, var(--white, #fff));
+            color     : var(--darkFontColor, var(--fontColor, #525f7f));
             width     : calc(100% - 50px);
             height    : 30px;
             border    : none;
+
 
             &:focus {
                 outline-offset: 0px;
@@ -148,13 +137,14 @@
         }
 
         &.textarea {
-            width: 100%;
+            width : 100%;
+            border: none;
 
             textarea {
                 box-sizing : border-box;
                 padding    : 10px;
                 background : var(--darkBase2, var(--white, #fff));
-                color      : var(--darkFontColor, --fontColor, #525f7f);
+                color      : var(--darkFontColor, var(--fontColor, #525f7f));
                 overflow   : hidden;
                 resize     : none;
                 border     : none;
@@ -209,6 +199,10 @@
             background-color: var(--themecolor-dark, #5e72e4);
         }
     }
+
+    #close-btn {
+        display: none;
+    }
 }
 
 .emojis {
@@ -231,10 +225,34 @@
     }
 }
 
+.emoji-img {
+    max-width     : 25px;
+    vertical-align: bottom;
+    margin        : 0 1px;
+    display       : inline-block;
+}
+
+
 .icon {
     width         : 28px;
     height        : 28px;
     vertical-align: middle;
     fill          : var(--darkFontColor, --fontColor, #525f7f);
     overflow      : hidden;
+}
+
+@media screen and (max-width:520px) {
+    .c-sys {
+        display: none;
+    }
+
+    .edit-content {
+        .row {
+            display: block;
+
+            input {
+                margin: 10px;
+            }
+        }
+    }
 }

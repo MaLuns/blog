@@ -1,79 +1,95 @@
-/* import * as tcb from 'tcb-js-sdk';
- */
 export default class tcbComment {
 
     constructor(env, hash) {
         if (!env) {
+            console.error("未设置CloudBase环境id:env");
             return;
         }
-        let app =
-            this.app = window.tcb.init({ env });
-        this.limit = 50
-        this.skip = 0
+        if (!hash) {
+            console.error("未设置当前Comment的hash值");
+            return;
+        }
+        this.env = env;
+        this.skip = 1
         this.hash = hash;
-
-      /*   this._login() */
-
-
     }
 
+    /**
+     * 初始化
+     */
     async _init() {
-        await this.getArticle(this.hash)
-            .then(({ data }) => {
-                if (data.length === 0) {
-                    this.initArticle({ hash }).then(({ id }) => { this.articleID = id; })
-                } else {
-                    let { _id, hash } = data[0]
-                    this.articleID = _id;
-                }
-            })
-    }
+        let tcb = await TcbLoader()
+        this.app = tcb.init({ env: this.env });
+        let auth = this.app.auth({
+            persistence: "local"
+        });
+        if (!auth.hasLoginState()) {
+            console.log(11)
+            await auth.anonymousAuthProvider().signIn()
+        }
 
-    //登录
-    async _login() {
-        console.log(1)
-        let auth = this.app.auth();
-        await auth.anonymousAuthProvider().signIn()
-        let db = this.db = this.app.database();
-        this._ = db.command;
-        this.comments = db.collection("comments");
-        this.article = db.collection("article");
-    }
-
-    //初始化评论
-    initArticle(parm) {
-        return this.article.add({
-            "date": new Date(),
-            "url": "",
-            "hash": "",
-            "title": "",
-            ...parm
-        })
+        await this.getArticleID(this.hash)
     }
 
     //获取
-    getArticle(hash) {
-        return this.article.where({ hash }).get();
+    async getArticleID(hash) {
+        let res = await this.app.callFunction({
+            name: 'getArticleID',
+            data: {
+                hash,
+                url: location.pathname,
+            }
+        })
+        let { result: { success, data } } = res;
+        console.log(res)
+        if (success) {
+            this.articleID = data;
+        } else {
+            console.log(data,1111122222)
+        }
     }
 
-    removeMover() {
-        this.comments.remove().then(res => {
-            console.log(res)
-        })
-    }
 
     //获取评论列表
-    getComment() {
-        return this.comments.where({ id: this.articleID }).skip(this.skip++ * this.limit).limit(this.limit).orderBy("date", "desc").get()
-    }
-
-    //
-    addComment(parm) {
-        return this.comments.add({
-            id: this.articleID,
-            date: new Date(),
-            ...parm
+    async getComment() {
+        let res = await this.app.callFunction({
+            name: 'getComments',
+            data: {
+                pagesize: this.skip++,
+                articleID: this.articleID
+            }
         })
+        return res.result;
     }
 
+    //新增
+    async  addComment(parm) {
+        let res = await this.app.callFunction({
+            name: 'addComment',
+            data: {
+                articleID: this.articleID,
+                ...parm
+            }
+        })
+        return res;
+    }
+}
+
+/**
+ * 加载tcb-js-jdk
+ */
+const TcbLoader = function (v = '1.6.0') {
+    return new Promise((resolve, reject) => {
+        if (window.tcb) {
+            resolve(window.tcb)
+        } else {
+            var script = document.createElement('script')
+            script.type = 'text/javascript'
+            script.async = true
+            script.src = `//imgcache.qq.com/qcloud/tcbjs/${v}/tcb.js`
+            script.onerror = reject
+            script.onload = () => resolve(window.tcb)
+            document.head.appendChild(script)
+        }
+    })
 }
