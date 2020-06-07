@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config ./webpack/webpack.config.js"
+    "build": "webpack --config ./webpack/webpack.config.js",
+    "dev": "node ./src/component/comment/webpack.dev.js"
   },
   "author": "",
   "license": "ISC",

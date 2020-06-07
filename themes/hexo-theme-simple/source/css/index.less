@@ -711,3 +711,26 @@ a {
         }
     }
 }
+
+
+
+.animated {
+    animation-duration : 0.7s;
+    animation-fill-mode: both;
+}
+
+.fadeInUp {
+    animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity  : .7;
+        transform: scale(0.8)
+    }
+
+    100% {
+        opacity  : 1;
+        transform: scale(1)
+    }
+}

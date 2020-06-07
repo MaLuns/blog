@@ -3,7 +3,7 @@ const apFixed = new APlayer({
     mutex: true,
     theme: '#97dffd',
     order: 'random',
-    lrcType: 3,
+    lrcType: 0,
     fixed: true,
 });
 $.ajax({

@@ -5,29 +5,19 @@ export const regTest = (reg) => (str) => reg.test(str)
 /**
  * 生成评论dom列表
  * @param {*} data 
- * {
- *  _id,
- *  avatar,
- *  nick,
- *  email,
- *  link,
- *  content,
- *  time,
- *  id,文章ID
- *  at,
- *  childer:[]
- * }
  */
-export const createList = (data, topID = '') => {
+export const createList = (data, parentid, idxpath) => {
     const fragment = document.createDocumentFragment();
     const rtest = regTest(/^https?\:\/\//);
 
-    data.forEach(item => {
-        let { _id, avatar, link, nick, date, browser, os, at, childer, content } = item;
+    data.forEach((item, index) => {
+        let { id, avatar, link, nick, date, browser, os, at, childer, content } = item;
+        let topID = parentid || id;
+        let ipath = idxpath == undefined ? id : idxpath + ',' + index;
 
-        let idpath = topID === '' ? _id : topID + ',' + _id;
 
-        let dom = create('div', { class: "c-item", id: _id })
+
+        let dom = create('div', { class: `c-item ${item.top ? 'item-top' : ''}`, id })
         let imgDom = create('img', { class: 'user-img', src: avatar || 'https://gw.alicdn.com/tps/TB1W_X6OXXXXXcZXVXXXXXXXXXX-400-400.png' });
         let vhDom = create('div', { class: "vh" })
 
@@ -37,17 +27,19 @@ export const createList = (data, topID = '') => {
         headDom.innerHTML = `${!!links ? `<a class="c-nick" rel="nofollow" href="${links}" target="_blank">${nick}</a>` : `<span class="c-nick">${nick}</span>`}<span class="c-sys">${browser}</span><span class="c-sys">${os}</span>`
 
         let metaDom = create('div', { class: "c-meta" })
-        metaDom.innerHTML = `<span class="c-time">${timeAgo(new Date(date))}</span><span class="c-at" data-idpath='${idpath}' data-id='${_id}'>回复</span>`
+        metaDom.innerHTML = `<span class="c-time">${timeAgo(new Date(date))}</span><span class="c-at" data-topid='${topID}' data-idxpath='${ipath}' data-id='${id}'>回复</span>`
 
-        let contentDom = create('div', { class: "c-content", id: 'content' + _id })
-        let atlink = !!at ? rtest(at.links) ? at.links : 'http://' + at.links : ''
+        let contentDom = create('div', { class: "c-content", id: 'content' + id })
+        let atlink = !!at ? (rtest(at.link) ? at.link : 'http://' + at.link) : ''
+        console.log(atlink,at)
+
         let atdom = !!at ? `<div>${!!atlink ? `<a class="c-atlink" rel="nofollow" href="${atlink}" target="_blank">@${at.nick}</a>` : `<span class="c-atlink">@${at.nick}</span>`}</div>` : ''
         contentDom.innerHTML = atdom + DOMPurify.sanitize(content);
 
         let editDom = create('div', { class: 'list-edit' })
 
-        let quoteDom = create('div', { class: "c-quote", id: 'quote' + _id })
-        if (!!childer) quoteDom.appendChild(createList(childer, idpath))
+        let quoteDom = create('div', { class: "c-quote", id: 'quote' + id })
+        if (!!childer) quoteDom.appendChild(createList(childer, topID, ipath))
 
         appendChild(vhDom, headDom, metaDom, contentDom, editDom, quoteDom)
 
@@ -58,6 +50,25 @@ export const createList = (data, topID = '') => {
 
     return fragment;
 }
+
+/**
+ * 
+ * @param {*} data 数据源
+ * @param {*} path 路径
+ * @param {*} key  key
+ */
+export const pathToData = (data, path, key = '') => {
+    path = path.split(',')
+
+    let item = data.find(i => i.id == path[0]);
+    if (path.length > 1) {
+        return item[key][path[1]]
+    } else {
+        return item;
+    }
+}
+
+
 
 /**
  * 创建dom
@@ -419,22 +430,3 @@ const reHasEscapedHtml = RegExp(reEscapedHtml.source)
 export const escape = (s) => (s && reHasUnescapedHtml.test(s)) ? s.replace(reUnescapedHtml, (chr) => escapeMap[chr]) : s
 
 export const unescape = (s) => (s && reHasEscapedHtml.test(s)) ? s.replace(reEscapedHtml, (entity) => unescapeMap[entity]) : s
-
-
-/**
- * 
- * @param {*} data 数据源
- * @param {*} path 路径
- * @param {*} key  key
- */
-export const pathToData = (data, path, key = '') => {
-    path = path.split(',')
-
-    path.forEach((item, index) => {
-        let idx = data.findIndex(i => i._id == item);
-        data = (key == '' || index == path.length - 1) ? data[idx] : data[idx][key]
-    })
-    return data;
-}
-
-

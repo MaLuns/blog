@@ -90,23 +90,19 @@ class ComComment extends HTMLElement {
         shadowRoot.getElementById("list-content").addEventListener('click', (e) => {
             if (e.target.className == 'c-at') {
                 e.target.parentElement.parentElement.querySelector('.list-edit').appendChild(shadowRoot.getElementById('c-comment'));
-                let { topId, id, idpath } = e.target.dataset;
+                let { topid, id, idxpath } = e.target.dataset;
+                console.log(e, idxpath, 'childer', pathToData(this._commentList, idxpath, 'childer'))
 
-                let { email, link, nick, _id } = pathToData(this._commentList, idpath, 'childer');
+                let { link = '', nick = '' } = pathToData(this._commentList, idxpath, 'childer');
                 this.atComment = {
-                    topID: topId || id,
-                    atCommentID: _id,
-                    email,
-                    link,
-                    nick
+                    topID: topid || id, link, nick
                 }
             }
         })
 
         //取消
         shadowRoot.getElementById("close-btn").addEventListener('click', (e) => {
-            shadowRoot.appendChild(shadowRoot.getElementById('c-comment'));
-            this.atComment = null
+            this._cancel_reply()
         })
     }
 
@@ -127,9 +123,9 @@ class ComComment extends HTMLElement {
      * 初始化tcb
      */
     async _init_tcb() {
-        let evn = this.getAttribute("evn");
+        let env = this.getAttribute("env");
         let hash = this.getAttribute("hash")
-        this._dbs = new tcp(evn, hash)
+        this._dbs = new tcp(env, hash)
 
         await this._dbs._init();
         this._morelist()
@@ -153,23 +149,42 @@ class ComComment extends HTMLElement {
             this.sending = true;
 
             parms.istop = !this.atComment;
-            parms.date = new Date();
             if (!!this.atComment) {
                 parms.topID = this.atComment.topID
                 parms.at = {
                     ...this.atComment
                 }
             }
-            this._dbs.addComment(parms).then(res => {
-                //生成dom
-                if (!!this.atComment) {
-                    this.shadowRoot.appendChild(this.shadowRoot.getElementById('c-comment'));
+
+            let { result } = await this._dbs.addComment(parms);
+
+
+            console.log(result)
+            //生成dom
+            if (result.success) {
+                let param = { ...parms, ...result.data }
+                if (!this.atComment) {
+                    let con = this.shadowRoot.querySelector(".list-content");
+                    let length = con.querySelectorAll('.item-top').length;
+                    con.insertBefore(createList([param]), con.children[length])
+
+                    this._commentList.splice(length, 0, param);
+                   
+                } else {
+                    let con = this.shadowRoot.querySelector("#quote" + this.atComment.topID);
+                    con.appendChild(createList([param], this.atComment.topID, 2))
+                    this._cancel_reply()
                 }
-                this.sending = false;
-            }).catch(res => {
-                this.sending = false;
-            });
+                this.textarea.value = ''
+            }
+            this.sending = false;
+
         }
+    }
+
+    _cancel_reply() {
+        this.shadowRoot.appendChild(this.shadowRoot.getElementById('c-comment'));
+        this.atComment = null
     }
 
 }

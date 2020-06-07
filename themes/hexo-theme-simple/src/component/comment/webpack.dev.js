@@ -12,6 +12,8 @@ else
 
 
 const config = merge(baseConf, {
+    mode: 'development',
+    devtool: 'source-map',
     entry: path.resolve(__dirname, `./src/index.js`),
     output: {
         path: path.resolve(__dirname, `./src`),
