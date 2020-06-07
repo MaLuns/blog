@@ -20,7 +20,7 @@ $(function () {
             $("#filterColor").on('change', function (ev) {
                 let val = ev.detail.value;
                 let cssval = val == 'none' ? 'transparent' :
-                    (val == 'sunset' ? '#cbcca22b' : '#ca7c7c26');
+                    (val == 'sunset' ? '#cbcca20f' : '#ca7c7c0f');
                 root.style.setProperty('--filterColor', cssval);
                 app.setSetting('filterColor', {
                     val, css: [{

@@ -41,11 +41,8 @@ export default class tcbComment {
             }
         })
         let { result: { success, data } } = res;
-        console.log(res)
         if (success) {
             this.articleID = data;
-        } else {
-            console.log(data,1111122222)
         }
     }
 

@@ -16,7 +16,7 @@
                 width        : 40px;
                 height       : 40px;
                 border-radius: 50%;
-                margin-right : 10px;
+                margin-right : 1em;
             }
 
             .vh {
@@ -27,24 +27,24 @@
                     margin-top : 0;
 
                     .c-nick {
+                        color          : var(--themeColor, #000);
                         position       : relative;
-                        font-size      : .875em;
-                        font-weight    : 500;
+                        font-size      : larger;
+                        font-weight    : bold;
                         margin-right   : .875em;
                         cursor         : pointer;
-                        color          : var(--themeColor, #000);
                         text-decoration: none;
                         display        : inline-block;
                     }
 
                     .c-sys {
-                        display         : inline-block;
-                        padding         : .2em .5em;
                         color           : #fff;
                         background-color: rgba(var(--themeColorRgb), .8);
+                        display         : inline-block;
+                        padding         : .2em .5em;
                         font-size       : .75em;
                         border-radius   : .2em;
-                        margin-right    : .3em;
+                        margin-right    : .875em;
                     }
 
 
@@ -52,6 +52,7 @@
 
                 .c-meta {
                     line-height: 1;
+                    margin-top : 0.3em;
                     position   : relative;
 
                     .c-time {
@@ -61,8 +62,8 @@
                     }
 
                     .c-at {
+                        color      : var(--themeColor, #000);
                         font-size  : .8125em;
-                        color      : #ef2f11;
                         cursor     : pointer;
                         float      : right;
                         opacity    : 0;
@@ -72,6 +73,10 @@
 
                 .c-content {
                     margin: 10px 0;
+
+                    .c-atlink {
+                        color: var(--themeColor, #000);
+                    }
                 }
 
                 #close-btn {
@@ -93,7 +98,14 @@
                 }
             }
 
+            &.item-top::after {
+                content: "";
+            }
         }
+    }
+
+    .loading {
+        fill: var(--themeColor, #000);
     }
 }
 
@@ -110,11 +122,11 @@
     }
 
     .input-group {
+        border-bottom: 1px dashed var(--darkFontColor, var(--fontColor, #525f7f));
         display      : inline-block;
         padding      : 5px 0;
         border-radius: 3px;
         flex         : 1;
-        border-bottom: 1px dashed var(--darkFontColor, var(--fontColor, #525f7f));
 
         .input-icon {
             width     : 40px;
@@ -174,19 +186,22 @@
     }
 
     .btn {
-        background   : var(--themeColor, #fff);
-        border       : 1px solid var(--themeColor);
-        transition   : all var(--transitionTime);
-        color        : #fff;
-        padding      : 8px 15px;
-        margin       : 0 8px;
-        border-radius: 3px;
-        font-weight  : 600;
+        background        : var(--themeColor, #fff);
+        border            : 1px solid var(--themeColor);
+        transition        : all var(--transitionTime);
+        -webkit-box-shadow: ~'0 0 var(--boxShadowBlur) 0 var(--boxShadowColor)';
+        box-shadow        : ~'0 0 var(--boxShadowBlur) 0 var(--boxShadowColor)';
+        color             : #fff;
+        padding           : 8px 15px;
+        margin            : 0 8px;
+        border-radius     : 3px;
+        font-weight       : 600;
 
         svg {
             width       : 20px;
             height      : 20px;
             margin-right: 5px;
+            fill        : #fff;
         }
 
         &:focus {
@@ -254,5 +269,27 @@
                 margin: 10px;
             }
         }
+    }
+}
+
+.animated {
+    animation-duration       : 0.8s;
+    animation-name           : fadeInUp;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: rotate(0);
+    }
+
+    /* 
+    50% {
+        transform: rotate(180deg);
+    }
+ */
+    100% {
+        transform: rotate(360deg);
     }
 }
