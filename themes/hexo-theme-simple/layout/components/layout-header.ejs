@@ -1,7 +1,7 @@
 <header class="layout-header">
     <nav class="nav">
         <% theme.menu.nav.forEach(item=>{%>
-            <a class="_pjax" href="<%- item.url %>">
+            <a data-pjax class="_pjax" href="<%- item.url %>">
                 <% if(item.icon) { %>
                     <i class="iconfont cg-<%- item.icon %>"></i>
                 <%}%>
