@@ -10,12 +10,13 @@ import './component/comment/src/index'
 
 import ComMessage from './component/com-message'
 
-window.ComMessage = ComMessage;
+window.ShowMessage = ComMessage;
 
 import './app'
 import './cursor-effects'
 import './aplayer'
 import './title'
+import './pjax'
 
 window.verification = function (success) {
     console.log(success)

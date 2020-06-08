@@ -6,7 +6,7 @@
         </header>
         <ul>
             <% theme.menu.aside.forEach(item=>{%>
-            <a href="<%- item.url %>">
+            <a href="<%- item.url %>" <%- item.icon=='qq'?'': 'class="_pjax"'%> >
                 <li>
                     <svg class="cg-icon" aria-hidden="true">
                         <use xlink:href="#cg-<%- item.icon %>"></use>
