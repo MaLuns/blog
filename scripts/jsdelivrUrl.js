@@ -1,8 +1,8 @@
 
-hexo.locals.invalidate();
+/* hexo.locals.invalidate();
 
 let { config, env } = hexo;
-let { jsdelivrUrl } = config;
+let { jsdelivrUrl } = config; */
 
 /* if (env.args[0] != 'server' && jsdelivrUrl.enable) {
     hexo.extend.filter.register('after_post_render', function (data) {

@@ -6,7 +6,7 @@
                    <i class="iconfont cg-shangyibu"></i> 
                    上一篇
                 </div>
-                <a href="<%- url_for(post.prev.path) %>"><%- post.prev.title %></a>
+                <a class="_pjax" href="<%- url_for(post.prev.path) %>"><%- post.prev.title %></a>
             <%}%>
         </div>
         <div class="btn-next">
@@ -15,7 +15,7 @@
                     下一篇 
                     <i class="iconfont cg-xiayibu"></i>
                 </div>
-                <a href="<%- url_for(post.next.path) %>"><%- post.next.title %></a>
+                <a class="_pjax" href="<%- url_for(post.next.path) %>"><%- post.next.title %></a>
             <%}%>
         </div>
     </div>

@@ -3,7 +3,7 @@
         <div class="post-container">
             <h2 class="post-title">
                 <% if(index){%>
-                    <a href="<%- url_for(post.path) %>">「<%= post.title %>」</a>
+                    <a class="_pjax" href="<%- url_for(post.path) %>">「<%= post.title %>」</a>
                 <%}else{%>
                     「<%- post.title %>」
                 <%}%>
