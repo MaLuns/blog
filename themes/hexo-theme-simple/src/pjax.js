@@ -7,8 +7,7 @@ NProgress.configure({
     speed: 1000
 });
 
-$(document).pjax('._pjax', '#main', {
-    scrollTo: $('#main').position().top - 60,
+$(document).pjax('a', '#main', {
     fragment: '#main',
     timeout: 5000,
 });
@@ -16,11 +15,11 @@ $(document).pjax('._pjax', '#main', {
 $(document).on('pjax:start', function () {
     NProgress.start();
     $('html, body').animate({
-        scrollTop: $('.main').position().top - 60
+        scrollTop: $('#main').position().top / 2
     }, 500);
 });
 
 $(document).on('pjax:end', function () {
-   /*  NProgress.done(); */
-    window.originTitle = document.title;
+     NProgress.done();
+    /* window.originTitle = document.title; */
 });

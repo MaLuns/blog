@@ -16,7 +16,7 @@ import './app'
 import './cursor-effects'
 import './aplayer'
 import './title'
-require('./pjax')
+import './pjax'
 
 window.verification = function (success) {
     console.log(success)
