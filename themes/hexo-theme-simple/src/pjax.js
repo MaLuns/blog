@@ -21,6 +21,6 @@ $(document).on('pjax:start', function () {
 });
 
 $(document).on('pjax:end', function () {
-    NProgress.done();
+   /*  NProgress.done(); */
     window.originTitle = document.title;
 });
