@@ -19,7 +19,8 @@ $(document).on('pjax:start', function () {
     }, 500);
 });
 
-$(document).on('pjax:end', function () {
+$(document).on('pjax:end', function (xhl) {
      NProgress.done();
+     console.log(xhl)
     /* window.originTitle = document.title; */
 });
