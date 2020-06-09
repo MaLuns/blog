@@ -1,5 +1,5 @@
 // Shorthands
-const {min, max, floor, round} = Math;
+const { min, max, floor, round } = Math;
 
 /**
  * Tries to convert a color name to rgb/a hex representation
@@ -197,7 +197,7 @@ export function hslToHsv(h, s, l) {
     s /= 100;
     l /= 100;
     s *= l < 0.5 ? l : 1 - l;
-    let ns = (l + s)?(2 * s / (l + s)) * 100:0;
+    let ns = (l + s) ? (2 * s / (l + s)) * 100 : 0;
     let v = (l + s) * 100;
     return [h, ns, v];
 }
@@ -256,7 +256,7 @@ export function parseToHSVA(str) {
                 if (c > 100 || m > 100 || y > 100 || k > 100)
                     break invalid;
 
-                return {values: cmykToHsv(c, m, y, k), type};
+                return { values: cmykToHsv(c, m, y, k), type };
             }
             case 'rgba': {
                 let [, , , r, g, b, a] = numarize(match);
@@ -264,7 +264,7 @@ export function parseToHSVA(str) {
                 if (r > 255 || g > 255 || b > 255 || a < 0 || a > 1)
                     break invalid;
 
-                return {values: [...rgbToHsv(r, g, b), a], a, type};
+                return { values: [...rgbToHsv(r, g, b), a], a, type };
             }
             case 'hexa': {
                 let [, hex] = match;
@@ -279,7 +279,7 @@ export function parseToHSVA(str) {
                 // Convert 0 - 255 to 0 - 1 for opacity
                 a = a ? (parseInt(a, 16) / 255) : undefined;
 
-                return {values: [...hexToHsv(raw), a], a, type};
+                return { values: [...hexToHsv(raw), a], a, type };
             }
             case 'hsla': {
                 let [, , , h, s, l, a] = numarize(match);
@@ -287,7 +287,7 @@ export function parseToHSVA(str) {
                 if (h > 360 || s > 100 || l > 100 || a < 0 || a > 1)
                     break invalid;
 
-                return {values: [...hslToHsv(h, s, l), a], a, type};
+                return { values: [...hslToHsv(h, s, l), a], a, type };
             }
             case 'hsva': {
                 let [, , , h, s, v, a] = numarize(match);
@@ -295,10 +295,10 @@ export function parseToHSVA(str) {
                 if (h > 360 || s > 100 || v > 100 || a < 0 || a > 1)
                     break invalid;
 
-                return {values: [h, s, v, a], a, type};
+                return { values: [h, s, v, a], a, type };
             }
         }
     }
 
-    return {values: null, type: null};
+    return { values: null, type: null };
 }
