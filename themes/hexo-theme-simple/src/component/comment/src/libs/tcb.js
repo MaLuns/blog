@@ -46,7 +46,6 @@ export default class tcbComment {
         }
     }
 
-
     //获取评论列表
     async getComment() {
         let res = await this.app.callFunction({
@@ -60,7 +59,7 @@ export default class tcbComment {
     }
 
     //新增
-    async  addComment(parm) {
+    async addComment(parm) {
         let res = await this.app.callFunction({
             name: 'addComment',
             data: {
@@ -73,8 +72,8 @@ export default class tcbComment {
 }
 
 /**
- * 加载tcb-js-jdk
- */
+* 加载tcb-js-jdk
+*/
 const TcbLoader = function (v = '1.6.0') {
     return new Promise((resolve, reject) => {
         if (window.tcb) {

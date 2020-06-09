@@ -3,13 +3,6 @@ const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 
-/* let componentName;
-if (process.argv.length > 2)
-    componentName = process.argv[2]
-else
-    return;
- */
-
 
 const config = merge(baseConf, {
     mode: 'development',
