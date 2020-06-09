@@ -1,5 +1,6 @@
 require('jquery-pjax')
 const NProgress = require('nprogress')
+/* import tcb from './tcb' */
 
 NProgress.configure({
     showSpinner: false,
@@ -20,6 +21,6 @@ $(document).on('pjax:start', function () {
 });
 
 $(document).on('pjax:end', function () {
-     NProgress.done();
+    NProgress.done();
     /* window.originTitle = document.title; */
 });
