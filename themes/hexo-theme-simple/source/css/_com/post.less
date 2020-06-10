@@ -1,0 +1,99 @@
+article {
+    #more {
+        display: none;
+    }
+
+    p {
+        margin     : 2px 2px 10px;
+        font-size  : 1.05rem;
+        line-height: 1.85rem;
+    }
+
+    img {
+        max-width: 100%;
+        height   : auto;
+        cursor   : pointer;
+    }
+
+    video {
+        display           : block;
+        margin            : 30px auto;
+        -webkit-box-shadow: 0 5px 35px 0 rgba(0, 0, 0, .2), 0 10px 35px -11px rgba(0, 0, 0, .6);
+        box-shadow        : 0 5px 35px 0 rgba(0, 0, 0, .2), 0 10px 35px -11px rgba(0, 0, 0, .6);
+        cursor            : pointer;
+    }
+
+
+    ol,
+    ul {
+        display     : block;
+        word-spacing: 0.05rem;
+
+        li {
+            display    : list-item;
+            line-height: 1.8rem;
+            font-size  : 1rem;
+        }
+    }
+
+    ul li {
+        list-style-type: disc;
+    }
+
+    ul ul li {
+        list-style-type: circle;
+    }
+
+    blockquote {
+        border-left       : 5px solid var(--themeColor);
+        padding-left      : 1em;
+        font-weight       : 400;
+        border-radius     : 5px;
+        -webkit-box-shadow: 0 0 2px 0 #00000045;
+        box-shadow        : 0 0 2px 0 #00000045;
+
+        p {
+            text-indent: 0.2rem;
+        }
+    }
+}
+
+.cg-icon {
+    width         : 26px;
+    height        : 26px;
+    vertical-align: -0.15em;
+    fill          : currentColor;
+    overflow      : hidden;
+}
+
+::-webkit-scrollbar {
+    width           : 8px;
+    height          : 8px;
+    background-color: ~'rgba(var(--themeColorRgb), 0)';
+}
+
+::-webkit-scrollbar-track {
+    background-color: ~'rgba(var(--themeColorRgb), 0.05)';
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: ~'rgba(var(--themeColorRgb), 0.4)';
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    border-radius   : 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: ~'rgba(var(--darkBaseRgb,var(--themeColorRgb)), 0.9)';
+}
+
+*::selection {
+    background-color: #cce2ff;
+}
+
+*::-moz-selection {
+    background-color: #cce2ff;
+}
+
+*::-webkit-selection {
+    background-color: #cce2ff;
+}
