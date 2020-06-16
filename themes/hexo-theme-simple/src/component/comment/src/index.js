@@ -93,9 +93,12 @@ class ComComment extends HTMLElement {
                 let { topid, id, idxpath } = e.target.dataset;
                 console.log(e, idxpath, 'childer', pathToData(this._commentList, idxpath, 'childer'))
 
-                let { link = '', nick = '' } = pathToData(this._commentList, idxpath, 'childer');
+                let { link = '', nick = '', id: atid = '' } = pathToData(this._commentList, idxpath, 'childer');
                 this.atComment = {
-                    topID: topid || id, link, nick
+                    topID: topid || id,
+                    link,
+                    nick,
+                    id: atid
                 }
             }
         })
@@ -169,7 +172,7 @@ class ComComment extends HTMLElement {
                     con.insertBefore(createList([param]), con.children[length])
 
                     this._commentList.splice(length, 0, param);
-                   
+
                 } else {
                     let con = this.shadowRoot.querySelector("#quote" + this.atComment.topID);
                     con.appendChild(createList([param], this.atComment.topID, 2))
