@@ -7,11 +7,6 @@
     visibility: hidden;
 }
 
-@media screen and (min-width:1700px) {
-    body {
-        --layoutContentMainMaxwidth: 1500px;
-    }
-}
 
 html,
 body {
@@ -59,40 +54,35 @@ a {
     color          : var(--themeColor);
 }
 
-/* 上下篇 */
-.prev-next-content {
-    -webkit-box-shadow: 0 0 var(--boxShadowBlur) 0 var(--boxShadowColor);
-    box-shadow        : 0 0 var(--boxShadowBlur) 0 var(--boxShadowColor);
-    background        : var(--darkBase, var(--white));
-    border-radius     : var(--radius);
-    padding           : 20px;
-    display           : -webkit-box;
-    display           : -ms-flexbox;
-    display           : flex;
-    -webkit-box-pack  : justify;
-    -ms-flex-pack     : justify;
-    justify-content   : space-between;
 
-    >div {
-        -webkit-box-flex: 1;
-        -ms-flex        : 1;
-        flex            : 1;
-        margin          : 0 20px;
+::-webkit-scrollbar {
+    width           : 8px;
+    height          : 8px;
+    background-color: ~'rgba(var(--themeColorRgb), 0)';
+}
 
-        >div {
-            font-size: 22px;
+::-webkit-scrollbar-track {
+    background-color: ~'rgba(var(--themeColorRgb), 0.05)';
+}
 
-            i {
-                font-size: 22px;
-            }
-        }
+::-webkit-scrollbar-thumb {
+    background-color: ~'rgba(var(--themeColorRgb), 0.4)';
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    border-radius   : 5px;
+}
 
-        +div {
-            text-align: right;
-        }
+::-webkit-scrollbar-thumb:hover {
+    background-color: ~'rgba(var(--darkBaseRgb,var(--themeColorRgb)), 0.9)';
+}
 
-        >a {
-            font-size: 16px;
-        }
-    }
+*::selection {
+    background-color: #cce2ff;
+}
+
+*::-moz-selection {
+    background-color: #cce2ff;
+}
+
+*::-webkit-selection {
+    background-color: #cce2ff;
 }
