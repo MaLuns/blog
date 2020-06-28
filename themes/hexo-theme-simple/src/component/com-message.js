@@ -1,5 +1,4 @@
 import './com-icon.js';
-import './com-loading.js';
 
 class ComMessage extends HTMLElement {
 
@@ -44,13 +43,6 @@ class ComMessage extends HTMLElement {
             margin-right:5px;
         }
 
-        com-loading{
-            display:none;
-        }
-
-        :host([show][type="loading"]) com-loading{
-            display:block;
-        }
         :host([show][type="loading"]) com-icon{
             display:none;
         }
@@ -61,7 +53,6 @@ class ComMessage extends HTMLElement {
         </style>
         <div class="message">
             <com-icon id="message-type" class="message-type" size="16"></com-icon>
-            <com-loading></com-loading>
             <slot></slot>
         </div>
         `

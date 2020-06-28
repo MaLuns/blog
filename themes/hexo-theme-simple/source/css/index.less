@@ -2,19 +2,12 @@
 
 @import './_var/index.less';
 
-@import './_com/index.less';
-@import './_com/layout.less';
-@import './_com/hithlight.less';
-@import './_com/nprogress.less';
-@import './_com/animate.less';
-@import './_com/post.less';
-@import './_com/aplayer.less';
 
 /* 浮动按钮 */
 .float-action-buttons {
     position: fixed;
-    bottom  : 35px;
-    right   : 20px;
+    bottom  : 3em;
+    right   : 2em;
     z-index : 1000;
     height  : -webkit-max-content;
     height  : -moz-max-content;
@@ -45,6 +38,10 @@
         }
     }
 
+    .aside-menu {
+        display: none;
+    }
+
     .backtop {
         opacity           : 0;
         -webkit-transform : translateY(100%);
@@ -62,34 +59,56 @@
     }
 
     #settingsPopup {
-        position           : absolute;
-        border-radius      : var(--radius);
-        background         : var(--darkBase, var(--white));
-        -webkit-transition : all var(--transitionTime);
-        transition         : all var(--transitionTime);
-        right              : 5px;
-        bottom             : 10px;
-        padding            : 10px 25px;
-        width              : -webkit-max-content;
-        width              : -moz-max-content;
-        width              : max-content;
-        -webkit-user-select: none;
-        -moz-user-select   : none;
-        -ms-user-select    : none;
-        user-select        : none;
+        position                : absolute;
+        border-radius           : var(--radius);
+        background              : var(--darkBase, var(--white));
+        /*   -webkit-transition : all var(--transitionTime);
+        transition              : all var(--transitionTime,.3s); */
+        right                   : 5px;
+        bottom                  : 10px;
+        padding                 : 10px 25px;
+        width                   : -webkit-max-content;
+        width                   : -moz-max-content;
+        width                   : max-content;
+        -webkit-user-select     : none;
+        -moz-user-select        : none;
+        -ms-user-select         : none;
+        user-select             : none;
 
         .settings-item {
-            margin : 1rem 0;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
+            margin     : 1rem 0;
+            display    : -webkit-box;
+            display    : -ms-flexbox;
+            display    : flex;
+            align-items: center;
 
             .settings-item-lable {
                 -webkit-box-flex: 1;
                 -ms-flex        : 1;
                 flex            : 1;
+                min-width       : 5rem;
                 margin-right    : 20px;
+                font-weight     : bold;
+                font-size       : 1.2rem;
             }
+        }
+    }
+
+    #lightBtn {
+        i:last-child {
+            display: none;
+        }
+    }
+}
+
+.dark {
+    #lightBtn {
+        i:last-child {
+            display: initial;
+        }
+
+        i:first-child {
+            display: none;
         }
     }
 }
@@ -112,6 +131,7 @@
             padding           : 10px 0;
             margin            : 10px 0;
             border-radius     : 5px;
+            border-bottom     : 1px solid rgba(var(--themeColorRgb), .1);
 
             >a {
                 color            : var(--fontColor, #525f7f);
@@ -128,6 +148,7 @@
                     height       : 60px;
                     margin       : 0 20px;
                     border-radius: 50%;
+                    box-shadow   : none !important;
                 }
 
                 >div {
@@ -143,7 +164,7 @@
             }
 
             &:hover {
-                background-color: rgba(0, 137, 255, 0.08);
+                background-color: ~'rgba(var(--themeColorRgb), 0.05)';
             }
         }
     }
@@ -176,3 +197,96 @@
         line-height     : 20px;
     }
 }
+
+/* 时间线 */
+.timeline {
+    position: relative;
+
+    &::before {
+        content   : " ";
+        position  : absolute;
+        height    : 100%;
+        left      : 123px;
+        width     : 4px;
+        background: ~'rgba(var(--baseRgb), 0.2)';
+    }
+
+    .timeline-item {
+        margin : 20px 0;
+        display: flex;
+
+        .timeline-time {
+            position    : relative;
+            margin-right: 50px;
+            width       : 100px;
+            font-size   : 16px;
+            display     : inline-block;
+            text-align  : right;
+            height      : max-content;
+
+            &.timeline-time-year {
+                color    : var(--themeColor);
+                font-size: 28px;
+            }
+
+            &::before {
+                background   : var(--themeColor);
+                content      : " ";
+                position     : absolute;
+                left         : 123px;
+                top          : 50%;
+                margin-left  : -5px;
+                margin-top   : -7px;
+                width        : 14px;
+                height       : 14px;
+                border-radius: 50%;
+            }
+        }
+
+        .timeline-content {
+            flex: 1;
+
+            a {
+                color    : var(--themeColor);
+                font-size: 18px;
+            }
+
+        }
+    }
+}
+
+/*  */
+.category-all-page {
+    padding-left: 42px;
+
+    .category-title {
+        font-size: 28px;
+    }
+
+    .category-link {
+        display: inline-block;
+        margin : 5px 10px;
+    }
+
+    .category-count {
+        color: #bbb;
+
+        &:before {
+            display: inline;
+            content: " (";
+        }
+
+        &:after {
+            display: inline;
+            content: ") ";
+        }
+    }
+}
+
+@import './_com/index.less';
+@import './_com/layout.less';
+@import './_com/hithlight.less';
+@import './_com/nprogress.less';
+@import './_com/animate.less';
+@import './_com/post.less';
+@import './_com/aplayer.less';

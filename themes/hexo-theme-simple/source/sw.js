@@ -77,14 +77,6 @@ self.addEventListener('fetch', function (event) {
         }
     });
 
-    /* self.toolbox.router.get("/(.*)", self.toolbox.cacheFirst, {
-        origin: /busuanzi.ibruce.info/,
-        cache: {
-            name: staticAssetsCacheName,
-            maxEntries: 3
-        }
-    }) */
-
     self.toolbox.router.get("/(.*)", self.toolbox.cacheFirst, {
         origin: /at\.alicdn\.com/,
         cache: {

@@ -1,4 +1,4 @@
-<aside class="layout-content-aside">
+<aside id="layout-content-aside" class="layout-content-aside">
     <div class="aside-nav-card shadow">
         <header>
             <h2><%= theme.user.name %></h2>
@@ -6,7 +6,7 @@
         </header>
         <ul>
             <% theme.menu.aside.forEach(item=>{%>
-            <a href="<%- item.url %>" <%- item.icon=='qq'?'': 'class="_pjax"'%> >
+            <a href="<%- item.url %>" <%- item.icon=='qq'?'': 'class="_pjax"'%>>
                 <li>
                     <svg class="cg-icon" aria-hidden="true">
                         <use xlink:href="#cg-<%- item.icon %>"></use>
@@ -44,3 +44,4 @@
         </div>
     </div>
 </aside>
+<div id="sidebar-mask"></div>

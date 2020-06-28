@@ -8,7 +8,7 @@
     "deploy": "hexo deploy",
     "new": "hexo new",
     "start": "hexo server",
-    "newc":"hexo newc"
+    "newc": "hexo newc"
   },
   "hexo": {
     "version": "4.0.0"

@@ -81,7 +81,7 @@ export default class ComButton extends HTMLElement {
             top:0; 
             bottom:0; 
             opacity:0; 
-            transition:.3s;
+            transition:var(--transitionTime,.3s);
         }
         :host([type="flat"]:not([disabled]):hover) .btn::before{ 
             opacity:.1 

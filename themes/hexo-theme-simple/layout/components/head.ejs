@@ -14,10 +14,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="<%= url_for(theme.favicon.narmal) %>?v=<%= theme.version %>">
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/android-chrome-192x192.png">
-    
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1518765_eovlsartotg.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/MoePlayer/APlayer@1.10.1/dist/APlayer.min.css">
+
+    <% theme.cdn.css.forEach(item=>{ %>
+        <link rel="stylesheet" href="<%- item %>">
+    <% })%>
+
     <%- css('css/index.css?v='+theme.version) %>
+
     <script type="text/javascript">
         ~function () {
             let setting = localStorage.getItem('setting') ? JSON.parse(localStorage.getItem('setting')) : {}; let root = document.documentElement;

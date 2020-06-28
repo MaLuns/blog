@@ -1,14 +1,21 @@
 <%# 设置 %>
 <div class="float-action-buttons">
     <com-tips dir="left" tips="回到顶部" style="display: block;" class="backtop">
-        <button class="btn" id="back-top">
+        <button type="button" class="btn shadow" id="back-top">
             <i class="iconfont cg-backtop"></i>
+        </button>
+    </com-tips>
+
+    <com-tips dir="left" tips="昼夜切换" style="display: block;">
+        <button type="button" class="btn shadow" id="lightBtn">
+            <i class="iconfont cg-rijian"></i>
+            <i class="iconfont cg-zhanghu-heiye"></i>
         </button>
     </com-tips>
 
     <com-popover>
         <com-tips dir="left" tips="设置">
-            <button class="btn" id="setbtn">
+            <button type="button" class="btn shadow" id="setbtn">
                 <i class="iconfont cg-shezhi"></i>
             </button>
         </com-tips>
@@ -20,7 +27,7 @@
                 </div>
                 <div class="settings-item">
                     <div class="settings-item-lable"> 字体 </div>
-                    <com-radio-group name="lan" defaultvalue="sans-serif">
+                    <com-radio-group id="fl" name="lan" defaultvalue="sans-serif">
                         <com-radio>sans-serif</com-radio>
                         <com-radio>monospace</com-radio>
                     </com-radio-group>
@@ -53,4 +60,11 @@
             </div>
         </com-popcon>
     </com-popover>
+
+    <com-tips dir="left" tips="菜单" class="aside-menu">
+        <button type="button" class="btn shadow" id="asideMenu">
+            <i class="iconfont cg-menu"></i>
+        </button>
+    </com-tips>
+
 </div>

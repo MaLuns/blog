@@ -23,6 +23,19 @@ post_wordcount:
   wordcount: true # 单篇 字数统计
   min2read: true # 单篇 阅读时长
 
+#开启
+sw: true
+
+cdn:
+  css: 
+    - //at.alicdn.com/t/font_1518765_3veddg8idtc.css
+    - //cdn.jsdelivr.net/gh/MoePlayer/APlayer@1.10.1/dist/APlayer.min.css
+  js:
+    - //cdn.jsdelivr.net/gh/MoePlayer/APlayer@1.10.1/dist/APlayer.min.js
+    - //cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js
+    - //at.alicdn.com/t/font_1518765_vg5dubnjuvr.js
+    - //imgcache.qq.com/qcloud/tcbjs/1.6.0/tcb.js
+
 menu:
   nav:
     - title: 白云苍狗
@@ -33,19 +46,22 @@ menu:
     - title: 留言
       url: /comment
       icon: comment
-    - title: 关于
-      url: /about
-      icon: home
+    - title: 归档
+      url: /archives
+      icon: shijian
   aside:
     - title: 首页
       url: /
       icon: home
+    - title: 友情链接
+      url: /links
+      icon: links
+    - title: 留言
+      url: /comment
+      icon: comment
     - title: RSS
       url: /atom.xml
       icon: rss
-    - title: 碎碎念
-      url: /message
-      icon: message
     - title: 联系我
       url: tencent://message/?uin=384399021&amp;Site=有事Q我&amp;Menu=yes
       icon: qq
@@ -66,3 +82,15 @@ links:
     url: https://www.imalun.com/
     image: https://www.imalun.com/images/avatar.jpg
     desc: 醒，亦在人间；梦，亦在人间
+  - name: coding
+    url: https://coding.net/
+    image: https://assets.codehub.cn/micro-frontend/login/b3886ef19bf4ab6bb92b3ce60b80fde9.svg
+    desc: 一站式 DevOps，提升研发效能
+  - name: 腾讯云开发
+    url: https://www.cloudbase.net/
+    image: https://docs.cloudbase.net/favicon.png
+    desc: 云开发 Serverless 云端一体化产品方案，助力小程序、Web应用、移动应用成功
+  - name: solstice23’s Blog
+    url: https://solstice23.top
+    image: https://solstice23.top/friendlink_image/avatar/
+    desc: Debug the world.

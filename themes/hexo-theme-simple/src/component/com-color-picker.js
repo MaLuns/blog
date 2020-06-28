@@ -4,7 +4,8 @@ import message from './com-message.js';
 import { rgbToHsv, hslToHsv, parseToHSVA } from '../color.js';
 import { HSVaColor } from '../hsvacolor.js';
 
-const Material_colors = ['#f44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722', '#795548', '#9E9E9E', '#607D8B', 'rgba(0,0,0,.65)', 'transparent']
+const Material_colors = ['#f44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#15bbf2', '#00BCD4', '#009688', '#4CAF50', '#8BC34A',
+    '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722', '#795548', '#9E9E9E', '#607D8B', 'rgba(0,0,0,.65)', 'transparent']
 
 class ComColorPane extends HTMLElement {
 
@@ -68,7 +69,7 @@ class ComColorPane extends HTMLElement {
                 margin: auto;
                 fill: hsl(0, 0%, calc( ((2 - var(--s) / 100) * var(--v) / 200 * var(--a) - 0.6 ) * -999999%  ));
                 opacity: 0;
-                transition: .3s;
+                transition: var(--transitionTime,.3s);
             }
             .color-show:hover .icon-file{
                 opacity:1;
