@@ -63,7 +63,7 @@ export default class ComCheckbox extends HTMLElement {
             border: 0.0875em solid var(--borderColor,rgba(0,0,0,.2));
             border-radius: 0.15em;
             text-align: initial;
-            transition:.3s;
+            transition:var(--transitionTime,.3s);
         }
         :host(:empty) .cheked{
             margin-right:0;
@@ -348,7 +348,7 @@ class ComCheckboxGroup extends HTMLElement {
             opacity:.6;
         }
         ::slotted(com-checkbox){
-            transition: opacity .3s;
+            transition: opacity var(--transitionTime,.3s);
         }
         com-tips[show=show]{
             --themeColor:var(--errorColor,#f4615c);

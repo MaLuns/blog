@@ -9,7 +9,7 @@ export default class ComRadio extends HTMLElement {
         shadowRoot.innerHTML = `
         <style>
         :host{ 
-            margin:0 10px;
+            margin:0 5px !important;
             display:inline-block;
             font-size:14px;
             color:var(--fontColor,#333);
@@ -50,7 +50,7 @@ export default class ComRadio extends HTMLElement {
             display: flex;
             border-radius:50%;
             border: 1px solid var(--borderColor,rgba(0,0,0,.2));
-            transition:.3s;
+            transition:var(--transitionTime,.3s);
             margin-right:.5em;
         }
         :host(:empty) .cheked{

@@ -7,22 +7,6 @@
         </div>
     </header>
     <div>
-        <ul class="links-list">
-            <% theme.links.forEach(item=>{%>
-            <li class="links-list-item">
-                <a href='<%- item.url %>' target='_blank'>
-                    <img class="" src="<%- item.image %>">
-                    <div>
-                        <h3><%- item.name %></h3>
-                        <p><%- item.desc %></p>
-                    </div>
-                </a>
-            </li>
-            <%})%>
-        </ul>
-        <div style="padding: 15px 0 15px 20px;background: #000;margin: 20px 0;border-radius: 4px;">
-            欢迎互换友链
-        </div>
         <blockquote>
             <p> 我的信息</p>
             <p> 头像：<%- theme.url%><%- theme.user.avatar%></p>
@@ -30,9 +14,27 @@
             <p> 简介：<%- theme.user.desc %></p>
             <p> 网址：<%- theme.url%></p>
         </blockquote>
+        <blockquote class="blockquote">
+            欢迎互换友链
+        </blockquote>
+        <div class="links-list">
+            <% theme.links.forEach(item=>{%>
+            <div class="links-list-item">
+                <a href='<%- item.url %>' target='_blank'>
+                    <img class="" src="<%- item.image %>">
+                    <div>
+                        <h3><%- item.name %></h3>
+                        <p><%- item.desc %></p>
+                    </div>
+                </a>
+            </div>
+            <%})%>
+        </div>
     </div>
 </article>
-<%- partial('../components/comment') %>
+<%- partial('../components/comment',{
+    comtitle:""
+}) %>
 
 <!--
 <com-comment env='<%- theme.env %>' hash='<%- page.hash %>'>

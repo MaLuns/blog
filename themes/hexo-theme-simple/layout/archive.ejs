@@ -1,0 +1,46 @@
+<%# 分类页面 %>
+<article class="">
+    <header class="post-header">
+        <div class="post-container">
+            
+            <h2 class="post-title">「 归档<% if(is_category()){%> - <%- page.category %> <%}%> 」</h2>
+        </div>
+    </header>
+    <% if(is_archive()){%>
+        <div class="category-all-page ">
+            <div class="category-title">分类</div>
+            <%- list_categories({
+                style:"",
+                separator:""
+            }) %>
+        </div>
+    <%}%>
+
+    <div class="timeline">
+        <% var lastDate;page.posts.forEach(function(element) { %>
+            <%var vdate=date(element.date,'YYYY');%>
+            <%if(lastDate !=vdate) {%>
+                <div class="timeline-item">
+                    <div class="timeline-time timeline-time-year">
+                        <time datetime="<%- vdate %>" title="<%- vdate %>" itemprop="datePublished">
+                            <%- vdate %>
+                        </time>
+                    </div>
+                </div>
+            <% };%>
+            <% lastDate=vdate; %>
+                <div class="timeline-item">
+                    <div class="timeline-time">
+                        <time datetime="<%- element.date %>" title="<%- element.date %>" itemprop="datePublished">
+                            <%- date(element.date,'MM-DD') %>
+                        </time>
+                    </div>
+                    <div class="timeline-content">
+                        <a class="title-link" href="<%- url_for(element.path) %>" target="_blank" itemprop="url">
+                            <%= element.title %>
+                        </a>
+                    </div>
+                </div>
+        <% }) %>
+    </div>
+</article>

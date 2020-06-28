@@ -11,6 +11,21 @@ $(function () {
                 });
             })
 
+            $("#asideMenu").on("click", function () {
+                $("#layout-content-aside").addClass('show');
+                $("#sidebar-mask").addClass('show');
+            })
+            $("#sidebar-mask").on("click", function () {
+                $("#layout-content-aside").removeClass('show');
+                $("#sidebar-mask").removeClass('show');
+            })
+
+            $("#lightBtn").on("click", function () {
+                let checked = !app.setting.lightSwitch;
+                root.classList[checked ? 'add' : 'remove']('dark')
+                app.setSetting('lightSwitch', checked)
+                $("#lightSwitch").attr('checked', checked)
+            })
             $("#lightSwitch").on('change', function (ev) {
                 let checked = ev.detail.checked;
                 root.classList[checked ? 'add' : 'remove']('dark')
