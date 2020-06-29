@@ -8,8 +8,8 @@ NProgress.configure({
     speed: 1000
 });
 
-$(document).pjax('a', '#main', {
-    fragment: '#main',
+$(document).pjax('a._pjax', '.layout-content-content', {
+    fragment: '.layout-content-content',
     timeout: 5000,
 });
 
@@ -21,7 +21,12 @@ $(document).on('pjax:start', function () {
 });
 
 
-$(document).on('pjax:end', function (xhl) {
-     NProgress.done();
-     console.log(xhl)
+$(document).on('pjax:end', function () {
+    NProgress.done();
+   /*  let a = $(arguments[1].responseText).find(".toc");
+    if (a) {
+        $("#post-toc").append(a)
+    } */
+    require('./post-details')();
+    console.log(arguments)
 });

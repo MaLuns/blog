@@ -6,14 +6,14 @@
         </header>
         <ul>
             <% theme.menu.aside.forEach(item=>{%>
-            <a href="<%- item.url %>" <%- item.icon=='qq'?'': 'class="_pjax"'%>>
-                <li>
-                    <svg class="cg-icon" aria-hidden="true">
-                        <use xlink:href="#cg-<%- item.icon %>"></use>
-                    </svg>
-                    <%- item.title %>
-                </li>
-            </a>
+                <a href="<%- item.url %>" <%- item.icon=='qq'?'': 'class="_pjax"'%>>
+                    <li>
+                        <svg class="cg-icon" aria-hidden="true">
+                            <use xlink:href="#cg-<%- item.icon %>"></use>
+                        </svg>
+                        <%- item.title %>
+                    </li>
+                </a>
             <%})%>
         </ul>
     </div>
@@ -42,6 +42,11 @@
                 </div>
             </div>
         </div>
+      
+        <div id="post-toc">
+            <% if(is_post()){%> <%- toc(page.content) %> <% }%>
+        </div>
+
     </div>
 </aside>
 <div id="sidebar-mask"></div>

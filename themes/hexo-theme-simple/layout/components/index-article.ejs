@@ -1,8 +1,15 @@
+<% 
+    let isheaderbg = (post.headerbg && post.headerbg.length>0);
+    let isHome= is_home();
+%>
 <article class="shadow animated fadeInUp">
-    <header class="post-header">
-        <div class="post-container">
+    <header class="post-header <%- isheaderbg?'post-header-bg-img':'' %>">
+        <% if(isheaderbg){%>
+            <img class="bg-img" src="<%- post.headerbg[0] %>" alt="">
+        <% }%>
+        <div class="post-container" style="color: <%- isheaderbg ? (post.headerbg[1] ? post.headerbg[1]: '#000'): '' %>">
             <h2 class="post-title">
-                <% if(index){%>
+                <% if(isHome){%>
                     <a class="_pjax" href="<%- url_for(post.path) %>">「<%= post.title %>」</a>
                 <%}else{%>
                     「<%- post.title %>」
@@ -23,8 +30,8 @@
                         <span class="post-meta-divider">•</span>
                     </span>
                     <span>
-                        <i class="iconfont cg-message"></i> 
-                        <%- post.categories.data[0].name %>
+                        <i class="iconfont cg-tag1"></i> 
+                        <a class="_pjax" href="/categories/<%- post.categories.data[0].name %>"><%- post.categories.data[0].name %></a>
                     </span>
                 </div>
                 <%if(theme.post_wordcount.wordcount){%>
@@ -47,8 +54,8 @@
             </div>
         </div>
     </header>
-    <div id="nice" class="post-content <%- index?'':'post-content-detail' %>">
-        <% if(index){%>
+    <div id="nice" class="post-content <%- isHome?'':'post-content-detail' %>">
+        <% if(isHome){%>
             <%if(post.excerpt){%>
                 <%-  post.excerpt %>
             <%}else{%>
@@ -64,13 +71,16 @@
                     <use xlink:href="#cg-tag"></use>
                 </svg>
                 <% post.tags.forEach(item => { %>
-                    <span><%- item.name %></span>
+                    <a class="_pjax" href="/tags/<%- item.name %>">
+                        <span><%- item.name %></span>
+                    </a>
                 <% })%>
             </div>
         <%}%>
     </div>
 </article>
-<% if(!index){%>
+<% if(!isHome){%>
     <%- partial('./share') %>
     <%- partial('./next') %>
 <%}%>
+
