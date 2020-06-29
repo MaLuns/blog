@@ -283,6 +283,25 @@
     }
 }
 
+#post-toc {
+    text-align: initial;
+
+    ol {
+        list-style : none;
+        margin-left: 1em;
+
+        &.toc {
+            margin     : 10px 20px;
+            padding-top: 20px;
+            border-top : 1px dashed #525f7f;
+        }
+
+        a {
+            color: var(--fontColor, #525f7f);
+        }
+    }
+}
+
 @import './_com/index.less';
 @import './_com/layout.less';
 @import './_com/hithlight.less';

@@ -17,6 +17,7 @@ import './cursor-effects'
 import './aplayer'
 import './title'
 import './pjax'
+require('./post-details')();
 
 window.verification = function (success) {
     console.log(success)

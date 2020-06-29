@@ -1,9 +1,14 @@
 <%# 分类页面 %>
+<%
+let title='';
+if(is_archive()){ title='归档';}
+else if(is_category()) { title='归档 - '+page.category ;} 
+else if(is_tag()) { title='标签 - '+page.tag;} 
+%>
 <article class="">
     <header class="post-header">
         <div class="post-container">
-            
-            <h2 class="post-title">「 归档<% if(is_category()){%> - <%- page.category %> <%}%> 」</h2>
+            <h2 class="post-title">「 <%- title %> %> 」</h2>
         </div>
     </header>
     <% if(is_archive()){%>
@@ -36,7 +41,7 @@
                         </time>
                     </div>
                     <div class="timeline-content">
-                        <a class="title-link" href="<%- url_for(element.path) %>" target="_blank" itemprop="url">
+                        <a class="title-link _pjax" href="<%- url_for(element.path) %>" itemprop="url">
                             <%= element.title %>
                         </a>
                     </div>

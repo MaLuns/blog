@@ -24,7 +24,10 @@ post_wordcount:
   min2read: true # 单篇 阅读时长
 
 #开启
-sw: true
+sw: false
+
+#
+canonical: true
 
 cdn:
   css: 

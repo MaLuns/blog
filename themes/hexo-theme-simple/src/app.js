@@ -11,6 +11,7 @@ $(function () {
                 });
             })
 
+            //菜单
             $("#asideMenu").on("click", function () {
                 $("#layout-content-aside").addClass('show');
                 $("#sidebar-mask").addClass('show');
@@ -20,6 +21,7 @@ $(function () {
                 $("#sidebar-mask").removeClass('show');
             })
 
+            //昼夜
             $("#lightBtn").on("click", function () {
                 let checked = !app.setting.lightSwitch;
                 root.classList[checked ? 'add' : 'remove']('dark')
@@ -32,18 +34,21 @@ $(function () {
                 app.setSetting('lightSwitch', checked)
             })
 
+            //滤镜色
             $("#filterColor").on('change', function (ev) {
                 let val = ev.detail.value;
                 let cssval = val == 'none' ? 'transparent' :
                     (val == 'sunset' ? '#cbcca20f' : '#ca7c7c0f');
                 root.style.setProperty('--filterColor', cssval);
                 app.setSetting('filterColor', {
-                    val, css: [{
+                    val,
+                    css: [{
                         key: '--filterColor', val: cssval
                     }]
                 })
             })
 
+            //圆角
             $("#radiusSlider").on('input', function (ev) {
                 let val = ev.detail.value;
                 root.style.setProperty('--radius', val + 'px');
@@ -52,6 +57,7 @@ $(function () {
                 })
             })
 
+            //阴影
             $("#boxShadowBlur").on('change', function (ev) {
                 let val = ev.detail.value;
                 root.style.setProperty('--boxShadowBlur', val + 'px');
@@ -60,6 +66,7 @@ $(function () {
                 })
             })
 
+            //主题色
             $("#themeColorPicker").on('change', function (ev) {
                 let rgba = this.color.toRGBA();
                 let rgb = `${rgba[0]},${rgba[1]},${rgba[2]}`;
@@ -69,6 +76,15 @@ $(function () {
                 app.setSetting('themeColorPicker', {
                     css: [{ key: '--baseRgb', val: rgb }, { key: '--base', val: hexa }],
                     val: hexa
+                })
+            })
+
+            //字体
+            $("#fontFamily").on("change", function (ev) {
+                let val = ev.detail.value;
+                root.style.setProperty('--fontFamily', val);
+                app.setSetting('fontFamily', {
+                    val, css: [{ key: '--fontFamily', val }]
                 })
             })
         },
@@ -102,6 +118,7 @@ $(function () {
                     case 'filterColor':
                     case 'radiusSlider':
                     case 'boxShadowBlur':
+                    case 'fontFamily':
                     case 'themeColorPicker':
                         document.getElementById(key).value = setting[key].val;
                         break

@@ -71,3 +71,7 @@ function getIpv4() {
     return ipv4;
 }
 ```
+
+效果如下
+
+![](/images/posts/node_proxy/20200629201153.png)
