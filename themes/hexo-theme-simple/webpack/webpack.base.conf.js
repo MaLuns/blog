@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 
 module.exports.baseConf = {
     mode: 'production',
@@ -19,17 +18,5 @@ module.exports.baseConf = {
                 }
             }
         }]
-    },
- /*    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-            output: {
-                comments: false,
-                ascii_only: true
-            },
-            sourceMap: true
-        })
-    ], */
+    }
 }

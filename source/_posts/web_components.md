@@ -14,7 +14,7 @@ Web Components 的组成主要是由这三种组成，它们可以封装自定�
 - Shadow DOM（影子DOM）：可以对脚本和样式进行隔离，不用担心外部对其由影响
 - HTML templates（HTML模板）：\<template\> 和 \<slot\> 元素使您可以编写不在呈现页面中显示的标记模板。然后它们可以作为自定义元素结构的基础被多次重用。
 
-## 自定义元素(Custom elements) ##
+## 自定义元素 ##
 
 CustomElementRegistry 接口的实例用来注册一个自定义元素，window.customElements 获取去到 CustomElementRegistry 实例。customElements.define() 方法用来注册一个 custom element，该方法接受以下参数：
 - 表示所创建的元素名称的符合 DOMString 标准的字符串。注意，custom element 的名称不能是单个单词，且其中必须要有短横线。
@@ -65,7 +65,7 @@ customElements.define(
 static get observedAttributes() {return ['name', 'style']; }
 ```
 
-## 影子DOM(Shadow DOM) ##
+## Shadow DOM ##
 Shadow DOM 可以将一个隐藏的、独立的 DOM 附加到一个元素上，可以将标记结构、样式和行为隐藏起来，并与页面上的其他代码相隔离，保证不同的部分不会混在一起，可使代码更加干净、整洁。
 - Shadow host：一个常规 DOM节点，Shadow DOM 会被附加到这个节点上。
 - Shadow tree：Shadow DOM内部的DOM树。
@@ -103,7 +103,7 @@ attachShadow 参数
 </style>
 <div class='test'>
     <div id='demo'>
-        <h2>你的浏览器不支持 Shadow DOM </h2>
+        你的浏览器不支持 Shadow DOM 
     </div>
 </div>  
 <script>
@@ -146,7 +146,7 @@ attachShadow 参数
 </style>
 <div class='test'>
     <div id='demo'>
-        <h2>你的浏览器不支持 Shadow DOM </h2>
+        你的浏览器不支持 Shadow DOM 
     </div>
 </div>  
 <script>
@@ -171,7 +171,7 @@ attachShadow 参数
 </script>
 
 
-## HTML模板(HTML templates) ##
+## HTML模板 ##
 template 主要作用就是避免重复去创建那些标签结构。比如当一个组件被重复使用时候，如果不用模板的话，会一遍又一遍的去创建组件类的标签结构，使用 template 这样会避免这样重复的创建标签结构。
 
 template 不会再DOM上显示，举例：
@@ -193,7 +193,7 @@ document.body.appendChild(template.content);
 
 ``` html
 <my-div image='/images/logo/admin_template.png'>
-    <h4 slot='header'>Web Components</h4>
+    <div slot='header'>Web Components</div>
     <div slot='footer'>
         slot footer
     </div>
@@ -259,7 +259,7 @@ document.body.appendChild(template.content);
 ```
 
 <my-div image='/images/logo/web_conponents.png'>
-    <h4 slot='header'>Web Components</h4>
+    <div slot='header'>Web Components</div>
     <div slot='footer'>
         slot footer
     </div>

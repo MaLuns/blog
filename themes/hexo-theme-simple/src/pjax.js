@@ -1,6 +1,5 @@
-require('jquery-pjax')
+
 const NProgress = require('nprogress')
-/* import tcb from './tcb' */
 
 NProgress.configure({
     showSpinner: false,
@@ -8,25 +7,24 @@ NProgress.configure({
     speed: 1000
 });
 
-$(document).pjax('a._pjax', '.layout-content-content', {
-    fragment: '.layout-content-content',
+$(document).pjax('a._pjax', '#main', {
+    fragment: '#main',
     timeout: 5000,
 });
 
 $(document).on('pjax:start', function () {
     NProgress.start();
     $('html, body').animate({
-        scrollTop: $('#main').position().top / 2
+        scrollTop: 0
     }, 500);
 });
 
 
 $(document).on('pjax:end', function () {
     NProgress.done();
-   /*  let a = $(arguments[1].responseText).find(".toc");
-    if (a) {
-        $("#post-toc").append(a)
-    } */
+    let html = $(arguments[1].responseText);
+    let toc = html.find("#post-toc");
+    $("#post-toc").empty().append(toc);
     require('./post-details')();
-    console.log(arguments)
+    /* console.log(toc, arguments) */
 });

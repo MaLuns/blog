@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     mode: 'production',
@@ -10,6 +10,9 @@ module.exports = {
         path: path.resolve(__dirname, '../source/js'),
         filename: '[name].min.js',
         publicPath: '/'
+    },
+    externals: {
+        'nprogress': 'NProgress'
     },
     module: {
         strictExportPresence: true,
@@ -44,16 +47,7 @@ module.exports = {
             }
         ]
     },
-    /*     plugins: [
-            new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: false
-                },
-                output: {
-                    comments: false,
-                    ascii_only: true
-                },
-                sourceMap: true
-            })
-        ], */
+    plugins: [
+        new BundleAnalyzerPlugin()
+    ]
 }
