@@ -7,6 +7,7 @@ tags: [js,node]
 categories: 记录类
 description: 
 keywords:
+headerbg: [/images/logo/20200701200939.png,'#dedede']
 ---
 
 使用CloudBase给静态博客添加评论功能

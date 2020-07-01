@@ -1,102 +1,92 @@
-/* self.addEventListener('install', function (event) {
-    event.waitUntil(
-        caches.open('sw_demo').then(function (cache) {
-            return cache.addAll([
-                '/css/style.css',
-                '/js/index.min.js'
-            ])
-        }));
+importScripts('https://cdn.jsdelivr.net/npm/workbox-cdn@5.1.3/workbox/workbox-sw.js');
+
+workbox.setConfig({
+    modulePathPrefix: 'https://cdn.jsdelivr.net/npm/workbox-cdn@5.1.3/workbox/'
 });
 
-self.addEventListener('fetch', function (event) {
-    event.respondWith(
-        caches.match(event.request)
-        .then(function (response) {
-            if (response) {
-                return response;
-            }
-            return fetch(event.request);
+//关闭日志
+self.__WB_DISABLE_DEV_LOGS = true;
+
+const { core, precaching, routing, strategies, expiration } = workbox;
+const { CacheFirst, NetworkFirst, NetworkOnly, StaleWhileRevalidate } = strategies;
+const { ExpirationPlugin } = expiration;
+
+const cacheSuffixVersion = '_20200610';
+
+core.setCacheNameDetails({
+    prefix: 'bycg',
+    suffix: cacheSuffixVersion
+});
+
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then((keys) => {
+            return Promise.all(keys.map((key) => {
+                if (!key.includes(cacheSuffixVersion)) return caches.delete(key);
+            }));
         })
     );
-}); */
+});
 
 
+core.skipWaiting();
+core.clientsClaim();
 
-"use strict";
-(function () {
-    var cacheVersion = "20200114";
-    var staticImageCacheName = "image" + cacheVersion;
-    var staticAssetsCacheName = "assets" + cacheVersion;
-    var contentCacheName = "content" + cacheVersion;
-
-    var maxEntries = 100;
-    self.importScripts("lib/sw-toolbox/sw-toolbox.js");
-    self.toolbox.options.debug = false;
-    self.toolbox.options.networkTimeoutSeconds = 3;
-
-    self.toolbox.router.get("/(.*)\.png", self.toolbox.cacheFirst, {
-        cache: {
-            name: staticImageCacheName,
-            maxEntries: maxEntries
-        }
-    });
-
-    self.toolbox.router.get("/images/(.*)", self.toolbox.cacheFirst, {
-        cache: {
-            name: staticImageCacheName,
-            maxEntries: maxEntries
-        }
-    });
-
-    self.toolbox.router.get('/js/(.*)', self.toolbox.cacheFirst, {
-        cache: {
-            name: staticAssetsCacheName,
-            maxEntries: maxEntries
-        }
-    });
-
-    self.toolbox.router.get('/css/(.*)', self.toolbox.networkFirst, {
-        cache: {
-            name: staticAssetsCacheName,
-            maxEntries: maxEntries
-        }
-    });
-
-    self.toolbox.router.get('/fonts/(.*)', self.toolbox.cacheFirst, {
-        cache: {
-            name: staticAssetsCacheName,
-            maxEntries: maxEntries
-        }
-    });
-
-    self.toolbox.router.get("/(.*)", self.toolbox.cacheFirst, {
-        origin: /cdn\.jsdelivr\.net/,
-        cache: {
-            name: staticAssetsCacheName,
-            maxEntries: maxEntries
-        }
-    });
-
-    self.toolbox.router.get("/(.*)", self.toolbox.cacheFirst, {
-        origin: /at\.alicdn\.com/,
-        cache: {
-            name: staticAssetsCacheName,
-            maxEntries: 3
-        }
+/**
+ * 缓存第三方引用
+ */
+routing.registerRoute(
+    /.*(cdn.jsdelivr.net|at.alicdn.com)/,
+    new CacheFirst({
+        cacheName: 'static-cdn' + cacheSuffixVersion,
+        fetchOptions: {
+            mode: 'cors',
+            credentials: 'omit'
+        },
+        plugins: [
+            new ExpirationPlugin({
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+                purgeOnQuotaError: true
+            })
+        ]
     })
+);
 
-    self.toolbox.router.get('/*', self.toolbox.networkFirst, {
-        cache: {
-            name: contentCacheName,
-            maxEntries: maxEntries
-        }
-    });
+//不作缓存
+routing.registerRoute(
+    /\/sw.js/,
+    new NetworkOnly()
+);
 
 
-    self.addEventListener("install", function (event) {
-        return event.waitUntil(self.skipWaiting())
-    });
-    self.addEventListener("activate", function (event) {
-        return event.waitUntil(self.clients.claim())
+//缓存图片
+routing.registerRoute(
+    /.*\.(?:png|jpg|jpeg|svg|gif|webp)/,
+    new CacheFirst({
+        cacheName: 'static-image' + cacheSuffixVersion,
     })
-})();
+);
+
+//缓存js css
+routing.registerRoute(
+    /.*\.(css|js)$/,
+    new CacheFirst({
+        cacheName: 'static-js-css' + cacheSuffixVersion,
+    })
+);
+
+//本站其他文件 
+routing.registerRoute(
+    ({ url }) => {
+        return url.hostname === location.hostname
+    },
+    new NetworkFirst({
+        cacheName: 'static-other' + cacheSuffixVersion,
+        plugins: [
+            new ExpirationPlugin({
+                maxEntries: 50,
+                purgeOnQuotaError: true
+            })
+        ]
+    })
+);

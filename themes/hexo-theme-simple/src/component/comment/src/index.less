@@ -8,6 +8,10 @@
     color             : var(--darkFontColor, --fontColor, #525f7f);
 
     .list-content {
+        >h2 {
+            text-align: center;
+        }
+
         .c-item {
             display: flex;
             padding: 20px 0 10px 0;
@@ -20,7 +24,8 @@
             }
 
             .vh {
-                flex: 1;
+                flex    : 1;
+                overflow: hidden;
 
                 .c-head {
                     line-height: 1.5;
@@ -104,8 +109,25 @@
         }
     }
 
-    .loading {
-        fill: var(--themeColor, #000);
+    #loading {
+        fill   : var(--themeColor, #000);
+        width  : 50px;
+        height : 50px;
+        display: none;
+    }
+
+    #loadmore {
+        cursor            : pointer;
+        width             : 50px;
+        height            : 50px;
+        border-radius     : 50%;
+        fill              : var(--themeColor, #000);
+        -webkit-transition: all var(--transitionTime, 0.3s ease);
+        transition        : all var(--transitionTime, 0.3s ease);
+
+        &:hover {
+            box-shadow: 0 0 6px 0 var(--themeColor, #000);
+        }
     }
 }
 
@@ -152,8 +174,9 @@
         }
 
         &.textarea {
-            width : 100%;
-            border: none;
+            width  : 100%;
+            border : none;
+            display: block;
 
             textarea {
                 box-sizing : border-box;
@@ -189,9 +212,9 @@
     }
 
     .btn {
-        background        : var(--themeColor, #fff);
-        border            : 1px solid var(--themeColor);
-        transition        : all var(--transitionTime);
+        transition        : all var(--transitionTime, 0.3s ease);
+        background        : ~'rgba(var(--baseRgb,21, 187, 241), 0.8)';
+        border            : 1px solid ~'rgba(var(--baseRgb,21, 187, 241), 0.8)';
         -webkit-box-shadow: ~'0 0 var(--boxShadowBlur) 0 var(--boxShadowColor)';
         box-shadow        : ~'0 0 var(--boxShadowBlur) 0 var(--boxShadowColor)';
         color             : #fff;
@@ -213,8 +236,8 @@
         }
 
         &:hover {
-            border-color    : var(--themecolor-dark, #5e72e4);
-            background-color: var(--themecolor-dark, #5e72e4);
+            border-color    : var(--themeColor, #15bbf2);
+            background-color: var(--themeColor, #15bbf2);
         }
     }
 
@@ -289,5 +312,96 @@
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.c-content {
+    pre {
+        font-family  : Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+        position     : relative;
+        background   : #272822 !important;
+        margin       : 2em 0;
+        padding      : 40px 20px 10px;
+        overflow     : auto;
+        color        : #ccc !important;
+        font-size    : 14px;
+        border-radius: 4px;
+        line-height  : 20px;
+
+        code {
+            font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+        }
+
+        &::after {
+            content           : " ";
+            position          : absolute;
+            border-radius     : 50%;
+            background        : #ff5f56;
+            width             : 12px;
+            height            : 12px;
+            top               : 0;
+            left              : 12px;
+            margin-top        : 12px;
+            -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+            box-shadow        : 20px 0 #ffbd2e, 40px 0 #27c93f;
+        }
+    }
+
+    //分割线
+    hr {
+        height          : 1px;
+        padding         : 0;
+        border          : none;
+        text-align      : center;
+        background-image: linear-gradient(to right, rgba(93, 186, 133, 0), rgba(93, 186, 133, 0.75), rgba(93, 186, 133, 0));
+    }
+
+    a {
+        text-decoration: none;
+        outline        : 0;
+        color          : var(--themeColor);
+    }
+
+    p {
+        margin: 10px 2px 10px;
+    }
+
+    ul {
+        font-size      : 15px;
+        list-style-type: circle;
+    }
+
+    ol {
+        font-size: 15px;
+    }
+
+    li section {
+        font-size  : 14px;
+        font-weight: normal;
+    }
+
+
+    blockquote {
+        border-radius: 6px;
+        border       : 1px solid rgba(64, 184, 250, 0.4);
+        background   : rgba(64, 184, 250, 0.1);
+        padding      : 10px 20px;
+        font-size    : 0.9em;
+        overflow     : auto;
+        margin       : 0;
+
+        &::before {
+            content    : "❝";
+            color      : RGBA(64, 184, 250, .5);
+            font-size  : 34px;
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        &::after {
+            content: "❞";
+            float  : right;
+            color  : RGBA(64, 184, 250, .5);
+        }
     }
 }

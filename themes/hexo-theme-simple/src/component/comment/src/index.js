@@ -1,10 +1,11 @@
 import css from './index.less'
 import html from './index.html'
-import Emoji from './emojis/index'
+/* import Emoji from './emojis/index' */
 import { detect, createList, pathToData, escape, unescape } from './libs/util'
 import marked from 'marked';
 import DOMPurify from 'dompurify';
 import tcp from './libs/tcb'
+const hanabi = require('hanabi');
 
 class ComComment extends HTMLElement {
 
@@ -14,6 +15,7 @@ class ComComment extends HTMLElement {
         this.sending = false;
         this.detect = detect();
         marked.setOptions({
+            highlight: hanabi,
             gfm: true,
             tables: true,
             breaks: true,
@@ -50,7 +52,7 @@ class ComComment extends HTMLElement {
 
         //输入
         this.textarea.addEventListener('input', function () {
-            textarea_hidden.innerHTML = DOMPurify.sanitize(marked(this.value));
+            textarea_hidden.innerHTML = DOMPurify.sanitize(this.value);
             this.style.height = textarea_hidden.offsetHeight + 40 + 'px';
         })
 
@@ -107,6 +109,10 @@ class ComComment extends HTMLElement {
         shadowRoot.getElementById("close-btn").addEventListener('click', (e) => {
             this._cancel_reply()
         })
+
+        shadowRoot.getElementById("loadmore").addEventListener('click', (e) => {
+            this._morelist()
+        })
     }
 
     /**
@@ -138,9 +144,26 @@ class ComComment extends HTMLElement {
      * 加载更改评论
      */
     async _morelist() {
+        let shadowRoot = this.shadowRoot;
+        let loading = shadowRoot.getElementById("loading");
+        let loadmore = shadowRoot.getElementById("loadmore");
+        loading.style.display = 'inline-block';
+        loadmore.style.display = 'none';
+
         let data = await this._dbs.getComment();
         this._commentList = this._commentList.concat(data)
-        this.shadowRoot.querySelector(".list-content").appendChild(createList(data));
+
+        this._listContent = this._listContent || this.shadowRoot.querySelector(".list-content");
+        this._listContent.appendChild(createList(data));
+
+        loading.style.display = 'none';
+        if (data.length == 10) {
+            loadmore.style.display = 'inline-block';
+        } else {
+            let h2 = document.createElement("h2");
+            h2.innerHTML = '没有更多评论了~'
+            this._listContent.appendChild(h2);
+        }
     }
 
     /**
@@ -178,7 +201,9 @@ class ComComment extends HTMLElement {
                     con.appendChild(createList([param], this.atComment.topID, 2))
                     this._cancel_reply()
                 }
+                this.textarea_hidden.innerHTML = ''
                 this.textarea.value = ''
+                this.textarea.style.height = '40px';
             }
             this.sending = false;
 

@@ -156,6 +156,7 @@ $(function () {
     }
 
     $(window).scroll(app.scroll)
+
     app.initSetting();
     app.initSettingEvent();
     app.scroll();

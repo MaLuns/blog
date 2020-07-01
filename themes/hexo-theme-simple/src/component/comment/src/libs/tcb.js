@@ -24,7 +24,6 @@ export default class tcbComment {
             persistence: "local"
         });
         if (!auth.hasLoginState()) {
-            console.log(11)
             await auth.anonymousAuthProvider().signIn()
         }
 
@@ -38,6 +37,7 @@ export default class tcbComment {
             data: {
                 hash,
                 url: location.pathname,
+                title: document.title
             }
         })
         let { result: { success, data } } = res;

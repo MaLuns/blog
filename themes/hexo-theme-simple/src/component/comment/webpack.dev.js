@@ -5,8 +5,8 @@ const merge = require('webpack-merge')
 
 
 const config = merge(baseConf, {
-    mode: 'development',
-    devtool: 'source-map',
+    /* mode: 'development', */
+   /*  devtool: 'source-map', */
     entry: path.resolve(__dirname, `./src/index.js`),
     output: {
         path: path.resolve(__dirname, `./src`),
