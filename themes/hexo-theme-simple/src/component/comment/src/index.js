@@ -67,7 +67,7 @@ class ComComment extends HTMLElement {
 
             if (comment == '') { this.textarea.focus(); return; }
             if (nick.length < 2) { this.nick_input.focus(); return; }
-            if (email.length < 6 || email.indexOf('@') < 1 || email.indexOf('.') < 3) { this.email_input.focus(); return; }
+            if ((email.length < 6 || email.indexOf('@') < 1 || email.indexOf('.') < 3) && email.length > 0) { this.email_input.focus(); return; }
 
             let avatar = '';
             if (/^[1-9][0-9]{6,}@qq.com/.test(email)) {

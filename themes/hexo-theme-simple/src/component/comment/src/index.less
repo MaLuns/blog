@@ -34,8 +34,6 @@
                     .c-nick {
                         color          : var(--themeColor, #000);
                         position       : relative;
-                        font-size      : larger;
-                        font-weight    : bold;
                         margin-right   : .875em;
                         cursor         : pointer;
                         text-decoration: none;
@@ -316,6 +314,8 @@
 }
 
 .c-content {
+
+    //代码块
     pre {
         font-family  : Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
         position     : relative;
@@ -353,34 +353,11 @@
         padding         : 0;
         border          : none;
         text-align      : center;
+        margin          : 2em 0;
         background-image: linear-gradient(to right, rgba(93, 186, 133, 0), rgba(93, 186, 133, 0.75), rgba(93, 186, 133, 0));
     }
 
-    a {
-        text-decoration: none;
-        outline        : 0;
-        color          : var(--themeColor);
-    }
-
-    p {
-        margin: 10px 2px 10px;
-    }
-
-    ul {
-        font-size      : 15px;
-        list-style-type: circle;
-    }
-
-    ol {
-        font-size: 15px;
-    }
-
-    li section {
-        font-size  : 14px;
-        font-weight: normal;
-    }
-
-
+    //引用
     blockquote {
         border-radius: 6px;
         border       : 1px solid rgba(64, 184, 250, 0.4);
@@ -388,7 +365,7 @@
         padding      : 10px 20px;
         font-size    : 0.9em;
         overflow     : auto;
-        margin       : 0;
+        margin       : 20px 0;
 
         &::before {
             content    : "❝";
@@ -404,4 +381,40 @@
             color  : RGBA(64, 184, 250, .5);
         }
     }
+
+    a {
+        text-decoration: none;
+        outline        : 0;
+        color          : var(--themeColor);
+    }
+
+    p {
+        margin: 10px 2px 10px;
+    }
+
+    table {
+        border-spacing: 0;
+        border-right  : 1px solid #ccc;
+        border-bottom : 1px solid #ccc;
+
+        tr {
+            border: 0;
+
+            th {
+                border-top : 1px solid #ccc;
+                border-left: 1px solid #ccc;
+                min-width  : 85px;
+                font-weight: bold;
+                padding    : 5px 10px;
+            }
+
+            td {
+                padding    : 5px 10px;
+                border-top : 1px solid #ccc;
+                border-left: 1px solid #ccc;
+                min-width  : 85px;
+            }
+        }
+    }
+
 }
