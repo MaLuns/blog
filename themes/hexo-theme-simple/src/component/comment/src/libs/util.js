@@ -11,7 +11,7 @@ export const createList = (data, parentid, idxpath) => {
     const rtest = regTest(/^https?\:\/\//);
 
     data.forEach((item, index) => {
-        let { id, avatar, link, nick, date, browser, os, at, childer, content } = item;
+        let { id, avatar, link, nick, date, browser, os, at, childer, content, top = false } = item;
         let topID = parentid || id;
         let ipath = idxpath == undefined ? id : idxpath + ',' + index;
 
@@ -31,7 +31,7 @@ export const createList = (data, parentid, idxpath) => {
 
         let contentDom = create('div', { class: "c-content", id: 'content' + id })
         let atlink = !!at ? (rtest(at.link) ? at.link : 'http://' + at.link) : ''
-        console.log(atlink,at)
+        console.log(atlink, at)
 
         let atdom = !!at ? `<div>${!!atlink ? `<a class="c-atlink" rel="nofollow" href="${atlink}" target="_blank">@${at.nick}</a>` : `<span class="c-atlink">@${at.nick}</span>`}</div>` : ''
         contentDom.innerHTML = atdom + DOMPurify.sanitize(content);
