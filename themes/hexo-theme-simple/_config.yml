@@ -31,7 +31,7 @@ canonical: true
 
 cdn:
   css: 
-    - //at.alicdn.com/t/font_1518765_3veddg8idtc.css
+    - //at.alicdn.com/t/font_1518765_i0g63jtnkur.css
     - //cdn.jsdelivr.net/gh/MoePlayer/APlayer@1.10.1/dist/APlayer.min.css
   js:
     - //cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js
@@ -54,6 +54,10 @@ menu:
     - title: 归档
       url: /archives
       icon: shijian
+    - title: code
+      url: /code
+      icon: code
+      nopjax: true
   aside:
     - title: 首页
       url: /
