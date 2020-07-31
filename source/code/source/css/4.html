@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <meta name="theme-color" content="#317EFB">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=0" name="viewport">
+    <meta name="keywords" content=",C#,.Net,JavaScript,HTML,CSS">
+    <meta name="description" content="学习.Net,前端时长三年的,程序猿">
+    <meta name="keywords" content="C#,.Net,JavaScript,HTML,CSS">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="白云苍狗">
+    <meta property="og:url" content="https://www.imalun.com/index.html">
+    <meta property="og:site_name" content="白云苍狗">
+    <meta property="og:description" content="学习.Net,前端时长三年的,程序猿">
+    <meta property="og:locale" content="zh-cn">
+    <meta name="twitter:card" content="summary">
+    <meta name="description" content="学习.Net,前端时长三年的,程序猿">
+    <title>白云苍狗</title>
+    <link rel="canonical" href="https://www.imalun.com/">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+    <style>
+        :root {
+            --primary: #25abd9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #dcf5ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            align-items: center;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+        }
+
+        .card {
+            align-items: center;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 3px 3px 2px 2px #ccc;
+            display: flex;
+            flex-wrap: wrap;
+            height: 350px;
+            justify-content: space-between;
+            padding: 40px;
+            width: 500px;
+        }
+
+        .button {
+            background: none;
+            border: solid 2px var(--primary);
+            box-shadow: 0 5px 15px -5px #bbb;
+            color: var(--primary);
+            cursor: pointer;
+            font-family: roboto;
+            font-size: 14px;
+            height: 50px;
+            overflow: hidden;
+            padding: 5px;
+            position: relative;
+            transform: perspective(1px);
+            /* Important to include perspective - gives the button depth */
+            transition: color 0.2s ease-out;
+            width: 150px;
+        }
+
+        .button::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary);
+            transition: transform 0.3s ease-out;
+        }
+
+        .button--six {
+            border-radius: 20px;
+            height: 75px;
+            width: 75px;
+        }
+
+        .button--six .button__icon {
+            transform: scale(0.8);
+            transition: transform 0.2s ease-out;
+        }
+
+        /* Button Specific Styles */
+
+        .button--one::before {
+            transform-origin: 0 0;
+            transform: scaleX(0);
+        }
+
+        .button--two::before {
+            transform-origin: 0 0;
+            transform: scaleY(0);
+        }
+
+        .button--three::before {
+            transform: scaleX(0);
+        }
+
+        .button--four::before {
+            transform: scaleY(0);
+        }
+
+        .button--five::before {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(135deg) scaleY(0);
+            width: 100%;
+        }
+
+        .button--six::before {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg) scaleY(0);
+            width: 125%;
+        }
+
+        /* Hover Styles */
+
+        .button:hover {
+            color: #fff;
+        }
+
+        .button--one:hover::before {
+            transform: scaleX(1);
+        }
+
+        .button--two:hover::before {
+            transform: scaleY(1);
+        }
+
+        .button--three:hover::before {
+            transform: scaleX(1);
+        }
+
+        .button--four:hover::before {
+            transform: scaleY(1);
+        }
+
+        .button--five:hover::before {
+            transform: translate(-50%, -50%) rotate(135deg) scaleY(4);
+        }
+
+        .button--five:active::before {
+            transform: translate(-50%, -50%) rotate(135deg) scaleY(10);
+        }
+
+        .button--six:hover::before {
+            transform: translate(-50%, -50%) rotate(45deg) scaleY(2.5);
+        }
+
+        .button--six:hover .button__icon {
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <button class="button button--one">Left to Right</button>
+            <button class="button button--two">Top to Bottom</button>
+            <button class="button button--three">Centre Horizontal</button>
+            <button class="button button--four">Centre Vertical</button>
+            <button class="button button--five">Diagonal</button>
+            <button class="button button--six">
+                <i class="button__icon fab fa-instagram fa-3x"></i>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
