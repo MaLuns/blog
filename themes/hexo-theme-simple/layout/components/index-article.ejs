@@ -24,6 +24,7 @@
                         </time>
                         <span class="post-meta-divider">•</span>
                     </span>
+                    <% if(post.categories){ %>
                     <span>
                         <i class="iconfont cg-tag1"></i> 
                         <%- post.categories.data[0].name %>
@@ -33,6 +34,7 @@
                         <i class="iconfont cg-tag1"></i> 
                         <a class="_pjax" href="/categories/<%- post.categories.data[0].name %>"><%- post.categories.data[0].name %></a>
                     </span>
+                    <% } %>
                 </div>
                 <%if(theme.post_wordcount.wordcount){%>
                     <span class="post-wordcount">
