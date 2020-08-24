@@ -13,14 +13,14 @@ keywords:
 
 <!--more-->
 
-## 一、对于可供选择的换肤
+## 一、可供选择的换肤
 对于只提供几种主题方案,让用户来选择的,一般就简单粗暴的写多套主题
-###  一个全局class控制样式切换,直接更改全局class
+-  一个全局class控制样式切换,直接更改全局class
 ``` html
 <body class='dark'></body>
 ```
 
-###  使用js去修改 link 的 href
+- 使用js去修改 link 的 href
 ``` html
 <link id='link_theme'  href="skin.css" rel="stylesheet" type="text/css"/>
 <script>
@@ -31,11 +31,11 @@ keywords:
 
 ## 二、动态色值换肤的实现
 
-### 全局替换颜色值
+- 全局替换颜色值
 
 可以参看 [Element-UI](https://elementui.github.io/theme-preview/#/zh-CN) 的换肤实现,就是先把样式中颜色全部替换后在塞到\<style\>标签里面
 
-### 使用 less 的 modifyVars 动态修改
+- 使用 less 的 modifyVars 动态修改
 
 modifyVars方法是是基于 less 在浏览器中的编译来实现。所以在引入less文件的时候需要通过link方式引入，然后基于less.js中的方法来进行修改变量
 
@@ -73,7 +73,7 @@ modifyVars方法是是基于 less 在浏览器中的编译来实现。所以在�
 </script>
 ```
 
-### css 变量(var)
+- css 变量(var)
 
 css 原生变量 [兼容性](https://www.caniuse.com/#search=--var),大部分主流浏览器还是支持的，而且主要是操作起来够简便。
 
@@ -95,6 +95,6 @@ let root = document.documentElement;
 root.style.setProperty('--color', '#f00');
 ```
 
-## 总结
+## 三、总结
 
 如果需要动态替换颜色主题,使用第二种比较合适也方便.如果每套主题有很大差异性不仅仅只是颜色的替换,第一种的方式就好了很多,使用第二种就不太合适了.如果都需要满足也可以两种相结合使用
