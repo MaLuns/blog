@@ -25,35 +25,98 @@
         * {
             padding: 0;
             margin: 0;
+
         }
 
         body {
             height: 100vh;
-            background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);
+            background-image: linear-gradient(135deg, rgb(34, 34, 34) 10%, rgb(4, 32, 53) 100%);
         }
 
-        .loading {
-            width: 100px;
-            height: 100px;
-            background: #000;
-            border-radius: 50%;
+        ul {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: fit-content;
+            width: fit-content;
+            list-style: none;
+            --primary-color: hsl(196, 78%, 61%);
+            --success-color: hsl(165, 58%, 55%);
+            --info-color: hsl(214, 79%, 65%);
+            --warning-color: hsl(43, 100%, 66%);
+            --danger-color: hsl(354, 81%, 63%);
         }
 
-        .loading::before {
-            content: '';
-            width: 100px;
-            height: 100px;
-            background: #fff;
-            border-radius: 50%;
+        ul li a {
+            text-decoration: none;
+            font-size: 24px;
+            line-height: 40px;
+            position: relative;
+            color: transparent;
+            background: linear-gradient(var(--menu-link-active-color) 0 100%) left/0 no-repeat;
+            background-clip: text;
+            -webkit-background-clip: text;
+            transition: background-size 0.45s 0.04s, border-bottom 0.45s 0.04s;
+        }
+
+        ul li::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: -1rem;
+            width: 0.25rem;
+            height: 100%;
+            background: var(--menu-link-active-color);
+            transition: 0.6s;
+        }
+
+        ul li:hover a {
+            background-size: 100%;
+        }
+
+        ul li a::before {
+            content: attr(data-text);
+            font-size: 24px;
+            line-height: 40px;
+            position: absolute;
+            color: #7f8c8d;
+            z-index: -1;
+        }
+
+        ul:nth-child(1) a {
+            --menu-link-active-color: var(--primary-color);
+        }
+
+        ul:nth-child(2) a {
+            --menu-link-active-color: var(--info-color);
+        }
+
+        ul:nth-child(3) a {
+            --menu-link-active-color: var(--success-color);
+        }
+
+        ul:nth-child(4) a {
+            --menu-link-active-color: var(--warning-color);
+        }
+
+        ul:nth-child(5) a {
+            --menu-link-active-color: var(--danger-color);
         }
     </style>
 </head>
 
 <body>
 
-    <div class="loading">
-
-    </div>
+    <ul>
+        <li><a href="#" data-text="home">home</a></li>
+        <li><a href="#" data-text="archives">archives</a></li>
+        <li><a href="#" data-text="tags">tags</a></li>
+        <li><a href="#" data-text="categories">categories</a></li>
+        <li><a href="#" data-text="about">about</a></li>
+    </ul>
 
 </body>
 
