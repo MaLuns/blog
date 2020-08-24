@@ -5,7 +5,7 @@
     <nav class="nav">
         <% theme.menu.nav.forEach(item=>{%>
         <li>
-             <a data-pjax <%= item.nopjax ?'target="_blank"':'class="_pjax"' %> href="<%- item.url %>">
+             <a data-pjax <%= item.nopjax ?'target="_blank"':'class=_pjax' %> href="<%- item.url %>">
                 <% if(item.icon) { %>
                     <i class="iconfont cg-<%- item.icon %>"></i>
                 <%}%>

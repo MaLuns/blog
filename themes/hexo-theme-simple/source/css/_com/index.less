@@ -17,11 +17,11 @@ body {
 }
 
 body {
-    color                    : var(--fontColor, #525f7f);
-    font-family              : var(--fontFamily);
-    -webkit-transition       : background-image var(--transitionTime);
-    transition               : background-image var(--transitionTime);
-    overflow-x               : hidden;
+    color             : var(--fontColor, #525f7f);
+    font-family       : var(--fontFamily);
+    -webkit-transition: background-image var(--transitionTime);
+    transition        : background-image var(--transitionTime);
+    overflow-x        : hidden;
 
 
     &::after {
@@ -47,7 +47,7 @@ body {
     height               : 100vh;
     -webkit-transition   : background-image var(--transitionTime);
     transition           : background-image var(--transitionTime);
-    background-image     : url(/images/wallhaven-39edky.jpg);
+    background-image     : url(/images/mdvo58.jpg);
     background-position  : center;
     background-size      : cover;
     background-repeat    : no-repeat;
@@ -95,6 +95,77 @@ a {
     background   : ~'rgba(var(--themeColorRgb), 0.05)';
     margin       : 20px 0;
     border-radius: 4px;
+}
+
+
+#loader {
+    width            : 120px;
+    height           : 120px;
+    border-radius    : 50%;
+    border           : 3px solid transparent;
+    border-top-color : rgb(215, 195, 255);
+    -webkit-animation: spin 2s linear infinite;
+    animation        : spin 2s linear infinite;
+
+    &.loaded {
+        display: none;
+    }
+}
+
+#loader:before {
+    content          : "";
+    position         : absolute;
+    top              : 5px;
+    left             : 5px;
+    right            : 5px;
+    bottom           : 5px;
+    border-radius    : 50%;
+    border           : 3px solid transparent;
+    border-top-color : rgb(234, 236, 91);
+    -webkit-animation: spin 3s linear infinite;
+    animation        : spin 3s linear infinite;
+}
+
+#loader:after {
+    content          : "";
+    position         : absolute;
+    top              : 15px;
+    left             : 15px;
+    right            : 15px;
+    bottom           : 15px;
+    border-radius    : 50%;
+    border           : 3px solid transparent;
+    border-top-color : rgb(255, 30, 30);
+    -webkit-animation: spin 1.5s linear infinite;
+    animation        : spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform    : rotate(0deg);
+        transform        : rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform    : rotate(360deg);
+        transform        : rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform    : rotate(0deg);
+        transform        : rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform    : rotate(360deg);
+        transform        : rotate(360deg);
+    }
 }
 
 ::-webkit-scrollbar {
