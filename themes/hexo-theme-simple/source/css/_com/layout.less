@@ -158,18 +158,21 @@
 
             .title-inner {
                 font-size: 1.8rem;
-                color    : #ddd;
+                color    : #fff;
             }
 
             .user-des {
-                color      : #ddd;
-                height     : 30px;
-                font-size  : 16px;
-                line-height: 30px;
-                padding    : 5px 20px 5px 0px;
-                margin-top : 20px;
-                display    : inline-block;
-                background : ~'rgba(var(--themeColorRgb2),0.08)';
+                color         : #fff;
+                height        : 30px;
+                font-size     : 16px;
+                line-height   : 30px;
+                padding       : 5px 20px 5px 0px;
+                margin-top    : 20px;
+                display       : inline-block;
+                background    : ~'rgba(var(--themeColorRgb2),0.08)';
+                background    : linear-gradient(45deg, #97cdc44a, #f7c7b045, #37618c5e);
+                /* background : linear-gradient(45deg, #97cdc491, #f7c7b099, #37618c9e); */
+                animation     : rotate 1.5s linear infinite;
 
                 span {
                     display     : inline-block;
@@ -178,6 +181,16 @@
                     border-right: 2px solid;
                     position    : relative;
                     padding     : 0 1em;
+                }
+
+                @keyframes rotate {
+                    0% {
+                        filter: hue-rotate(0deg);
+                    }
+
+                    100% {
+                        filter: hue-rotate(360deg);
+                    }
                 }
 
                 @-webkit-keyframes typing {
