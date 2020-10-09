@@ -1,7 +1,7 @@
 ---
 title: Web Components
 date: 2020-05-10 10:16:09
-tags: [WebComponents,组件,自定义标签]
+tags: [WebComponents]
 categories: 记录类
 comment: true
 photos: ['/images/logo/web_conponents.png']

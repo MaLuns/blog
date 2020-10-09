@@ -1,7 +1,7 @@
 ---
 title: 基于 devenv 实现自动化编译,生成测试文件
 date: 2020-01-02 10:16:09
-tags: [c#,.net,devenv]
+tags: [devenv]
 categories: 记录类
 comment: true
 photos: ['/images/logo/aotubuild_logo.png']
