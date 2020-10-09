@@ -1,7 +1,7 @@
 ---
 title: node 实现简单 http 转发
 date: 2020-05-12 17:50:55
-tags: [node,pipe]
+tags: [node]
 categories: 记录类
 comment: true
 ---
