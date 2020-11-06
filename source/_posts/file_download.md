@@ -3,11 +3,10 @@ title: Electron 的断点续下载
 comment: true
 hash: 1602125283457
 date: 2020-10-08 10:48:03
-tags: [vue,electron]
+tags: [vue, electron]
 description:
 categories: 记录类
 keywords:
-headerbg: [/images/logo/one-wallhaven_ns3J9JJoJL.png,'#dedede']
 ---
 最近用 Electron 做了个壁纸程序，需要断点续下载，在这里记录一下。<!-- more -->
 
