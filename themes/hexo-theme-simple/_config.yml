@@ -1,4 +1,4 @@
-version: 0.1.0
+version: 0.1.4
 
 user:
   name: 白云苍狗
@@ -45,19 +45,12 @@ menu:
   nav:
     - title: 白云苍狗
       url: /
-    - title: 友情链接
-      url: /links
-      icon: links
-    - title: 留言
-      url: /comment
-      icon: comment
     - title: 归档
       url: /archives
       icon: shijian
-    - title: code
-      url: /code
-      icon: code
-      nopjax: true
+    - title: 友情链接
+      url: /links
+      icon: links
   aside:
     - title: 首页
       url: /
@@ -90,11 +83,7 @@ links:
   - name: 白云苍狗
     url: https://www.imalun.com/
     image: https://www.imalun.com/images/avatar.jpg
-    desc: 醒，亦在人间；梦，亦在人间
-  - name: coding
-    url: https://coding.net/
-    image: https://assets.codehub.cn/micro-frontend/login/b3886ef19bf4ab6bb92b3ce60b80fde9.svg
-    desc: 一站式 DevOps，提升研发效能
+    desc: 醒，亦在人间；梦，亦在人间E
   - name: 腾讯云开发
     url: https://www.cloudbase.net/
     image: https://docs.cloudbase.net/favicon.png

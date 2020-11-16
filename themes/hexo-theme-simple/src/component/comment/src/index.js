@@ -52,8 +52,8 @@ class ComComment extends HTMLElement {
 
         //输入
         this.textarea.addEventListener('input', function () {
-            textarea_hidden.innerHTML = DOMPurify.sanitize(this.value);
-            this.style.height = textarea_hidden.offsetHeight + 40 + 'px';
+            textarea_hidden.innerHTML = DOMPurify.sanitize(marked(this.value));
+            this.style.height = textarea_hidden.offsetHeight + 50 + 'px';
         })
 
         //发送
