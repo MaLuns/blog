@@ -11,10 +11,11 @@ export const createList = (data, parentid, idxpath) => {
     const rtest = regTest(/^https?\:\/\//);
 
     data.forEach((item, index) => {
-        let { id, avatar, link, nick, date, browser, os, at, childer, content, top = false } = item;
+        let { id, avatar, link, nick, date, browser, os, at, childer, content, tag, top = false, _idxpath } = item;
         let topID = parentid || id;
-        let ipath = idxpath == undefined ? id : idxpath + ',' + index;
 
+        let ipath = _idxpath || (idxpath == undefined ? id : idxpath + ',' + index);
+        console.log(_idxpath, ipath)
 
 
         let dom = create('div', { class: `c-item ${item.top ? 'item-top' : ''}`, id })
@@ -24,25 +25,26 @@ export const createList = (data, parentid, idxpath) => {
 
         let headDom = create('div', { class: "c-head" })
         let links = link ? rtest(link) ? link : 'http://' + link : ''
-        headDom.innerHTML = `${!!links ? `<a class="c-nick" rel="nofollow" href="${links}" target="_blank">${nick}</a>` : `<span class="c-nick">${nick}</span>`}<span class="c-sys">${browser}</span><span class="c-sys">${os}</span>`
+        headDom.innerHTML += `${links ? `<a class="c-nick" rel="nofollow" href="${links}" target="_blank">${nick}</a>` : `<span class="c-nick">${nick}</span>`}`
+        headDom.innerHTML += tag ? `<span class="c-tag">${tag}</span>` : ''
+        headDom.innerHTML += top ? `<span class="c-top">置顶</span>` : ''
+        headDom.innerHTML += `<span class="c-sys">${browser}</span><span class="c-sys">${os}</span>`
 
         let metaDom = create('div', { class: "c-meta" })
         metaDom.innerHTML = `<span class="c-time">${timeAgo(new Date(date))}</span><span class="c-at" data-topid='${topID}' data-idxpath='${ipath}' data-id='${id}'>回复</span>`
 
         let contentDom = create('div', { class: "c-content", id: 'content' + id })
-        let atlink = !!at ? (rtest(at.link) ? at.link : 'http://' + at.link) : ''
-        console.log(atlink, at)
+        let atlink = at ? (rtest(at.link) ? at.link : 'http://' + at.link) : ''
 
-        let atdom = !!at ? `<div>${!!atlink ? `<a class="c-atlink" rel="nofollow" href="${atlink}" target="_blank">@${at.nick}</a>` : `<span class="c-atlink">@${at.nick}</span>`}</div>` : ''
+        let atdom = at ? `<div>${!!atlink ? `<a class="c-atlink" rel="nofollow" href="${atlink}" target="_blank">@${at.nick}</a>` : `<span class="c-atlink">@${at.nick}</span>`}</div>` : ''
         contentDom.innerHTML = atdom + DOMPurify.sanitize(content);
 
         let editDom = create('div', { class: 'list-edit' })
 
         let quoteDom = create('div', { class: "c-quote", id: 'quote' + id })
-        if (!!childer) quoteDom.appendChild(createList(childer, topID, ipath))
+        if (childer) quoteDom.appendChild(createList(childer, topID, ipath))
 
         appendChild(vhDom, headDom, metaDom, contentDom, editDom, quoteDom)
-
         appendChild(dom, imgDom, vhDom);
 
         fragment.appendChild(dom)

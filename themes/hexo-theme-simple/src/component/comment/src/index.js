@@ -93,8 +93,6 @@ class ComComment extends HTMLElement {
             if (e.target.className == 'c-at') {
                 e.target.parentElement.parentElement.querySelector('.list-edit').appendChild(shadowRoot.getElementById('c-comment'));
                 let { topid, id, idxpath } = e.target.dataset;
-                console.log(e, idxpath, 'childer', pathToData(this._commentList, idxpath, 'childer'))
-
                 let { link = '', nick = '', id: atid = '' } = pathToData(this._commentList, idxpath, 'childer');
                 this.atComment = {
                     topID: topid || id,
@@ -175,17 +173,14 @@ class ComComment extends HTMLElement {
             this.sending = true;
 
             parms.istop = !this.atComment;
-            if (!!this.atComment) {
+            if (this.atComment) {
                 parms.topID = this.atComment.topID
                 parms.at = {
                     ...this.atComment
                 }
             }
-
             let { result } = await this._dbs.addComment(parms);
 
-
-            console.log(result)
             //生成dom
             if (result.success) {
                 let param = { ...parms, ...result.data }
@@ -198,12 +193,20 @@ class ComComment extends HTMLElement {
 
                 } else {
                     let con = this.shadowRoot.querySelector("#quote" + this.atComment.topID);
-                    con.appendChild(createList([param], this.atComment.topID, 2))
+                    param._idxpath = this.atComment.topID + ',' + con.children.length
+                    con.appendChild(createList([param], this.atComment.topID))
+                    let _com = this._commentList.find(item => item.id === this.atComment.topID)
+                    if (_com) {
+                        _com.childer = _com.childer || []
+                        _com.childer.push(param);
+                    }
                     this._cancel_reply()
                 }
                 this.textarea_hidden.innerHTML = ''
                 this.textarea.value = ''
                 this.textarea.style.height = '40px';
+
+                console.log(param, '发送成功')
             }
             this.sending = false;
 
