@@ -19,7 +19,7 @@ export const createList = (data, parentid, idxpath) => {
 
 
         let dom = create('div', { class: `c-item ${item.top ? 'item-top' : ''}`, id })
-        let imgDom = create('img', { class: 'user-img', src: avatar || 'https://gw.alicdn.com/tps/TB1W_X6OXXXXXcZXVXXXXXXXXXX-400-400.png' });
+        let imgDom = create('img', { class: 'user-img', src: avatar || tag ? '/images/c_avatar_2.png' : '/images/c_avatar.png' });
         let vhDom = create('div', { class: "vh" })
 
 
