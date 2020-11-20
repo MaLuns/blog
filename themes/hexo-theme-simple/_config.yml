@@ -31,14 +31,14 @@ canonical: true
 
 cdn:
   css: 
-    - //at.alicdn.com/t/font_1518765_i0g63jtnkur.css
+    - //at.alicdn.com/t/font_1518765_i3bqx6avjg.css
     - //cdn.jsdelivr.net/gh/MoePlayer/APlayer@1.10.1/dist/APlayer.min.css
   js:
     - //cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js
     - //cdn.jsdelivr.net/gh/MoePlayer/APlayer@1.10.1/dist/APlayer.min.js
     - //cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js
     - //cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js
-    - //at.alicdn.com/t/font_1518765_vg5dubnjuvr.js
+    - //at.alicdn.com/t/font_1518765_i3bqx6avjg.js
     - //imgcache.qq.com/qcloud/tcbjs/1.6.0/tcb.js
 
 menu:
