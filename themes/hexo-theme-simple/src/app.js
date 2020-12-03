@@ -1,3 +1,10 @@
+
+(function () {
+    if (!!window.ActiveXObject || "ActiveXObject" in window) {
+        document.getElementsByTagName("body")[0].innerHTML = "<h2 style='text-align:center; line-height:100px; font-weight:700;'>为了更好的体验,请使用非IE浏览器</h2>";
+    }
+})();
+
 $(function () {
 
     const app = {
@@ -161,7 +168,3 @@ $(function () {
     app.initSettingEvent();
     app.scroll();
 })
-
-
-
-
