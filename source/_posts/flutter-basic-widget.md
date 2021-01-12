@@ -102,6 +102,15 @@ Image(
 // Image 也提供了 Image.asset 和 Image.network 构造函数的快捷方式
 ```
 ### Icon
+使用内置图标,Flutter 内置提供了一套 material-icon 图标
+```dart 
+//需要一个IconData类型图标数据
+Icon(
+    Icons.thirteen_mp, //material-icon 都定义在 Icons 类中
+    size: 30,
+    color: Colors.black,
+)
+```
 使用自定义图标
 - 下载好图标文件
 - 加入在项目中
@@ -117,10 +126,16 @@ flutter:
 - 编写自定义 IconData 类型
 ``` dart
 //IconFont:是引入时候设置字体名称,0xe611 为对应图标的Unicode
-IconData li = IconData(0xe611, fontFamily: 'IconFont')
+IconData li = IconData(0xe611, fontFamily: 'IconFont') // 设置自定义IconData
+Icon(
+    li,
+    size: 30,
+    color: Colors.black,
+)
 ```
 ### AppBar
 ### Tabs
+
 ## 布局类 widget
 常用布局widget有 Row、Column、Flex、Warp、Flow、Stack、Positioned 等。
 
