@@ -1,5 +1,5 @@
 ---
-title: flutter 常用组件
+title: flutter 常用组件(一)
 comment: true
 hash: 1610115798728
 date: 2021-01-08 22:23:18
@@ -87,6 +87,51 @@ RichText(
 )
 ```
 ### Button
+Flutter内置了很多按钮,Material 中大致分为 RawMaterialButton 和 IconButton 两类
+``` dart
+// RawMaterialButton 常见的有 RaisedButton / FlatButton / OutlineButton /FlatButton
+RawMaterialButton({
+    Key key,
+    @required this.onPressed,
+    this.onHighlightChanged,            // 高亮变化的回调
+    this.textStyle,                     // 文字属性
+    this.fillColor,                     // 填充颜色
+    this.highlightColor,                // 背景高亮颜色
+    this.splashColor,                   // 水波纹颜色
+    this.elevation = 2.0,               // 阴影
+    this.highlightElevation = 8.0,      // 高亮时阴影
+    this.disabledElevation = 0.0,       // 不可点击时阴影
+    this.padding = EdgeInsets.zero,     // 内容周围边距
+    this.constraints = const BoxConstraints(minWidth: 88.0, minHeight: 36.0),   // 默认按钮尺寸
+    this.shape = const RoundedRectangleBorder(),    // 形状样式
+    this.animationDuration = kThemeChangeDuration,  // 动画效果持续时长
+    this.clipBehavior = Clip.none,                  // 抗锯齿剪切效果
+    MaterialTapTargetSize materialTapTargetSize,    // 点击目标的最小尺寸
+    this.child,
+})
+
+//IconButton类型的按钮
+// IconButton 常见的有 BackButton(返回上一个页面)/CloseButton(关闭当前页面)
+IconButton({
+    Key key,
+    this.iconSize = 24.0,   // 图标大小
+    this.padding = const EdgeInsets.all(8.0),   // 图标周围间距
+    this.alignment = Alignment.center,          // 图标位置
+    @required this.icon,    // 图标资源
+    this.color,             // 图标颜色
+    this.highlightColor,    // 点击高亮颜色
+    this.splashColor,       // 水波纹颜色
+    this.disabledColor,     // 不可点击时高亮颜色
+    @required this.onPressed,
+    this.tooltip            // 长按提示
+})
+
+// 其他按钮
+//FloatingActionButton 悬浮
+//TextButton 文本按钮
+//CupertinoButton iOS风格按钮
+```
+
 ### Image
 Image日常开发中的使用频率也非常高, Image可以加载本地,网络,缓存的图片。
 ```dart
@@ -133,8 +178,84 @@ Icon(
     color: Colors.black,
 )
 ```
+
 ### AppBar
-### Tabs
+AppBar是一个顶端导航栏 
+```dart
+ AppBar({
+    this.leading, //左侧按钮 可以自定义,在其他页时候 回显示返回按钮
+    this.automaticallyImplyLeading = true,//leading为null，是否自动实现默认的leading按钮
+    this.title, // 标题,是一个Widget
+    this.actions, //  一个Widget列表,显示在右侧,
+    this.flexibleSpace,//显示在 AppBar 下方的控件，高度和 AppBar 高度一样 可是定制些特殊效果
+    this.bottom,// 一个PreferredSizeWidget,可以用来放TabBar
+    this.elevation,//控件的 z 坐标顺序 为0可以隐藏阴影
+    this.shadowColor,// 阴影颜色
+    this.shape,
+    this.backgroundColor, // 背景色
+    this.brightness, //设置状态栏颜色 light:文字是黑色 dark:文字是白色
+    this.iconTheme,//
+    this.actionsIconTheme,
+    this.textTheme, //文字样式
+    this.primary = true, //为false时候会在屏幕顶部,不保留状态栏
+    this.centerTitle, //标题是否居中显示
+    this.excludeHeaderSemantics = false,
+    this.titleSpacing = NavigationToolbar.kMiddleSpacing, //水平标题间距
+    this.toolbarOpacity = 1.0,//透明度
+    this.bottomOpacity = 1.0,//透明度
+    this.toolbarHeight, //高度
+    this.leadingWidth,// 左侧按钮宽度
+})
+
+//示例
+AppBar(
+    automaticallyImplyLeading: false,
+    title: Text("去掉阴影和左侧默认按钮"),
+    elevation: 0.0,
+    actions: [
+        IconButton(
+            icon: Icon(Icons.search, color: Colors.white),
+            onPressed: null,
+        ),
+    ],
+)
+
+// 示例AppBar+TabBar
+DefaultTabController(
+    length: 2,
+    child: Scaffold(
+        appBar: AppBar(
+                automaticallyImplyLeading: false,
+                title: Text("AppBar+TabBar"),
+                centerTitle: true,
+                elevation: 0.0,
+                bottom: TabBar(
+                    unselectedLabelColor: Colors.white60,
+                    indicatorColor: Colors.white,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    indicatorWeight: 2.0,
+                    tabs: <Widget>[
+                        Tab(text: 'tab1'),
+                        Tab(text: 'tab2'),
+                    ],
+                ),
+            ),
+        body: TabBarView(
+            children: [
+                Container(
+                    color: Colors.black12,
+                    child: Center(child: Text('tab1')),
+                ),
+                Container(
+                    color: Colors.yellow[50],
+                    child: Center(child: Text('tab2')),
+                ),
+            ],
+        ),
+    ),
+)
+```
+<!-- ### Tabs -->
 
 ## 布局类 widget
 常用布局widget有 Row、Column、Flex、Warp、Flow、Stack、Positioned 等。
@@ -276,6 +397,86 @@ Stack(
     ],
 )
 ```
+### 对齐和相对定位
+Align 组件可以调整子组件位置,同过一个AlignmentGeometry类型的值，表示子组件在父组件中的起始位
+```dart
+Container(
+  height: 120.0,
+  width: 120.0,
+  color: Colors.blue[50],
+  child: Align(
+    alignment: Alignment.topRight, //Alignment 一个AlignmentGeometry的实现类
+    child: Text('topRight'),
+  ),
+)
+```
+```
+Alignment 对应坐标系,
+topRight对应着(-1,-1),中心坐标center就是(0,0),
+
+  -1,-1        1,-1
+    -------------
+    |           |
+    |           |
+    |    0,0    |
+    |           |
+    |           |
+    -------------
+  -1,1          1,1
+
+自定义时候对应公式  x,y 就是上面对应坐标值,  childWidth childHeight 容器宽高
+(Alignment.x*childWidth/2+childWidth/2, Alignment.y*childHeight/2+childHeight/2)
+
+Alignment(2,0.0) =>  180,60
+```
+
 
 ## 容器类型
+### Container
+Container是一个组合类容器的组装的多功能容器。了解一个Container其他也就很清楚了
+```dart
+Container({
+    Key key,
+    this.alignment, //对齐方式  =>对应 Align
 
+
+    this.padding, // 内间距,是个EdgeInsetsGeometry 抽象类  =>对应  Padding 
+    // FLutter 提供了是个EdgeInsetsGeometry实现类EdgeInsets,提供了下面四个方法
+    // fromLTRB(double left, double top, double right, double bottom)：分别指定四个方向的填充。
+    // all(double value) : 所有方向均使用相同数值的填充。
+    // only({left, top, right ,bottom })：可以设置具体某个方向的填充(可以同时指定多个方向)。
+    // symmetric({ vertical, horizontal })：用于设置对称方向的填充，vertical指top和bottom，horizontal指left和right。
+
+    this.color, //背景色
+    this.decoration,  // 背景装饰,设置了decoration,外面的color属性将不可用,需要在decoration内设置   =>对应  DecoratedBox
+    this.foregroundDecoration,//前景装饰
+    // DecoratedBox 提供的样式属性
+    //color, //背景颜色
+    //image,//背景图片
+    //border, //边框
+    //borderRadius, //圆角
+    //boxShadow, //阴影,可以指定多个
+    //gradient, //渐变
+    //backgroundBlendMode, //背景混合模式
+    //shape //形状
+    
+
+    double width, // 宽度
+    double height,// 高度
+    BoxConstraints constraints, //设置限制 =>对应  ConstrainedBox ,与其相反的是UnconstrainedBox(取消限制)
+    //ConstrainedBox 提供属性 都是double类型
+    //minWidth //最小宽度
+    //maxWidth //最大宽度
+    //minHeight//最小高度
+    //maxHeight//最大高度
+
+    this.margin, // 外间距 和padding 使用方式一样
+    this.transform, //变形 需要一个Matrix4类,具体可以看Matrix4源码,提供了很多不同变形构造方法 =>对应 Transform 
+    this.child,
+    this.clipBehavior = Clip.none,
+})
+```
+### 其他容器类
+ - SizedBox 固定宽高
+ - AspectRatio 宽高比
+ - UnconstrainedBox 取消限制
