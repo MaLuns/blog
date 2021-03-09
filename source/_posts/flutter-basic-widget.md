@@ -1,9 +1,9 @@
 ---
-title: flutter 常用组件(一)
+title: Flutter 常用小部件(一)
 comment: true
 hash: 1610115798728
 date: 2021-01-08 22:23:18
-tags: [flutter]
+tags: [Flutter]
 description:
 categories: 记录类
 keywords:
