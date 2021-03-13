@@ -167,8 +167,9 @@ export default {
 ## 组件封装
 上面表格还有中处理方法,就是将el-table和el-pagination封装成一个组件去是使用,也能提高复用性
 
-### 使用template封装
-将el-table进行二次封装,增加一个total参数,提供是一个分页改变事件,再把m-table的$attrs和$listeners 绑定到el-table上,然后把el-table 方法暴露出去,这样就可像使用 el-table 一样使用 m-table
+### template封装
+使用template创建组件,来对el-table进行二次封装满足上面需求,增加一个total参数
+提供是一个分页改变事件,再把m-table的$attrs和$listeners 绑定到el-table上,然后把el-table 方法暴露出去,这样就可像使用 el-table 一样使用 m-table
 ``` html
 <template>
     <div>
@@ -245,5 +246,211 @@ export default {
     </el-table-column>
 </m-table>
 ```
+一般情况下这样使用 template 封装就满足了需求,但是总有些时候这样封装是满足不了需求的。比如现在m-table现在需要动态支持修改配置显示列,并且不希望修改m-table的基本使用方式, 这个时候就需要使用 render 了。
 
-## hoc
+### render 函数
+Vue 的模板实际上都会被编译成了渲染函数,render 函数有一个 createElement 参数,用来创建一个VNode。
+
+要满足上面的需求,首先是的获得el-table的插槽(slot)中的内容,根据插槽的内容生成每列信息,根据配置的信息动态创建插槽的内容就可以实现了。简单示例代码入下
+``` html
+<script>
+import mSetting from './setting'
+export default {
+    components: { mSetting },
+    name: 'm-table',
+    data() {
+        return {
+            showTable: true,
+            setShow: false,
+            config: [],
+            copySlots: [], // 展示solt数据
+            page: {
+                pageSize: 20,
+                pageIndex: 1
+            }
+        }
+    },
+    props: {
+        total: {
+            type: Number,
+            default: 0
+        }
+    },
+    watch: {
+        page: {
+            deep: true,
+            handler: function () {
+                this.$emit("page-chagne")
+            }
+        }
+    },
+    created() {
+        this.initConfig()
+    },
+    render() {
+        return (
+            <div>
+                <el-table ref="table" {...{ attrs: this.$attrs }} {...{ on: this.$listeners }}>
+                    {
+                        this.copySlots
+                    }
+                </el-table>
+                {this.showTable ? (<el-pagination layout="total, sizes, prev, pager, next, jumper"
+                    {...{
+                        on: {
+                            'size-change': (e) => this.page.pageSize = e,
+                            'current-change': (e) => this.page.pageIndex = e
+                        }
+                    }}
+                    {...{
+                        attrs: {
+                            'current-page': this.page.pageIndex,
+                            'page-sizes': [20, 30, 40, 50],
+                            'total': this.total
+                        }
+                    }}
+                > </el-pagination>) : null}
+                <m-setting  {...{
+                    on: {
+                        'update:show': e => this.setShow = e,
+                        'change': this.initConfig
+                    }
+                }} show={this.setShow} config={this.config}></m-setting>
+            </div >
+        )
+    },
+    methods: {
+        initConfig(config = []) {
+            if (config.length === 0) {
+                config = this.$slots.default
+                    .filter(item => item.componentOptions && item.componentOptions.tag === "el-table-column")
+                    .map(item => {
+                        if (item.componentOptions.propsData.prop === 'index') {
+                            if (!item.data.scopedSlots) {
+                                item.data.scopedSlots = {};
+                            }
+                            item.data.scopedSlots.header = () => (
+                                <i class="el-icon-s-tools" onClick={() => this.setShow = true} />
+                            );
+                        }
+                        return { ...item.componentOptions.propsData };
+                    })
+                this.sourceConfig = JSON.parse(JSON.stringify(config))
+                this.copySlots = this.$slots.default;
+                this.sourceSlots = this.$slots.default;
+            } else {
+                let arr = []
+                this.sourceSlots.forEach(item => {
+                    let temp = config.find(subItem =>
+                        (subItem.prop && subItem.prop === item.componentOptions.propsData.prop) ||
+                        (subItem.type && subItem.type === item.componentOptions.propsData.type)
+                    );
+                    if (temp && temp.isShow) {
+                        Object.assign(item.componentOptions.propsData, temp);
+                        arr.push(item)
+                    }
+                })
+                this.copySlots = arr;
+                this.showTable = false
+                this.$nextTick(() => {
+                    this.showTable = true
+                })
+            }
+            this.config = config;
+        },
+        ...(() => {
+            let methodsJson = {};
+            ['reloadData', 'clearSelection', 'toggleRowSelection', 'toggleAllSelection', 'setCurrentRow', 'clearSort', 'clearFilter', 'doLayout', 'sort']
+                .forEach(key => {
+                    methodsJson = {
+                        ...methodsJson, [key](...res) {
+                            this.$refs['table'][key].apply(this, res);
+                        }
+                    };
+                });
+            return methodsJson;
+        })()
+    }
+}
+</script>
+```
+
+``` html
+<template>
+    <el-dialog title="表格设置" :visible.sync="shows" width="600px" size="small" :before-close="handleClose">
+        <el-table :data="list" size='mini'>
+            <el-table-column prop="showLabel" label="名称"></el-table-column>
+            <el-table-column prop="label" label="显示名称">
+                <template slot-scope="{row}">
+                    <el-input size="mini" v-model="row.label"></el-input>
+                </template>
+            </el-table-column>
+            <el-table-column prop="isShow" label="是否显示" width="100" align="center">
+                <template slot-scope="{row}">
+                    <el-switch v-model="row.isShow"></el-switch>
+                </template>
+            </el-table-column>
+        </el-table>
+        <span slot="footer" class="dialog-footer">
+            <el-button @click="shows = false" size="small">取 消</el-button>
+            <el-button type="primary" @click="handleClose()" size="small">确 定</el-button>
+        </span>
+    </el-dialog>
+</template>
+
+<script>
+export default {
+    name: 'm-setting',
+    data() {
+        return {
+            list: []
+        };
+    },
+    computed: {
+        shows: {
+            get() {
+                return this.show;
+            },
+            set() {
+                this.$emit("update:show")
+            }
+        }
+    },
+    props: {
+        show: {
+            type: Boolean,
+            required: true,
+            default: false
+        },
+        config: {
+            type: Array,
+            default() {
+                return []
+            }
+        }
+    },
+    created() {
+        this.init()
+    },
+    methods: {
+        init() {
+            this.list = this.config.map(item => {
+                return {
+                    ...item,
+                    showLabel: item.showLabel || item.label, // 名称
+                    isShow: item.isShow || true // 是否显示
+                }
+            })
+        },
+        handleClose() {
+            this.$emit('change', this.list);
+            this.shows = false
+        }
+    }
+};
+</script>
+```
+这样就简单实现了可以动态显示列,而且不需要去修改原组件的使用方式了
+## hoc 高阶组件
+
+[vue高阶组件可以参考这篇](http://hcysun.me/2018/01/05/%E6%8E%A2%E7%B4%A2Vue%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6/)
