@@ -31,14 +31,14 @@ canonical: true
 
 cdn:
   css: 
-    - //at.alicdn.com/t/font_1518765_i3bqx6avjg.css
+    - //at.alicdn.com/t/font_1518765_269c2ew6zn7.css
     - //cdn.jsdelivr.net/gh/MoePlayer/APlayer@1.10.1/dist/APlayer.min.css
   js:
     - //cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js
     - //cdn.jsdelivr.net/gh/MoePlayer/APlayer@1.10.1/dist/APlayer.min.js
     - //cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js
     - //cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js
-    - //at.alicdn.com/t/font_1518765_i3bqx6avjg.js
+    - //at.alicdn.com/t/font_1518765_269c2ew6zn7.js
     - //imgcache.qq.com/qcloud/tcbjs/1.6.0/tcb.js
 
 menu:
@@ -64,6 +64,12 @@ menu:
     - title: RSS
       url: /atom.xml
       icon: rss
+    - title: Github
+      url: https://github.com/MaLuns
+      icon: github
+    - title: Gitee
+      url: https://gitee.com/ml13
+      icon: gitee 
     - title: 联系我
       url: tencent://message/?uin=384399021&amp;Site=有事Q我&amp;Menu=yes
       icon: qq
