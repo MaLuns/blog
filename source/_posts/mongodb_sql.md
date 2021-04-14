@@ -1,20 +1,20 @@
 ---
-title: mongodb语法与sql对比（一）
+title: MongoDB基础篇（一）
 comment: true
 hash: 1618316929927
 date: 2021-04-13 20:28:49
-tags: [mongodb]
+tags: [MongoDB]
 description:
 categories: 记录类
 keywords:
 ---
-事件！事件到底是怎么工作的？JavaScript出现了多久，对JavaScript异步事件模型就迷惘了多久。
- <!-- more -->
+MongoDB 是一个介于关系数据库和非关系数据库之间的产品。面向文档的NoSQL的数据库，存储结构也非常自由，是类似json的bson格式，因此可以存储比较复杂的数据类型。其强大的查询语言几乎支持绝大部分关系数据的的查询的功能。
+<!-- more -->
 
 ## 基本组成
-在mongoDB中基本的概念是文档、集合、数据库，没有关系型数据库中表、行等这些概念的
+在MongoDB中基本的概念是文档、集合、数据库，没有关系型数据库中表、行等这些概念的
 
-|  mongoDB   | SQL  | 说明 |
+|  MongoDB   | SQL  | 说明 |
 |  --------  | --------  | --------  |
 | database  | database | 数据库 |
 | collection  | table | 集合/表 |
@@ -23,7 +23,7 @@ keywords:
 | index  | index | 索引 |
 | 不支持 |table joins | 连表 |
 
-mongoDB曾经是不支持连表的，在3.2以后版本增加了$lookup可以实现左连接 
+MongoDB曾经是不支持连表的，在3.2以后版本增加了$lookup可以实现左连接 
 
 
 ## 集合
@@ -47,12 +47,12 @@ db.table_name.drop()
 ```
 
 ## 新增
-mongoDB 提供了三个方法
+MongoDB 提供了三个方法
 - insert 插入单个或者多个
 - insertOne 插入单个文档
 - insertMany 插入多个文档
 
-如果插入文档没有提供_id,mongoDB 会默认生成一个ObjectId的_id,
+如果插入文档没有提供_id,MongoDB 会默认生成一个ObjectId的_id,
 ``` javascript
 db.table_name.insert(
     [
@@ -113,15 +113,71 @@ db.table_name.deleteMany({},{})
 - findOneAndReplace 查询单条并替换
 - findOneAndUpdate  查询单条并更改
 
+### 常用条件使用方式
+find传入两个参数，一个指定查询条件文档，一个指定字段
+``` javascript
+// 语法
+// projection 可选，不指定projection默认查所有
+db.collection.find(query, projection)
+
+// 增加几条示例数据
+[
+    { title: "插入多个1", status: "A", obj: { statue:1,title:'A' }, arr: [ { statue:1,title:'A' } ] },
+    { title: "插入多个1", status: "A", obj: { statue:9,title:'A' }, arr: [ { statue:9,title:'A' },{ statue:1,title:'A' } ] },
+    { title: "插入多个1", status: "A", obj: { statue:9,title:'C' }, arr: [ { statue:9,title:'C' },{ statue:1,title:'A' } ] }
+]
+
+// 普通查询
+db.table_name.find({ title:"插入多个1" })
+```
+查询数组中嵌套文档
+``` javascript
+// 查询 arr 数组, 查询条件里的结构顺序必须和存储的保持一直， 如果是 arr:{ title:'A'，statue:1 } 则查询不出来
+db.table_name.find({ 
+    arr:{ 
+        statue:1,
+        title:'A'
+    } 
+})
+// arr 数组中对象字段作为条件
+db.table_name.find({ 
+    'arr.statue': 9 
+})
+// 使用多个字段作为条件的时候，看的上面的可能会联想到这写。 实际上这样会把第2，3条都查询出来，这样实际是查询 statue为9和title为A的，但是并不需要是同一个文档里
+db.table_name.find({ 
+    'arr.statue': 9 ,
+    'arr.title': 'A' 
+})
+// 想要使用一个文档中多个字段 需要使用 运算符 $elemMatch
+db.table_name.find({
+  arr:{
+    $elemMatch:{
+      title:"A",
+      statue: 1
+    }
+  }
+})
+```
+查询嵌套的文档
+``` javascript
+// 这样写 和数组一样，都是完全匹配一致
+db.table_name.find({
+  obj:{
+    statue:1,
+    title:'A'
+  }
+})
+// 指定文档字段
+db.table_name.find({
+ 'obj.statue':1
+})
+```
 ### 指定返回字段
 默认情况下，MongoDB中的查询返回匹配文档中的所有字段,可以配置一个projection 文档以指定或限制要返回的字段。
 
 ``` javascript
 // 示例数据结构
 { title: "插入多个1", status: "A", obj: { statue:1,title:'A' }, arr: [ { statue:1,title:'A' } ] }
-
-// 语法
-db.collection.find(query, projection)
 
 db.table_name.find({ title:'插入多个1' })
 // 类似sql的
@@ -131,7 +187,7 @@ select * from table_name where title='插入多个1'
 db.table_name.find({ title:'插入多个1' },{ title: 1,staus:1  })  // 1 代表返回字段, 0 代表过滤的字段
 // 类似sql的
 select _id,title,staus from table_name where title='插入多个1'
-// _id mongoDB是默认指定返回的,如果想要不返回 可以指定 { _id:0 }
+// _id MongoDB是默认指定返回的,如果想要不返回 可以指定 { _id:0 }
 
 // 指定嵌套文档返回字段  4.4以后版本,还可以直接嵌套使用 { title: 1,obj:{ statue:1  } }
 // 嵌套的数组和嵌套文档操作一致
@@ -142,6 +198,7 @@ db.table_name.find({ title:'插入多个1' },{ title: 1,'obj.statue': 1, 'arr.ti
 // 利用运算符 数组指定数据 $slice 返回数组最后一个
 db.table_name.find({ title:'插入多个1' },{ title: 1,'obj.statue': 1, arr: { $slice: -1 } }) 
 ```
-## 修改
-
-## 常用操作符
+使用查询和映射运算符，还能实现更为复杂的条件过滤和字段匹配
+## 更新
+MongoDB中更新文档，需要与更新运算符结合使用来修改字段值。
+## 常用运算符
