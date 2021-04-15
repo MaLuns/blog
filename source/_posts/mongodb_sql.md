@@ -109,9 +109,6 @@ db.table_name.deleteMany({},{})
 查询也提供了单个和多个文档查询等
 - find 查找集合中符合条件的所有记录
 - findOne 查询单条
-- findOneAndDelete 查询单条并删除
-- findOneAndReplace 查询单条并替换
-- findOneAndUpdate  查询单条并更改
 
 ### 常用条件使用方式
 find传入两个参数，一个指定查询条件文档，一个指定字段
@@ -123,8 +120,8 @@ db.collection.find(query, projection)
 // 增加几条示例数据
 [
     { title: "插入多个1", status: "A", obj: { statue:1,title:'A' }, arr: [ { statue:1,title:'A' } ] },
-    { title: "插入多个1", status: "A", obj: { statue:9,title:'A' }, arr: [ { statue:9,title:'A' },{ statue:1,title:'A' } ] },
-    { title: "插入多个1", status: "A", obj: { statue:9,title:'C' }, arr: [ { statue:9,title:'C' },{ statue:1,title:'A' } ] }
+    { title: "插入多个2", status: "A", obj: { statue:9,title:'A' }, arr: [ { statue:9,title:'A' },{ statue:1,title:'A' } ] },
+    { title: "插入多个3", status: "A", obj: { statue:9,title:'C' }, arr: [ { statue:9,title:'C' },{ statue:1,title:'A' } ] }
 ]
 
 // 普通查询
@@ -198,7 +195,54 @@ db.table_name.find({ title:'插入多个1' },{ title: 1,'obj.statue': 1, 'arr.ti
 // 利用运算符 数组指定数据 $slice 返回数组最后一个
 db.table_name.find({ title:'插入多个1' },{ title: 1,'obj.statue': 1, arr: { $slice: -1 } }) 
 ```
-使用查询和映射运算符，还能实现更为复杂的条件过滤和字段匹配
+使用查询运算符和映射运算符，还能实现更为复杂的条件过滤和字段匹配
 ## 更新
 MongoDB中更新文档，需要与更新运算符结合使用来修改字段值。
+提供的更新方法
+- update 更新或替换单个或者多个文档
+- updateOne 更新单个文档
+- updateMany 更新多个文档
+- replaceOne 替换单个文档 
+基本使用方式
+``` javascript
+// 增加几条示例数据
+[
+    { title: "插入多个1", status: "A", obj: { statue:1,title:'A' }, arr: [ { statue:1,title:'A' } ] },
+    { title: "插入多个2", status: "B", obj: { statue:9,title:'A' }, arr: [ { statue:9,title:'A' },{ statue:1,title:'A' } ] },
+    { title: "插入多个3", status: "C", obj: { statue:9,title:'C' }, arr: [ { statue:9,title:'C' },{ statue:1,title:'A' } ] }
+]
+
+// 语法 
+db.table_name.update('查询条件','更新管道','设置')
+
+// 替换查询的整个文档
+db.table_name.update({ title:'插入多个1' },{ status:'D' })
+// 更新指定字段
+db.table_name.update(
+    { title:'插入多个1' },
+    { 
+        $set:{
+            status:'D' 
+        }
+    },
+    {
+        multi: true ,// 默认false, 是否更新多条
+        upsert: true,// 默认fals, 如果不存在文档这新增一条
+    }
+)
+
+// 修改嵌套数组字段
+db.table_name.update({
+  title: "插入多个1",
+  "arr.statue": 1 
+},
+{
+  "$set": {
+    //"arr.0.statue": 3 // 修改第1条
+    "arr.$.statue": 3 // 单个修改需要指定数组条件
+    //"arr.$[].statue": 3 //修改多个
+  }
+})
+```
+
 ## 常用运算符
