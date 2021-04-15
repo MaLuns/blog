@@ -196,6 +196,39 @@ db.table_name.find({ title:'插入多个1' },{ title: 1,'obj.statue': 1, 'arr.ti
 db.table_name.find({ title:'插入多个1' },{ title: 1,'obj.statue': 1, arr: { $slice: -1 } }) 
 ```
 使用查询运算符和映射运算符，还能实现更为复杂的条件过滤和字段匹配
+
+
+### 查询常用的运算符
+
+- $eq,$gt等这类比较大小的。
+- $in,$nin 类似sql中的 in 和 not in 。
+- $regex 使用正则匹配。
+- $exists 判断是否有指定字段。
+- $and 类似sql的 and。
+- $or 类似sql的 or。
+- $not 查询指定条件以外的数据。
+- $nor 和$or结果是相反的。
+- $all 匹配包含查询中指定的所有元素的数组。
+- $elemMatch 如果array字段中的元素符合所有指定$elemMatch条件，则选择文档。
+- $size 如果数组字段为指定大小，则选择文档。
+### 查询中的映射
+- $ 数组中匹配查询条件的第一个元素。
+- $elemMatch 符合指定$elemMatch条件的数组中的第一个元素。
+- $meta 项目在$text操作期间分配的文档分数。
+- $slice 限制从数组中投影的元素数量。支持limit和skip。
+
+### 查询修饰符
+- $comment 向查询添加注释，以标识数据库探查器输出中的查询。
+- $explain 强制MongoDB报告查询执行计划。请参阅explain()。
+- $hint 仅强制MongoDB使用特定索引。请看hint()
+- $max 指定要在查询中使用的索引的排他上限。请参阅max()。
+- $maxTimeMS 指定对游标进行处理操作的累积时间限制（以毫秒为单位）。请参阅maxTimeMS()。
+- $min 指定一个包容性的下限为索引在查询中使用。请参阅min()。
+- $orderby 返回带有根据排序规范排序的文档的游标。请参阅sort()。
+- $query 包装查询文档。
+- $returnKey 强制游标仅返回索引中包含的字段。
+- $showDiskLoc 修改返回的文档以包括对每个文档在磁盘上位置的引用。
+
 ## 更新
 MongoDB中更新文档，需要与更新运算符结合使用来修改字段值。
 提供的更新方法
@@ -219,30 +252,78 @@ db.table_name.update('查询条件','更新管道','设置')
 db.table_name.update({ title:'插入多个1' },{ status:'D' })
 // 更新指定字段
 db.table_name.update(
-    { title:'插入多个1' },
-    { 
-        $set:{
-            status:'D' 
-        }
-    },
-    {
-        multi: true ,// 默认false, 是否更新多条
-        upsert: true,// 默认fals, 如果不存在文档这新增一条
+  { title:'插入多个1' },
+  { 
+    $set:{
+      status:'D' 
     }
+  },
+  {
+    multi: true ,// 默认false, 是否更新多条
+    upsert: true,// 默认fals, 如果不存在文档这新增一条
+  }
 )
 
 // 修改嵌套数组字段
-db.table_name.update({
-  title: "插入多个1",
-  "arr.statue": 1 
-},
-{
-  "$set": {
-    //"arr.0.statue": 3 // 修改第1条
-    "arr.$.statue": 3 // 单个修改需要指定数组条件
-    //"arr.$[].statue": 3 //修改多个
+db.table_name.update(
+  { title: "插入多个1", "arr.statue": 1 },
+  {
+    "$set": {
+        //"arr.0.statue": 3 // 修改第1条
+        "arr.$.statue": 3 // 单个修改需要指定数组条件
+        //"arr.$[].statue": 3 //修改多个
+    }
   }
+)
+
+// 去除字段
+db.table_name.update(
+  { title: "插入多个1" },
+  {
+      "$unset":{
+          status: 0
+      }
+  }
+)
+
+// 4.2后的版本还可以将聚合管道用来更新
+// 将合计值更新到 total 上
+db.collection.update({},
+[
+  {
+    "$set": {
+      total: {
+        "$sum": [
+          "$arr.statue"
+        ]
+      }
+    }
+  }
+],
+{
+  multi: true
 })
 ```
 
-## 常用运算符
+### 字段更新运算符
+- $currentDate 将字段的值设置为当前日期，即日期或时间戳。
+- $inc 将字段的值增加指定的数量。
+- $min 仅当指定值小于现有字段值时才更新该字段。
+- $max 仅当指定值大于现有字段值时才更新该字段。
+- $mul 将字段的值乘以指定的数量。
+- $rename 重命名字段。
+- $set 设置文档中字段的值。
+- $setOnInsert 如果更新导致插入文档，则设置字段的值。对修改现有文档的更新操作没有影响。
+- $unset 从文档中删除指定的字段。
+
+### 数组更新运算符
+
+- $[] 充当占位符，以更新匹配查询条件的文档的数组中的所有元素。
+- $ 充当占位符，以更新与查询条件匹配的第一个元素。
+- $[<identifier>] 充当占位符，以更新arrayFilters与查询条件匹配的文档中所有与条件匹配的元素。
+- $addToSet 仅当元素不存在于集合中时才将它们添加到数组中。
+- $pop 删除数组的第一项或最后一项。
+- $pull 删除与指定查询匹配的所有数组元素。
+- $push 将项目添加到数组。
+- $pullAll 从数组中删除所有匹配的值。
+
