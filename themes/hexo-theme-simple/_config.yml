@@ -73,8 +73,8 @@ menu:
     - title: 联系我
       url: tencent://message/?uin=384399021&amp;Site=有事Q我&amp;Menu=yes
       icon: qq
-    - title FlexView
-      url: /flex.html
+    - title: FlexView
+      url: https://www.imalun.com/flex.html
       icon: flex 
 
 rss: atom.xml

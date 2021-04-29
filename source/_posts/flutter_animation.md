@@ -13,16 +13,13 @@ Flutter 中动画的创建有很多种, 需要根据具体的需求选择不同�
 <!--more-->
 ## 简介
 Flutter动画和其他平台动画原理也是一样的，都是在快速更改UI实现动画效果。在一个Flutter动画中主要包含Animation（动画）、AnimationController（控制器）、Curve（速度曲线）、Animatable（动画取值范围）、Listeners （监听事件）。
-- Animation  主用于保存动画当前插值的和状态，在动画运行时会持续生成介于两个值之间的插入值。例如当宽从100变成200，就是从100-200持续生成插入值，直到结束。
-- AnimationController  用来控制动画的状态启动、暂停、反向运行等
+- Animation  一个抽象类是Flutter动画的核心类，主用于保存动画当前插值的和状态，在动画运行时会持续生成介于两个值之间的插入值。例如当宽从100变成200，会在动画第一帧到最后一帧都会生成100-200区间的一个值，如果速度是匀速的，这个值就是匀速增加到200。
+- AnimationController  用来控制动画的状态启动、暂停、反向运行等, 是Animation的一个子类
 - Curve  用来定义动画运动的是匀速运动还是匀加速等，和 css 中 animation-timing-function 类似
 - Animatable 用于表明动画值范围值。可以通过调用animate方法，返回一个Animation，常见的Tween系列的类都是对他的实现
 - Listener 监听动画状态的变化
 
 ![流程图](/images/posts/flutter_animation/lct.png)
-
-### 动画的选择
-
 
 ## 隐式动画
 隐式动画简单来说就是我们只需要修改对应的属性，Flutter就是自己帮我们过渡动画，和css中过渡有点类似，当我们设置后transition后只需要更改对应的css属性就会自动过渡到新的值。Flutter 内置了一些常用的隐式动画，可以看到源码里都是对ImplicitlyAnimatedWidget的实现，如果需要我们也可以自己实现ImplicitlyAnimatedWidget来自定义隐式动画。 
@@ -105,12 +102,194 @@ class _AnimatedDemo extends AnimatedWidgetBaseState<AnimatedDemo> {
 当我们去看 ImplicitlyAnimatedWidget 源码时候，在 ImplicitlyAnimatedWidgetState 中会看到里面定义了 AnimationController 控制动画。所以我们才只需要更改属性，其他的交个     ImplicitlyAnimatedWidget 就可以了。
 
 ## 显示动画
-有时候有些动画需要们自己去控制动画的状态，而不是交给框架去处理，这时就需要我们自己都使用 AnimationController 来管理我们动画的状态。
+有时候有些动画需要们自己去控制动画的状态，而不是交给框架去处理，这时就需要我们自己去定义前面简介里提到的那几个动画要素了。
+
+### 内置显示动画
+在Flutter中内置的显示动画大部分都是XxxxxxTransition名称的，我们看个内置显示动画使用例子，RotationTransition组件需要一个 turns（Animation<\double\>）参数,我们可以给它个AnimationController
 ``` dart 
+// RotationTransition 参数
+RotationTransition(
+   turns: Animation<double>,
+   child: ChildWidget(),
+)
+
+// AnimationController 参数
+AnimationController(
+  double? value, // 初始值
+  this.duration, //动画时间
+  this.reverseDuration, // 反向动画执行的时间
+  this.debugLabel, 
+  this.lowerBound = 0.0, //动画开始值
+  this.upperBound = 1.0, //动画结束值
+  this.animationBehavior = AnimationBehavior.normal,
+  required TickerProvider vsync, //垂直同步，用来告诉动画mei zhimeizhi ， Flutter 提供了个 SingleTickerProviderStateMixin
+)
+```
+使用 RotationTransition，可以看到一个红蓝渐变色方块旋转一周。
+``` dart 
+class RotationTransitionDemo extends StatefulWidget {
+  @override
+  _RotationTransitionDemoState createState() => _RotationTransitionDemoState();
+}
+
+class _RotationTransitionDemoState extends State<RotationTransitionDemo> with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    // 设置动画时间为1秒
+    _controller = AnimationController(duration: Duration(milliseconds: 1000), vsync: this)
+    ..addListener(() { // 监听动画的状态值发生变化
+        print(_controller.value);
+    })
+    ..addStatusListener((status) { //监听动画状态
+        // dismissed 动画在起始点停止
+        // forward 动画正在正向执行
+        // reverse 动画正在反向执行
+        // completed 动画在终点停止
+        print(status);
+    })
+    ..forward(); // 执行动画
+    // 常用方法
+    // forward() // 正向执行动画
+    // reverse() 反向执行动画
+    // repeat() 重复执行 可以传个参数 是否会反向运动
+    // stop() 停止动画
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('RotationTransition'),
+      ),
+      body: Center(
+        child: RotationTransition(
+          turns: _controller, // 设置 Animation
+          child: Container(
+            height: 300,
+            width: 300,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [Colors.red, Colors.blue]),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
 ```
 
-## 交织动画
+### 控制器补间和曲线
+在控制器中我们可以看的动画开始值和结束值默认是0.0到1.0，而且是double类型的。而实际动画中不可能只是double类型的，需要我们自己使用Animatable来指定补间范围值。
+修改一下上面的代码
+```dart
+// 通过控制器的drive方法添加
+ _controller = AnimationController(duration: Duration(milliseconds: 1000),vsync: this)
+  ..drive(Tween(begin: 1, end: 4)) //使用Tween（Animatable的子类）指定补间范围
+
+// 我也也可以是使用Animatable的animate方法添加到控制器
+Tween(begin: 1, end: 4).animate(_controller);
+// 这样写我们可以使用 chain() 叠加多个 Tween
+Tween(begin: 1, end: 4)
+.chain(CurveTween(curve: Curves.ease)) //叠加个曲线
+.animate(_controller);
+```
+Flutter已经内置帮我们实现了很多Animatable，ColorTween、SizeTween、IntTween、StepTween等等。
+
+### 交织动画
+官方是这么介绍的：交织动画是一个简单的概念：视觉变化是随着一系列的动作发生，而不是一次性的动作。动画可能是纯粹顺序的，一个改变随着一个改变发生，动画也可能是部分或者全部重叠的。动画也可能有间隙，没有变化发生。
+
+简单点说就是一个动画可以分割成很多片段，每个片段都有不同的Tween,看个使用示例
+``` dart 
+class StaggeredAnimationDemo extends StatefulWidget {
+  @override
+  _StaggeredAnimationDemoState createState() => _StaggeredAnimationDemoState();
+}
+
+class _StaggeredAnimationDemoState extends State<StaggeredAnimationDemo> with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+  Animation<double> _height;
+  Animation<Color> _color;
+  Animation<double> _borderRadius;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(duration: Duration(milliseconds: 5000), vsync: this);
+
+    _height = Tween(begin: 50.0, end: 300.0).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(0, 0.15), // Interval 范围必须是0-1 指定Tween在哪一段时间执行
+      ),
+    );
+
+    _color = ColorTween(begin: Colors.red, end: Colors.blue).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(0.1, 0.2),
+      ),
+    );
+
+    _borderRadius = Tween(begin: 10.0, end: 150.0).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(0.1, 0.25),
+      ),
+    );
+
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BasiceAppLayout(
+      title: '交织动画',
+      body: Center(
+        child: AnimatedBuilder(
+          animation: _controller,
+          builder: (context, child) {
+            return Container(
+              height: _height.value,
+              width: _height.value,
+              decoration: BoxDecoration(
+                color: _color.value,
+                borderRadius: BorderRadius.circular(_borderRadius.value),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+```
+
+### 自定义显示动画
 
 ## Hero动画
+
+Flutter叫它主动画，用于不同页面之间切换时候动画，比如有一个商品列表，点击后跳到一个新的页面查看原图，就可以这个动画。使用也很简单，在不同页面使用Hero包裹需要动画组件，两个页面的 tag 需要甚至成一直，但是同一个页面需要保持唯一。
+
+``` dart 
+Hero(
+  tag: "avatar", //唯一标记，前后两个路由页Hero的tag必须相同
+  child: ChildWidget(),
+)
+```
 
 ## 自绘动画
