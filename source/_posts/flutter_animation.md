@@ -6,18 +6,24 @@ date: 2021-04-28 15:04:50
 tags: [Flutter]
 categories: 记录类
 description:
-keywords:
+keywords: flutter,animation
 ---
 Flutter 中动画的创建有很多种, 需要根据具体的需求选择不同的动画。如果只是简单的布局等的动画直接使用最简单的隐式动画就可以了，因为隐式动画是由框架控制的，所以仅仅只需要更改变需要变化属性就可以了。如果你想自己控制动画的变换则需要使用显示动画，如果需要控制一些列动画组合时使用交织动画去控制。如果内置的满足不了需求的时候，还可以结合画布自绘动画。
 
 <!--more-->
 ## 简介
-Flutter动画和其他平台动画原理也是一样的，都是在快速更改UI实现动画效果。在一个Flutter动画中主要包含AnimationController（控制器）、Curve（速度曲线）、Animatable（动画取值范围）、Animation（动画）
+Flutter动画和其他平台动画原理也是一样的，都是在快速更改UI实现动画效果。在一个Flutter动画中主要包含Animation（动画）、AnimationController（控制器）、Curve（速度曲线）、Animatable（动画取值范围）、Listeners （监听事件）。
+- Animation  主用于保存动画当前插值的和状态，在动画运行时会持续生成介于两个值之间的插入值。例如当宽从100变成200，就是从100-200持续生成插入值，直到结束。
 - AnimationController  用来控制动画的状态启动、暂停、反向运行等
-- Animation  用于保存动画当前值的和状态
-- Animatable 用于表明动画值范围值，常见的Tween系列的类都是对他的实现
 - Curve  用来定义动画运动的是匀速运动还是匀加速等，和 css 中 animation-timing-function 类似
- 
+- Animatable 用于表明动画值范围值。可以通过调用animate方法，返回一个Animation，常见的Tween系列的类都是对他的实现
+- Listener 监听动画状态的变化
+
+![流程图](/images/posts/flutter_animation/lct.png)
+
+### 动画的选择
+
+
 ## 隐式动画
 隐式动画简单来说就是我们只需要修改对应的属性，Flutter就是自己帮我们过渡动画，和css中过渡有点类似，当我们设置后transition后只需要更改对应的css属性就会自动过渡到新的值。Flutter 内置了一些常用的隐式动画，可以看到源码里都是对ImplicitlyAnimatedWidget的实现，如果需要我们也可以自己实现ImplicitlyAnimatedWidget来自定义隐式动画。 
 
@@ -96,8 +102,12 @@ class _AnimatedDemo extends AnimatedWidgetBaseState<AnimatedDemo> {
   }
 }
 ```
+当我们去看 ImplicitlyAnimatedWidget 源码时候，在 ImplicitlyAnimatedWidgetState 中会看到里面定义了 AnimationController 控制动画。所以我们才只需要更改属性，其他的交个     ImplicitlyAnimatedWidget 就可以了。
 
 ## 显示动画
+有时候有些动画需要们自己去控制动画的状态，而不是交给框架去处理，这时就需要我们自己都使用 AnimationController 来管理我们动画的状态。
+``` dart 
+```
 
 ## 交织动画
 
