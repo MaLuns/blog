@@ -11,15 +11,22 @@ keywords: flutter,animation
 Flutter 中动画的创建有很多种, 需要根据具体的需求选择不同的动画。如果只是简单的布局等的动画直接使用最简单的隐式动画就可以了，因为隐式动画是由框架控制的，所以仅仅只需要更改变需要变化属性就可以了。如果你想自己控制动画的变换则需要使用显示动画，如果需要控制一些列动画组合时使用交织动画去控制。如果内置的满足不了需求的时候，还可以结合画布自绘动画。
 
 <!--more-->
-## 简介
-Flutter动画和其他平台动画原理也是一样的，都是在快速更改UI实现动画效果。在一个Flutter动画中主要包含Animation（动画）、AnimationController（控制器）、Curve（速度曲线）、Animatable（动画取值范围）、Listeners （监听事件）。
+
+## 动画基础
+Flutter动画和其他平台动画原理也是一样的，都是在快速更改UI实现动画效果。在一个Flutter动画中主要包含Animation（动画）、AnimationController（控制器）、Curve（速度曲线）、Animatable（动画取值范围）、Listeners （监听事件）、Ticker（帧）。
 - Animation  一个抽象类是Flutter动画的核心类，主用于保存动画当前插值的和状态，在动画运行时会持续生成介于两个值之间的插入值。例如当宽从100变成200，会在动画第一帧到最后一帧都会生成100-200区间的一个值，如果速度是匀速的，这个值就是匀速增加到200。
 - AnimationController  用来控制动画的状态启动、暂停、反向运行等, 是Animation的一个子类
 - Curve  用来定义动画运动的是匀速运动还是匀加速等，和 css 中 animation-timing-function 类似
 - Animatable 用于表明动画值范围值。可以通过调用animate方法，返回一个Animation，常见的Tween系列的类都是对他的实现
 - Listener 监听动画状态的变化
+- Ticker 帧回调，在动画执行时候每一帧都会调用其回调，类似与 js 中的 requestAnimationFrame 
 
+### 动画组成结构
+![结构图](/images/posts/flutter_animation/gxt.png)
+### 动画选择
 ![流程图](/images/posts/flutter_animation/lct.png)
+
+Flutter 会用 AnimationController控制执行状态，执行的时候会根据 Animatable,Curve 在每一帧都生成对应的中间插值，插值会保存在 Animation 中，我们 Animation的插值我们就可以更新每一帧的画面，形成动画（Animation）。不管是隐式还是显示动画都是这样来处理动画的。
 
 ## 隐式动画
 隐式动画简单来说就是我们只需要修改对应的属性，Flutter就是自己帮我们过渡动画，和css中过渡有点类似，当我们设置后transition后只需要更改对应的css属性就会自动过渡到新的值。Flutter 内置了一些常用的隐式动画，可以看到源码里都是对ImplicitlyAnimatedWidget的实现，如果需要我们也可以自己实现ImplicitlyAnimatedWidget来自定义隐式动画。 
@@ -99,13 +106,14 @@ class _AnimatedDemo extends AnimatedWidgetBaseState<AnimatedDemo> {
   }
 }
 ```
-当我们去看 ImplicitlyAnimatedWidget 源码时候，在 ImplicitlyAnimatedWidgetState 中会看到里面定义了 AnimationController 控制动画。所以我们才只需要更改属性，其他的交个     ImplicitlyAnimatedWidget 就可以了。
+
+我们可以去看 ImplicitlyAnimatedWidget 是如何控制动画的，在 ImplicitlyAnimatedWidgetState 中会看到其实里面定义了 AnimationController 控制动画。然后可以看到 didUpdateWidget 钩子函数中调用了  _controller.forward() 执行动画，当父 Widget 调用 setState 时候就会触发这个钩子函数的调用。
 
 ## 显示动画
 有时候有些动画需要们自己去控制动画的状态，而不是交给框架去处理，这时就需要我们自己去定义前面简介里提到的那几个动画要素了。
 
 ### 内置显示动画
-在Flutter中内置的显示动画大部分都是XxxxxxTransition名称的，我们看个内置显示动画使用例子，RotationTransition组件需要一个 turns（Animation<\double\>）参数,我们可以给它个AnimationController
+在Flutter中内置的显示动画大部分都是XxxxxxTransition名称的，我们看个内置显示动画使用例子，RotationTransition组件需要一个 turns（Animation\<double\>）参数,我们可以给它个AnimationController
 ``` dart 
 // RotationTransition 参数
 RotationTransition(
@@ -122,7 +130,7 @@ AnimationController(
   this.lowerBound = 0.0, //动画开始值
   this.upperBound = 1.0, //动画结束值
   this.animationBehavior = AnimationBehavior.normal,
-  required TickerProvider vsync, //垂直同步，用来告诉动画mei zhimeizhi ， Flutter 提供了个 SingleTickerProviderStateMixin
+  required TickerProvider vsync, //垂直同步，需要一个 Ticker ,Flutter 给我们提供了
 )
 ```
 使用 RotationTransition，可以看到一个红蓝渐变色方块旋转一周。
@@ -204,6 +212,71 @@ Tween(begin: 1, end: 4)
 ```
 Flutter已经内置帮我们实现了很多Animatable，ColorTween、SizeTween、IntTween、StepTween等等。
 
+
+### 自定义显示动画
+查看 RotationTransition 的源码，我们可以看到它是对的抽象类 AnimatedWidget 的实现，当内置的满足不了我们的时候，可以直接自己实现 AnimatedWidget 自定义显示动画。先来看看 AnimatedWidget 里面都有些啥。
+``` dart 
+// 只摘取主要的部分
+abstract class AnimatedWidget extends StatefulWidget {
+
+  const AnimatedWidget({ Key key,@required this.listenable,  }) : assert(listenable != null), super(key: key);
+
+  @override
+  _AnimatedState createState() => _AnimatedState();
+}
+
+class _AnimatedState extends State<AnimatedWidget> {
+  @override
+  void initState() {
+    super.initState();
+    widget.listenable.addListener(_handleChange);
+  }
+
+  void _handleChange() {
+    setState(() {
+      // The listenable's state is our build state, and it changed already.
+    });
+  }
+}
+```
+我们可以看到显示动画是通过控制器监听插值更改 setState 进行重绘。接下来我自己实现个
+
+``` dart 
+// 继承 AnimatedWidget
+class OpacityAnimatedWidget extends AnimatedWidget {
+  final Widget child;
+  Animation<Color> colorAnimation;
+
+  // AnimatedWidget 需要可传递一个 listenable 进去，我们可以传递个 AnimationController
+  OpacityAnimatedWidget(listenable, {this.colorAnimation, this.child}) : super(listenable: listenable);
+
+  @override
+  Widget build(BuildContext context) {
+    Animation<double> animation = listenable;
+    return Opacity(
+      opacity: animation.value,
+      child: Container(
+        color: colorAnimation.value,
+        child: child,
+      ),
+    );
+  }
+}
+
+// 使用 需要在状态类上 混入一个 SingleTickerProviderStateMixin
+AnimationController _controller = AnimationController(duration: Duration(milliseconds: 1000), vsync: this); 
+
+OpacityAnimatedWidget(
+  Tween(begin: 1.0, end: .8).animate(_controller),
+  colorAnimation: ColorTween(begin: Colors.red, end: Colors.blue).animate(_controller),
+  child: Container(
+    height: 300,
+    width: 300,
+  ),
+)
+```
+Flutter 内部还提供了一个 AnimatedBuilder 帮助我们去自定义
+
 ### 交织动画
 官方是这么介绍的：交织动画是一个简单的概念：视觉变化是随着一系列的动作发生，而不是一次性的动作。动画可能是纯粹顺序的，一个改变随着一个改变发生，动画也可能是部分或者全部重叠的。动画也可能有间隙，没有变化发生。
 
@@ -278,8 +351,6 @@ class _StaggeredAnimationDemoState extends State<StaggeredAnimationDemo> with Si
   }
 }
 ```
-
-### 自定义显示动画
 
 ## Hero动画
 
