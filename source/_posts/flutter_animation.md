@@ -26,7 +26,7 @@ Flutter动画和其他平台动画原理也是一样的，都是在快速更改U
 ### 动画选择
 ![流程图](/images/posts/flutter_animation/lct.png)
 
-Flutter 会用 AnimationController控制执行状态，执行的时候会根据 Animatable,Curve 在每一帧都生成对应的中间插值，插值会保存在 Animation 中，我们 Animation的插值我们就可以更新每一帧的画面，形成动画（Animation）。不管是隐式还是显示动画都是这样来处理动画的。
+<!-- Flutter 会用 AnimationController控制执行状态，执行的时候会根据 Animatable,Curve 在每一帧都生成对应的中间插值，插值会保存在 Animation 中，我们 Animation的插值我们就可以更新每一帧的画面，形成动画（Animation）。不管是隐式还是显示动画都是这样来处理动画的。 -->
 
 ## 隐式动画
 隐式动画简单来说就是我们只需要修改对应的属性，Flutter就是自己帮我们过渡动画，和css中过渡有点类似，当我们设置后transition后只需要更改对应的css属性就会自动过渡到新的值。Flutter 内置了一些常用的隐式动画，可以看到源码里都是对ImplicitlyAnimatedWidget的实现，如果需要我们也可以自己实现ImplicitlyAnimatedWidget来自定义隐式动画。 
@@ -234,12 +234,12 @@ class _AnimatedState extends State<AnimatedWidget> {
 
   void _handleChange() {
     setState(() {
-      // The listenable's state is our build state, and it changed already.
+      // 我们可以看到显示动画是通过控制器监听插值更改 setState 进行重绘。
     });
   }
 }
 ```
-我们可以看到显示动画是通过控制器监听插值更改 setState 进行重绘。接下来我自己实现个
+接下来我自己继承 AnimatedWidget 实现一个自定义显示动画
 
 ``` dart 
 // 继承 AnimatedWidget
@@ -275,7 +275,17 @@ OpacityAnimatedWidget(
   ),
 )
 ```
-Flutter 内部还提供了一个 AnimatedBuilder 帮助我们去自定义
+Flutter 内部还提供了一个 AnimatedBuilder 帮助我们简化自定义动画。
+``` dart
+// 只需要三个三参数
+AnimatedBuilder( 
+  animation, // 一个listenable
+  child,// 传入个子组件，非必填
+  builder,// (BuildContext context, Widget child){}  这里的第二个参数 child ，就是上面传入的 child
+  // 这么做的好处就是，动画执行的时候只会执行 builder ,如果一个动画只是包裹层需要执行动画，这个时候就可以把包裹的子组件 放到外面传进去
+  // 这样就每次只需要 执行 builder 而方法第二个参数是传递进来的引用，所以可以避免每次都更新，减少开销
+)
+```
 
 ### 交织动画
 官方是这么介绍的：交织动画是一个简单的概念：视觉变化是随着一系列的动作发生，而不是一次性的动作。动画可能是纯粹顺序的，一个改变随着一个改变发生，动画也可能是部分或者全部重叠的。动画也可能有间隙，没有变化发生。
@@ -363,4 +373,4 @@ Hero(
 )
 ```
 
-## 自绘动画
+<!-- ## 自绘动画 -->
