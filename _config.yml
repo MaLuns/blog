@@ -103,7 +103,7 @@ theme: hexo-theme-simple
 deploy:
   type: 'git'
   repository: 
-    coding: git@e.coding.net:mablog/blog.git,master
+    #coding: git@e.coding.net:mablog/blog.git,master
     github: git@github.com:MaLuns/MalBlog.git,gh-pages
   branch: master
 
