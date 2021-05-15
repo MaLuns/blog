@@ -36,8 +36,16 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 
     - name: Install hexo dependencies
+      env:
+        ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
       # 下载 hexo-cli 脚手架及相关安装包
       run: |
+        mkdir -p ~/.ssh/
+        echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        git config --global user.email "384399021@qq.com"
+        git config --global user.name "ml"
         npm install -g hexo-cli
         npm install
 

@@ -12,3 +12,5 @@ themes/hexo-theme-freemind
 themes/hexo-theme-sagiri
 *.pdf
 demo.html
+github-deploy-key
+github-deploy-key.pub
