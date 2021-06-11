@@ -281,11 +281,13 @@
                 }
 
                 >ul {
-                    background        : var(--darkBase, var(--white));
-                    -webkit-transition: all var(--transitionTime);
-                    transition        : all var(--transitionTime);
-                    list-style        : none;
-                    padding           : 10px 0;
+                    background             : rgba(var(--darkBaseRgb, var(--whiteRgb)), 0.56);
+                    -webkit-backdrop-filter: blur(40px);
+                    backdrop-filter        : blur(40px);
+                    -webkit-transition     : all var(--transitionTime);
+                    transition             : all var(--transitionTime);
+                    list-style             : none;
+                    padding                : 10px 0;
 
                     li {
                         -webkit-transition : all var(--transitionTime);
@@ -325,16 +327,18 @@
             }
 
             .user-card {
-                background        : var(--darkBase, var(--white));
-                border-radius     : var(--radius);
-                -webkit-transition: all var(--transitionTime);
-                transition        : all var(--transitionTime);
-                text-align        : center;
-                position          : -webkit-sticky;
-                position          : sticky;
-                top               : calc(var(--layoutHeaderHeight) + 20px);
-                margin-top        : 10px;
-                padding           : 20px 0;
+                background             : rgba(var(--darkBaseRgb, var(--whiteRgb)), 0.56);
+                -webkit-backdrop-filter: blur(40px);
+                backdrop-filter        : blur(40px);
+                border-radius          : var(--radius);
+                -webkit-transition     : all var(--transitionTime);
+                transition             : all var(--transitionTime);
+                text-align             : center;
+                position               : -webkit-sticky;
+                position               : sticky;
+                top                    : calc(var(--layoutHeaderHeight) + 20px);
+                margin-top             : 10px;
+                padding                : 20px 0;
 
                 .avatar {
                     width        : 35%;
