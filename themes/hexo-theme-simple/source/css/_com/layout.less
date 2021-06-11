@@ -9,9 +9,9 @@
     background        : transparent;
 
     &.fixed {
-        background: ~'rgba(var(--themeColorRgb2),0.2)';
+        background             : ~'rgba(var(--themeColorRgb2),0.2)';
         -webkit-backdrop-filter: blur(40px);
-        backdrop-filter: blur(40px);
+        backdrop-filter        : blur(40px);
     }
 
     .nav {
@@ -396,12 +396,14 @@
             overflow        : hidden;
 
             article {
-                background        : var(--darkBase, var(--white));
-                border-radius     : var(--radius);
-                -webkit-transition: all var(--transitionTime);
-                transition        : all var(--transitionTime);
-                margin-bottom     : 30px;
-                overflow          : hidden;
+                background             : rgba(var(--darkBaseRgb, var(--whiteRgb)), 0.56);
+                -webkit-backdrop-filter: blur(40px);
+                backdrop-filter        : blur(40px);
+                border-radius          : var(--radius);
+                -webkit-transition     : all var(--transitionTime);
+                transition             : all var(--transitionTime);
+                margin-bottom          : 30px;
+                overflow               : hidden;
 
                 .post-header {
                     text-align: center;
