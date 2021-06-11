@@ -14,7 +14,7 @@ window.ShowMessage = ComMessage;
 
 import './app'
 import './cursor-effects'
-import './aplayer'
+//import './aplayer'
 import './title'
 import './pjax'
 require('./post-details')();
