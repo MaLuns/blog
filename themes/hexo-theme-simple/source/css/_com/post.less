@@ -90,10 +90,10 @@ article {
 
             th,
             td {
-                border-right    : 1px solid #eee;
-                border-bottom   : 1px solid #eee;
-                text-align: center;
-                padding   : 8px 12px;
+                border-right : 1px solid #eee;
+                border-bottom: 1px solid #eee;
+                text-align   : center;
+                padding      : 8px 12px;
             }
         }
     }
@@ -102,18 +102,20 @@ article {
 
 /* 上下篇 */
 .prev-next-content {
-    -webkit-box-shadow: 0 0 var(--boxShadowBlur) 0 var(--boxShadowColor);
-    box-shadow        : 0 0 var(--boxShadowBlur) 0 var(--boxShadowColor);
-    background        : var(--darkBase, var(--white));
-    border-radius     : var(--radius);
-    padding           : 20px;
-    margin-bottom     : 20px;
-    display           : -webkit-box;
-    display           : -ms-flexbox;
-    display           : flex;
-    -webkit-box-pack  : justify;
-    -ms-flex-pack     : justify;
-    justify-content   : space-between;
+    -webkit-box-shadow     : 0 0 var(--boxShadowBlur) 0 var(--boxShadowColor);
+    box-shadow             : 0 0 var(--boxShadowBlur) 0 var(--boxShadowColor);
+    background             : rgba(var(--darkBaseRgb, var(--whiteRgb)), 0.56);
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter        : blur(40px);
+    border-radius          : var(--radius);
+    padding                : 20px;
+    margin-bottom          : 20px;
+    display                : -webkit-box;
+    display                : -ms-flexbox;
+    display                : flex;
+    -webkit-box-pack       : justify;
+    -ms-flex-pack          : justify;
+    justify-content        : space-between;
 
     >div {
         -webkit-box-flex: 1;
