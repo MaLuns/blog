@@ -67,7 +67,7 @@ $(function () {
             })
 
             //主题色
-            $("#themeColorPicker").on('change', function (ev) {
+           /*  $("#themeColorPicker").on('change', function (ev) {
                 let rgba = this.color.toRGBA();
                 let rgb = `${rgba[0]},${rgba[1]},${rgba[2]}`;
                 let hexa = this.color.toHEXA().toString();
@@ -77,7 +77,7 @@ $(function () {
                     css: [{ key: '--baseRgb', val: rgb }, { key: '--base', val: hexa }],
                     val: hexa
                 })
-            })
+            }) */
 
             //字体
             $("#fontFamily").on("change", function (ev) {
@@ -119,9 +119,9 @@ $(function () {
                     case 'radiusSlider':
                     case 'boxShadowBlur':
                     case 'fontFamily':
-                    case 'themeColorPicker':
+                    /* case 'themeColorPicker':
                         document.getElementById(key).value = setting[key].val;
-                        break
+                        break */
                     default:
                         break
                 }
