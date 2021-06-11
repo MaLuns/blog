@@ -25,10 +25,13 @@
     <%- css('css/index.css?v='+theme.version) %>
     <script type="text/javascript">
         ~function () {
-            let setting = localStorage.getItem('setting') ? JSON.parse(localStorage.getItem('setting')) : {}; let root = document.documentElement;
+            let setting = localStorage.getItem('setting') ? JSON.parse(localStorage.getItem('setting')) : {};
+            let root = document.documentElement;
             for (let key in setting) {
                 if (key === 'lightSwitch') {
                     root.classList[setting[key] ? 'add' : 'remove']('dark')
+                } else if(key === 'themeColorPicker'){
+
                 } else {
                     setting[key].css.forEach(item => { root.style.setProperty(item.key, item.val); })
                 }
