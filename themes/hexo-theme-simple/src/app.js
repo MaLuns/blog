@@ -67,17 +67,17 @@ $(function () {
             })
 
             //主题色
-           /*  $("#themeColorPicker").on('change', function (ev) {
-                let rgba = this.color.toRGBA();
-                let rgb = `${rgba[0]},${rgba[1]},${rgba[2]}`;
-                let hexa = this.color.toHEXA().toString();
-                root.style.setProperty('--baseRgb', rgb)
-                root.style.setProperty('--base', hexa);
-                app.setSetting('themeColorPicker', {
-                    css: [{ key: '--baseRgb', val: rgb }, { key: '--base', val: hexa }],
-                    val: hexa
-                })
-            }) */
+            /*  $("#themeColorPicker").on('change', function (ev) {
+                 let rgba = this.color.toRGBA();
+                 let rgb = `${rgba[0]},${rgba[1]},${rgba[2]}`;
+                 let hexa = this.color.toHEXA().toString();
+                 root.style.setProperty('--baseRgb', rgb)
+                 root.style.setProperty('--base', hexa);
+                 app.setSetting('themeColorPicker', {
+                     css: [{ key: '--baseRgb', val: rgb }, { key: '--base', val: hexa }],
+                     val: hexa
+                 })
+             }) */
 
             //字体
             $("#fontFamily").on("change", function (ev) {
@@ -160,4 +160,10 @@ $(function () {
     app.initSetting();
     app.initSettingEvent();
     app.scroll();
+
+    mediumZoom('article img', {
+        margin: 24,
+        background: '#00000077',
+        scrollOffset: 0
+    })
 })

@@ -11,6 +11,12 @@ function postDetails() {
                 scrollTop: offset - 100
             }, 500);
         });
+
+        mediumZoom('article img', {
+            margin: 24,
+            background: '#00000077',
+            scrollOffset: 0
+        })
     });
 }
 
