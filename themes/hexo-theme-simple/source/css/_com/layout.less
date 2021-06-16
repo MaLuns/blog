@@ -164,17 +164,19 @@
             }
 
             .user-des {
-                color         : #fff;
-                height        : 30px;
-                font-size     : 16px;
-                line-height   : 30px;
-                padding       : 5px 20px 5px 0px;
-                margin-top    : 20px;
-                display       : inline-block;
-                background    : ~'rgba(var(--themeColorRgb2),0.08)';
-                background    : linear-gradient(45deg, #97cdc44a, #f7c7b045, #37618c5e);
-                /* background : linear-gradient(45deg, #97cdc491, #f7c7b099, #37618c9e); */
-                animation     : rotate 1.5s linear infinite;
+                color                  : #fff;
+                height                 : 30px;
+                font-size              : 16px;
+                line-height            : 30px;
+                padding                : 5px 20px 5px 0px;
+                margin-top             : 20px;
+                display                : inline-block;
+                background             : ~'rgba(var(--themeColorRgb2),0.08)';
+                background             : linear-gradient(45deg, #97cdc44a, #f7c7b045, #37618c5e);
+                /* background          : linear-gradient(45deg, #97cdc491, #f7c7b099, #37618c9e); */
+                animation              : rotate 1.5s linear infinite;
+                -webkit-backdrop-filter: blur(40px);
+                backdrop-filter        : blur(40px);
 
                 span {
                     display     : inline-block;
@@ -292,7 +294,7 @@
                     li {
                         -webkit-transition : all var(--transitionTime);
                         transition         : all var(--transitionTime);
-                        color              : var(--darkFontColor, #38b1d0) !important;
+                        color              : var(--darkFontColor, --themeColor) !important;
                         height             : 36px;
                         line-height        : 36px;
                         padding            : 0 10px;
