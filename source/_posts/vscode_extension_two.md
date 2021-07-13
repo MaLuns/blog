@@ -12,6 +12,69 @@ keywords: [vscode插件开发,vscode]
 接着上面的继续介绍一些常用的vscode 插件的配置和api。
 
 <!-- more -->
+## 代码片段
+在package.json 增加 snippets 配置。
+``` json
+"snippets": [
+    {
+        "language": "vue", // 指定支持的语言
+        "path": "./snippets/demo.json" // 文件路径
+    },
+]
+```
+在 snippets 文件夹下创建 demo.json 文件，代码格式如下
+``` json
+{
+    "片段名称": {
+        "prefix": "代码片段触发前缀",
+        "body": [ "片段内容" ],
+        "description": "代码片段描述"
+    },
+}
+
+// 示例
+{
+    "selectCheckBox": {
+        "prefix": "select-check-box",
+        "body": [
+            "<select-check-box v-model='${1:search.statusList}'  :sourceOpt='${2:statusOpt}' @change='${3:getList(1)}' title='${4:状态}'></select-check-box>"
+        ],
+        "description": "多选下拉框"
+    }
+}
+```
+片段中的 ${1:xxx} 是占位符，数字表示光标聚焦的顺序，1表示默认光标落在这里，按下回车或者tab跳到2的位置，以此类推，xxx表示此位置的默认值，可省略，比如直接写$3。一个片段里可以设置多个相同的占位符，来同时修改多出占位处。片段中也是支持使用vscode内置的很多变量的，比如可以根据获取当前选择的值(${TM_SELECTED_TEXT}) 填充到代码片段中。
+
+占位符几种使用
+- $1 只显示光标
+- ${1:xxxx} 默认使用 xxx 填充
+- ${1|a,b,c|} 当光标在此处时 提供 a,b,c 三个选择给选择
+- ${1:${TM_SELECTED_TEXT}} 使用内置的变量占位
+
+
+常用用的变量，[查看更多变量](https://code.visualstudio.com/docs/editor/variables-reference#_environment-variables)
+- TM_SELECTED_TEXT当前选定的文本或空字符串
+- TM_CURRENT_LINE当前行的内容
+- TM_CURRENT_WORD光标下的单词或空字符串的内容
+- TM_LINE_INDEX基于零索引的行号
+- TM_LINE_NUMBER基于单索引的行号
+- TM_FILENAME当前文档的文件名
+- TM_FILENAME_BASE没有扩展名的当前文档的文件名
+- TM_DIRECTORY当前文档的目录
+- TM_FILEPATH当前文档的完整文件路径
+- CLIPBOARD剪贴板的内容
+- CURRENT_YEAR当前年份
+- CURRENT_YEAR_SHORT当前年份的最后两位数字
+- CURRENT_MONTH两个数字的月份（例如'02'）
+- CURRENT_MONTH_NAME月份的全名（例如“七月”）
+- CURRENT_MONTH_NAME_SHORT月份的简称（例如'Jul'）
+- CURRENT_DATE每月的某一天
+- CURRENT_DAY_NAME天的名称（例如'星期一'）
+- CURRENT_DAY_NAME_SHORT当天的简称（例如'Mon'）
+- CURRENT_HOUR 24小时制格式的当前小时
+- CURRENT_MINUTE当前分钟
+- CURRENT_SECOND当前秒
+
 ## 插件配置
 在configuration中配置的内容会暴露给用户，用户可以从“用户设置”和“工作区设置”中修改你暴露的选项。configuration是JSON格式的键值对，用户会在修改设置时获得对应的提示和更好的体验。
 ``` json
