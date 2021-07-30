@@ -79,6 +79,7 @@ traverse.default(jsAst, {
 ![ast](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_docs/pic_1627612369570.png)
 
 示例 
+
 ``` js
 let componentInfo = {}
 traverse.default(jsAst, {
@@ -121,9 +122,7 @@ export default {
 ```
 
 可以看到会 CommentBlock、 CommentLine 两种类型的节点，还有头部的会放在 leadingComments 里，底部的注释在 trailingComments 里。
-
 ![ast](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_docs/pic_1627613208799.png)
-
 一般会把组件描述注释放在 **export default**  上面，简单提取注释信息
 
 ``` js
@@ -137,10 +136,9 @@ if (path.node.leadingComments) {
         }
     }).toString()
 }
-``` 
+```
 
 #### 提取 methods
-
 因为 **methods** 中的注释需要额外描述 出参、入参等信息需要额外处理，jsdoc注释规范使用还是不久大众的，这里根据需要自己定义提取规则，还需要提取 **async** 用来标识是否是异步函数。
 
 ``` js
