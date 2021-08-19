@@ -74,4 +74,4 @@ function getIpv4() {
 
 效果如下
 
-![](/images/posts/node_proxy/20200629201153.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/node_proxy/20200629201153.png)

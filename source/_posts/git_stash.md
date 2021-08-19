@@ -40,6 +40,6 @@ keywords:
 更多用法[参考](//git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E8%B4%AE%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86)这里
 
 使用例子
-![](/images/posts/git_stash/20200824154456.jpg)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/git_stash/20200824154456.jpg)
 
-![](/images/posts/git_stash/20200824154701.jpg)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/git_stash/20200824154701.jpg)

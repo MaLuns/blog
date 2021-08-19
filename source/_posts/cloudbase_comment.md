@@ -18,20 +18,20 @@ headerbg: [/images/logo/20200701200939.png,'#dedede']
 
 新建CloudBase环境
 
-![](/images/posts/cloudbase/20200615242451.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/cloudbase/20200615242451.png)
 
 选中包年包月，选择基础版1 (或者选择按量计费，开启免费额度)
 
-![](/images/posts/cloudbase/20200615232440.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/cloudbase/20200615232440.png)
 
 在安全配置->Web安全域名 将自己得域名添加进去
 
-![](/images/posts/cloudbase/20200615234334.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/cloudbase/20200615234334.png)
 
 
 ## 评论大致流程 ##
 
-![](/images/posts/cloudbase/20200615221122.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/cloudbase/20200615221122.png)
 
 ## 数据结构 ##
 
@@ -79,11 +79,11 @@ headerbg: [/images/logo/20200701200939.png,'#dedede']
 
 在 vscode  安装 tencentcloud.cloudbase-toolkit 插件，直接在 vscode 上去创建、编写、部署。[参考地址](https://www.cloudbase.net/)
 常用操作
-![](/images/posts/cloudbase/20200616162909.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/cloudbase/20200616162909.png)
 
 ### 创建集合 ###
 在数据库新增两个集合 article,comments 。
-![](/images/posts/cloudbase/20200616162356.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/cloudbase/20200616162356.png)
 
 ### 云函数 ###
 

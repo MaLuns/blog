@@ -122,23 +122,23 @@ vsce package
 #### 在插件市场发布
 
 首先在 [插件市场](https://marketplace.visualstudio.com/VSCode) 登录你的账号，可以使用github账户或者 Microsoft账户登录
-![](/images/posts/vscode_extension_two/20210623231124.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623231124.png)
 创建发布者（这里需要翻墙），这里发布者ID需要和插件package.json 的 publisher 保持一致。
-![](/images/posts/vscode_extension_two/20210623230340.png)
-![](/images/posts/vscode_extension_two/20210623230642.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623230340.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623230642.png)
 上传vsix包文件
-![](/images/posts/vscode_extension_two/20210623231651.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623231651.png)
 #### 使用vsce发布 
 使用vsce发布首先需要 一个微软 **Azure** 账户，然后创建一个 **Azure DevOps**，然后在组织里创建发布 Token，然后就能使用vsce 发布插件。
 
 首先打开 https://dev.azure.com，直接使用微软账户登录创建一个组织。按照步骤默认会创建一个以邮箱前缀为名的组织。
 创建完后
-![](/images/posts/vscode_extension_two/20210623232915.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623232915.png)
 创建tonken,然后将生成tonken保存下来
-![](/images/posts/vscode_extension_two/20210623233248.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623233248.png)
 然后需要创建一个 publisher， 以前可以vsce直接创建 ，新的不在支持了，只能通过在上一种方式在网页创建了。
 创建好后就可以在使用 vsce publish 命令发布插件，这个时候会提示需要 tonken，将刚刚生成复制上去。可以看到插件已经发布上去了。
-![](/images/posts/vscode_extension_two/20210623234418.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623234418.png)
 ### 发布注意事项
 - README.md 文件默认会显示在插件主页，且里面连接需要是https的
 - CHANGELOG.md 会显示在变更选项卡

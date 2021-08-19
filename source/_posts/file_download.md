@@ -66,7 +66,7 @@ session.defaultSession.on('will-download', (event,  downloadItem, webContents) =
 ```
 然后可以 will-download 事件中的 downloadItem 实例去存储下载信息。等待程序再次启动时通过 session.createInterruptedDownload 恢复上一次的下载
 大致流程
-![](/images/posts/onewallhaven/down.png)
+![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/onewallhaven/down.png)
 ``` js
 //一个简易示例
 let cacheItem = {}
