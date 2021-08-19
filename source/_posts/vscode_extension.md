@@ -64,8 +64,8 @@ module.exports = {
 ```
 
 这个初始化插件项目，默认就是注册了个hello world 命令，然后运行命令显示hello world的通知，按F5运行项目，在命令面板输入hello world，可以看到右下角弹出通知
-![项目结构](/images/posts/vscode_extension/20210615205632.png)
-![项目结构](/images/posts/vscode_extension/20210615205655.png)
+![项目结构](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension/20210615205632.png)
+![项目结构](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension/20210615205655.png)
 
 ## 配置说明
 vscode 插件的 package.json 是 npm 的一个超集，插件的图标、命令注册、菜单配置、语言注册、主题注册、代码片段等一系列的都需要在这个文件里配置。
@@ -274,7 +274,7 @@ when提供的逻辑操作符有 ==、!=、||、&&、!、=\~(正则)、>、>=、<
     },
 }
 ```
-![示例](/images/posts/vscode_extension/20210616211914.png)
+![示例](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension/20210616211914.png)
 
 ### 分组排序
 菜单项可以通过组来分类。根据下列默认规则，然后按照字母排序，
@@ -321,4 +321,4 @@ when提供的逻辑操作符有 ==、!=、||、&&、!、=\~(正则)、>、>=、<
 }
 ```
 设置好后，使用了对应命令的菜单项也会显示对应快捷键，如图所示
-![示例](/images/posts/vscode_extension/20210616230737.png)
+![示例](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension/20210616230737.png)

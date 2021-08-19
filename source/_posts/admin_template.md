@@ -53,7 +53,7 @@ keywords: admin-template,vue,element,后台模板
 ```
 
 
-[演示地址](https://ml13.gitee.io/admin-template)   [项目地址](https://gitee.com/ml13/admin-template)
+[演示地址](//ml13.gitee.io/admin-template)   [项目地址](//gitee.com/ml13/admin-template)
 
 ## 效果图 ##
 
