@@ -6,7 +6,7 @@
   "scripts": {
     "analyz": "NODE_ENV=production npm_config_report=true npm run build",
     "build": "webpack --config ./webpack/webpack.config.js",
-    "dev": "node ./src/component/comment/webpack.dev.js"
+    "dev": "webpack --config ./webpack/webpack.config.dev.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +14,7 @@
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^3.5.3",
     "html-loader": "^1.1.0",
     "less": "^3.11.1",
