@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/  #hexo-theme-bycg  #hexo-theme-simple
-theme: hexo-theme-simple
+theme: hexo-theme-text
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -167,7 +167,7 @@ links:
   - name: 白云苍狗
     url: //www.imalun.com/
     image: //www.imalun.com/images/avatar.jpg
-    desc: 醒，亦在人间；梦，亦在人间E
+    desc: 醒，亦在人间；梦，亦在人间
   - name: 阿龙爱吃肉
     url: //3zi.cn
     image: //i.loli.net/2021/03/28/IZilAJ293tVpwLK.jpg

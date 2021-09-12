@@ -1,0 +1,19 @@
+<div class="post-detial">
+  <%- post.content %>
+  <% if(post.prev || post.next){ %>
+    <div class="prev-next-content">
+        <div class="btn-prev">
+          <% if(post.prev){ %>
+              <div>上一篇</div>
+              <a href="<%- url_for(post.prev.path) %>"><%- post.prev.title %></a>
+          <%}%>
+        </div>
+        <div class="btn-next">
+            <% if(post.next){ %>
+                <div>下一篇</div>
+                <a href="<%- url_for(post.next.path) %>"><%- post.next.title %></a>
+            <%}%>
+        </div>
+    </div>
+  <% } %>
+</div>

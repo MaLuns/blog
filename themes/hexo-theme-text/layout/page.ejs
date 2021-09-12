@@ -1,0 +1,12 @@
+<%# 其他页 %>
+<% if (page.type=='links'){%>
+    <%- partial('./pages/links') %>
+<%}else if (page.type=='comment'){%>
+    <%- partial('./pages/comment') %>
+<%}else if (page.type=='about'){%>
+    <%- partial('./pages/about') %>
+<%}else if (page.type=='message'){%>
+    <%- partial('./components/not') %>
+<%}else{%>
+
+<%}%>

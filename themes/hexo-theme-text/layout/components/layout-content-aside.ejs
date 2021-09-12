@@ -1,0 +1,52 @@
+<aside id="layout-content-aside" class="layout-content-aside">
+    <div class="aside-nav-card shadow">
+        <header>
+            <h2><%= theme.user.name %></h2>
+            <p>亦在人间</p>
+        </header>
+        <ul>
+            <% theme.menu.aside.forEach(item=>{%>
+                <a href="<%- item.url %>" <%- item.icon=='qq'?'': 'class="_pjax"'%>>
+                    <li>
+                        <svg class="cg-icon" aria-hidden="true">
+                            <use xlink:href="#cg-<%- item.icon %>"></use>
+                        </svg>
+                        <%- item.title %>
+                    </li>
+                </a>
+            <%})%>
+        </ul>
+    </div>
+    <div class="user-card shadow">
+        <img src="<%= theme.user.avatar %>" alt="" class="avatar">
+        <div>
+            <p style="margin: 20px;"><%= theme.user.desc %></p>
+            <div class="post-state">
+                <div>
+                    <span class="item-count">
+                        <%= site.posts.length %>
+                    </span>
+                    <span>文章</span>
+                </div>
+                <div>
+                    <span class="item-count">
+                        <%= site.categories.length %>
+                    </span>
+                    <span>分类</span>
+                </div>
+                <div>
+                    <span class="item-count">
+                        <%= site.tags.length %>
+                    </span>
+                    <span>标签</span>
+                </div>
+            </div>
+        </div>
+      
+        <div id="post-toc">
+            <% if(is_post()){%> <%- toc(page.content) %> <% }%>
+        </div>
+
+    </div>
+</aside>
+<div id="sidebar-mask"></div>
