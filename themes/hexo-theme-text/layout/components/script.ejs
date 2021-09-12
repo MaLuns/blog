@@ -1,0 +1,33 @@
+<script type="text/javascript">
+
+    if (!!window.ActiveXObject || "ActiveXObject" in window) {
+        document.body.innerHTML = "<h2 style='text-align:center; line-height:100px; font-weight:700;'>为了更好的体验,请使用非IE浏览器</h2><footer class='layout-footer'><div>© 2019 - <span itemprop='copyrightYear'>2020</span> 白云苍狗.</div><div>由<a> Hexo </a>强力驱动; Theme by <a href='//github.com/MaLuns/MalBlog/tree/master/themes/hexo-theme-simple' target='_blank'>hexo-theme-simple </a>;</div><div>博客已萌萌哒运行: <span id='since'>379天22小时55分55秒</span> <span class='my-face'>(●'◡'●)ﾉ♥</span></div></footer>"
+    }
+
+    var CONFIG = {
+        favicon: {
+            visibilitychange: JSON.parse('<%- theme.favicon.visibilitychange%>'),
+            narmal: '<%-theme.favicon.narmal%>',
+            hidden: '<%-theme.favicon.hidden%>',
+            show_text: '<%-theme.favicon.show_text%>',
+            hide_text: '<%-theme.favicon.hide_text%>'
+        }
+    };
+</script>
+
+<% theme.cdn.js.forEach(item=>{ %>
+<script type="text/javascript" src="<%- item %>"></script>
+<% })%>
+
+<%- js('js/index.min.js?v='+theme.version) %>
+<% if(theme.sw){ %>
+<script>
+    "serviceWorker" in navigator ? navigator.serviceWorker.register('/sw.js').then(function () {
+        navigator.serviceWorker.controller ? console.log(
+            "Assets cached by the controlling service worker.") : console.log(
+                "Please reload this page to allow the service worker to handle network operations.")
+    }).catch(function (e) {
+        console.log("ERROR: " + e)
+    }) : console.log("Service workers are not supported in the current browser.")
+</script>
+<% } %>

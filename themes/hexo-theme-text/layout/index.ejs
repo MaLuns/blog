@@ -1,0 +1,15 @@
+<section id="posts" class="posts-expand">
+    <% page.posts.each(function(post,postIndex){ %>
+        <%- partial('./components/index-article',{ post }) %>
+    <% }) %>
+</section>
+
+
+<script type="text/javascript">
+    window.IndexConfig = {
+        current: parseInt('<%= page.current %>'),
+        total: parseInt('<%= page.total %>'),
+        url: "<%= url_for('/')%>",
+        loadMore: false,
+    }
+</script>

@@ -1,0 +1,67 @@
+<% 
+    let isheaderbg = (post.headerbg && post.headerbg.length>0);
+    let isHome= is_home();
+%>
+<article class="shadow animated fadeInUp <%- isHome?'':'detail-article' %>">
+    <header class="post-header <%- isheaderbg?'post-header-bg-img':'' %>">
+        <div class="post-container">
+            <h2 class="post-title">
+                <% if(isHome){%>
+                    <a class="_pjax" href="<%- url_for(post.path) %>">「<%= post.title %>」</a>
+                <%}else{%>
+                    「<%- post.title %>」
+                <%}%>
+            </h2>
+            <div class="post-meta">
+                <div>
+                    <span class="post-push-time">
+                        <time datetime="<%= date_xml(post.date) %>" title="<%= date_xml(post.date) %>" itemprop="datePublished">
+                           <i class="iconfont cg-shijian"></i> 
+                           <%= date(post.date,config.date_format) %>
+                        </time>
+                        <span class="post-meta-divider">•</span>
+                    </span>
+                    <%if(theme.post_wordcount.wordcount){%>
+                        <span class="post-wordcount">
+                            <span class="post-meta-item-text">
+                                <%- __('post.word_count',wordcount(post.content)) %>
+                            </span>
+                            <span class="post-meta-divider">•</span>
+                        </span>
+                    <%}%>
+                    <%if(theme.post_wordcount.min2read){%>
+                        <span class="post-consuming-time">
+                            <span class="post-meta-item-text">
+                                <%- __('post.min2read',min2read(post.content)) %>
+                            </span>
+                        </span>
+                    <%}%>
+                    <% if(post.categories){ %>
+                        <span>
+                            <a class="_pjax" href="/categories/<%- post.categories.data[0].name %>"><%- post.categories.data[0].name %></a>
+                        </span>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="post-content">
+        <% if(isHome){%>
+            <%if(post.excerpt){%>
+                <%- post.excerpt.substring(0,100)%>
+                <%- post.excerpt.length>100?'...':'' %>
+            <%}else{%>
+                <%- post.content.substring(0,100)%>
+                <%- post.content.length>100?'...':'' %>
+            <%}%>
+        <%}else{%>
+            <%- post.content %>
+        <%}%>
+    </div>
+</article>
+<% if(is_post()){%>
+    <%- partial('./share') %>
+    <%- partial('./next') %>
+    <%# post.comment? partial('./comment',{comtitle:"评论"}):'' %>
+<%}%>
+

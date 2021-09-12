@@ -1,0 +1,244 @@
+@charset "utf-8";
+
+@import url("./var.less");
+@import url("./reset.less");
+
+
+body {
+    background-color: var(--bColor, #eee);
+    min-height      : 100vh;
+}
+
+.layout-header {
+    height          : 80px;
+    display         : flex;
+    justify-content : flex-end;
+    align-items     : center;
+    background-color: #fff;
+
+    .nav {
+        margin-right: 1em;
+        list-style  : none;
+        text-align  : right;
+
+        li {
+            display: inline-block;
+            margin : 0 10px;
+        }
+    }
+}
+
+.layout-main {
+    display  : block;
+    margin   : 0 auto;
+    max-width: 50em;
+    width    : 95%;
+
+    article {
+        padding      : 3em 0 3em 0;
+        border-bottom: 2px dashed rgb(197, 197, 197);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .post-header {
+            .post-title {
+                display           : block;
+                margin-left       : -10px;
+                -webkit-transition: all var(--transitionTime, .3s ease);
+                transition        : all var(--transitionTim, .3s ease);
+
+                a {
+                    font-size      : 1.2rem;
+                    text-decoration: none;
+                }
+
+                &:hover {
+                    letter-spacing: 1px;
+                }
+            }
+
+            .post-meta {
+                color    : rgb(121, 121, 121);
+                font-size: 14px;
+            }
+
+        }
+
+        .post-content {
+            font-weight: 300;
+        }
+
+        img {
+            max-width: 100%;
+            margin   : auto;
+        }
+
+    }
+
+}
+
+.layout-footer {
+    font-size  : 14px;
+    margin-top : 80px;
+    height     : 3em;
+    line-height: 3em;
+    text-align : center;
+}
+
+/* 详情 */
+.detail-article {
+    .post-header {
+        text-align    : center;
+        padding-bottom: 10px;
+        border-bottom : 1px dashed rgb(185, 185, 185);
+        width         : max-content;
+        margin        : 0 auto 4em;
+
+        .post-title {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+/* 友联 */
+.links-card {
+    padding: 0 30px;
+    border : none !important;
+
+    .post-header {
+        text-align: center;
+        min-height: 100px;
+    }
+
+    .linf-info {
+        padding   : 2em 0;
+        border-top: 2px dashed rgb(197, 197, 197);
+    }
+
+    .links-list {
+        padding      : 2em 0;
+        border-top   : 2px dashed rgb(197, 197, 197);
+        border-bottom: 2px dashed rgb(197, 197, 197);
+
+        .links-list-item {
+            list-style        : none !important;
+            position          : relative;
+            padding           : 10px 0;
+            border-radius     : 5px;
+            -webkit-transition: all var(--transitionTime, .3s ease);
+            transition        : all var(--transitionTim, .3s ease);
+
+            >a {
+                display          : -webkit-box;
+                display          : -ms-flexbox;
+                display          : flex;
+                -webkit-box-align: center;
+                -ms-flex-align   : center;
+                align-items      : center;
+                overflow         : hidden;
+
+                img {
+                    width        : 60px;
+                    height       : 60px;
+                    margin       : 0 20px;
+                    border-radius: 50%;
+                    box-shadow   : none !important;
+                    padding      : 2px;
+                }
+
+                >div {
+                    -webkit-box-flex: 1;
+                    -ms-flex        : 1;
+                    flex            : 1;
+
+                    h3,
+                    p {
+                        margin: 0;
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: #fff;
+            }
+        }
+    }
+}
+
+/* 归档 */
+.archives {
+    .post-header {
+        text-align: center;
+        min-height: 3em;
+    }
+
+    .category-all-page {
+        padding-left: 2em;
+
+        .category-title {
+            font-size: 28px;
+        }
+
+        .category-link {
+            display    : inline-block;
+            margin-left: 1em;
+        }
+
+        .category-count {
+            color: #bbb;
+
+            &:before {
+                display: inline;
+                content: " (";
+            }
+
+            &:after {
+                display: inline;
+                content: ") ";
+            }
+        }
+    }
+
+    .timeline {
+
+        .timeline-item {
+            margin : 10px 0;
+            display: flex;
+
+            .timeline-time {
+                position    : relative;
+                margin-right: .5em;
+                width       : 6rem;
+                font-size   : 16px;
+                display     : inline-block;
+                text-align  : right;
+                height      : max-content;
+
+                &.timeline-time-year {
+                    color    : var(--hColor);
+                    font-size: 28px;
+                }
+            }
+
+            .timeline-content {
+                flex      : 1;
+                word-break: break-all;
+
+                a {
+                    padding  : 0 .5em;
+                    font-size: 18px;
+
+                    &:hover {
+                        text-decoration : line-through;
+                        background-color: #000;
+                        color           : #fff
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import './hithlight.less';
