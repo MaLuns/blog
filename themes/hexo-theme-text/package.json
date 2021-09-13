@@ -1,0 +1,38 @@
+{
+  "name": "theme-test",
+  "version": "1.1.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "analyz": "NODE_ENV=production npm_config_report=true npm run build",
+    "build": "webpack --config ./webpack/webpack.config.js",
+    "dev": "webpack --config ./webpack/webpack.config.dev.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^3.5.3",
+    "html-loader": "^1.1.0",
+    "less": "^3.11.1",
+    "less-loader": "^6.1.0",
+    "style-loader": "^1.2.1",
+    "to-string-loader": "^1.1.6",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "dompurify": "^2.0.11",
+    "hanabi": "^0.4.0",
+    "jquery-pjax": "^2.0.1",
+    "marked": "^1.1.0",
+    "nprogress": "^0.2.0",
+    "tcb-js-sdk": "^1.6.3",
+    "zoom-image": "^0.1.4"
+  }
+}

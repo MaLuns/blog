@@ -142,7 +142,7 @@ export const timeAgo = (date) => {
             if (days < 8) {
                 return days + `天前`;
             } else {
-                return dateFormat(date)
+                return format(date, 'yyyy-MM-dd hh:mm')
             }
         } catch (error) {
             console.log(error)
@@ -150,24 +150,28 @@ export const timeAgo = (date) => {
     }
 }
 
-export const dateFormat = (date) => {
-    var vDay = padWithZeros(date.getDate(), 2);
-    var vMonth = padWithZeros(date.getMonth() + 1, 2);
-    return `${date.getFullYear()}-${vMonth}-${vDay}`;
-}
 
-/**
- * 补0
- * @param {*} vNumber 
- * @param {*} width 
- */
-export const padWithZeros = (vNumber, width) => {
-    var numAsString = vNumber.toString();
-    while (numAsString.length < width) {
-        numAsString = '0' + numAsString;
+
+export const format = (time, fmt) => {
+    let o = {
+        'M+': time.getMonth() + 1, // 月份
+        'd+': time.getDate(), // 日
+        'h+': time.getHours(), // 小时
+        'm+': time.getMinutes(), // 分
+        's+': time.getSeconds(), // 秒
+        'q+': Math.floor((time.getMonth() + 3) / 3), // 季度
+        'S': time.getMilliseconds() // 毫秒
+    };
+    if (/(y+)/.test(fmt)) {
+        fmt = fmt.replace(RegExp.$1, (time.getFullYear() + '').substr(4 - RegExp.$1.length));
     }
-    return numAsString;
-}
+    for (var k in o) {
+        if (new RegExp('(' + k + ')').test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
+        }
+    }
+    return fmt;
+};
 
 /**
  * 获取浏览器标识信息
