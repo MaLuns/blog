@@ -1,14 +1,10 @@
 .list {
-    padding           : var(--padding, 20px);
-    margin-bottom     : var(--marginBottom, 20px);
-    background        : var(--darkBase, var(--white, #fff));
-    border-radius     : var(--radius, 3px);
-    -webkit-transition: all var(--transitionTime, 0.3s ease);
-    transition        : all var(--transitionTime, 0.3s ease);
-    color             : var(--darkFontColor, --fontColor, #525f7f);
+    padding   : 0 20px 20px;
+    transition: all var(--transitionTime, 0.3s ease);
+    color     : #525f7f;
 
     .list-content {
-        >h2 {
+        >h3 {
             text-align: center;
         }
 
@@ -32,7 +28,7 @@
                     margin-top : 0;
 
                     .c-nick {
-                        color          : var(--themeColor, #000);
+                        color          : #000;
                         position       : relative;
                         margin-right   : .875em;
                         cursor         : pointer;
@@ -41,13 +37,12 @@
                     }
 
                     .c-sys {
-                        color           : #fff;
-                        background-color: rgba(var(--themeColorRgb), .8);
-                        display         : inline-block;
-                        padding         : .2em .5em;
-                        font-size       : .75em;
-                        border-radius   : .2em;
-                        margin-right    : .875em;
+                        color        : rgb(141, 141, 141);
+                        display      : inline-block;
+                        padding      : .2em .5em;
+                        font-size    : .75em;
+                        border-radius: .2em;
+                        margin-right : .875em;
                     }
 
                     .c-top,
@@ -80,7 +75,7 @@
                     }
 
                     .c-at {
-                        color      : var(--themeColor, #000);
+                        color      : #000;
                         font-size  : .8125em;
                         cursor     : pointer;
                         float      : right;
@@ -93,7 +88,7 @@
                     margin: 10px 0;
 
                     .c-atlink {
-                        color: var(--themeColor, #000);
+                        color: #000;
                     }
                 }
 
@@ -107,12 +102,12 @@
             }
 
             +.c-item {
-                border-top: 1px dashed var(--darkFontColor, var(--fontColor, #000));
+                border-top: 1px dashed #000;
             }
 
             .c-item {
                 &:first-child {
-                    border-top: 1px dashed var(--darkFontColor, var(--fontColor, #000));
+                    border-top: 1px dashed #000;
                 }
             }
 
@@ -123,33 +118,30 @@
     }
 
     #loading {
-        fill   : var(--themeColor, #000);
-        width  : 50px;
-        height : 50px;
+        fill   : #000;
+        width  : 30px;
+        height : 30px;
         display: none;
     }
 
     #loadmore {
         cursor            : pointer;
-        width             : 50px;
-        height            : 50px;
+        width             : 30px;
+        height            : 30px;
         border-radius     : 50%;
-        fill              : var(--themeColor, #000);
+        fill              : #000;
         -webkit-transition: all var(--transitionTime, 0.3s ease);
         transition        : all var(--transitionTime, 0.3s ease);
 
         &:hover {
-            box-shadow: 0 0 6px 0 var(--themeColor, #000);
+            box-shadow: 0 0 6px 0 #000;
         }
     }
 }
 
 .edit-content {
-    padding           : 20px;
-    background        : var(--darkBase, var(--white, #fff));
-    border-radius     : var(--radius, 3px);
-    -webkit-transition: all var(--transitionTime, 0.3s ease);
-    transition        : all var(--transitionTime, 0.3s ease);
+    padding   : 20px;
+    transition: all var(--transitionTime, 0.3s ease);
 
     .row {
         display        : flex;
@@ -173,7 +165,7 @@
         }
 
         input {
-            background: var(--darkBase, var(--white, #fff));
+            background: transparent;
             color     : var(--darkFontColor, var(--fontColor, #525f7f));
             width     : calc(100% - 50px);
             height    : 30px;
@@ -188,13 +180,13 @@
 
         &.textarea {
             width  : 100%;
-            border : none;
+            border : 1px dashed #525f7f;
             display: block;
 
             textarea {
                 box-sizing : border-box;
                 padding    : 10px;
-                background : var(--darkBase2, var(--white, #fff));
+                background : transparent;
                 color      : var(--darkFontColor, var(--fontColor, #525f7f));
                 overflow   : hidden;
                 resize     : none;
@@ -225,22 +217,21 @@
     }
 
     .btn {
-        transition        : all var(--transitionTime, 0.3s ease);
-        background        : ~'rgba(var(--baseRgb,21, 187, 241), 0.8)';
-        border            : 1px solid ~'rgba(var(--baseRgb,21, 187, 241), 0.8)';
-        -webkit-box-shadow: ~'0 0 var(--boxShadowBlur) 0 var(--boxShadowColor)';
-        box-shadow        : ~'0 0 var(--boxShadowBlur) 0 var(--boxShadowColor)';
-        color             : #fff;
-        padding           : 8px 15px;
-        margin            : 0 8px;
-        border-radius     : 3px;
-        font-weight       : 600;
+        cursor       : pointer;
+        user-select  : none;
+        transition   : all var(--transitionTime, 0.3s ease);
+        padding      : 6px 10px;
+        border       : 1px solid #525f7f;
+        margin       : 0 8px;
+        border-radius: 3px;
+        font-weight  : 600;
+        color        : #525f7f;
 
         svg {
             width       : 20px;
             height      : 20px;
             margin-right: 5px;
-            fill        : #fff;
+            fill        : #525f7f;
         }
 
         &:focus {
@@ -249,8 +240,14 @@
         }
 
         &:hover {
-            border-color    : var(--themeColor, #15bbf2);
-            background-color: var(--themeColor, #15bbf2);
+            transition: all var(--transitionTime, 0.3s ease);
+            border    : 1px solid #898e96;
+            background: #898e96;
+            color     : #fff;
+
+            svg {
+                fill: #fff
+            }
         }
     }
 
@@ -291,7 +288,7 @@
     width         : 28px;
     height        : 28px;
     vertical-align: middle;
-    fill          : var(--darkFontColor, --fontColor, #525f7f);
+    fill          : #525f7f;
     overflow      : hidden;
 }
 

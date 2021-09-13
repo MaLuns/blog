@@ -131,7 +131,7 @@ vsce package
 #### 使用vsce发布 
 使用vsce发布首先需要 一个微软 **Azure** 账户，然后创建一个 **Azure DevOps**，然后在组织里创建发布 Token，然后就能使用vsce 发布插件。
 
-首先打开 https://dev.azure.com，直接使用微软账户登录创建一个组织。按照步骤默认会创建一个以邮箱前缀为名的组织。
+首先打开  [azure](https://dev.azure.com) ，直接使用微软账户登录创建一个组织。按照步骤默认会创建一个以邮箱前缀为名的组织。
 创建完后
 ![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623232915.png)
 创建tonken,然后将生成tonken保存下来

@@ -158,9 +158,9 @@ class ComComment extends HTMLElement {
         if (data.length == 10) {
             loadmore.style.display = 'inline-block';
         } else {
-            let h2 = document.createElement("h2");
-            h2.innerHTML = '没有更多评论了~'
-            this._listContent.appendChild(h2);
+            let h3 = document.createElement("h3");
+            h3.innerHTML = '没有更多评论了~'
+            this._listContent.appendChild(h3);
         }
     }
 

@@ -16,7 +16,7 @@
 </script>
 
 <% theme.cdn.js.forEach(item=>{ %>
-<script type="text/javascript" src="<%- item %>"></script>
+<script src="<%- item %>"></script>
 <% })%>
 
 <%- js('js/index.min.js?v='+theme.version) %>
