@@ -1,5 +1,18 @@
 :root {
     --hColor        : #000;
-    --bColor        : #f2f3f0;
+    --metaColor     : #727272;
+    --bodyBgColor   : #f2f3f0; // 主题背景
+    --headBgColor   : #fff; // 头部背景
+    --markBgColor   : #252525;
+    --commentColor  : #525f7f; // 
     --transitionTime: .35s ease;
+
+    &.dark {
+        --commentColor: #becae7; // 
+        --bodyBgColor : #252525;
+        --headBgColor : #1d1d1d;
+        --markBgColor : #f2f3f0;
+        --hColor      : #f2f3f0;
+        --metaColor   : #dddddd;
+    }
 }

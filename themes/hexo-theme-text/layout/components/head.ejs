@@ -29,12 +29,8 @@
             let root = document.documentElement;
             for (let key in setting) {
                 if (key === 'lightSwitch') {
-                    root.classList[setting[key] ? 'add' : 'remove']('dark')
-                } else if(key === 'themeColorPicker'){
-
-                } else {
-                    setting[key].css.forEach(item => { root.style.setProperty(item.key, item.val); })
-                }
+                    root.classList[!setting[key] ? 'add' : 'remove']('dark')
+                } 
             }
         }();
     </script>

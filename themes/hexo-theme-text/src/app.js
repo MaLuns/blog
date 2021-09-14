@@ -1,5 +1,5 @@
 $(function () {
-
+    let _setTimeout;
     const app = {
         setting: localStorage.getItem('setting') ? JSON.parse(localStorage.getItem('setting')) : {},
         initSettingEvent() {
@@ -14,13 +14,20 @@ $(function () {
             $("#lightSwitch").on('click', function (ev) {
                 let that = $(ev.delegateTarget)
                 let checked = that.hasClass('theme-toggle--checked')
-                if (checked) {
-                    that.removeClass('theme-toggle--checked')
-                } else {
-                    that.addClass('theme-toggle--checked')
-                }
-                root.classList[checked ? 'add' : 'remove']('dark')
+                let funKey = (checked ? 'remove' : 'add')
+                that[funKey + 'Class']('theme-toggle--checked')
+                root.classList[funKey]('dark')
                 app.setSetting('lightSwitch', checked)
+
+                let bg = $('#light-switch-mark')
+                if (_setTimeout) {
+                    bg.removeClass('active')
+                    clearTimeout(_setTimeout)
+                }
+                bg.addClass('active')
+                _setTimeout = setTimeout(() => {
+                    bg.removeClass('active')
+                }, 300);
             })
         },
         LoadMore() {
@@ -48,7 +55,11 @@ $(function () {
             for (const key in setting) {
                 switch (key) {
                     case 'lightSwitch':
-                        $("#lightSwitch").attr('checked', setting[key])
+                        if (setting[key] === false || setting[key] === 'false') {
+                            $("#lightSwitch").addClass('theme-toggle--checked')
+                        } else {
+                            $("#lightSwitch").removeClass('theme-toggle--checked')
+                        }
                         break
                     case 'filterColor':
                     case 'radiusSlider':
@@ -77,15 +88,16 @@ $(function () {
             if (scrollTop + clientHeight > htmlHeight) {
                 app.LoadMore();
             }
-            if (scrollTop > 100) {
-                $(".layout-header").addClass('fixed')
-            } else {
-                $(".layout-header").removeClass('fixed')
-            }
+            /*     if (scrollTop > 100) {
+                    $(".layout-header").addClass('fixed')
+                } else {
+                    $(".layout-header").removeClass('fixed')
+                } */
+
             if (scrollTop > 500) {
-                $(".backtop").addClass("show")
+                $("#back-top").addClass("show")
             } else {
-                $(".backtop").removeClass("show")
+                $("#back-top").removeClass("show")
             }
         }
     }

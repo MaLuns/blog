@@ -1,7 +1,7 @@
 .list {
     padding   : 0 20px 20px;
     transition: all var(--transitionTime, 0.3s ease);
-    color     : #525f7f;
+    color     : var(--commentColor, #525f7f);
 
     .list-content {
         >h3 {
@@ -28,7 +28,8 @@
                     margin-top : 0;
 
                     .c-nick {
-                        color          : #000;
+                        transition     : color var(--transitionTime, 0.3s ease);
+                        color          : var(--hColor, #000);
                         position       : relative;
                         margin-right   : .875em;
                         cursor         : pointer;
@@ -37,7 +38,8 @@
                     }
 
                     .c-sys {
-                        color        : rgb(141, 141, 141);
+                        transition   : color var(--transitionTime, 0.3s ease);
+                        color        : var(--metaColor, #727272);
                         display      : inline-block;
                         padding      : .2em .5em;
                         font-size    : .75em;
@@ -69,13 +71,15 @@
                     position   : relative;
 
                     .c-time {
-                        color       : #b3b3b3;
+                        transition  : color var(--transitionTime, 0.3s ease);
+                        color       : var(--metaColor, #727272);
                         font-size   : .75em;
                         margin-right: .875em;
                     }
 
                     .c-at {
-                        color      : #000;
+                        transition : color var(--transitionTime, 0.3s ease);
+                        color      : var(--hColor, #000);
                         font-size  : .8125em;
                         cursor     : pointer;
                         float      : right;
@@ -88,7 +92,8 @@
                     margin: 10px 0;
 
                     .c-atlink {
-                        color: #000;
+                        transition: color var(--transitionTime, 0.3s ease);
+                        color     : var(--hColor, #000);
                     }
                 }
 
@@ -102,12 +107,12 @@
             }
 
             +.c-item {
-                border-top: 1px dashed #000;
+                border-top: 1px dashed #c5c5c5;
             }
 
             .c-item {
                 &:first-child {
-                    border-top: 1px dashed #000;
+                    border-top: 1px dashed #c5c5c5;
                 }
             }
 
@@ -118,10 +123,11 @@
     }
 
     #loading {
-        fill   : #000;
-        width  : 30px;
-        height : 30px;
-        display: none;
+        transition: color var(--transitionTime, 0.3s ease);
+        fill      : var(--hColor, #000);
+        width     : 30px;
+        height    : 30px;
+        display   : none;
     }
 
     #loadmore {
@@ -129,9 +135,8 @@
         width             : 30px;
         height            : 30px;
         border-radius     : 50%;
-        fill              : #000;
-        -webkit-transition: all var(--transitionTime, 0.3s ease);
-        transition        : all var(--transitionTime, 0.3s ease);
+        transition        : color var(--transitionTime, 0.3s ease);
+        fill              : var(--hColor, #000);
 
         &:hover {
             box-shadow: 0 0 6px 0 #000;

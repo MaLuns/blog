@@ -5,16 +5,18 @@
 
 
 body {
-    background-color: var(--bColor, #eee);
+    background-color: var(--bodyBgColor, #eee);
+    color           : var(--hColor, #000);
     min-height      : 100vh;
+    transition      : color var(--transitionTime, 0.3s ease);
 }
 
 .layout-header {
-    height          : 80px;
-    display         : flex;
-    justify-content : flex-end;
-    align-items     : center;
-    background-color: #fff;
+    @height        : 80px;
+    height         : @height;
+    display        : flex;
+    justify-content: flex-end;
+    align-items    : center;
 
     .nav {
         margin-right: 1em;
@@ -27,6 +29,17 @@ body {
             margin : 0 10px;
             height : 30px;
         }
+    }
+
+    &::before {
+        content         : '';
+        position        : absolute;
+        left            : 0;
+        top             : 0;
+        height          : @height;
+        width           : 100%;
+        background-color: var(--headBgColor, #fff);
+        z-index         : -2;
     }
 }
 
@@ -52,7 +65,6 @@ body {
                 a {
                     font-size      : 1.2rem;
                     text-decoration: none;
-                    transition     : all var(--transitionTim, .3s ease);
 
                     &:hover {
                         letter-spacing: 1px;
@@ -61,8 +73,9 @@ body {
             }
 
             .post-meta {
-                color    : rgb(121, 121, 121);
-                font-size: 14px;
+                transition: color var(--transitionTim, .3s ease);
+                color     : var(--metaColor, #797979);
+                font-size : 14px;
             }
 
         }
@@ -219,7 +232,6 @@ body {
                 height      : max-content;
 
                 &.timeline-time-year {
-                    color    : var(--hColor);
                     font-size: 28px;
                 }
             }
@@ -500,6 +512,55 @@ body {
     vertical-align: -0.15em;
     fill          : currentColor;
     overflow      : hidden;
+}
+
+.light-switch-mark {
+    position        : absolute;
+    width           : 100%;
+    height          : 100%;
+    left            : 0;
+    right           : 0;
+    background-color: var(--markBgColor, #252525);
+    opacity         : 0;
+    z-index         : -1;
+    overflow        : hidden;
+
+    .light-switch-mark-point {
+        position        : absolute;
+        border-radius   : 50%;
+        background-color: var(--bodyBgColor, #eee);
+        width           : 100px;
+        height          : 100px;
+        top             : 15px;
+        right           : 20px;
+    }
+
+    &.active {
+        opacity: 1;
+
+        .light-switch-mark-point {
+            transition-property: transform;
+            transition-duration: .6s;
+            transform          : translate3d(0, 0, 0) scale3d(40, 40, 1);
+        }
+    }
+}
+
+.btn {
+    // display         : none;
+    border-style    : none;
+    cursor          : pointer;
+    position        : fixed;
+    outline         : none;
+    right           : -30px;
+    bottom          : 3em;
+    background-color: transparent;
+    transition      : right var(--transitionTim, .3s ease);
+
+    &.show {
+        right    : 30px;
+        //display: block
+    }
 }
 
 @import './hithlight.less';
