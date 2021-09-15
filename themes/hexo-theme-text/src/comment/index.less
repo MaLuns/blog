@@ -1,7 +1,8 @@
+@import url('../../source/css/mixin.less');
+
 .list {
-    padding   : 0 20px 20px;
-    transition: all var(--transitionTime, 0.3s ease);
-    color     : var(--commentColor, #525f7f);
+    padding: 0 20px 20px;
+    .commentColorMixin();
 
     .list-content {
         >h3 {
@@ -28,8 +29,7 @@
                     margin-top : 0;
 
                     .c-nick {
-                        transition     : color var(--transitionTime, 0.3s ease);
-                        color          : var(--hColor, #000);
+                        .hColorMixin();
                         position       : relative;
                         margin-right   : .875em;
                         cursor         : pointer;
@@ -38,8 +38,7 @@
                     }
 
                     .c-sys {
-                        transition   : color var(--transitionTime, 0.3s ease);
-                        color        : var(--metaColor, #727272);
+                        .metaColorMixin();
                         display      : inline-block;
                         padding      : .2em .5em;
                         font-size    : .75em;
@@ -71,15 +70,13 @@
                     position   : relative;
 
                     .c-time {
-                        transition  : color var(--transitionTime, 0.3s ease);
-                        color       : var(--metaColor, #727272);
+                        .metaColorMixin();
                         font-size   : .75em;
                         margin-right: .875em;
                     }
 
                     .c-at {
-                        transition : color var(--transitionTime, 0.3s ease);
-                        color      : var(--hColor, #000);
+                        .hColorMixin();
                         font-size  : .8125em;
                         cursor     : pointer;
                         float      : right;
@@ -92,8 +89,7 @@
                     margin: 10px 0;
 
                     .c-atlink {
-                        transition: color var(--transitionTime, 0.3s ease);
-                        color     : var(--hColor, #000);
+                        .hColorMixin();
                     }
                 }
 
@@ -107,12 +103,12 @@
             }
 
             +.c-item {
-                border-top: 1px dashed #c5c5c5;
+                border-top: 1px dashed var(--dashedBorderColor, #c5c5c5);
             }
 
             .c-item {
                 &:first-child {
-                    border-top: 1px dashed #c5c5c5;
+                    border-top: 1px dashed var(--dashedBorderColor, #c5c5c5);
                 }
             }
 
@@ -123,20 +119,18 @@
     }
 
     #loading {
-        transition: color var(--transitionTime, 0.3s ease);
-        fill      : var(--hColor, #000);
-        width     : 30px;
-        height    : 30px;
-        display   : none;
+        .hColorMixin(fill, fill);
+        width  : 30px;
+        height : 30px;
+        display: none;
     }
 
     #loadmore {
-        cursor            : pointer;
-        width             : 30px;
-        height            : 30px;
-        border-radius     : 50%;
-        transition        : color var(--transitionTime, 0.3s ease);
-        fill              : var(--hColor, #000);
+        cursor       : pointer;
+        width        : 30px;
+        height       : 30px;
+        border-radius: 50%;
+        .hColorMixin(fill, fill);
 
         &:hover {
             box-shadow: 0 0 6px 0 #000;
@@ -154,7 +148,7 @@
     }
 
     .input-group {
-        border-bottom  : 1px dashed var(--darkFontColor, var(--fontColor, #525f7f));
+        border-bottom  : 1px dashed var(--dashedBorderColor, #c5c5c5);
         display        : flex;
         justify-content: center;
         align-items    : center;
@@ -167,15 +161,25 @@
             width     : 40px;
             text-align: center;
             display   : inline-block;
+
+            .icon {
+                fill: var(--metaColor, #c5c5c5);
+            }
+        }
+
+        ::-webkit-input-placeholder,
+        :-moz-placeholde,
+        ::-moz-placeholder,
+        :-ms-input-placeholder {
+            color: var(--metaColor, #c5c5c5);
         }
 
         input {
+            .metaColorMixin();
             background: transparent;
-            color     : var(--darkFontColor, var(--fontColor, #525f7f));
             width     : calc(100% - 50px);
             height    : 30px;
             border    : none;
-
 
             &:focus {
                 outline-offset: 0px;
@@ -185,14 +189,14 @@
 
         &.textarea {
             width  : 100%;
-            border : 1px dashed #525f7f;
+            border : 1px dashed var(--dashedBorderColor, #c5c5c5);
             display: block;
 
             textarea {
+                .metaColorMixin();
                 box-sizing : border-box;
                 padding    : 10px;
                 background : transparent;
-                color      : var(--darkFontColor, var(--fontColor, #525f7f));
                 overflow   : hidden;
                 resize     : none;
                 border     : none;
@@ -402,7 +406,7 @@
     a {
         text-decoration: none;
         outline        : 0;
-        color          : var(--themeColor);
+        .postLinkMixin();
     }
 
     p {

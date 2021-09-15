@@ -1,0 +1,34 @@
+// 颜色过渡混入
+.colorTransitionMixin(@var, @attr: color, @transition: color) {
+    @{attr}    : @var;
+    transition+: @transition var(--transitionTime, 0.3s ease);
+}
+
+.hColorMixin(@attr: color, @transition: color) {
+    .colorTransitionMixin(var(--hColor, #000), @attr, @transition);
+}
+
+.metaColorMixin(@attr: color, @transition: color) {
+    .colorTransitionMixin(var(--metaColor, #5c5c5c), @attr, @transition);
+}
+
+.bodyBgColorMixin(@attr: color, @transition: color) {
+    .colorTransitionMixin(var(--bodyBgColor, #f2f3f0), @attr, @transition);
+}
+
+.commentColorMixin(@attr: color, @transition: color) {
+    .colorTransitionMixin(var(--commentColor, #525f7f), @attr, @transition);
+}
+
+.postLinkMixin() {
+    font-size            : .9rem;
+    text-decoration      : underline;
+    color                : #bb996d;
+    text-decoration-color: #bb996d;
+
+    &:hover {
+        color          : #fff;
+        background     : #bb996d;
+        text-decoration: none;
+    }
+}

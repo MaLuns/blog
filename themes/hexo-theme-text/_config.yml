@@ -1,4 +1,4 @@
-version: 0.2.12
+version: 1.0.0
 
 user:
   name: 白云苍狗
@@ -24,7 +24,7 @@ post_wordcount:
   min2read: true # 单篇 阅读时长
 
 #开启
-sw: false
+sw: true
 
 #
 canonical: true

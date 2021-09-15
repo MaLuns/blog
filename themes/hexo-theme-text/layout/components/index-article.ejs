@@ -36,11 +36,11 @@
                             </span>
                         </span>
                     <%}%>
-                    <% if(post.categories){ %>
+                    <!-- <% if(post.categories){ %>
                         <span>
                             <a class="_pjax" href="/categories/<%- post.categories.data[0].name %>"><%- post.categories.data[0].name %></a>
                         </span>
-                    <% } %>
+                    <% } %> -->
                 </div>
             </div>
         </div>
@@ -60,7 +60,6 @@
     </div>
 </article>
 <% if(is_post()){%>
-    <%- partial('./share') %>
     <%- partial('./next') %>
     <%# post.comment? partial('./comment',{comtitle:"评论"}):'' %>
 <%}%>

@@ -1,18 +1,23 @@
 :root {
-    --hColor        : #000;
-    --metaColor     : #727272;
-    --bodyBgColor   : #f2f3f0; // 主题背景
-    --headBgColor   : #fff; // 头部背景
-    --markBgColor   : #252525;
-    --commentColor  : #525f7f; // 
-    --transitionTime: .35s ease;
+    --hColor           : #000; // 主要字体色
+    --metaColor        : #5c5c5c; // 次要信息颜色
+    --bodyBgColor      : #f2f3f0; // 主题背景色
+    --headBgColor      : #fff; // 头部背景色
+    --markHeadBgColor  : #eee; // 动画切换遮罩色
+    --markBgColor      : #252525; // 动画切换遮罩色
+    --commentColor     : #525f7f; // 评论组建主题色
+    --dashedBorderColor: #c5c5c5; // 分割边框色
+    --transitionTime   : .35s ease; // 过渡时间
 
     &.dark {
-        --commentColor: #becae7; // 
-        --bodyBgColor : #252525;
-        --headBgColor : #1d1d1d;
-        --markBgColor : #f2f3f0;
-        --hColor      : #f2f3f0;
-        --metaColor   : #dddddd;
+        --hColor         : #f2f3f0;
+        --metaColor      : #e6e6e6;
+        --bodyBgColor    : #252525;
+        --headBgColor    : #1d1d1d;
+        --markHeadBgColor: #353535;
+        --markBgColor    : #f2f3f0;
+        --commentColor   : #becae7; // 
     }
 }
+
+@import url('./mixin.less');

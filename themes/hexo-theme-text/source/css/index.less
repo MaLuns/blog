@@ -1,19 +1,29 @@
 @charset "utf-8";
 
 @import url("./var.less");
-@import url("./reset.less");
 
-
-body {
-    background-color: var(--bodyBgColor, #eee);
-    color           : var(--hColor, #000);
-    min-height      : 100vh;
-    transition      : color var(--transitionTime, 0.3s ease);
+* {
+    padding    : 0;
+    margin     : 0;
+    box-sizing : border-box;
+    line-height: 1.8;
 }
 
+a {
+    .hColorMixin(color, all);
+    text-decoration: none;
+}
+
+body {
+    min-height: 100vh;
+    .bodyBgColorMixin(background-color);
+    .hColorMixin();
+}
+
+@headerHeight : 80px;
+
 .layout-header {
-    @height        : 80px;
-    height         : @height;
+    height         : @headerHeight;
     display        : flex;
     justify-content: flex-end;
     align-items    : center;
@@ -36,7 +46,7 @@ body {
         position        : absolute;
         left            : 0;
         top             : 0;
-        height          : @height;
+        height          : @headerHeight;
         width           : 100%;
         background-color: var(--headBgColor, #fff);
         z-index         : -2;
@@ -51,7 +61,7 @@ body {
 
     article {
         padding      : 3em 0 3em 0;
-        border-bottom: 2px dashed rgb(197, 197, 197);
+        border-bottom: 1px dashed var(--dashedBorderColor, #c5c5c5);
 
         &:last-child {
             border-bottom: none;
@@ -73,9 +83,8 @@ body {
             }
 
             .post-meta {
-                transition: color var(--transitionTim, .3s ease);
-                color     : var(--metaColor, #797979);
-                font-size : 14px;
+                .metaColorMixin();
+                font-size: 14px;
             }
 
         }
@@ -108,7 +117,7 @@ body {
         padding-bottom: 10px;
         border-bottom : 1px dashed rgb(185, 185, 185);
         width         : max-content;
-        margin        : 0 auto 4em;
+        margin        : 0 auto 3em;
 
         .post-title {
             margin-bottom: 10px;
@@ -128,13 +137,13 @@ body {
 
     .linf-info {
         padding   : 2em 0;
-        border-top: 2px dashed rgb(197, 197, 197);
+        border-top: 1px dashed var(--dashedBorderColor, #c5c5c5);
     }
 
     .links-list {
         padding      : 2em 0;
-        border-top   : 2px dashed rgb(197, 197, 197);
-        border-bottom: 2px dashed rgb(197, 197, 197);
+        border-top   : 1px dashed var(--dashedBorderColor, #c5c5c5);
+        border-bottom: 1px dashed var(--dashedBorderColor, #c5c5c5);
 
         .links-list-item {
             list-style      : none !important;
@@ -202,7 +211,7 @@ body {
         }
 
         .category-count {
-            color: #bbb;
+            .metaColorMixin();
 
             &:before {
                 display: inline;
@@ -264,15 +273,7 @@ body {
     }
 
     a {
-        font-size            : .9rem;
-        text-decoration      : underline;
-        text-decoration-color: #bb996d
-    }
-
-    a:hover {
-        color          : #fff;
-        background     : #bb996d;
-        text-decoration: none
+        .postLinkMixin();
     }
 
     img {
@@ -406,11 +407,7 @@ body {
             overflow     : hidden;
             text-overflow: ellipsis;
 
-            &:hover {
-                text-decoration : line-through;
-                background-color: #000;
-                color           : #fff
-            }
+            .postLinkMixin()
         }
     }
 }
@@ -521,6 +518,7 @@ body {
     left            : 0;
     right           : 0;
     background-color: var(--markBgColor, #252525);
+    // background: linear-gradient(var(--markHeadBgColor), var(--markHeadBgColor) @headerHeight, var(--markBgColor) @headerHeight, var(--markBgColor));
     opacity         : 0;
     z-index         : -1;
     overflow        : hidden;
@@ -539,14 +537,13 @@ body {
         opacity: 1;
 
         .light-switch-mark-point {
-            transition-property: transform;
-            transition-duration: .6s;
-            transform          : translate3d(0, 0, 0) scale3d(40, 40, 1);
+            transition: transform .6s;
+            transform : translate3d(0, 0, 0) scale3d(40, 40, 1);
         }
     }
 }
 
-.btn {
+.back-btn {
     // display         : none;
     border-style    : none;
     cursor          : pointer;
@@ -556,6 +553,10 @@ body {
     bottom          : 3em;
     background-color: transparent;
     transition      : right var(--transitionTim, .3s ease);
+
+    svg {
+        .hColorMixin(fill)
+    }
 
     &.show {
         right    : 30px;

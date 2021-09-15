@@ -1,9 +1,10 @@
 $(function () {
-    let _setTimeout;
     const app = {
         setting: localStorage.getItem('setting') ? JSON.parse(localStorage.getItem('setting')) : {},
         initSettingEvent() {
             let root = document.documentElement;
+            let _setTimeout;
+
             $("#back-top").on("click", function () {
                 window.scrollTo({
                     top: 0,
@@ -23,10 +24,12 @@ $(function () {
                 if (_setTimeout) {
                     bg.removeClass('active')
                     clearTimeout(_setTimeout)
+                    _setTimeout = null
                 }
                 bg.addClass('active')
                 _setTimeout = setTimeout(() => {
                     bg.removeClass('active')
+                    _setTimeout = null
                 }, 300);
             })
         },
