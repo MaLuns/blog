@@ -13,7 +13,7 @@
     <%}%>
     <title><%= config.title %><%= (!!page.title?' - ' + page.title:'') %></title>
     <link rel="icon" type="image/png" sizes="32x32" href="<%= url_for(theme.favicon.narmal) %>?v=<%= theme.version %>">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <% if(theme.canonical){%>
         <link rel="canonical" href="<%- config.url %>/<%- page.canonical_path.replace('index.html', '') %>"/>
