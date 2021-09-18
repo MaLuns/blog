@@ -1,0 +1,32 @@
+<article class="shadow links-card">
+    <header class="post-header">
+        <h2 class="post-title">
+            <%-__('post.links')%>
+        </h2>
+    </header>
+    <div class="linf-info">
+        <h4>本站信息</h4>
+        <p>站长：白云苍狗</p>
+        <p>域名：https://www.imalun.com</p>
+        <p>头像：https://www.imalun.com/images/avatar.jpg</p>
+        <p>网站简介：醒，亦在人间；梦，亦在人间。</p>
+    </div>
+    <div class="links-list">
+        <% theme.links.forEach(item=>{%>
+            <div class="links-list-item">
+                <a href='<%- item.url %>' target='_blank'>
+                    <img class="" src="<%- item.image %>">
+                    <div>
+                        <h3>
+                            <%- item.name %>
+                        </h3>
+                        <p>
+                            <%- item.desc %>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        <%})%>
+    </div>
+</article>
+<%- partial('../components/comment',{comtitle:"欢迎互换友链"}) %>

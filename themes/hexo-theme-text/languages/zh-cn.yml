@@ -1,0 +1,13 @@
+post:
+  read_more: 阅读全文
+  word_count: 共%s字
+  min2read: 约%s分钟
+  next_post: 下一篇
+  last_post: 上一篇
+  about: 关于
+  comments: 留言板
+  links: 友情链接
+  archives: 归档
+  categories: 分类
+  tag: 标签
+  not: 功能完善中
