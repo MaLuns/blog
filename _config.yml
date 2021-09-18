@@ -154,6 +154,10 @@ image_minifier:
   pngquant: false
   progressive: false
 
+cloudbase:
+  enable: true
+  env: h-17b316
+
 # 友链
 links:
   - name: hexo

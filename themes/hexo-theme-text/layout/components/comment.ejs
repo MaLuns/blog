@@ -1,5 +1,5 @@
 <%# 评论 %>
-<% if(theme.cloudbase.enable && page.hash) {%>
+<% if(theme.cloudbase && theme.cloudbase.enable && page.hash) {%>
     <com-comment env='<%- theme.cloudbase.env %>' hash='<%- page.hash %>'>
         <h2 slot="list-header" class="comments-list-header">
             <svg class="cg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33282">
