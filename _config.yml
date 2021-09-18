@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/  #hexo-theme-bycg  #hexo-theme-simple
-theme: hexo-theme-text
+theme: hexo-theme-simple
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
