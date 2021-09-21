@@ -23,12 +23,12 @@
 .postLinkMixin() {
     font-size            : .9rem;
     text-decoration      : underline;
-    color                : #bb996d;
-    text-decoration-color: #bb996d;
+    color                : var(--postLinkColor, #bb996d);
+    text-decoration-color: var(--postLinkColor, #bb996d);
 
     &:hover {
         color          : #fff;
-        background     : #bb996d;
+        background     : var(--postLinkColor, #bb996d);
         text-decoration: none;
     }
 }

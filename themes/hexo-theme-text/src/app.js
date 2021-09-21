@@ -102,6 +102,21 @@ $(function () {
             } else {
                 $("#back-top").removeClass("show")
             }
+            app.toc()
+        },
+        toc() {
+            let viewHeight = window.innerHeight || document.documentElement.clientHeight
+            let post = document.getElementsByClassName("post-content")[0]
+            let titles = post.querySelectorAll('h1,h2,h3,h4,h5,h6')
+            let scrollY = window.scrollY
+            for (let index = 0; index < titles.length; index++) {
+                const element = titles[index];
+                if (element.offsetTop >= scrollY && element.offsetTop <= scrollY + viewHeight) {
+                    $("#post-toc .current").removeClass("current");
+                    $('a[href="#' + element.id + '"]').addClass('current')
+                    break
+                }
+            }
         }
     }
 

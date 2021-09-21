@@ -3,7 +3,7 @@
     let isHome= is_home();
 %>
 <article class="shadow animated fadeInUp <%- isHome?'':'detail-article' %>">
-    <header class="post-header <%- isheaderbg?'post-header-bg-img':'' %>">
+    <header class="post-header">
         <div class="post-container">
             <h2 class="post-title">
                 <% if(isHome){%>
@@ -60,6 +60,11 @@
     </div>
 </article>
 <% if(is_post()){%>
+    <% if(theme.isToc){%>
+        <div id="post-toc" class="post-toc">
+            <%- toc(page.content) %>
+        </div>
+    <%}%>
     <%- partial('./next') %>
 <%}%>
 

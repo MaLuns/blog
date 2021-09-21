@@ -22,8 +22,5 @@ $(document).on('pjax:start', function () {
 
 $(document).on('pjax:end', function () {
     NProgress.done();
-    let html = $(arguments[1].responseText);
-    let toc = html.find("#post-toc");
-    $("#post-toc").empty().append(toc);
     require('./post-details')();
 });
