@@ -50,8 +50,9 @@ jobs:
         npm install
 
     - name: Generate files
-      # 编译 markdown 文件
+      # 编译 markdown 文件, 拉取子模块里面主题
       run: |
+        git submodule update --remote
         hexo clean
         hexo generate
         hexo deploy
