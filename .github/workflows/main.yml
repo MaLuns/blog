@@ -22,7 +22,9 @@ jobs:
     - name: Checkout codes
       uses: actions/checkout@v2
     - name: Checkout submodules
-      run: git submodule update --init --recursive
+      run: | 
+        rm -rf ./themes/hexo-theme-text
+        git submodule update --init --recursive
 
     - name: Setup node
       # 设置 node.js 环境
