@@ -21,6 +21,7 @@ jobs:
     steps:
     - name: Checkout codes
       uses: actions/checkout@v2
+    - name: Checkout submodules
       run: git submodule update --init --recursive
 
     - name: Setup node
@@ -49,7 +50,6 @@ jobs:
         git config --global user.name "ml"
         npm install -g hexo-cli
         npm install
-
 
     - name: Generate files
       # 编译 markdown 文件, 拉取子模块里面主题, 打包主题
