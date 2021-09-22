@@ -91,12 +91,11 @@ $(function () {
             if (scrollTop + clientHeight > htmlHeight) {
                 app.LoadMore();
             }
-            /*     if (scrollTop > 100) {
-                    $(".layout-header").addClass('fixed')
-                } else {
-                    $(".layout-header").removeClass('fixed')
-                } */
-
+            if (scrollTop > 80) {
+                $(".layout-header").addClass('fixed')
+            } else {
+                $(".layout-header").removeClass('fixed')
+            }
             if (scrollTop > 500) {
                 $("#back-top").addClass("show")
             } else {
@@ -110,8 +109,9 @@ $(function () {
             let titles = post.querySelectorAll('h1,h2,h3,h4,h5,h6')
             let scrollY = window.scrollY
             for (let index = 0; index < titles.length; index++) {
-                const element = titles[index];
+                let element = titles[index];
                 if (element.offsetTop >= scrollY && element.offsetTop <= scrollY + viewHeight) {
+                    if (index > 0) element = titles[index - 1];
                     $("#post-toc .current").removeClass("current");
                     $('a[href="#' + element.id + '"]').addClass('current')
                     break

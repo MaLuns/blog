@@ -1,10 +1,11 @@
-version: 1.0.2
+version: 1.0.3
 
 user:
   name: 白云苍狗
-  avatar: /images/avatar.jpg
+  domain: https://www.imalun.com
+  avatar: https://www.imalun.com/images/avatar.jpg
   title: 一觉游仙好梦，任它竹冷松寒。轩辕事，古今谈，风流河山。沉醉负白首，舒怀成大观。醒，亦在人间；梦，亦在人间
-  desc: 醒，亦在人间；梦，亦在人间
+  desc: 醒，亦在人间；梦，亦在人间。
 
 favicon:
   visibilitychange: true

@@ -5,11 +5,11 @@
         </h2>
     </header>
     <div class="linf-info">
-        <h4>本站信息</h4>
-        <p>站长：白云苍狗</p>
-        <p>域名：https://www.imalun.com</p>
-        <p>头像：https://www.imalun.com/images/avatar.jpg</p>
-        <p>网站简介：醒，亦在人间；梦，亦在人间。</p>
+        <h4><%-__('site.title')%></h4>
+        <p><%-__('site.webmaster')%>：<%- theme.user.name %></p>
+        <p><%-__('site.domain')%>：<%- theme.user.domain %></p>
+        <p><%-__('site.avatar')%>：<%- theme.user.avatar %></p>
+        <p><%-__('site.describe')%>：<%- theme.user.desc %></p>
     </div>
     <div class="links-list">
         <% theme.links.forEach(item=>{%>
@@ -17,16 +17,12 @@
                 <a href='<%- item.url %>' target='_blank'>
                     <img class="" src="<%- item.image %>">
                     <div>
-                        <h3>
-                            <%- item.name %>
-                        </h3>
-                        <p>
-                            <%- item.desc %>
-                        </p>
+                        <h3> <%- item.name %> </h3>
+                        <p> <%- item.desc %> </p>
                     </div>
                 </a>
             </div>
         <%})%>
     </div>
 </article>
-<%- partial('../components/comment',{comtitle:"欢迎互换友链"}) %>
+<%- partial('../components/comment',{comtitle:__('site.comment_title')}) %>

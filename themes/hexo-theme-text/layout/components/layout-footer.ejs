@@ -4,8 +4,8 @@
         <%= date(Date.now(), "YYYY" ) %>
     </span>
     <%= config.title %> ·
-        Theme by <a href="//github.com/MaLuns/MalBlog/tree/master/themes/hexo-theme-simple" target="_blank">hexo-theme-simple </a>·
-        博客已萌萌哒运行:
+        Theme by <a href="https://github.com/MaLuns/hexo-theme-text" target="_blank">hexo-theme-simple </a>·
+        <%- __('footer.tips') %>:
         <span id="since"></span>
         
         <button type="button" class="back-btn" title="back top" id="back-top">
@@ -31,7 +31,8 @@
         e_minsold = (e_hrsold - hrsold) * 60;
         minsold = `00${Math.floor((e_hrsold - hrsold) * 60)}`;
         seconds = `00${Math.floor((e_minsold - minsold) * 60)}`;
-        since.innerHTML = daysold + "天" + hrsold.substr(hrsold.length - 2, 2) + "小时" + minsold.substr(minsold.length - 2, 2) + "分" + seconds.substr(seconds.length - 2, 2) + "秒";
+        since.innerHTML = daysold + "<%- __('footer.day') %>" + hrsold.substr(hrsold.length - 2, 2) + "<%- __('footer.hours') %>" + minsold.substr(minsold.length - 2, 2) + "<%- __('footer.minute') %>" + seconds.substr(seconds.length - 2, 2) + "<%- __('footer.second') %>";
     }
     show_date_time();
+    window.console.log(`%c hexo-theme-simple %c <%- theme.version > %> `, `background:#35495E; padding: 1px; border-radius: 3px 0 0 3px; color: #fff;`, `padding: 1px; border-radius: 0 3px 3px 0;  color: #fff;background:#409EFF;`, `background:transparent`)
 </script>

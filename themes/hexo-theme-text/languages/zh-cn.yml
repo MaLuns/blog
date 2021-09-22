@@ -11,3 +11,19 @@ post:
   categories: 分类
   tag: 标签
   not: 功能完善中
+
+site:
+  title: 本站信息
+  webmaster: 站长
+  domain: 域名
+  avatar: 头像
+  describe: 网站简介
+  comment_title: 欢迎互换友链
+
+footer:
+  tips: 博客已萌萌哒运行
+  day: 天
+  hours: 小时
+  minute: 分
+  second: 秒
+  
