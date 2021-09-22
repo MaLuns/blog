@@ -21,10 +21,6 @@ jobs:
     steps:
     - name: Checkout codes
       uses: actions/checkout@v2
-    - name: Checkout submodules
-      uses: srt32/git-actions@v0.0.3
-      with:
-        args: git submodule update --init --recursive
 
     - name: Setup node
       # 设置 node.js 环境
