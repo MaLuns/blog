@@ -21,6 +21,8 @@ jobs:
     steps:
     - name: Checkout codes
       uses: actions/checkout@v2
+      with: 
+        submodules: true
 
     - name: Setup node
       # 设置 node.js 环境
@@ -53,7 +55,6 @@ jobs:
       # 编译 markdown 文件, 拉取子模块里面主题, 打包主题
       run: |
         cd ./themes/hexo-theme-text
-        git pull
         npm install
         npm run build
         cd ../../
