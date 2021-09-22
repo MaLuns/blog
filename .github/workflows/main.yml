@@ -60,7 +60,7 @@ jobs:
         npm install
         npm run build
         cd ../../
-        ls ./themes/hexo-theme-text/_config.yml
+        strings ./themes/hexo-theme-text/_config.yml
         hexo clean
         hexo generate
         hexo deploy
