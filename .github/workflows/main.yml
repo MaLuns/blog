@@ -56,7 +56,7 @@ jobs:
       run: |
         git submodule update --init --recursive
         cd ./themes/hexo-theme-text
-        git pull origin master --allow-unrelated-histories
+        git pull origin master --ff --allow-unrelated-histories
         npm install
         npm run build
         cd ../../
