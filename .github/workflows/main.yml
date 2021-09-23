@@ -23,6 +23,8 @@ jobs:
       uses: actions/checkout@v2
       with: 
         submodules: true
+      run: |
+        git submodule update --remot
 
     - name: Setup node
       # 设置 node.js 环境
@@ -54,9 +56,6 @@ jobs:
     - name: Generate files
       # 编译 markdown 文件, 拉取子模块里面主题, 打包主题
       run: |
-        git submodule init
-        git submodule sync
-        git submodule update
         cd ./themes/hexo-theme-text
         npm install
         npm run build
