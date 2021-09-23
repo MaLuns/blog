@@ -1,6 +1,6 @@
 ---
 title: Electron 的断点续下载
-comment: false
+comments: false
 hash: 1602125283457
 date: 2020-10-08 10:48:03
 tags: [vue, electron]

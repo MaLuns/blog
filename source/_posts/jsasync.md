@@ -3,7 +3,7 @@ title: 深入理解 JavaScript 事件（ 第1章 ）
 date: 2019-12-28 10:16:09
 tags: [JavaScript,事件,转载]
 categories: 转载
-comment: false
+comments: false
 photos: ['/images/logo/js_event_logo.png']
 ---
 

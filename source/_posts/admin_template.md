@@ -3,7 +3,7 @@ title: 从零开始搭建一个后台模板
 date: 2020-04-15 10:16:09
 tags: [vue,vuex,vue-route,elemelt-ui]
 categories: 记录类
-comment: false
+comments: false
 photos: ['/images/logo/admin_template.png']
 keywords: admin-template,vue,element,后台模板
 ---

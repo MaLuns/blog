@@ -3,7 +3,7 @@ title: Web Components
 date: 2020-05-10 10:16:09
 tags: [WebComponents]
 categories: 记录类
-comment: false
+comments: false
 photos: ['/images/logo/web_conponents.png']
 keywords: js组件,影子DOM,Shadow DOM,自定义元素,Custom elements,HTML模板
 ---

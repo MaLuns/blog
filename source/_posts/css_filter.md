@@ -1,6 +1,6 @@
 ---
 title: css 实现网页灰度 
-comment: false
+comments: false
 date: 2020-04-04 20:38:27
 tags: [css,filter]
 categories: 记录类
