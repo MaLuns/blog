@@ -54,8 +54,10 @@ jobs:
     - name: Generate files
       # 编译 markdown 文件, 拉取子模块里面主题, 打包主题
       run: |
-        cd ./themes/hexo-theme-text
-        git submodule update --init --recursive
+        cd ./themes/
+        rm -r hexo-theme-text
+        git clone https://github.com/MaLuns/hexo-theme-text.git
+        cd ./hexo-theme-text
         npm install
         npm run build
         cd ../../
