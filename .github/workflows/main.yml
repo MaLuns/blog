@@ -55,7 +55,7 @@ jobs:
       # 编译 markdown 文件, 拉取子模块里面主题, 打包主题
       run: |
         cd ./themes/hexo-theme-text
-        git pull origin master --ff --no-allow-unrelated-histories
+        git submodule update --init --recursive
         npm install
         npm run build
         cd ../../
