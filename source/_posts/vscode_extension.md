@@ -1,6 +1,6 @@
 ---
 title: vscode 插件开发指北 (一)
-comment: true
+comment: false
 hash: 1623511259748
 date: 2021-06-12 23:20:59
 tags: [vscode]

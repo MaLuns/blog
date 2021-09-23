@@ -1,6 +1,6 @@
 ---
 title: MongoDB基础篇（一）
-comment: true
+comment: false
 hash: 1618316929927
 date: 2021-04-13 20:28:49
 tags: [MongoDB]

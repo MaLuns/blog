@@ -1,6 +1,6 @@
 ---
 title: one-wallhaven 壁纸程序
-comment: true
+comment: false
 hash: 1604659028034
 date: 2020-11-06 18:37:08
 tags: [vue, electron]

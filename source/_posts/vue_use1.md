@@ -1,6 +1,6 @@
 ---
 title: vue 使用中的小技巧 （一）
-comment: true
+comment: false
 hash: 1596456425272
 date: 2020-08-03 20:07:05
 tags: [vue]

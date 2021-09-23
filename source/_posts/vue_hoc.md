@@ -1,6 +1,6 @@
 ---
 title: Vue 中的 mixin,component,render,hoc
-comment: true
+comment: false
 hash: 1614687985128
 date: 2021-03-02 20:26:25
 tags: [vue]
