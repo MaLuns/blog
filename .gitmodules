@@ -1,0 +1,3 @@
+[submodule "themes/hexo-theme-text"]
+	path = themes/hexo-theme-text
+	url = https://github.com/MaLuns/hexo-theme-text.git
