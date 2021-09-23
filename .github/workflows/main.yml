@@ -23,8 +23,6 @@ jobs:
       uses: actions/checkout@v2
       with: 
         submodules: true
-      run: |
-        git submodule update --remot
 
     - name: Setup node
       # 设置 node.js 环境
