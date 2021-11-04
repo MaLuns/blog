@@ -1,3 +1,4 @@
+// 新建文章时 注入 hash参数
 
 const tildify = require('tildify');
 const chalk = require('chalk');
@@ -16,7 +17,7 @@ const reservedKeys = {
     silent: true
 };
 
-hexo.extend.console.register('newc', 'Create a new post.', {
+hexo.extend.console.register('new', 'Create a new post.', {
     usage: '[layout] <title>',
     arguments: [
         { name: 'layout', desc: 'Post layout. Use post, page, draft or whatever you want.' },
@@ -29,7 +30,7 @@ hexo.extend.console.register('newc', 'Create a new post.', {
     ]
 }, function (args) {
     if (!args._.length) {
-        return this.call('help', { _: ['newc'] });
+        return this.call('help', { _: ['new'] });
     }
 
     const data = {
