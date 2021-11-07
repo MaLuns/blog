@@ -1,6 +1,6 @@
 ---
 title: Vue2.x 响应式部分源码阅读记录
-comments: false
+comments: true
 date: 2020-03-06 20:38:27
 tags: [vue,observer]
 categories: 记录类

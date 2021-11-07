@@ -3,7 +3,7 @@ title: JavaScript中的 [[prototype]]、prototype、__proto__ 关系
 date: 2020-03-03 10:16:09
 tags: [JavaScript]
 categories: 记录类
-comments: false
+comments: true
 photos: ['/images/logo/js_prototype_logo.png']
 keywords: js，原型对象，prototype，_proto，js继承机制
 ---

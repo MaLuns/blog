@@ -1,6 +1,6 @@
 ---
 title: git 中的 stash 
-comments: false
+comments: true
 hash: 1597309189439
 date: 2020-08-13 20:07:05
 tags: [git]

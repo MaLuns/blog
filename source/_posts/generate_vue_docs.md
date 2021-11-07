@@ -1,6 +1,6 @@
 ---
 title: 打造自己的Vue组件文档生成工具
-comments: false
+comments: true
 date: 2021-07-29 10:44:00
 tags: [vue,ast]
 categories: 记录类

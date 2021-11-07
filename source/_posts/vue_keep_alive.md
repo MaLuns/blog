@@ -1,6 +1,6 @@
 ---
 title: keep-alive 与 router-view
-comments: false
+comments: true
 hash: 1607346421816
 date: 2020-12-07 20:07:05
 tags: [vue]

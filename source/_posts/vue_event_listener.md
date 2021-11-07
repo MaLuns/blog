@@ -1,6 +1,6 @@
 ---
 title: 记一次在Vue中使用 addEventListener 的坑
-comments: false
+comments: true
 hash: 1611061392977
 date: 2021-01-19 22:23:18
 tags: [vue]

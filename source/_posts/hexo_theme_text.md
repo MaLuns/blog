@@ -2,7 +2,7 @@
 title: hexo-theme-text 使用说明
 date: 2021-09-25 23:13:34
 top: 1
-comments: false
+comments: true
 hash: 1632582941515
 tags: [hexo]
 description: 

@@ -1,7 +1,7 @@
 ---
 title: 利用 GitHub Actions + Github Pages 实现博客自动部署
 date: 2021-09-26 09:08:34
-comments: false
+comments: true
 hash: 1632618496577
 tags: [github]
 description: 
