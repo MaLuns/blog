@@ -6,7 +6,7 @@ comments: true
 hash: 1632582941515
 tags: [hexo]
 description: 
-categories: 记录类
+categories: 创作类
 keywords:
 ---
 

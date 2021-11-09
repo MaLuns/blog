@@ -5,7 +5,7 @@ hash: 1604659028034
 date: 2020-11-06 18:37:08
 tags: [vue, electron]
 description:
-categories: 记录类
+categories: 创作类
 keywords:
 headerbg: [/images/logo/one-wallhaven_ns3J9JJoJL.png,'#dedede']
 ---
