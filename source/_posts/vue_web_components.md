@@ -40,6 +40,7 @@ props:{
 }
 ```
 因为 HTML 的 attribute 的只能是字符串，除了基础类型(Boolean、Number)Vue在映射时会帮忙做类型转换，其他复杂类型则需要设置到 DOM property 上。
+
 ### 事件
 在自定义元素中，通过 this.$emit 或在 setup 中的 emit 发出的事件会被调度为原生 [CustomEvents](https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events#adding_custom_data_%E2%80%93_customevent)。附加的事件参数 (payload) 会作为数组暴露在 CustomEvent 对象的 details property 上。
 
@@ -121,5 +122,38 @@ ComDemo.styles = deepStylesOf(ComDemo)
 
 ![插入图片](https://682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_web_components/pic_1637477447787.png)
 
+### 方法
+**defineCustomElement** 构建的组件默认是不会将方法挂到 **customElement** 上的，看 Vue 源码中，只有_def（构造函数），_instance（组件实例)）。如果想调用组件内的方法，dom._instance.proxy.fun()，感觉实在不太优雅。
+![vuecode](https://682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_web_components/pic_1638631915396.png)
+我们当然希望我们组件暴露的方法能像普通dom那样直接 dom.fun() 去掉用，我们对 **defineCustomElement** 稍作扩展。
+``` js
+import { VueElement, defineComponent } from 'vue'
+
+const defineCustomElement = (options, hydate) => {
+    const Comp = defineComponent(options);
+    class VueCustomElement extends VueElement {
+        constructor(initialProps) {
+            super(Comp, initialProps, hydate);
+            if (Comp.methods) {
+                Object.keys(Comp.methods).forEach(key => {
+                    // 将所有非下划线开头方法 绑定到 元素上
+                    if(!/^_/.test(key)){
+                        this[key] = function (...res) {
+                            if (this._instance) {
+                                // 将方法thi改为 组件实例的proxy
+                                return Comp.methods[key].call(this._instance.proxy, ...res)
+                            } else {
+                                throw new Error('未找到组件实例')
+                            }
+                        }
+                    }
+                })
+            }
+        }
+    }
+    VueCustomElement.def = Comp;
+    return VueCustomElement;
+}
+```
 ## 总结
 总体来说坑还是有不少的，如果仅仅需要构建一些比较简单跨框架插件，使用这种方式来构建 Web Components 也是一种不错的方案。
