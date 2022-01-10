@@ -8,7 +8,7 @@ description:
 categories: 记录类
 keywords:
 ---
-有时候想写一个无关框架组件，又不想用原生或者Jquery那套去写，而且还要避免样式冲突，用 Web Components 去做刚觉就挺合适的。但是现在 Web Components 使用起来还是不够灵活，很多地方还是不太方便的，如果能和MVVM搭配使用就好了。早在之前Angular就支持将组件构建成 Web Components，**Vue3 3.2+** 开始终于支持将组建构建成 Web Components 了。正好最近想重新评论插件，于是上手试了试。
+有时候想写一个无关框架组件，又不想用原生或者Jquery那套去写，而且还要避免样式冲突，用 Web Components 去做刚觉就挺合适的。但是现在 Web Components 使用起来还是不够灵活，很多地方还是不太方便的，如果能和MVVM搭配使用就好了。早在之前Angular就支持将组件构建成 Web Components，**Vue3 3.2+** 开始终于支持将组建构建成 Web Components 了。正好最近想重构下评论插件，于是上手试了试。
 <!--more-->
 ## 构建 Web Components
 vue 提供了一个 **defineCustomElement** 方法，用来将 vue 组件转换成一个扩展至HTMLElement的自定义函数构造函数，使用方式和 **defineComponent** 参数api基本保持一致。
