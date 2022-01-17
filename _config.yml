@@ -158,6 +158,8 @@ cloudbase:
   enable: true
   env: h-17b316
 
+hmkey: bbad9d8e1fd8e044d365c2ce0d114c73
+
 # 友链
 links:
   - name: hexo
