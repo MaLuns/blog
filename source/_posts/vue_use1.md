@@ -6,7 +6,7 @@ date: 2020-08-03 20:07:05
 tags: [vue]
 categories: 记录类
 description:
-keywords:
+keywords: vue,vue优化
 ---
 在vue的使用过程中会遇到各种场景，当普通使用时觉得没什么，但是或许优化一下可以更高效更优美的进行开发。下面有一些我在日常开发的时候用到的小技巧
 

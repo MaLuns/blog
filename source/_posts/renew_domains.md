@@ -6,7 +6,7 @@ date: 2021-11-09 19:29:24
 tags:
 description:
 categories: 记录类
-keywords:
+keywords: 域名续费
 ---
 
 八月份的时候就看到域名要涨价了，想着续费来自，忙了一阵忘记这茬了。再想起了就现在了，血亏了一波。

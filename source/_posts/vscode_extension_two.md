@@ -6,7 +6,7 @@ date: 2021-06-17 20:19:04
 tags: [vscode]
 description:
 categories: 记录类
-keywords: [vscode插件开发,vscode]
+keywords: vscode插件开发,vscode
 ---
 
 接着上面的继续介绍一些常用的vscode 插件的配置和api。

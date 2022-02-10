@@ -6,7 +6,7 @@ hash: 1632618496577
 tags: [github]
 description: 
 categories: 记录类
-keywords:
+keywords: GitHub Actions,持续集成,CI
 ---
 看看官方对GitHub Actions的介绍: GitHub Actions 帮助您自动完成软件开发周期内的任务。 GitHub Actions 是事件驱动的，意味着您可以在指定事件发生后运行一系列命令。 例如，每次有人为仓库创建拉取请求时，您都可以自动运行命令来执行软件测试脚本。
 

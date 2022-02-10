@@ -6,7 +6,7 @@ date: 2021-01-19 22:23:18
 tags: [vue]
 description:
 categories: 记录类
-keywords:
+keywords: vue,addEventListener
 ---
 
 最近遇到一个需求,需要在单击单元格的时候,编辑单元格。乍一看很简单嘛,监听单元格事件,然后记录点击的rowIndex和prop,然后将对应的给成编辑状态。

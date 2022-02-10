@@ -6,7 +6,7 @@ date: 2021-03-02 20:26:25
 tags: [vue]
 description: 
 categories: 记录类
-keywords:
+keywords: 高阶组件,hoc,mixin
 ---
 在项目中,一般我们经常会基于一套现有组件库进行快速开发,但是现实中往往需要对组件库进行定制化改造二次封装
 

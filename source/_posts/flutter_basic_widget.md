@@ -6,7 +6,7 @@ date: 2021-01-08 22:23:18
 tags: [Flutter]
 description:
 categories: 记录类
-keywords:
+keywords: flutter,widget
 ---
 
 Flutter 中所有的UI界面都是widget构建的。widget用来描述元素配置数据,然后会被渲染成对应UI界面。 当widget的状态修改时, 它会重新渲染UI。

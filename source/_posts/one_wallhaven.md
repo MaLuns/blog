@@ -6,7 +6,7 @@ date: 2020-11-06 18:37:08
 tags: [vue, electron]
 description:
 categories: 创作类
-keywords:
+keywords: 壁纸程序,electron
 headerbg: [/images/logo/one-wallhaven_ns3J9JJoJL.png,'#dedede']
 ---
 

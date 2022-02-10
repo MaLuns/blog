@@ -6,7 +6,7 @@ date: 2020-10-08 10:48:03
 tags: [vue, electron]
 description:
 categories: 记录类
-keywords:
+keywords: electron,断点下载
 ---
 最近用 Electron 做了个壁纸程序，需要断点续下载，在这里记录一下。<!-- more -->
 
