@@ -189,7 +189,7 @@ exports.main = async (event, context) => {
 
 #### 新增、回复 ####
 
-新建一个云函数 AddComment,代码如下
+新建一个云函数 AddComment，代码如下
 使用 nodemailer 来发送邮件通知，nodemailer [参考文档](https://nodemailer.com/about/)
 
 ``` js
