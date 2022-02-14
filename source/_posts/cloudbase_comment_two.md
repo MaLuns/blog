@@ -35,7 +35,7 @@ keywords: 云开发,CloudBase,BComments,评论插件
 ## 踩坑记录
 
 ### 组件样式问题
-vue-loader 在 customElement 模式下，当使用子组件时候，并不会将子组件样式插入到 shadow-root 里，默认只有父组件的样式，需要我们自己处理下。[可以参看](https://www.imalun.com/vue_web_components)
+vue-loader 在 customElement 模式下，当使用子组件时候，并不会将子组件样式插入到 shadow-root 里，默认只有父组件的样式，需要我们自己处理下。[参考这里](https://www.imalun.com/vue_web_components)
 
 ### style和svg问题
 直接使用打包后都是默认插入到dom里的，而没有插入到 customElement 需要我们对这里插入的数据进行一些处理。css 可以配合使用 to-string-loader 在挂载时候手工插入，svg 处理方法也类似这样。
@@ -66,7 +66,7 @@ export default store
 ```
 
 ### 给 customElement 添加方法
-vue3 提供 **defineCustomElement** 是没有将可以将函数暴露到 customElement 上的，只能通过元素上的 **_instance** (vue创建 customElement 创建实例) 去调用，需要我们自己对 **defineCustomElement** 做下改造。[可以参看](https://www.imalun.com/vue_web_components)
+vue3 提供 **defineCustomElement** 是没有将可以将函数暴露到 customElement 上的，只能通过元素上的 **_instance** (vue创建 customElement 创建实例) 去调用，需要我们自己对 **defineCustomElement** 做下改造。[参考这里](https://www.imalun.com/vue_web_components)
 
 ## 总结
 重构过程中，发现坑还是挺多的，还好大部分还是有解决方法的。重写服务端时候，发现腾讯云云开发的数据库文档还是挺坑的，一些MongDB操作在里面也没有，调试也很麻烦。
