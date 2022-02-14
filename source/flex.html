@@ -82,7 +82,7 @@ layout: false
             <h3>容器</h3>
             <div v-for='(item,index) in container' :key="index" class="container-option">
                 <h4 class="title">
-                    {{item.title}}
+                    \{\{item.title\}\}
                     <select v-model='flexStyle[item.title]' class="w120">
                         <option v-for='(elem,index) in item.value' :key="index" :value="elem">{{elem}}</option>
                     </select>
