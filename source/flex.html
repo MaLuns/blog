@@ -82,9 +82,11 @@ layout: false
             <h3>容器</h3>
             <div v-for='(item,index) in container' :key="index" class="container-option">
                 <h4 class="title">
-                    \{\{item.title\}\}
+                    <span v-text="item.title"></span>
                     <select v-model='flexStyle[item.title]' class="w120">
-                        <option v-for='(elem,index) in item.value' :key="index" :value="elem">{{elem}}</option>
+                        <option v-for='(elem,index) in item.value' :key="index" :value="elem">
+                            <span v-text="elem"></span>
+                        </option>
                     </select>
                 </h4>
             </div>
@@ -117,7 +119,9 @@ layout: false
                 <h4 class="title">
                     align-self
                     <select v-model='flexItemsStyle[index]["align-self"]' class="w120">
-                        <option v-for='(elem,index) in alignSelfItems' :key="index" :value="elem">{{elem}}</option>
+                        <option v-for='(elem,index) in alignSelfItems' :key="index" :value="elem">
+                            <span v-text="elem"></span>
+                        </option>
                     </select>
                 </h4>
             </div>
