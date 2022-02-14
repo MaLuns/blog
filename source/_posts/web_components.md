@@ -7,7 +7,7 @@ comments: true
 photos: ['/images/logo/web_conponents.png']
 keywords: js组件,影子DOM,Shadow DOM,自定义元素,Custom elements,HTML模板
 ---
-组件是前端的发展方向，现在流行的 React 和 Vue 都是组件框架。如今Web Components被越来越多的浏览器所支持,Web Components或许是未来的方向。
+组件是前端的发展方向，现在流行的 React 和 Vue 都是组件框架。如今 Web Components 被越来越多的浏览器所支持，Web Components 或许是未来的方向。
 <!-- more -->
 Web Components 的组成主要是由这三种组成，它们可以封装自定义功能的元素，可以在你喜欢的任何地方重用，不必担心代码冲突。
 - Custom elements（自定义元素）：允许自定义一个标签，以及一些操作，然后可以像普通标签一样使用它
@@ -38,7 +38,7 @@ customElements.define(
 )
 ```
 自定义元素的使用也分两种情况
-一种是如果元素不继承其他内建HTMl元素,只继承HTMLElement，可以直接像普通标签一样使用
+一种是如果元素不继承其他内建 HTML 元素,只继承 HTMLElement，可以直接像普通标签一样使用
 ``` html
 <user-p></user-p>
 //或者这样
@@ -60,17 +60,17 @@ customElements.define(
 - adoptedCallback：被移动到新的文档时，被调用。
 - attributeChangedCallback:增加、删除、修改自身属性时，被调用。
 
-如果需要在元素属性变化后，触发 attributeChangedCallback()回调函数，你必须监听这个属性。这可以通过定义observedAttributes() get函数来实现，observedAttributes()函数体内包含一个 return语句，返回一个数组，包含了需要监听的属性名称：
+如果需要在元素属性变化后，触发 attributeChangedCallback()回调函数，你必须监听这个属性。这可以通过定义 observedAttributes() get函数来实现，observedAttributes()函数体内包含一个 return 语句，返回一个数组，包含了需要监听的属性名称：
 ``` js
 static get observedAttributes() {return ['name', 'style']; }
 ```
 
 ## Shadow DOM ##
 Shadow DOM 可以将一个隐藏的、独立的 DOM 附加到一个元素上，可以将标记结构、样式和行为隐藏起来，并与页面上的其他代码相隔离，保证不同的部分不会混在一起，可使代码更加干净、整洁。
-- Shadow host：一个常规 DOM节点，Shadow DOM 会被附加到这个节点上。
-- Shadow tree：Shadow DOM内部的DOM树。
-- Shadow boundary：Shadow DOM结束的地方，也是常规 DOM开始的地方。
-- Shadow root: Shadow tree的根节点。
+- Shadow host：一个常规 DOM 节点，Shadow DOM 会被附加到这个节点上。
+- Shadow tree：Shadow DOM 内部的 DOM 树。
+- Shadow boundary：Shadow DOM 结束的地方，也是常规 DOM 开始的地方。
+- Shadow root: Shadow tree 的根节点。
 
 像\<video>就是用 Shadow DOM 封装的
 
@@ -133,7 +133,7 @@ attachShadow 参数
 这三个都是用来选定 宿主元素 的
 - :host 当前 ShadowDOM 宿主元素
 - :host() 在宿主元素上查找，比如上面的 :host(#demo) 就是当宿主元素 id='demo' 时候生效
-- :host-context() 在当前 ShadowDOM 宿主元素的祖先节点中查找，比如 :host-context(.test) 可以一直往宿主元素 祖先上找，符合就生效
+- :host-context() 在当前 ShadowDOM 宿主元素的祖先节点中查找，比如 :host-context(.test) 可以一直往宿主元素祖先上找，符合就生效
 
 <br>
 <style>
@@ -174,7 +174,7 @@ attachShadow 参数
 ## HTML模板 ##
 template 主要作用就是避免重复去创建那些标签结构。比如当一个组件被重复使用时候，如果不用模板的话，会一遍又一遍的去创建组件类的标签结构，使用 template 这样会避免这样重复的创建标签结构。
 
-template 不会再DOM上显示，举例：
+template 不会再 DOM 上显示，举例：
 ``` html
 <template id="my-template">
     <div>
@@ -182,7 +182,7 @@ template 不会再DOM上显示，举例：
     </div>
 </template>
 ```
-使用js去获取它
+使用 js 去获取它
 
 ``` js
 let template = document.getElementById('my-template');

@@ -8,16 +8,16 @@ categories: 记录类
 description:
 keywords: flutter,animation
 ---
-Flutter 中动画的创建有很多种, 需要根据具体的需求选择不同的动画。如果只是简单的布局等的动画直接使用最简单的隐式动画就可以了，因为隐式动画是由框架控制的，所以仅仅只需要更改变需要变化属性就可以了。如果你想自己控制动画的变换则需要使用显示动画，如果需要控制一些列动画组合时使用交织动画去控制。如果内置的满足不了需求的时候，还可以结合画布自绘动画。
+Flutter 中动画的创建有很多种， 需要根据具体的需求选择不同的动画。如果只是简单的布局等的动画直接使用最简单的隐式动画就可以了，因为隐式动画是由框架控制的，所以仅仅只需要更改变需要变化属性就可以了。如果你想自己控制动画的变换则需要使用显示动画，如果需要控制一些列动画组合时使用交织动画去控制。如果内置的满足不了需求的时候，还可以结合画布自绘动画。
 
 <!--more-->
 
 ## 动画基础
-Flutter动画和其他平台动画原理也是一样的，都是在快速更改UI实现动画效果。在一个Flutter动画中主要包含Animation（动画）、AnimationController（控制器）、Curve（速度曲线）、Animatable（动画取值范围）、Listeners （监听事件）、Ticker（帧）。
-- Animation  一个抽象类是Flutter动画的核心类，主用于保存动画当前插值的和状态，在动画运行时会持续生成介于两个值之间的插入值。例如当宽从100变成200，会在动画第一帧到最后一帧都会生成100-200区间的一个值，如果速度是匀速的，这个值就是匀速增加到200。
-- AnimationController  用来控制动画的状态启动、暂停、反向运行等, 是Animation的一个子类
+Flutter 动画和其他平台动画原理也是一样的，都是在快速更改 UI 实现动画效果。在一个 Flutter 动画中主要包含 Animation（动画）、AnimationController（控制器）、Curve（速度曲线）、Animatable（动画取值范围）、Listeners （监听事件）、Ticker（帧）。
+- Animation  一个抽象类是 Flutter 动画的核心类，主用于保存动画当前插值的和状态，在动画运行时会持续生成介于两个值之间的插入值。例如当宽从 100 变成 200，会在动画第一帧到最后一帧都会生成 100-200 区间的一个值，如果速度是匀速的，这个值就是匀速增加到 200。
+- AnimationController  用来控制动画的状态启动、暂停、反向运行等， 是 Animation 的一个子类
 - Curve  用来定义动画运动的是匀速运动还是匀加速等，和 css 中 animation-timing-function 类似
-- Animatable 用于表明动画值范围值。可以通过调用animate方法，返回一个Animation，常见的Tween系列的类都是对他的实现
+- Animatable 用于表明动画值范围值。可以通过调用 animate 方法，返回一个 Animation，常见的 Tween 系列的类都是对他的实现
 - Listener 监听动画状态的变化
 - Ticker 帧回调，在动画执行时候每一帧都会调用其回调，类似与 js 中的 requestAnimationFrame 
 
@@ -26,10 +26,10 @@ Flutter动画和其他平台动画原理也是一样的，都是在快速更改U
 ### 动画选择
 ![流程图](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/flutter_animation/lct.png)
 
-<!-- Flutter 会用 AnimationController控制执行状态，执行的时候会根据 Animatable,Curve 在每一帧都生成对应的中间插值，插值会保存在 Animation 中，我们 Animation的插值我们就可以更新每一帧的画面，形成动画（Animation）。不管是隐式还是显示动画都是这样来处理动画的。 -->
+<!-- Flutter 会用 AnimationController 控制执行状态，执行的时候会根据 Animatable，Curve 在每一帧都生成对应的中间插值，插值会保存在 Animation 中，我们 Animation 的插值我们就可以更新每一帧的画面，形成动画（Animation）。不管是隐式还是显示动画都是这样来处理动画的。 -->
 
 ## 隐式动画
-隐式动画简单来说就是我们只需要修改对应的属性，Flutter就是自己帮我们过渡动画，和css中过渡有点类似，当我们设置后transition后只需要更改对应的css属性就会自动过渡到新的值。Flutter 内置了一些常用的隐式动画，可以看到源码里都是对ImplicitlyAnimatedWidget的实现，如果需要我们也可以自己实现ImplicitlyAnimatedWidget来自定义隐式动画。 
+隐式动画简单来说就是我们只需要修改对应的属性，Flutter 就是自己帮我们过渡动画，和 css 中过渡有点类似，当我们设置后 transition 后只需要更改对应的 css 属性就会自动过渡到新的值。Flutter 内置了一些常用的隐式动画，可以看到源码里都是对 ImplicitlyAnimatedWidget 的实现，如果需要我们也可以自己实现 ImplicitlyAnimatedWidget 来自定义隐式动画。 
 
 ### 内置隐式动画
 
@@ -59,10 +59,10 @@ setState(() {
 });
 
 ```
-在Flutter内置的隐式动画组件中，一般都是AnimatedXxxxxx类似的，后面的Xxxxxx都能找到对应的组件。内置的有下面这些 AnimatedContainer、AnimatedPadding、AnimatedAlign、AnimatedPositioned、AnimatedOpacity、SliverAnimatedOpacity、AnimatedDefaultTextStyle、AnimatedPhysicalModel。这些隐式动画的使用和其Xxxxxx对应的属性基本一致，只需要额外的指定 duration 就可以了，当然也可以为动画指定动画曲线 curve。
+在 Flutter 内置的隐式动画组件中，一般都是 AnimatedXxxxxx 类似的，后面的 Xxxxxx 都能找到对应的组件。内置的有下面这些 AnimatedContainer、AnimatedPadding、AnimatedAlign、AnimatedPositioned、AnimatedOpacity、SliverAnimatedOpacity、AnimatedDefaultTextStyle、AnimatedPhysicalModel。这些隐式动画的使用和其 Xxxxxx 对应的属性基本一致，只需要额外的指定 duration 就可以了，当然也可以为动画指定动画曲线 curve。
 
 ### 自定义隐式动画
-当这内置的满足不了你的时候，你也可以去实现一个隐式动画，只需要实现抽象类 ImplicitlyAnimatedWidget。实现自定义隐式动画仅需要重写build 和 forEachTween 就可以简单实现了。
+当这内置的满足不了你的时候，你也可以去实现一个隐式动画，只需要实现抽象类 ImplicitlyAnimatedWidget。实现自定义隐式动画仅需要重写 build 和 forEachTween 就可以简单实现了。
 ``` dart
 // 直接继承ImplicitlyAnimatedWidget 
 class AnimatedDemo extends ImplicitlyAnimatedWidget {
@@ -113,7 +113,7 @@ class _AnimatedDemo extends AnimatedWidgetBaseState<AnimatedDemo> {
 有时候有些动画需要们自己去控制动画的状态，而不是交给框架去处理，这时就需要我们自己去定义前面简介里提到的那几个动画要素了。
 
 ### 内置显示动画
-在Flutter中内置的显示动画大部分都是XxxxxxTransition名称的，我们看个内置显示动画使用例子，RotationTransition组件需要一个 turns（Animation\<double\>）参数,我们可以给它个AnimationController
+在 Flutter 中内置的显示动画大部分都是 XxxxxxTransition 名称的，我们看个内置显示动画使用例子，RotationTransition 组件需要一个 turns（Animation\<double\>）参数,我们可以给它个AnimationController
 ``` dart 
 // RotationTransition 参数
 RotationTransition(
@@ -196,7 +196,7 @@ class _RotationTransitionDemoState extends State<RotationTransitionDemo> with Si
 ```
 
 ### 控制器补间和曲线
-在控制器中我们可以看的动画开始值和结束值默认是0.0到1.0，而且是double类型的。而实际动画中不可能只是double类型的，需要我们自己使用Animatable来指定补间范围值。
+在控制器中我们可以看的动画开始值和结束值默认是 0.0 到 1.0，而且是 double 类型的。而实际动画中不可能只是 double 类型的，需要我们自己使用 Animatable 来指定补间范围值。
 修改一下上面的代码
 ```dart
 // 通过控制器的drive方法添加
@@ -210,7 +210,7 @@ Tween(begin: 1, end: 4)
 .chain(CurveTween(curve: Curves.ease)) //叠加个曲线
 .animate(_controller);
 ```
-Flutter已经内置帮我们实现了很多Animatable，ColorTween、SizeTween、IntTween、StepTween等等。
+Flutter 已经内置帮我们实现了很多 Animatable，ColorTween、SizeTween、IntTween、StepTween 等等。
 
 
 ### 自定义显示动画
@@ -290,7 +290,7 @@ AnimatedBuilder(
 ### 交织动画
 官方是这么介绍的：交织动画是一个简单的概念：视觉变化是随着一系列的动作发生，而不是一次性的动作。动画可能是纯粹顺序的，一个改变随着一个改变发生，动画也可能是部分或者全部重叠的。动画也可能有间隙，没有变化发生。
 
-简单点说就是一个动画可以分割成很多片段，每个片段都有不同的Tween,看个使用示例
+简单点说就是一个动画可以分割成很多片段，每个片段都有不同的 Tween，看个使用示例
 ``` dart 
 class StaggeredAnimationDemo extends StatefulWidget {
   @override
@@ -363,8 +363,7 @@ class _StaggeredAnimationDemoState extends State<StaggeredAnimationDemo> with Si
 ```
 
 ## Hero动画
-
-Flutter叫它主动画，用于不同页面之间切换时候动画，比如有一个商品列表，点击后跳到一个新的页面查看原图，就可以这个动画。使用也很简单，在不同页面使用Hero包裹需要动画组件，两个页面的 tag 需要甚至成一直，但是同一个页面需要保持唯一。
+Flutter 叫它主动画，用于不同页面之间切换时候动画，比如有一个商品列表，点击后跳到一个新的页面查看原图，就可以这个动画。使用也很简单，在不同页面使用 Hero 包裹需要动画组件，两个页面的 tag 需要甚至成一直，但是同一个页面需要保持唯一。
 
 ``` dart 
 Hero(

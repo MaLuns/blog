@@ -1,5 +1,5 @@
 ---
-title: 使用Vue3 构建 Web Components
+title: 使用 Vue3 构建 Web Components
 comment: true
 hash: 1637425029183
 date: 2021-11-21 10:17:09
@@ -8,7 +8,7 @@ description:
 categories: 记录类
 keywords: vue3,WebComponents,Custom elements
 ---
-有时候想写一个无关框架组件，又不想用原生或者Jquery那套去写，而且还要避免样式冲突，用 Web Components 去做刚觉就挺合适的。但是现在 Web Components 使用起来还是不够灵活，很多地方还是不太方便的，如果能和MVVM搭配使用就好了。早在之前Angular就支持将组件构建成 Web Components，**Vue3 3.2+** 开始终于支持将组建构建成 Web Components 了。正好最近想重构下评论插件，于是上手试了试。
+有时候想写一个无关框架组件，又不想用原生或者 Jquery 那套去写，而且还要避免样式冲突，用 Web Components 去做刚觉就挺合适的。但是现在 Web Components 使用起来还是不够灵活，很多地方还是不太方便的，如果能和 MVVM 搭配使用就好了。早在之前 Angular 就支持将组件构建成 Web Components，**Vue3 3.2+** 开始终于支持将组建构建成 Web Components 了。正好最近想重构下评论插件，于是上手试了试。
 <!--more-->
 ## 构建 Web Components
 vue 提供了一个 **defineCustomElement** 方法，用来将 vue 组件转换成一个扩展至HTMLElement的自定义函数构造函数，使用方式和 **defineComponent** 参数api基本保持一致。
@@ -39,13 +39,13 @@ props:{
   type:String
 }
 ```
-因为 HTML 的 attribute 的只能是字符串，除了基础类型(Boolean、Number)Vue在映射时会帮忙做类型转换，其他复杂类型则需要设置到 DOM property 上。
+因为 HTML 的 **attribute** 的只能是字符串，除了基础类型(Boolean、Number) Vue 在映射时会帮忙做类型转换，其他复杂类型则需要设置到 DOM property 上。
 
 ### 事件
-在自定义元素中，通过 this.$emit 或在 setup 中的 emit 发出的事件会被调度为原生 [CustomEvents](https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events#adding_custom_data_%E2%80%93_customevent)。附加的事件参数 (payload) 会作为数组暴露在 CustomEvent 对象的 details property 上。
+在自定义元素中，通过 **this.$emit** 或在 **setup** 中的 **emit** 发出的事件会被调度为原生 [CustomEvents](https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events#adding_custom_data_%E2%80%93_customevent)。附加的事件参数 (payload) 会作为数组暴露在 CustomEvent 对象的 details property 上。
 
 ### 插槽
-编写组件时，可以想vue一样，但是使用时只能原生的插槽语法，所以也不在支持作用域插槽。
+编写组件时，可以想 vue 一样，但是使用时只能原生的插槽语法，所以也不在支持作用域插槽。
 
 ### 子组件样式问题
 使用子组件嵌套的时，有个坑的地方就是默认不会将子组件里的样式抽离出来。
@@ -124,7 +124,7 @@ ComDemo.styles = deepStylesOf(ComDemo)
 ![插入图片](https://682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_web_components/pic_1637477447787.png)
 
 ### 方法
-**defineCustomElement** 构建的组件默认是不会将方法挂到 **customElement** 上的，看 Vue 源码中，只有_def（构造函数），_instance（组件实例)）。如果想调用组件内的方法，dom._instance.proxy.fun()，感觉实在不太优雅。
+**defineCustomElement** 构建的组件默认是不会将方法挂到 **customElement** 上的，看 Vue 源码中，只有 _def（构造函数），_instance（组件实例)）。如果想调用组件内的方法，dom._instance.proxy.fun()，感觉实在不太优雅。
 ![vuecode](https://682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_web_components/pic_1638631915396.png)
 我们当然希望我们组件暴露的方法能像普通dom那样直接 dom.fun() 去掉用，我们对 **defineCustomElement** 稍作扩展。
 ``` js

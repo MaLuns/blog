@@ -9,7 +9,7 @@ description:
 keywords: 云开发,CloudBase,BComments,评论插件
 ---
 
-因为以前使用的评论插件存在很多bug和漏洞，但是也没啥人用，一直没有去修改，最近空闲时间比较多，所以准备对之前插件进行重构一番。原评论插件是使用原生 JS 编写 WebComponents 组件，感觉结构维护起来挺费力的(自己太菜)，决定使用 Vue3 构建 WebComponents 。
+因为以前使用的评论插件存在很多 bug 和漏洞，但是也没啥人用，一直没有去修改，最近空闲时间比较多，所以准备对之前插件进行重构一番。原评论插件是使用原生 JS 编写 WebComponents 组件，感觉结构维护起来挺费力的(自己太菜)，决定使用 Vue3 构建 WebComponents 。
 
 <!-- more -->
 
@@ -38,10 +38,10 @@ keywords: 云开发,CloudBase,BComments,评论插件
 vue-loader 在 customElement 模式下，当使用子组件时候，并不会将子组件样式插入到 shadow-root 里，默认只有父组件的样式，需要我们自己处理下。[参考这里](https://www.imalun.com/vue_web_components)
 
 ### style和svg问题
-直接使用打包后都是默认插入到dom里的，而没有插入到 customElement 需要我们对这里插入的数据进行一些处理。css 可以配合使用 to-string-loader 在挂载时候手工插入，svg 处理方法也类似这样。
+直接使用打包后都是默认插入到 dom 里的，而没有插入到 customElement 需要我们对这里插入的数据进行一些处理。css 可以配合使用 to-string-loader 在挂载时候手工插入，svg 处理方法也类似这样。
 
 ### contenteditable 光标问题
-使用 contenteditable 作为输入框时，当需要插入表情或者粘贴文本到光标处时候，需要存储光标信息，但是在 Can I Use 上看到ShadowRoot Api: getSelection 的兼容性，可以看到除了 chromium 其他几乎都是不支持的。
+使用 contenteditable 作为输入框时，当需要插入表情或者粘贴文本到光标处时候，需要存储光标信息，但是在 Can I Use 上看到 ShadowRoot Api: getSelection 的兼容性，可以看到除了 chromium 其他几乎都是不支持的。
 
 ### 弹出层问题
 当在 customElement 里实现 Popover 组件，点击其他区域需要关闭弹出层时候，一般情况下我们都是判断当前点击事件触发对象 (target) 是不是我们 Popover 本身来决定我们是否关闭，但是当我们点击在 customElement 上时候 document 事件的 target 是自定义元素本身，不会到自定义元素内部去，所以我们需要在 customElement 和 document 都做一个监听。
@@ -69,4 +69,4 @@ export default store
 vue3 提供 **defineCustomElement** 是没有将可以将函数暴露到 customElement 上的，只能通过元素上的 **_instance** (vue创建 customElement 创建实例) 去调用，需要我们自己对 **defineCustomElement** 做下改造。[参考这里](https://www.imalun.com/vue_web_components)
 
 ## 总结
-重构过程中，发现坑还是挺多的，还好大部分还是有解决方法的。重写服务端时候，发现腾讯云云开发的数据库文档还是挺坑的，一些MongDB操作在里面也没有，调试也很麻烦。
+重构过程中，发现坑还是挺多的，还好大部分还是有解决方法的。重写服务端时候，发现腾讯云云开发的数据库文档还是挺坑的，一些 MongDB 操作在里面也没有，调试也很麻烦。

@@ -33,7 +33,7 @@ highlight:
 ```
 
 ## 主题配置文件
-主题的功能比较简约，所以配置文件也不是很多 。如果需要使用 文章字数统计 和 rss 需要安装下面两个插件 **hexo-generator-feed**、**hexo-wordcount**。
+主题的功能比较简约，所以配置文件也不是很多。如果需要使用文章字数统计和 rss 需要安装下面两个插件 **hexo-generator-feed**、**hexo-wordcount**。
 
 ``` yml
 # 站点信息 
@@ -86,7 +86,7 @@ menu:
       url: /about
 
 ```
-开启 Service Worker缓存，并且想使用 **PWA** 时需要自行添加 **manifest.json** 文件，配置站点被安装的图标等信息。[了解更多PWA信息](https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps)
+开启 Service Worker 缓存，并且想使用 **PWA** 时需要自行添加 **manifest.json** 文件，配置站点被安装的图标等信息。[了解更多PWA信息](https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps)
 ``` json
 // 我的使用示例
 {
@@ -113,7 +113,7 @@ menu:
 
 
 ## 修改主题配色
-如果你需要修改主题色，你只需要找到 **source/css/var.less** 文件。所有的主题配色都在这里了， **.dark** 下是暗黑模式下的颜色。
+如果你需要修改主题色，你只需要找到 **source/css/var.less** 文件，所有的主题配色都在这里了， **.dark** 下是暗黑模式下的颜色。
 ```less
 :root {
     --transitionTime   : .35s ease; // 过渡时间

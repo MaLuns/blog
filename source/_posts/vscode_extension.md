@@ -1,5 +1,5 @@
 ---
-title: vscode 插件开发指北 (一)
+title: VS Code 插件开发指北 (一)
 comments: true
 hash: 1623511259748
 date: 2021-06-12 23:20:59
@@ -11,7 +11,7 @@ keywords: vscode插件,vscode教程
 最近闲来无事，给公司框架做了开发代码片段提示和一些常用工具整合的插，在这里记录一下踩过的坑和一些常用的基本功能示例。
 <!-- more -->
 ## 插件能做什么
-因为vscode是 Electron 的，所以一般node能做的一般基本上都是可以是现实。如果你想对vscode做些个性化的配置，你可以开发自定义主题、图标主题、欢迎页面、自定义左侧的面板（例如资源管理器栏那种）等。你还可以自己定义命令、快捷键、自动补全、菜单等来提升你的开发效率。甚至你可以对现有语言做扩展或者定义新的语言的支持。
+因为 VS Code 是基于 Electron 的，所以一般 node 能做的一般基本上都是可以是现实。如果你想对 VS Code 做些个性化的配置，你可以开发自定义主题、图标主题、欢迎页面、自定义左侧的面板（例如资源管理器栏那种）等。你还可以自己定义命令、快捷键、自动补全、菜单等来提升你的开发效率。甚至你可以对现有语言做扩展或者定义新的语言的支持。
 
 ## 创建插件项目
 首先安装官方的脚手架
@@ -24,7 +24,7 @@ npm install -g yo generator-code
 yo code 
 // 会一路提示你 输入插件名 插件id 等等。根据需要填写
 ```
-微软提供了两种方式去开发，一种是 JavaScript 和 TypeScript 去开发，可以根据自己的习惯选择。创建好后按 F5 会打开调试用的vscode窗口来调试插件
+微软提供了两种方式去开发，一种是 JavaScript 和 TypeScript 去开发，可以根据自己的习惯选择。创建好后按 F5 会打开调试用的 VS Code 窗口来调试插件
 
 使用 JavaScript 生成的项目结构，
 ├── .vscode
@@ -63,7 +63,7 @@ module.exports = {
 }
 ```
 
-这个初始化插件项目，默认就是注册了个hello world 命令，然后运行命令显示hello world的通知，按F5运行项目，在命令面板输入hello world，可以看到右下角弹出通知
+这个初始化插件项目，默认就是注册了个 hello world 命令，然后运行命令显示 hello world 的通知，按F5运行项目，在命令面板输入 hello world，可以看到右下角弹出通知
 ![项目结构](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension/20210615205632.png)
 ![项目结构](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension/20210615205655.png)
 
@@ -118,7 +118,7 @@ vscode 插件的 package.json 是 npm 的一个超集，插件的图标、命令
 ```
 
 ## 命令示例
-一般提供给被人使用的功能都是通过命令注册，在命令的回调函数里处理相关功能逻辑，然后就可以在vscode 的命令面板调用相关命令。你也可以注册快捷键、菜单等和命令绑定在一起来触发命令。VS Code 内部含有大量和编辑器交互、控制UI、后台操作的内置命令给我们使用。
+一般提供给被人使用的功能都是通过命令注册，在命令的回调函数里处理相关功能逻辑，然后就可以在 VS Code 的命令面板调用相关命令。你也可以注册快捷键、菜单等和命令绑定在一起来触发命令。VS Code 内部含有大量和编辑器交互、控制UI、后台操作的内置命令给我们使用。
 
 ### 注册命令
 vscode 在 commands 下提供了 **registerCommand** 和 **registerTextEditorCommand**用来注册命令，registerTextEditorCommand 注册的命令只会在编辑器激活的时候才调用。
@@ -153,7 +153,7 @@ context.subscriptions.push(
 }
 ```
 
-按住 F5 运行插件，在命令面板输入 *获取选择文本* ,会发现报错了。是因为 **activationEvents** 配置里只配置了 "onCommand:vscode-demo.helloWorld" 才会激活插件，我们需要把新加的命令也加入进去，或者改为 *
+按住 F5 运行插件，在命令面板输入 *获取选择文本* ，会发现报错了。是因为 **activationEvents** 配置里只配置了 "onCommand:vscode-demo.helloWorld" 才会激活插件，我们需要把新加的命令也加入进去，或者改为 *
 
 ``` json
 // package.json
@@ -163,7 +163,7 @@ context.subscriptions.push(
 ```
 
 ### 执行命令
-在 commands 提供了 ** executeCommand ** API用来调用命令，可以使用它调用我们插件里的命令，也可以调用vscode内置的命令。
+在 commands 提供了 **executeCommand** API用来调用命令，可以使用它调用我们插件里的命令，也可以调用 VS Code 内置的命令。
 使用示例
 ``` js
 // 调用
@@ -171,7 +171,7 @@ vscode.commands.executeCommand('vscode-demo.helloWorld')
 ```
 
 ## 菜单示例
-package.json 中的 **contributes.menus** 用来的配置菜单项，下面这些编辑器可以配置菜单的地方.
+package.json 中的 **contributes.menus** 用来的配置菜单项，下面这些编辑器可以配置菜单的地方。
 
 - 全局命令面板 - commandPalette
 - 资源管理器上下文菜单 - explorer/context
@@ -186,7 +186,7 @@ package.json 中的 **contributes.menus** 用来的配置菜单项，下面这�
 - SCM 资源 - scm/resource/context
 - SCM 改变标题 - scm/change/title
 
-配置菜单需要提供 选中菜单时执行的命令和菜单出现的条件。
+配置菜单需要提供，选中菜单时执行的命令和菜单出现的条件。
 ``` json
 {
     "command": "命令",
@@ -224,7 +224,7 @@ package.json 中的 **contributes.menus** 用来的配置菜单项，下面这�
 ```
 
 ### when 条件
-when提供的逻辑操作符有 ==、!=、||、&&、!、=\~(正则)、>、>=、<、<=、in 等操作符，和js的类似，多了一个 **=~** 符匹配正则。vscode 还提供了很多上下文可以和这些操作符组合使用。[查看上下文详情](https://code.visualstudio.com/api/references/when-clause-contexts)
+when 提供的逻辑操作符有 ==、!=、||、&&、!、=\~(正则)、>、>=、<、<=、in 等操作符，和js的类似，多了一个 **=~** 符匹配正则。VS Code 还提供了很多上下文可以和这些操作符组合使用。[查看上下文详情](https://code.visualstudio.com/api/references/when-clause-contexts)
 示例
 ```
 "when":"resourceExtname != .js" //不是js文件时
@@ -234,7 +234,7 @@ when提供的逻辑操作符有 ==、!=、||、&&、!、=\~(正则)、>、>=、<
 
 
 ### 配置多级菜单
-使用**submenu**指定父级菜单的ID，**submenus**配置父级菜单名称等信息。
+使用 **submenu** 指定父级菜单的ID，**submenus** 配置父级菜单名称等信息。
 ``` json
 {
     "contributes": {
@@ -285,7 +285,7 @@ when提供的逻辑操作符有 ==、!=、||、&&、!、=\~(正则)、>、>=、<
     - 9_cutcopypaste - 然后是基础编辑命令。
     - z_commands - 最后一个分组则是命令面板入口。
 - 资源管理器上下文菜单(explorer/context)默认有下列分组：
-    - navigation - 在VS Code中导航的相关命令。navigation组始终在最上方。
+    - navigation - 在VS Code 中导航的相关命令。navigation 组始终在最上方。
     - 2_workspace - 和工作区操作相关的命令。
     - 3_compare - 比较文件和diff相关的命令。
     - 4_search - 在搜索视图中和搜索相关的命令。
@@ -299,7 +299,7 @@ when提供的逻辑操作符有 ==、!=、||、&&、!、=\~(正则)、>、>=、<
     - 3_open - 与打开编辑器相关的命令。
     - 5_close - 与关闭编辑器相关的命令。
 
-组内的菜单顺序取决于标题或者序号属性。菜单的组内顺序由@<number>加到group值的后面得以确定：
+组内的菜单顺序取决于标题或者序号属性。菜单的组内顺序由@<number>加到 group 值的后面得以确定：
 ``` json
 "editor/title": [{
     "when": "editorHasSelection",
@@ -309,7 +309,7 @@ when提供的逻辑操作符有 ==、!=、||、&&、!、=\~(正则)、>、>=、<
 ```
 
 ## 注册快捷键
-快捷键还是比较简单的，Windows和Linux 是key指定，macOS使用mac指定的快捷键。
+快捷键还是比较简单的，Windows 和Linux 是 key 指定，macOS 使用 mac 指定的快捷键。
 ``` json
 "contributes": {
     "keybindings": [{

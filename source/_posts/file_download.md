@@ -28,7 +28,7 @@ etag: "5f0dce96-48e"
 last-modified: Tue, 14 Jul 2020 15:26:14 GMT
 ```
 - Range
-  请求头设置Range, 指定服务器返回指定区域内容，如果不设置Range会返回整个文件。服务器片段返回状态码是206，请求的范围如果无效状态码会是416，全部返回状态码是200
+  请求头设置 Range，指定服务器返回指定区域内容，如果不设置 Range 会返回整个文件。服务器片段返回状态码是 206，请求的范围如果无效状态码会是 416，全部返回状态码是 200。
 ```
 //示例 
 Range: bytes=0-499 表示第 0-499 字节范围的内容 
@@ -42,10 +42,10 @@ Range: bytes=500-600,601-999 同时指定几个范围
 ## Electron 断点续下载方式
 
 - 使用 Chromium 的下载功能，在主进程里监听 will-download 事件去处理
-- 使用 Electron 的net模块或者 Node.js 的http/https模块自己创建请求，记录已下载位置
+- 使用 Electron 的net模块或者 Node.js 的 http/https 模块自己创建请求，记录已下载位置
 
 ### 使用 Chromium 的下载
-可以在渲染进程中和网页一样进行触发下载（例如a标签），也可以在主进程中使用 BrowserWindow.webContents 或 session 的 downloadURL触发下载
+可以在渲染进程中和网页一样进行触发下载（例如a标签），也可以在主进程中使用 BrowserWindow.webContents 或 session 的 downloadURL触发下载。
 
 ``` js
 //示例
@@ -65,7 +65,7 @@ session.defaultSession.on('will-download', (event,  downloadItem, webContents) =
 })
 ```
 然后可以 will-download 事件中的 downloadItem 实例去存储下载信息。等待程序再次启动时通过 session.createInterruptedDownload 恢复上一次的下载
-大致流程
+大致流程。
 ![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/onewallhaven/down.png)
 ``` js
 //一个简易示例
@@ -142,4 +142,4 @@ session.defaultSession.createInterruptedDownload({
 相关的文档地址 [BrowserWindow](https://www.electronjs.org/docs/api/browser-window)  ,[Session](https://www.electronjs.org/docs/api/session) , [webContents](https://www.electronjs.org/docs/api/web-contents), [DownloadItem](https://www.electronjs.org/docs/api/download-item)
 
 ### 创建请求实现续下载
-大致上和上面是差不多的，记录已下载文件信息，再次请求时候设置从指定位置开始请求数据
+大致上和上面是差不多的，记录已下载文件信息，再次请求时候设置从指定位置开始请求数据。

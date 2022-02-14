@@ -8,19 +8,19 @@ photos: ['/images/logo/js_vue_source_study_logo.png']
 keywords: vue,vue响应式,vue源码
 ---
 
-之前也用了一段时间Vue，对其用法也较为熟练了，但是对各种用法和各种api使用都是只知其然而不知其所以然。最近利用空闲时间尝试的去看看Vue的源码，以便更了解其具体原理实现，跟着学习学习。
+之前也用了一段时间 Vue，对其用法也较为熟练了，但是对各种用法和各种 api 使用都是只知其然而不知其所以然。最近利用空闲时间尝试的去看看 Vue 的源码，以便更了解其具体原理实现，跟着学习学习。
 
 <!--more -->
 
-<!-- 之前一直对Vue又几个困惑
+<!-- 之前一直对 Vue又几个困惑
 
-- 传的data 进去的 怎么就 变得 this.xxx 可以访问到了
+- 传的 data 进去的 怎么就 变得 this.xxx 可以访问到了
 - 如何实现数据劫持，监听数据的读写操作 ？
 - 如何实现依赖缓存 ？ -->
 
 ## Proxy 对 data 代理  ##
 
-传的 data 进去的为什么可以用this.xxx访问，而不需要 this.data.xxx 呢?
+传的 data 进去的为什么可以用 this.xxx 访问，而不需要 this.data.xxx 呢?
 
 ``` js 
 // vue\src\core\instance\state.js
@@ -92,7 +92,7 @@ observer 模块可以说是 Vue 响应式得核心了，observer 模块主要是
 initData() 方法调用了  observe(data, true /* asRootData */) 先来看下这个方法
 
 ``` js 
-//对value 进行观察处理
+//对 value 进行观察处理
 export function observe (value: any, asRootData: ?boolean): Observer | void {
 
   //判断处理 value 必须是对象 并且不能是 VNode
@@ -120,7 +120,7 @@ export function observe (value: any, asRootData: ?boolean): Observer | void {
 
 ```
 
-如果 data.\_\_ob\_\_ 已经存在直接返回，否则new一个新的 Observer 实例，下面是 Observer 类代码
+如果 data.\_\_ob\_\_ 已经存在直接返回，否则 new 一个新的 Observer 实例，下面是 Observer 类代码
 
 ``` js 
 export class Observer {
@@ -253,13 +253,13 @@ function dependArray (value: Array<any>) {
 ```
 
 上面有两个地方有存在 Dep
-- 一个是Observer 类 属性上有个Dep,这里主要是对数组（数组没有get/set不能像对象属性那样）和对象本身进行依赖收集和通知
+- 一个是Observer 类 属性上有个 Dep ,这里主要是对数组（数组没有 get/set 不能像对象属性那样）和对象本身进行依赖收集和通知
 ![](/images/20200312225611.png)
 ![](/images/20200312225648.png)
-- 一个是对属性get/set处理时候的Dep,这个主要是对象的属性进行依赖收集和通知
+- 一个是对属性 get/set 处理时候的 Dep ,这个主要是对象的属性进行依赖收集和通知
 
 ### 2.Dep ###
-Dep 是 Observer 与 Watcher 桥梁，也可以认为Dep是服务于Observer的订阅系统。Watcher订阅某个Observer的Dep，当Observer观察的数据发生变化时，通过Dep通知各个已经订阅的Watcher。
+Dep 是 Observer 与 Watcher 桥梁，也可以认为 Dep 是服务于 Observer 的订阅系统。Watcher 订阅某个 Observer 的 Dep，当 Observer 观察的数据发生变化时，通过 Dep 通知各个已经订阅的 Watcher。
 
 ``` js
 export default class Dep {
@@ -344,7 +344,7 @@ constructor(
 
 ```
 
-expOrFn，对于初始化用来渲染视图的 watcher 来说，就是render方法，对于computed来说就是表达式，对于watch才是key，而getter方法是用来取value的。最后调用了get()方法
+expOrFn，对于初始化用来渲染视图的 watcher 来说，就是 render 方法，对于 computed 来说就是表达式，对于 watch 才是 key，而 getter 方法是用来取 value 的。最后调用了 get()方法
 
 
 ``` js
@@ -375,7 +375,7 @@ get () {
 }
 
 ```
-假如当前Watcher实例中 getter 是 render，当render遇到模板中的{{xxx}}表达式的时候，就是去读取 data.xxx，这个时候就触发 data.xxx 的 get方法，这个时候 get 中会执行Dep.depend(),而此时 Dep.target 就是当前 watcher ，然后调用 watcher.addDep()。也就将data.xxx 与 当前watcher 关联起来了
+假如当前 Watcher 实例中 getter 是 render，当 render 遇到模板中的 {{xxx}} 表达式的时候，就是去读取 data.xxx，这个时候就触发 data.xxx 的 get 方法，这个时候 get 中会执行 Dep.depend(),而此时 Dep.target 就是当前 watcher ，然后调用 watcher.addDep()。也就将 data.xxx 与 当前 watcher 关联起来了
 
 ```js
 

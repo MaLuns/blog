@@ -18,13 +18,13 @@ Flutter 官网对 widget 描述
 > Flutter从React中吸取灵感，通过现代化框架创建出精美的组件。它的核心思想是用widget来构建你的UI界面。 Widget描述了在当前的配置和状态下视图所应该呈现的样子。当widget的状态改变时，它会重新构建其描述（展示的 UI），框架则会对比前后变化的不同，以确定底层渲染树从一个状态转换到下一个状态所需的最小更改。
 
 一个新的组件通常是继承 StatelessWidget 或 StatefulWidget
-- StatelessWidget 是状态不可变的widget, 其中的展示内容不会随着数据的变化而变化（非响应式）。
-- StatefulWidget 可以进行状态管理, 数据更新, 页面中的内容可以随之变化（响应式）。
+- StatelessWidget 是状态不可变的 widget， 其中的展示内容不会随着数据的变化而变化（非响应式）。
+- StatefulWidget 可以进行状态管理， 数据更新， 页面中的内容可以随之变化（响应式）。
 
-使用StatefulWidget时候, 对状态进行更改时候, 会触发 build 方法对组件进行重绘, 也会连同子组件的一起触发。当一个组件数据中途不需要更改的时候,尽可能的使用StatelessWidget, 对性能有较好提升。或者将需要更新部分尽可能拆分成子节点。
+使用 StatefulWidget 时候， 对状态进行更改时候， 会触发 build 方法对组件进行重绘， 也会连同子组件的一起触发。当一个组件数据中途不需要更改的时候，尽可能的使用 StatelessWidget， 对性能有较好提升。或者将需要更新部分尽可能拆分成子节点。
 ## 基础 widget
 ### Text
-Text使用还是比较常用的,用于显示简单样式文本。
+Text使用还是比较常用的，用于显示简单样式文本。
 ``` dart
  Text(
     '要显示文本', 
@@ -87,7 +87,7 @@ RichText(
 )
 ```
 ### Button
-Flutter内置了很多按钮,Material 中大致分为 RawMaterialButton 和 IconButton 两类
+Flutter 内置了很多按钮，Material 中大致分为 RawMaterialButton 和 IconButton 两类
 ``` dart
 // RawMaterialButton 常见的有 RaisedButton / FlatButton / OutlineButton /FlatButton
 RawMaterialButton({
@@ -133,7 +133,7 @@ IconButton({
 ```
 
 ### Image
-Image日常开发中的使用频率也非常高, Image可以加载本地,网络,缓存的图片。
+Image 日常开发中的使用频率也非常高，Image 可以加载本地，网络，缓存的图片。
 ```dart
 // 本地加载图片 需要在 pubspec.yaml 添加图片资源
 Image(
@@ -147,7 +147,7 @@ Image(
 // Image 也提供了 Image.asset 和 Image.network 构造函数的快捷方式
 ```
 ### Icon
-使用内置图标,Flutter 内置提供了一套 material-icon 图标
+使用内置图标，Flutter 内置提供了一套 material-icon 图标
 ```dart 
 //需要一个IconData类型图标数据
 Icon(
@@ -180,7 +180,7 @@ Icon(
 ```
 
 ### AppBar
-AppBar是一个顶端导航栏 
+AppBar 是一个顶端导航栏 
 ```dart
  AppBar({
     this.leading, //左侧按钮 可以自定义,在其他页时候 回显示返回按钮
@@ -258,10 +258,10 @@ DefaultTabController(
 <!-- ### Tabs -->
 
 ## 布局类 widget
-常用布局widget有 Row、Column、Flex、Warp、Flow、Stack、Positioned 等。
+常用布局 widget 有 Row、Column、Flex、Warp、Flow、Stack、Positioned 等。
 
 ### 弹性布局
-Flutter使用的Flex模型基本上跟传统的CSS类似。
+Flutter 使用的 Flex 模型基本上跟 CSS 类似。
 
 ``` dart
 //Row
@@ -320,7 +320,7 @@ Column(
 ```
 
 ### 流式布局
-在介绍Row和Colum时,如果子widget超出屏幕范围, 则会报溢出错误, 并不会自动换行。Flutter中提供了Wrap和Flow来支持溢出部分后会自动折行。
+在介绍 Row 和 Colum 时，如果子 widget 超出屏幕范围， 则会报溢出错误， 并不会自动换行。Flutter 中提供了 Wrap 和 Flow 来支持溢出部分后会自动折行。
 ``` dart 
 // Wrap 的示例
 Wrap(
@@ -340,7 +340,7 @@ Wrap(
     }).toList(),
 )
 ```
-Flow布局需要一个FlowDelegate类型的delegate对象, 但是Flutter没有现成实现的类, 需要我们自己实现。
+Flow 布局需要一个 FlowDelegate 类型的 delegate 对象， 但是 Flutter 没有现成实现的类， 需要我们自己实现。
 ``` dart
 //继承FlowDelegate   只需要实现paintChildren 和 shouldRepaint
 class TestFlowDelegate extends FlowDelegate {
@@ -375,7 +375,7 @@ Flow(
 ```
 
 ### 叠层布局
-Stack结合Positioned进行叠层布局,和css中的绝对定位类似。Positioned组件通过left，top ，right，bottom四个方向上的属性值来决定其在Stack中的位置。
+Stack 结合 Positioned 进行叠层布局，和 css 中的绝对定位类似。Positioned 组件通过 left，top ，right，bottom 四个方向上的属性值来决定其在 Stack 中的位置。
 
 ``` dart
 Stack(
@@ -398,7 +398,7 @@ Stack(
 )
 ```
 ### 对齐和相对定位
-Align 组件可以调整子组件位置,同过一个AlignmentGeometry类型的值，表示子组件在父组件中的起始位
+Align 组件可以调整子组件位置，同过一个 AlignmentGeometry 类型的值，表示子组件在父组件中的起始位
 ```dart
 Container(
   height: 120.0,
@@ -430,45 +430,44 @@ topRight对应着(-1,-1),中心坐标center就是(0,0),
 Alignment(2,0.0) =>  180,60
 ```
 
-
 ## 容器类型
 ### Container
-Container是一个组合类容器的组装的多功能容器。了解一个Container其他也就很清楚了
+Container 是一个组合类容器的组装的多功能容器。了解一个 Container 其他也就很清楚了
 ```dart
 Container({
     Key key,
     this.alignment, //对齐方式  =>对应 Align
 
 
-    this.padding, // 内间距,是个EdgeInsetsGeometry 抽象类  =>对应  Padding 
-    // FLutter 提供了是个EdgeInsetsGeometry实现类EdgeInsets,提供了下面四个方法
-    // fromLTRB(double left, double top, double right, double bottom)：分别指定四个方向的填充。
+    this.padding, // 内间距，是个 EdgeInsetsGeometry 抽象类  =>对应  Padding 
+    // FLutter 提供了是个 EdgeInsetsGeometry 实现类 EdgeInsets，提供了下面四个方法
+    // fromLTRB(double left， double top，double right， double bottom)：分别指定四个方向的填充。
     // all(double value) : 所有方向均使用相同数值的填充。
-    // only({left, top, right ,bottom })：可以设置具体某个方向的填充(可以同时指定多个方向)。
-    // symmetric({ vertical, horizontal })：用于设置对称方向的填充，vertical指top和bottom，horizontal指left和right。
+    // only({left， top， right ，bottom })：可以设置具体某个方向的填充(可以同时指定多个方向)。
+    // symmetric({ vertical， horizontal })：用于设置对称方向的填充，vertical 指 top 和 bottom，horizontal 指 left 和 right。
 
     this.color, //背景色
-    this.decoration,  // 背景装饰,设置了decoration,外面的color属性将不可用,需要在decoration内设置   =>对应  DecoratedBox
-    this.foregroundDecoration,//前景装饰
+    this.decoration,  // 背景装饰，设置了decoration，外面的color属性将不可用，需要在decoration内设置   =>对应  DecoratedBox
+    this.foregroundDecoration,// 前景装饰
     // DecoratedBox 提供的样式属性
-    //color, //背景颜色
-    //image,//背景图片
-    //border, //边框
-    //borderRadius, //圆角
-    //boxShadow, //阴影,可以指定多个
-    //gradient, //渐变
-    //backgroundBlendMode, //背景混合模式
-    //shape //形状
+    // color, //背景颜色
+    // image,//背景图片
+    // border, //边框
+    // borderRadius, //圆角
+    // boxShadow, //阴影,可以指定多个
+    // gradient, //渐变
+    // backgroundBlendMode, //背景混合模式
+    // shape //形状
     
 
     double width, // 宽度
     double height,// 高度
-    BoxConstraints constraints, //设置限制 =>对应  ConstrainedBox ,与其相反的是UnconstrainedBox(取消限制)
-    //ConstrainedBox 提供属性 都是double类型
-    //minWidth //最小宽度
-    //maxWidth //最大宽度
-    //minHeight//最小高度
-    //maxHeight//最大高度
+    BoxConstraints constraints, //设置限制 =>对应  ConstrainedBox，与其相反的是 UnconstrainedBox(取消限制)
+    // ConstrainedBox 提供属性 都是double类型
+    // minWidth //最小宽度
+    // maxWidth //最大宽度
+    // minHeight//最小高度
+    // maxHeight//最大高度
 
     this.margin, // 外间距 和padding 使用方式一样
     this.transform, //变形 需要一个Matrix4类,具体可以看Matrix4源码,提供了很多不同变形构造方法 =>对应 Transform 

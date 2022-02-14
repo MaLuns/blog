@@ -1,5 +1,5 @@
 ---
-title: vscode 插件开发指北 (二)
+title: VS Code 插件开发指北 (二)
 comments: true
 hash: 1623932344116
 date: 2021-06-17 20:19:04
@@ -9,11 +9,11 @@ categories: 记录类
 keywords: vscode插件开发,vscode
 ---
 
-接着上面的继续介绍一些常用的vscode 插件的配置和api。
+接着上面的继续介绍一些常用的 VS Code 插件的配置和 API。
 
 <!-- more -->
 ## 代码片段
-在package.json 增加 snippets 配置。
+在 package.json 增加 snippets 配置。
 ``` json
 "snippets": [
     {
@@ -43,7 +43,7 @@ keywords: vscode插件开发,vscode
     }
 }
 ```
-片段中的 ${1:xxx} 是占位符，数字表示光标聚焦的顺序，1表示默认光标落在这里，按下回车或者tab跳到2的位置，以此类推，xxx表示此位置的默认值，可省略，比如直接写$3。一个片段里可以设置多个相同的占位符，来同时修改多出占位处。片段中也是支持使用vscode内置的很多变量的，比如可以根据获取当前选择的值(${TM_SELECTED_TEXT}) 填充到代码片段中。
+片段中的 ${1:xxx} 是占位符，数字表示光标聚焦的顺序，1表示默认光标落在这里，按下回车或者tab跳到2的位置，以此类推，xxx 表示此位置的默认值，可省略，比如直接写$3。一个片段里可以设置多个相同的占位符，来同时修改多出占位处。片段中也是支持使用 VS Code 内置的很多变量的，比如可以根据获取当前选择的值(${TM_SELECTED_TEXT}) 填充到代码片段中。
 
 占位符几种使用
 - $1 只显示光标
@@ -76,7 +76,7 @@ keywords: vscode插件开发,vscode
 - CURRENT_SECOND当前秒
 
 ## 插件配置
-在configuration中配置的内容会暴露给用户，用户可以从“用户设置”和“工作区设置”中修改你暴露的选项。configuration是JSON格式的键值对，用户会在修改设置时获得对应的提示和更好的体验。
+在 configuration 中配置的内容会暴露给用户，用户可以从“用户设置”和“工作区设置”中修改你暴露的选项。configuration 是 JSON 格式的键值对，用户会在修改设置时获得对应的提示和更好的体验。
 ``` json
 // package.json
 {
@@ -118,27 +118,27 @@ npm install -g vsce
 vsce package
 ```
 ### 发出插件市场
-发布到插件市场有两种方式，一种是在vscode插件市场直接发布 vsix 包，另一种是直接使用vsce发布
+发布到插件市场有两种方式，一种是在 VS Code 插件市场直接发布 vsix 包，另一种是直接使用 vsce 发布
 #### 在插件市场发布
 
-首先在 [插件市场](https://marketplace.visualstudio.com/VSCode) 登录你的账号，可以使用github账户或者 Microsoft账户登录
+首先在 [插件市场](https://marketplace.visualstudio.com/VSCode) 登录你的账号，可以使用 github 账户或者 Microsoft账户登录
 ![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623231124.png)
-创建发布者（这里需要翻墙），这里发布者ID需要和插件package.json 的 publisher 保持一致。
+创建发布者（这里需要翻墙），这里发布者 ID 需要和插件 package.json 的 publisher 保持一致。
 ![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623230340.png)
 ![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623230642.png)
 上传vsix包文件
 ![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623231651.png)
 #### 使用vsce发布 
-使用vsce发布首先需要 一个微软 **Azure** 账户，然后创建一个 **Azure DevOps**，然后在组织里创建发布 Token，然后就能使用vsce 发布插件。
+使用 vsce 发布首先需要 一个微软 **Azure** 账户，然后创建一个 **Azure DevOps**，然后在组织里创建发布 Token，然后就能使用 vsce 发布插件。
 
 首先打开  [azure](https://dev.azure.com) ，直接使用微软账户登录创建一个组织。按照步骤默认会创建一个以邮箱前缀为名的组织。
 创建完后
 ![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623232915.png)
-创建tonken,然后将生成tonken保存下来
+创建 tonken,然后将生成tonken保存下来
 ![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623233248.png)
-然后需要创建一个 publisher， 以前可以vsce直接创建 ，新的不在支持了，只能通过在上一种方式在网页创建了。
+然后需要创建一个 publisher， 以前可以 vsce 直接创建 ，新的不在支持了，只能通过在上一种方式在网页创建了。
 创建好后就可以在使用 vsce publish 命令发布插件，这个时候会提示需要 tonken，将刚刚生成复制上去。可以看到插件已经发布上去了。
 ![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vscode_extension_two/20210623234418.png)
 ### 发布注意事项
-- README.md 文件默认会显示在插件主页，且里面连接需要是https的
+- README.md 文件默认会显示在插件主页，且里面连接需要是 https 的
 - CHANGELOG.md 会显示在变更选项卡

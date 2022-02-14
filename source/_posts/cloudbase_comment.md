@@ -10,7 +10,7 @@ keywords: 云开发,CloudBase
 headerbg: [/images/logo/20200701200939.png,'#dedede']
 ---
 
-使用CloudBase给静态博客添加评论功能
+使用 CloudBase 给静态博客添加评论功能。
 
 <!-- more -->
 
@@ -77,8 +77,8 @@ headerbg: [/images/logo/20200701200939.png,'#dedede']
 
 ## CloudBase 开发 ##
 
-在 vscode  安装 tencentcloud.cloudbase-toolkit 插件，直接在 vscode 上去创建、编写、部署。[参考地址](https://www.cloudbase.net/)
-常用操作
+在 VS Code  安装 tencentcloud.cloudbase-toolkit 插件，直接在 VS Code 上去创建、编写、部署。[参考地址](https://www.cloudbase.net/)
+常用操作。
 ![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/cloudbase/20200616162909.png)
 
 ### 创建集合 ###
@@ -87,7 +87,7 @@ headerbg: [/images/logo/20200701200939.png,'#dedede']
 
 ### 云函数 ###
 
-目前云函数支持 Node,PHP,Python 三种，本文使用 Node 为云函数环境
+目前云函数支持 Node，PHP，Python 三种，本文使用 Node 为云函数环境
 
 #### 获取文章ID ####
 
@@ -130,7 +130,7 @@ exports.main = async (event) => {
 
 #### 获取评论列表 ####
 
-新建一个云函数 GetComments,代码如下
+新建一个云函数 GetComments，代码如下
 
 ``` js
 'use strict';

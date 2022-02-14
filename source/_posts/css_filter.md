@@ -8,10 +8,8 @@ photos: ['/images/logo/2020404.png']
 keywords: css,filter
 ---
 今天为表达全国各族人民对抗击新冠肺炎疫情斗争牺牲烈士和逝世同胞的深切哀悼，各大网站也纷纷将界面弄成黑白以示哀悼。
-
 <!--more -->
-
-实现网页黑白办法其实很简单,只需要设置 filter 滤镜为 grayscale 就可以了。
+实现网页黑白办法其实很简单，只需要设置 filter 滤镜为 grayscale 就可以了。
 
 ``` css
     html{

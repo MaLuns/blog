@@ -8,11 +8,11 @@ description:
 categories: 记录类
 keywords: mongoDB,nosql
 ---
-MongoDB 是一个介于关系数据库和非关系数据库之间的产品。面向文档的NoSQL的数据库，存储结构也非常自由，是类似json的bson格式，因此可以存储比较复杂的数据类型。其强大的查询语言几乎支持绝大部分关系数据的的查询的功能。
+MongoDB 是一个介于关系数据库和非关系数据库之间的产品。面向文档的 NoSQL 的数据库，存储结构也非常自由，是类似 json 的 bson 格式，因此可以存储比较复杂的数据类型。其强大的查询语言几乎支持绝大部分关系数据的的查询的功能。
 <!-- more -->
 
 ## 基本组成
-在MongoDB中基本的概念是文档、集合、数据库，没有关系型数据库中表、行等这些概念的
+在 MongoDB 中基本的概念是文档、集合、数据库，没有关系型数据库中表、行等这些概念的
 
 |  MongoDB   | SQL  | 说明 |
 |  --------  | --------  | --------  |
@@ -23,7 +23,7 @@ MongoDB 是一个介于关系数据库和非关系数据库之间的产品。面
 | index  | index | 索引 |
 | 不支持 |table joins | 连表 |
 
-MongoDB曾经是不支持连表的，在3.2以后版本增加了$lookup可以实现左连接 
+MongoDB 曾经是不支持连表的，在 3.2 以后版本增加了 $lookup 可以实现左连接 
 
 
 ## 集合
@@ -52,7 +52,7 @@ MongoDB 提供了三个方法
 - insertOne 插入单个文档
 - insertMany 插入多个文档
 
-如果插入文档没有提供_id,MongoDB 会默认生成一个ObjectId的_id,
+如果插入文档没有提供 _id,MongoDB 会默认生成一个 ObjectId 的 _id,
 ``` javascript
 db.table_name.insert(
     [
@@ -111,7 +111,7 @@ db.table_name.deleteMany({},{})
 - findOne 查询单条
 
 ### 常用条件使用方式
-find传入两个参数，一个指定查询条件文档，一个指定字段
+find 传入两个参数，一个指定查询条件文档，一个指定字段
 ``` javascript
 // 语法
 // projection 可选，不指定projection默认查所有
@@ -170,7 +170,7 @@ db.table_name.find({
 })
 ```
 ### 指定返回字段
-默认情况下，MongoDB中的查询返回匹配文档中的所有字段,可以配置一个projection 文档以指定或限制要返回的字段。
+默认情况下，MongoDB 中的查询返回匹配文档中的所有字段,可以配置一个 projection 文档以指定或限制要返回的字段。
 
 ``` javascript
 // 示例数据结构
@@ -200,31 +200,31 @@ db.table_name.find({ title:'插入多个1' },{ title: 1,'obj.statue': 1, arr: { 
 
 ### 查询常用的运算符
 
-- $eq,$gt等这类比较大小的。
-- $in,$nin 类似sql中的 in 和 not in 。
+- $eq,$gt 等这类比较大小的。
+- $in,$nin 类似 sql 中的 in 和 not in 。
 - $regex 使用正则匹配。
 - $exists 判断是否有指定字段。
-- $and 类似sql的 and。
-- $or 类似sql的 or。
+- $and 类似 sql 的 and。
+- $or 类似 sql 的 or。
 - $not 查询指定条件以外的数据。
-- $nor 和$or结果是相反的。
+- $nor 和 $or 结果是相反的。
 - $all 匹配包含查询中指定的所有元素的数组。
-- $elemMatch 如果array字段中的元素符合所有指定$elemMatch条件，则选择文档。
+- $elemMatch 如果 array 字段中的元素符合所有指定 $elemMatch 条件，则选择文档。
 - $size 如果数组字段为指定大小，则选择文档。
 ### 查询中的映射
 - $ 数组中匹配查询条件的第一个元素。
-- $elemMatch 符合指定$elemMatch条件的数组中的第一个元素。
-- $meta 项目在$text操作期间分配的文档分数。
-- $slice 限制从数组中投影的元素数量。支持limit和skip。
+- $elemMatch 符合指定 $elemMatch 条件的数组中的第一个元素。
+- $meta 项目在 $text 操作期间分配的文档分数。
+- $slice 限制从数组中投影的元素数量。支持 limit 和 skip。
 
 ### 查询修饰符
 - $comment 向查询添加注释，以标识数据库探查器输出中的查询。
-- $explain 强制MongoDB报告查询执行计划。请参阅explain()。
-- $hint 仅强制MongoDB使用特定索引。请看hint()
-- $max 指定要在查询中使用的索引的排他上限。请参阅max()。
-- $maxTimeMS 指定对游标进行处理操作的累积时间限制（以毫秒为单位）。请参阅maxTimeMS()。
-- $min 指定一个包容性的下限为索引在查询中使用。请参阅min()。
-- $orderby 返回带有根据排序规范排序的文档的游标。请参阅sort()。
+- $explain 强制 MongoDB 报告查询执行计划。请参阅 explain()。
+- $hint 仅强制 MongoDB 使用特定索引。请看 hint()
+- $max 指定要在查询中使用的索引的排他上限。请参阅 max()。
+- $maxTimeMS 指定对游标进行处理操作的累积时间限制（以毫秒为单位）。请参阅 maxTimeMS()。
+- $min 指定一个包容性的下限为索引在查询中使用。请参阅 min()。
+- $orderby 返回带有根据排序规范排序的文档的游标。请参阅 sort()。
 - $query 包装查询文档。
 - $returnKey 强制游标仅返回索引中包含的字段。
 - $showDiskLoc 修改返回的文档以包括对每个文档在磁盘上位置的引用。
@@ -320,7 +320,7 @@ db.collection.update({},
 
 - $[] 充当占位符，以更新匹配查询条件的文档的数组中的所有元素。
 - $ 充当占位符，以更新与查询条件匹配的第一个元素。
-- $[<identifier>] 充当占位符，以更新arrayFilters与查询条件匹配的文档中所有与条件匹配的元素。
+- $[<identifier>] 充当占位符，以更新 arrayFilters 与查询条件匹配的文档中所有与条件匹配的元素。
 - $addToSet 仅当元素不存在于集合中时才将它们添加到数组中。
 - $pop 删除数组的第一项或最后一项。
 - $pull 删除与指定查询匹配的所有数组元素。

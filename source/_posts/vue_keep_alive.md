@@ -18,7 +18,7 @@ keep-alive 用于缓存不活动的组件实例，router-view 一个 functional 
 - exclude - 字符串或正则表达式。任何名称匹配的组件都不会被缓存。
 - max - 数字。最多可以缓存多少组件实例。
 
-缓存组件名为a,b的组件，排除组成名为c的
+缓存组件名为 a，b 的组件，排除组成名为 c 的
 ``` html
 <keep-alive :include="['a','b']" :exclude="['c']" :max="5">
   <component :is="view"></component>
@@ -87,7 +87,7 @@ include 指定需要缓存组件
     component: () => import('@/views/login'),
 }]
 ```
-这种方式需要知道组件的 name，当项目较大时候，给路由匹配上对应组件 name 也是件挺繁琐的事。改进一下使用两个router-view 组件，一个用keep-alive包裹进行缓存，一个不缓存。这样就不需要例举出需要被缓存组件名称
+这种方式需要知道组件的 name，当项目较大时候，给路由匹配上对应组件 name 也是件挺繁琐的事。改进一下使用两个 router-view 组件，一个用 keep-alive 包裹进行缓存，一个不缓存。这样就不需要例举出需要被缓存组件名称
 
 ``` html
 <template>
@@ -100,7 +100,7 @@ include 指定需要缓存组件
 ```
 
 ### 相同路由不同参数
-当有一个路由为 /params/:id ，打开 /params/1、/params/2 、/params/xxx 正常情况下vue会对其进行复用，但是有些时候我们需要对其分开缓存。 这个时候可以给 router-view 指定 key
+当有一个路由为 /params/:id ，打开 /params/1、/params/2 、/params/xxx 正常情况下 vue 会对其进行复用，但是有些时候我们需要对其分开缓存。 这个时候可以给 router-view 指定 key
 ``` html
 <keep-alive>
    <router-view :key="$route.fullPath"></router-view>

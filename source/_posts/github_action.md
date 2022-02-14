@@ -19,11 +19,11 @@ Hexo 搭建使用可以去参看[hexo 文档](https://hexo.io/zh-cn/index.html)�
 
 Github Pages 支持两种模式
 - User or organization site: 新建一个 username.github.io 的仓库，每个用户只能建立一个。
-- Project site: 在对应仓库Setting => pages 进行配置，如果有多个需要配置独立域名。
+- Project site: 在对应仓库 Setting => pages 进行配置，如果有多个需要配置独立域名。
 
 Github Pages 的配置可以[参看这里](https://pages.github.com/)
 
-我这里是使用 Project site 的搭建Hexo站点的。修改 **_config.yml** 下的 deploy 推送仓库地址，将其推送到 MalBlog/gh-pages 分支上去。
+我这里是使用 Project site 的搭建 Hexo 站点的。修改 **_config.yml** 下的 deploy 推送仓库地址，将其推送到 MalBlog/gh-pages 分支上去。
 ``` yml
 deploy:
   type: 'git'
@@ -35,7 +35,7 @@ deploy:
 
 ## GitHub Actions
 
-我们希望当我们把博客源码推送到对应的仓库后，GitHub Actions 自动帮我们执行 **hexo generate**、**hexo deploy** 的生成和发布操作，完成博客的自动部署。首先在 项目根目录的 .github/workflows 下 新建一个 main.yml，每一个.yml 文件就是一个Action ， 一个 Action  相当于一个工作流 workflow，一个工作流可以有多个任务 job，每个任务可以分为几步 step。
+我们希望当我们把博客源码推送到对应的仓库后，GitHub Actions 自动帮我们执行 **hexo generate**、**hexo deploy** 的生成和发布操作，完成博客的自动部署。首先在 项目根目录的 .github/workflows 下 新建一个 main.yml，每一个 .yml 文件就是一个 Action ， 一个 Action  相当于一个工作流 workflow，一个工作流可以有多个任务 job，每个任务可以分为几步 step。
 
 第一步 我们配置工作流触发的时机
 ```yml
@@ -65,7 +65,7 @@ jons:
     job2:
 ```
 第三步 实现任务步骤， 实现自动部署大致需要如下步骤
-拉取博客源码=> 安装Hexo需要环境 => 安装源码依赖 => 构建博客源码 => 推送构建产物 
+拉取博客源码=> 安装 Hexo 需要环境 => 安装源码依赖 => 构建博客源码 => 推送构建产物 
 
 ```yml
 jons:
@@ -114,7 +114,7 @@ Github 每个仓库都是设置 Deploy keys 的， 用来可以操作单个仓�
 
 ## Git submodule
 
-有时候使用了三方主题，需要更新时候，我们也希望能够自动更新上去，我们可以使用Git submodule 来管理主题。
+有时候使用了三方主题，需要更新时候，我们也希望能够自动更新上去，我们可以使用 Git submodule 来管理主题。
 ```shell
 git submodule add <主题仓库地址> <主题存放路径>
 ```

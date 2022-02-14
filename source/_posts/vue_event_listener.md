@@ -9,9 +9,9 @@ categories: 记录类
 keywords: vue,addEventListener
 ---
 
-最近遇到一个需求,需要在单击单元格的时候,编辑单元格。乍一看很简单嘛,监听单元格事件,然后记录点击的rowIndex和prop,然后将对应的给成编辑状态。
+最近遇到一个需求，需要在单击单元格的时候，编辑单元格。乍一看很简单嘛，监听单元格事件，然后记录点击的 rowIndex 和 prop，然后将对应的给成编辑状态。
 <!--more-->
-其中有一列时编辑时需要显示一个输入框,然后在线调取接口数据,然后有数据展示个table让选择,没数据弹出新增。直接把el-input + el-popover + el-table 组合做个封装有数据 打开 popover 没数据 弹窗新增,上来就是一顿操作
+其中有一列时编辑时需要显示一个输入框，然后在线调取接口数据，然后有数据展示个 table 让选择，没数据弹出新增。直接把 el-input + el-popover + el-table 组合做个封装有数据 打开 popover 没数据 弹窗新增，上来就是一顿操作
 
 ``` html
 <el-table @cell-click="handleCellClick" ...>
@@ -43,7 +43,7 @@ export default {
 }
 </script>
 ```
-edit-popover 内容,大致如下(省略具体逻辑), 创建一个popover 然后在选择列 和 点击外面区域时候,关闭popover
+edit-popover 内容，大致如下(省略具体逻辑)， 创建一个popover 然后在选择列和点击外面区域时候，关闭 popover。
 ```html
 <template>
     <div @click.stop>
@@ -88,15 +88,15 @@ edit-popover 内容,大致如下(省略具体逻辑), 创建一个popover 然后
 </script>
 
 ```
-看起来一起都好,没啥问题。直接跑起来一看,然而并没有想象那样,点击出现编辑。
+看起来一起都好，没啥问题。直接跑起来一看，然而并没有想象那样，点击出现编辑。
 js 执行输入
 ``` js
 //初始化
 //点击其他区域
 ```
-会发现怎么上来就执行了点击事件,明明时点击了table 的 单元格 后才渲染的子组件,然后才监听的 document 的 click 事件的。,怎么子组件创建后,还监听到了之前事件, 打印事件对象也可一看到 事件的 target 也是 table 单元格元素
+会发现怎么上来就执行了点击事件，明明时点击了 table 的 单元格 后才渲染的子组件，然后才监听的 document 的 click 事件的。，怎么子组件创建后，还监听到了之前事件， 打印事件对象也可一看到 事件的 target 也是 table 单元格元素。
 
-一顿思索后,既然快了,那就给 document 延迟绑定 click 事件,再一试试,哦吼可以了
+一顿思索后，既然快了，那就给 document 延迟绑定 click 事件，再一试试，哦吼可以了。
 ``` js
 setTimeout(() => {
     document.addEventListener('click', func)
@@ -107,7 +107,7 @@ setTimeout(() => {
 }, 100);
 ```
 
-准备就这里了事的时候,突然想起来这他妈是子组件渲染后,父组件点击事件才冒泡完成啊,直接改成捕获阶段监听就Ok了
+准备就这里了事的时候，突然想起来这他妈是子组件渲染后，父组件点击事件才冒泡完成啊，直接改成捕获阶段监听就 Ok 了。
 ``` js
 document.addEventListener('click', func,true)
 this.$once("hook:beforeDestroy", function () {
