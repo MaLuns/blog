@@ -155,6 +155,7 @@ image_minifier:
   progressive: false
 
 cloudbase:
+  v: 0.0.9
   enable: true
   env: h-17b316
 
