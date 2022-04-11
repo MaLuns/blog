@@ -155,7 +155,7 @@ image_minifier:
   progressive: false
 
 cloudbase:
-  v: 0.0.10
+  v: 0.0.12
   enable: true
   env: h-17b316
 
@@ -173,7 +173,7 @@ links:
     desc: 从来没有真正的绝境, 只有心灵的迷途
   - name: 白云苍狗
     url: //www.imalun.com/
-    image: //www.imalun.com/images/avatar.jpg
+    image: //www.imalun.com/img/avatar.jpg
     desc: 醒，亦在人间；梦，亦在人间
   - name: 阿龙爱吃肉
     url: //3zi.cn
