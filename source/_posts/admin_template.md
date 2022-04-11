@@ -4,8 +4,8 @@ date: 2020-04-15 10:16:09
 tags: [vue,vuex,vue-route,elemelt-ui]
 categories: 创作类
 comments: true
-photos: ['/images/logo/admin_template.png']
 keywords: admin-template,vue,element,后台模板
+photos: [https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDE1fHx3ZWIlMjBhZG1pbnxlbnwwfHx8fDE2NDk2Njk4MzU&ixlib=rb-1.2.1&w=750&dpi=2]
 ---
 
 闲来没事，又开始造轮子玩玩了，用vue + element-ui 撸个后台模板。

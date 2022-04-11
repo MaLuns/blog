@@ -7,6 +7,7 @@ tags: [hexo]
 description: 
 categories: 创作类
 keywords: hexo,hexo主题,hexo-theme
+photos: [https://images.unsplash.com/photo-1513151233558-d860c5398176?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDEyfHxzaXRlJTIwdGhlbWV8ZW58MHx8fHwxNjQ5NjY5MzAz&ixlib=rb-1.2.1&w=750&dpi=2]
 ---
 
 这个主题诞生的原因主要是因为闲的，所以就自己动手写了这个相对比较清爽风格的主题。

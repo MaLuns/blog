@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/  #hexo-theme-bycg  #hexo-theme-simple
-theme: hexo-theme-text
+theme: hexo-theme-async
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -163,7 +163,7 @@ hmkey: bbad9d8e1fd8e044d365c2ce0d114c73
 
 # 友链
 links:
-  - name: hexo
+  - name: Hexo
     url: //hexo.io/
     image: //d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
     desc: 快速、简洁且高效的博客框架

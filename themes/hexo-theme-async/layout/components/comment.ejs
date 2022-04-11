@@ -1,0 +1,20 @@
+<% if(theme.cloudbase && theme.cloudbase.enable && page.hash) {%>    
+    <% if(titleHide){ %>
+        <div class="col-lg-12">
+            <div class="trm-card trm-p-20">
+                <com-comment env='<%- theme.cloudbase.env %>' hash='<%- page.hash %>'></com-comment>
+            </div>
+        </div>
+    <% } else { %>
+        <div class="row">
+            <div class="col-lg-12">
+                <h5 class="trm-mb-40 trm-title-with-divider">留言板<span data-number="03"></span></h5>
+            </div>
+            <div class="col-lg-12">
+                <div class="trm-card trm-p-20">
+                    <com-comment env='<%- theme.cloudbase.env %>' hash='<%- page.hash %>'></com-comment>
+                </div>
+            </div>
+        </div>
+    <% } %>
+<% } %>

@@ -7,6 +7,7 @@ tags: [Flutter]
 categories: 记录类
 description:
 keywords: flutter,animation
+photos: [https://images.unsplash.com/photo-1628277613967-6abca504d0ac?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDJ8fGZsdXR0ZXJ8ZW58MHx8fHwxNjQ5NjY5NTAz&ixlib=rb-1.2.1&w=750&dpi=2]
 ---
 Flutter 中动画的创建有很多种， 需要根据具体的需求选择不同的动画。如果只是简单的布局等的动画直接使用最简单的隐式动画就可以了，因为隐式动画是由框架控制的，所以仅仅只需要更改变需要变化属性就可以了。如果你想自己控制动画的变换则需要使用显示动画，如果需要控制一些列动画组合时使用交织动画去控制。如果内置的满足不了需求的时候，还可以结合画布自绘动画。
 

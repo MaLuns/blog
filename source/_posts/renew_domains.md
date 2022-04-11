@@ -7,6 +7,7 @@ tags:
 description:
 categories: 记录类
 keywords: 域名续费
+photos: [https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDEwfHx3d3d8ZW58MHx8fHwxNjQ5NjY5MDY1&ixlib=rb-1.2.1&w=750&dpi=2]
 ---
 
 八月份的时候就看到域名要涨价了，想着续费来自，忙了一阵忘记这茬了。再想起了就现在了，血亏了一波。

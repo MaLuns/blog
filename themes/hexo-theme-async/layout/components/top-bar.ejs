@@ -1,0 +1,51 @@
+<div class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target="#content" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+			<a href="/" class="trm-logo-frame trm-anima-link">
+				<img src="/img/logo2.svg" alt="logo">
+				<div class="trm-logo-text">
+					白云<span>苍狗</span>
+				</div>
+			</a>
+			<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+
+			<!-- menu -->
+			<div class="trm-menu">
+				<nav>
+					<ul>
+						<% theme.top_bars.forEach(element=> { %>
+						<li class="menu-item-has-children <%= url_for(element.url) + 'index.html' === url_for(path) ?'current-menu-item':'' %>">
+							<a <%- element.noswup ? "data-no-swup":"" %> href="<%- url_for(element.url) %>">
+								<%- element.title %>
+							</a>
+							<% if(element.children) { %>
+							<ul>
+								<% element.children.forEach(item=> { %>
+								<li>
+									<a <%- item.noswup ? "data-no-swup":"" %> href="<%- url_for(item.url) %>">
+										<%- item.title %>
+									</a>
+								</li>
+								<% }) %>
+							</ul>
+							<% } %>
+						</li>
+						<% }) %>
+					</ul>
+				</nav>
+			</div>
+			<!-- menu end -->
+
+			<!-- mode switcher place -->
+			<div class="trm-mode-switcher-place"></div>
+			<!-- mode switcher place end -->
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</div>

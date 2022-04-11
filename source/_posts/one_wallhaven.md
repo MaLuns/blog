@@ -7,7 +7,7 @@ tags: [vue, electron]
 description:
 categories: 创作类
 keywords: 壁纸程序,electron
-headerbg: [/images/logo/one-wallhaven_ns3J9JJoJL.png,'#dedede']
+photos: [https://pixabay.com/get/g13045d8096ec13fc557cfa5a41dcab12064b0d01517282922a4bdadb3f07da0f36a3584f5acba6ab29da8c1fb061e4323ff912cbd31f579fa381663eb595f01e_640.jpg]
 ---
 
 基于 Electron + vue  的一个壁纸程序

@@ -1,0 +1,69 @@
+<div class="trm-content-start">
+
+    <!-- banner -->
+    <%- partial('./components/banner', { 
+        bgurl: 'https://pic1.zhimg.com/v2-b3c2c6745b9421a13a3c4706b19223b3_r.jpg?source=1940ef5c' , 
+        bannerTitle: `树深时见鹿，<br>溪午不闻钟。`,
+        bannerText: 'Hi my new friend!'
+    }) %>
+    <!-- banner end -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+
+                <!-- main card -->
+                <%- partial('./components/sidebar') %>
+                <!-- main card end -->
+
+            </div>
+            <div class="col-lg-8">
+
+                <!-- content -->
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <!-- categories -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <!-- categories card -->
+                            <div class="trm-blog-categories trm-scroll-animation" data-scroll data-scroll-offset="40">
+                                <h6>Design <span class="trm-number">296</span></h6>
+                                <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+                                <a href="#." class="trm-label">Read publications <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            <!-- categories card end -->
+                        </div>
+                    </div>
+                    <!-- categories end -->
+
+                    <!-- newest publications -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- title -->
+                            <h5 class="trm-mb-40 trm-title-with-divider">最近发布 <span data-number="01"></span></h5>
+                        </div>
+                        <% page.posts.each(function(post,postIndex){ %>
+                            <%- partial('./components/post-card',{ post }) %>
+                        <% }) %>
+                    </div>
+                    <!-- newest publications end -->
+
+                    <div class="trm-pagination">
+                        <%- paginator({prev_next:false}) %>
+                    </div>
+                    
+
+                    <div class="trm-divider trm-mb-40"></div>
+
+                    <!-- footer -->
+                    <%- partial('./components/footer') %>
+                    <!-- footer end -->
+
+                </div>
+                <!-- content end -->
+
+            </div>
+        </div>
+    </div>
+</div>

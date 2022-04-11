@@ -7,6 +7,7 @@ tags: [git]
 categories: 记录类
 description:
 keywords: git,存储,stash
+photos: [https://images.unsplash.com/photo-1516031190212-da133013de50?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDd8fEdpdHxlbnwwfHx8fDE2NDk2Njk2Nzk&ixlib=rb-1.2.1&w=750&dpi=2]
 ---
 
 当你 分支1 上修改了东西，你发现修改错了分支，你想将 分支1 上的修改移到 分支2 的时候会.亦或者你一分支1上修改了一半，这个时候需要切的其他分支改其他的时候.这个时候 stash 就排上用场了，stash 命令可用于临时保存和回复修改，可跨分支。

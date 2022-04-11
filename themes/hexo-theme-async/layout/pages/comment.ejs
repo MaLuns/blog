@@ -1,0 +1,35 @@
+<div class="trm-content-start">
+
+    <!-- banner -->
+    <%- partial('../components/banner', { 
+        bgurl: 'https://images.unsplash.com/photo-1621266309424-52f5a2e6d7f6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80' , 
+        bannerTitle: '醉后不知天在水，<br>满船清梦压星河。',
+        bannerText: 'COMMENT'
+    }) %>
+    <!-- banner end -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- main card -->
+                <%- partial('../components/sidebar') %>
+                <!-- main card end -->
+            </div>
+            <div class="col-lg-8">
+                <!-- content -->
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+                    
+                    <%- partial('../components/comment',{ titleHide: true }) %>
+                    
+                    <div class="trm-divider trm-mb-40"></div>
+
+                    <!-- footer -->
+                    <%- partial('../components/footer') %>
+                    <!-- footer end -->
+                </div>
+                <!-- content end -->
+            </div>
+        </div>
+    </div>
+</div>
