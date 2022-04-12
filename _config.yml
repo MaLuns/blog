@@ -77,7 +77,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
+updated_option: false
 
 archive_generator:
   per_page: 0
@@ -96,7 +96,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/  #hexo-theme-bycg  #hexo-theme-simple
-theme: hexo-theme-async
+theme: async
+theme_config:
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -153,37 +154,3 @@ image_minifier:
   optimizationLevel: 2
   pngquant: false
   progressive: false
-
-cloudbase:
-  v: 0.0.12
-  enable: true
-  env: h-17b316
-
-hmkey: bbad9d8e1fd8e044d365c2ce0d114c73
-
-# 友链
-links:
-  - name: Hexo
-    url: //hexo.io/
-    image: //d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
-    desc: 快速、简洁且高效的博客框架
-  - name: 随心
-    url: //uiluil.com/
-    image: //uiluil.com/medias/logo.png
-    desc: 从来没有真正的绝境, 只有心灵的迷途
-  - name: 白云苍狗
-    url: //www.imalun.com/
-    image: //www.imalun.com/img/avatar.jpg
-    desc: 醒，亦在人间；梦，亦在人间
-  - name: 阿龙爱吃肉
-    url: //3zi.cn
-    image: //i.loli.net/2021/03/28/IZilAJ293tVpwLK.jpg
-    desc: 学习过程中和工作中的新知识点，范围：Java，MySQL，Layui…
-  - name: 五月七日▪君寻
-    url: //www.hongtk.cn
-    image: //www.hongtk.cn/wp-content/uploads/2021/05/100.png
-    desc: 申申如也，夭夭如也。
-  - name: 忆梦小站
-    url: //www.onyi.net
-    image: //cdn.jsdelivr.net/gh/heyechuanmei/YiMengXinYun/image/headportrait.jpg
-    desc: 微笑着挥手再见，但内心却深知，以后不会再相见。

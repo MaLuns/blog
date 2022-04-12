@@ -1,0 +1,149 @@
+ # 用户信息
+user:
+  name: 白云苍狗
+  first_name: 白云
+  last_name: 苍狗
+  logo: favicon-32x32.png
+  email: admin@imalun.com
+  domain: https://www.imalun.com
+  avatar: https://www.imalun.com/images/avatar.jpg
+  describe: 醒，亦在人间；梦，亦在人间。
+  ruleText: 暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，部署HTTPS。
+  birthDay: 11/19/2019 17:00:00 #计时开始时间
+
+# 图标
+favicon:
+  icon16: favicon-16x16.png 
+  icon32: favicon-32x32.png
+  appleTouchIcon: apple-touch-icon.png
+  webmanifest: /site.webmanifest
+  visibilitychange: true
+  hidden: failure.ico
+  show_text: (/≧▽≦/)咦！又好了！
+  hide_text: (●—●)喔哟，崩溃啦！
+
+# 头部菜单
+top_bars:
+  - title: 首页
+    url: /
+  - title: 归档
+    url: /archives/
+  - title: 友链
+    url: /links/
+  - title: 树洞
+    url: /comment/
+  - title: 关于
+    url: /about/
+  - title: 虫洞
+    url: https://foreverblog.cn/go.html
+    noswup: true
+
+# banner 配置信息
+banner:
+  index:
+    type: img
+    bgurl: https://pic1.zhimg.com/v2-b3c2c6745b9421a13a3c4706b19223b3_r.jpg?source=1940ef5c
+    bannerTitle: 树深时见鹿，<br>溪午不闻钟。
+    bannerText: Hi my new friend!
+  archive:
+    type: img
+    bgurl: https://w.wallhaven.cc/full/j5/wallhaven-j5we85.jpg
+    bannerTitle: 云间连下榻，<br>天上接行杯。
+    bannerText: The article archive
+  links:
+    type: img
+    bgurl: https://images.unsplash.com/photo-1563718428108-a2420c356c5c
+    bannerTitle: 莫愁前路无知己，<br>天下谁人不识君。
+    bannerText: A link to a friend's website
+  comment:
+    type: img
+    bgurl: https://images.unsplash.com/photo-1621266309424-52f5a2e6d7f6
+    bannerTitle: 醉后不知天在水，<br>满船清梦压星河。
+    bannerText: The magic tree hole
+  about:
+    type: img
+    bgurl: https://images.unsplash.com/photo-1637118560941-b2363dcd8a8e?crop=entropy&cs=srgb&fm=jpg&ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDE0fHwlRTYlOTclQTUlRTUlODclQkF8ZW58MHx8fHwxNjQ5NjcwODgz&ixlib=rb-1.2.1&q=85
+    bannerTitle: 醉后不知天在水，<br>满船清梦压星河。
+    bannerText: About me
+
+# sidebar
+sidebar:
+  typedTextPrefix: I`m
+  typedText: [ 'Web Developer' ]
+  info: 
+    - key: sidebar.residence
+      val: Mars
+    - key: sidebar.city
+      val: WuHan
+    - key: sidebar.age
+      val: 18
+  social:
+    - icon: fab fa-github
+      url: https://github.com/MaLuns
+    - icon: iconfont cg-gitee
+      url: https://gitee.com/ml13
+    - icon: iconfont cg-weibo
+      url: https://weibo.com/u/5022481764
+    - icon: iconfont cg-rss
+      url: atom.xml
+      
+# about
+about:
+  title: 一觉游仙好梦，任它竹冷松寒。轩辕事，古今谈，风流河山。沉醉负白首，舒怀成大观。醒，亦在人间；梦，亦在人间。
+  introduction: 大家好，我是<strong>白云苍狗</strong>，很高兴您能在浩瀚如烟的互联网世界里发现这个博客，更感谢您能够饶有兴致地浏览这个页面。建立这个 Blog 是出于兴趣爱好，我将在此分会分享一些学习笔记，可能还会分享少许图片、视频以及其他有趣东西的链接。
+  blog: 
+    <ul class="trm-list">
+      <li>程序：Hexo </li>
+      <li>主题：Hexo-theme-async </li>
+      <li>托管：Github  </li>
+      <li>图床：Tencent CloudBase </li>
+      <li>评论：Tencent CloudBase </li>
+    </ul>
+  privacy: 
+    本网站不会追踪访客行为，且不要求访客提供任何敏感信息（比如真实姓名、身份证号码、手机号等），因而也不存在任何隐私泄漏问题。访客参与评论，必须遵守法律法规和基本道德规范，文明礼貌。严禁发布任何有关淫秽、反动、暴力、博彩、恐吓、低俗的内容或违法信息，在尊重言论自由的同时请保持和平与理性。请勿对他人采取不友好的评论或其它过激行为。
+    <br/><br/>
+    本博客采用 <strong><a class="trm-label" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识产权署名-非商业性使用 4.0 国际许可协议</a></strong> 进行许可。
+    <br/>
+    转载前请联系作者获得许可，并注明原文链接。如有侵权，请留言告知，我会一周内删除。谢谢！
+    
+# 开启 Service Worker
+sw: true
+
+# rss 地址
+rss: atom.xml
+
+# 百度统计
+hmkey: bbad9d8e1fd8e044d365c2ce0d114c73
+
+# 评论插件
+cloudbase:
+  v: 0.0.12
+  enable: true
+  env: h-17b316
+
+# 友链
+links:
+  - name: Hexo
+    url: //hexo.io/
+    image: //d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+    desc: 快速、简洁且高效的博客框架
+  - name: 随心
+    url: //uiluil.com/
+    image: //uiluil.com/medias/logo.png
+    desc: 从来没有真正的绝境, 只有心灵的迷途
+  - name: 白云苍狗
+    url: //www.imalun.com/
+    image: //www.imalun.com/images/avatar.jpg
+    desc: 醒，亦在人间；梦，亦在人间
+  - name: 阿龙爱吃肉
+    url: //3zi.cn
+    image: //i.loli.net/2021/03/28/IZilAJ293tVpwLK.jpg
+    desc: 学习过程中和工作中的新知识点，范围：Java，MySQL，Layui…
+  - name: 五月七日▪君寻
+    url: //www.hongtk.cn
+    image: //www.hongtk.cn/wp-content/uploads/2021/05/100.png
+    desc: 申申如也，夭夭如也。
+  - name: 忆梦小站
+    url: //www.onyi.net
+    image: //cdn.jsdelivr.net/gh/heyechuanmei/YiMengXinYun/image/headportrait.jpg
+    desc: 微笑着挥手再见，但内心却深知，以后不会再相见。
