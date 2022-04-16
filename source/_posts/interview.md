@@ -7,7 +7,7 @@ tags:
 description:
 categories: 记录类
 keywords: 面试题
-photos: [https://pixabay.com/get/gc21c55a6a2e0a31904571ecd707ce30983e8b3a36b6370a29e4ad38235353bd22ab6665e115defeabd11169675c8e5a5499e5e739d986f2e06f3c888abe92356_640.jpg]
+photos: [https://www.logosc.cn/uploads/resources/2018/11/28/1543395468_thumb.jpg]
 ---
 
 今天接了个视频面试，没有提前看看面试题，结果一些基础东西回答东一点西一点的，看来还是需要看看题巩固下了😅。

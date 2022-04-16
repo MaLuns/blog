@@ -10,6 +10,7 @@ public/
 demo
 themes/hexo-theme-freemind
 themes/hexo-theme-sagiri
+themes/async
 *.pdf
 demo.html
 github-deploy-key

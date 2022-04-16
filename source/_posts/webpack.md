@@ -4,6 +4,7 @@ date: 2019-11-20 10:16:09
 tags: [webpack,require]
 categories: 记录类
 comments: true
+photos: [https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940]
 ---
 
 首先新建 index.js,a.js,b.js 三个文件,index.js 配置为入口,index.js 分别加载a.js,b.js文件, b.js加载a.js文件,js中代码如下

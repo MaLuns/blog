@@ -4,8 +4,8 @@ comments: true
 date: 2020-03-06 20:38:27
 tags: [vue,observer]
 categories: 记录类
-photos: ['/images/logo/js_vue_source_study_logo.png']
 keywords: vue,vue响应式,vue源码
+photos: [https://www.logosc.cn/uploads/resources/2018/11/26/1543210976_thumb.jpg]
 ---
 
 之前也用了一段时间 Vue，对其用法也较为熟练了，但是对各种用法和各种 api 使用都是只知其然而不知其所以然。最近利用空闲时间尝试的去看看 Vue 的源码，以便更了解其具体原理实现，跟着学习学习。

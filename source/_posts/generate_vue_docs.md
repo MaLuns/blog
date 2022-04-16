@@ -5,6 +5,7 @@ date: 2021-07-29 10:44:00
 tags: [vue,ast]
 categories: 记录类
 keywords: vue,ast,文档生成
+photos: [https://www.logosc.cn/uploads/resources/2018/11/06/1541474216_thumb.jpg]
 ---
 
 程序员最讨厌的两件事情，第一种是写文档，另一种是别人没有写文档。有没有直接根据 vue 组件生成文档的呢？当然是有的的。但第三方使用起来不一定能和现有项目结合使用，往往需要额外的注释用来标记提取信息。<!--more -->
