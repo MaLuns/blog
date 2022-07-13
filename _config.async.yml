@@ -94,8 +94,8 @@ about:
   blog: 
     <ul class="trm-list">
       <li>程序：Hexo </li>
-      <li>主题：Hexo-theme-async </li>
-      <li>托管：Github  </li>
+      <li>主题：<a href="https://github.com/MaLuns/hexo-theme-async" style="font-weight:bold;" target="_blank" rel="nofollow">Hexo-theme-async<a/> </li>
+      <li>托管：<a href="https://github.com/MaLuns/blog" style="font-weight:bold;" target="_blank" rel="nofollow">Github<a/> </li>
       <li>图床：Tencent CloudBase </li>
       <li>评论：Tencent CloudBase </li>
     </ul>
