@@ -8,7 +8,7 @@ user:
   domain: https://www.imalun.com
   avatar: https://www.imalun.com/images/avatar.jpg
   describe: 醒，亦在人间；梦，亦在人间。
-  ruleText: 暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，部署HTTPS。
+  ruleText: 暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，部署HTTPS。<br/><br/>提醒：评论插件已移除，申请可以点左侧联系我
   birthDay: 11/19/2019 17:00:00 #计时开始时间
 
 # 图标
@@ -30,8 +30,8 @@ top_bars:
     url: /archives/
   - title: 友链
     url: /links/
-  - title: 树洞
-    url: /comment/
+  #- title: 树洞
+  #  url: /comment/
   - title: 关于
     url: /about/
   - title: 虫洞
@@ -119,7 +119,7 @@ webAnalytics:
 
 # 评论插件
 comment:
-  enable: true
+  enable: false
   bComments:
     v: 0.0.12
     env: h-17b316
