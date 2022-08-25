@@ -74,7 +74,7 @@ Shadow DOM 可以将一个隐藏的、独立的 DOM 附加到一个元素上，�
 
 像\<video>就是用 Shadow DOM 封装的
 
-![](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/webcomponents/20200510202839.png)
+![](/images/posts/webcomponents/20200510202839.png)
 
 ### 自定义Shadow DOM ###
 可以使用 Element.attachShadow() 方法来将一个 shadow root 附加到任何一个元素上,方法接受一个参数

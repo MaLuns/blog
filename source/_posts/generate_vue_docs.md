@@ -78,7 +78,7 @@ traverse.default(jsAst, {
 
 **export default** 生成的对应节点类型是 ExportDefaultDeclaration，**declaration** 属性就是对应的组件的 options 了，遍历 declaration 的属性可以获取到 **name**、**props**、**methods**、**model** 等节点信息。
 
-![ast](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_docs/pic_1627612369570.png)
+![ast](/images/posts/vue_docs/pic_1627612369570.png)
 
 示例 
 
@@ -124,7 +124,7 @@ export default {
 ```
 
 可以看到会 CommentBlock、 CommentLine 两种类型的节点，还有头部的会放在 leadingComments 里，底部的注释在 trailingComments 里。
-![ast](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_docs/pic_1627613208799.png)
+![ast](/images/posts/vue_docs/pic_1627613208799.png)
 一般会把组件描述注释放在 **export default**  上面，简单提取注释信息
 
 ``` js
@@ -208,7 +208,7 @@ function getDefaultVal (node) {
 
 组件的事件没法直接获取到对应节点，只能通过 **$emit()** 方法来定位事件位置，在 **traverse** 中可以使用 **MemberExpress**(复杂类型节点)，然后通过节点上的属性名是否是 **$emit** 判断是否是事件。
 
-![$emit](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_docs/pic_1627615451450.png)
+![$emit](/images/posts/vue_docs/pic_1627615451450.png)
 
 可以看到事件名称在 **MemberExpress** 父级上的 **arguments** 里，而备注则在更上一层的里。
 
@@ -265,7 +265,7 @@ const traverserTemplateAst = (ast, visitor = {}) => {
 
 Vue 模板的 ast 的结构还是比较清晰的，没有 js ast 那么多的类型，只需要区分不同 tag 就可以了。注释会单独一个节点，所以在查找 slot 节点时候，还需要去找它上一个相邻节点，判断是否是注释。
 
-![slot](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_docs/pic_1627623837793.png)
+![slot](/images/posts/vue_docs/pic_1627623837793.png)
 
 ``` js
 traverserTemplateAst(template.ast, {

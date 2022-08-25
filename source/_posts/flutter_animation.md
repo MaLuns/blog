@@ -23,9 +23,9 @@ Flutter 动画和其他平台动画原理也是一样的，都是在快速更改
 - Ticker 帧回调，在动画执行时候每一帧都会调用其回调，类似与 js 中的 requestAnimationFrame 
 
 ### 动画组成结构
-![结构图](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/flutter_animation/gxt.png)
+![结构图](/images/posts/flutter_animation/gxt.png)
 ### 动画选择
-![流程图](//682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/flutter_animation/lct.png)
+![流程图](/images/posts/flutter_animation/lct.png)
 
 <!-- Flutter 会用 AnimationController 控制执行状态，执行的时候会根据 Animatable，Curve 在每一帧都生成对应的中间插值，插值会保存在 Animation 中，我们 Animation 的插值我们就可以更新每一帧的画面，形成动画（Animation）。不管是隐式还是显示动画都是这样来处理动画的。 -->
 

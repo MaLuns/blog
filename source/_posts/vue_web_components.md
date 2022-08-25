@@ -101,10 +101,10 @@ export default {
 ```
 可以看到子组件的样式没有插入进去，但是样式隔离的标识是有生成的 data-v-5e87e937。不知道vue官方后续会不会修复这个bug
 
-![插入图片](https://682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_web_components/pic_1637475879404.png)
+![插入图片](/images/posts/vue_web_components/pic_1637475879404.png)
 查看组件是可以看到，子组件的样式是有被抽离出来的，这样就只需要自己注入进去了。
 
-![插入图片](https://682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_web_components/pic_1637476488307.png)
+![插入图片](/images/posts/vue_web_components/pic_1637476488307.png)
 
 将子组件样式抽离插入到父组件里，参考[这个的实现](https://github.com/vuejs/vue-loader/issues/1881)
 
@@ -122,11 +122,11 @@ ComDemo.styles = deepStylesOf(ComDemo)
 ```
 完美解决子组件样式问题
 
-![插入图片](https://682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_web_components/pic_1637477447787.png)
+![插入图片](/images/posts/vue_web_components/pic_1637477447787.png)
 
 ### 方法
 **defineCustomElement** 构建的组件默认是不会将方法挂到 **customElement** 上的，看 Vue 源码中，只有 _def（构造函数），_instance（组件实例)）。如果想调用组件内的方法，dom._instance.proxy.fun()，感觉实在不太优雅。
-![vuecode](https://682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/vue_web_components/pic_1638631915396.png)
+![vuecode](/images/posts/vue_web_components/pic_1638631915396.png)
 我们当然希望我们组件暴露的方法能像普通dom那样直接 dom.fun() 去掉用，我们对 **defineCustomElement** 稍作扩展。
 ``` js
 import { VueElement, defineComponent } from 'vue'

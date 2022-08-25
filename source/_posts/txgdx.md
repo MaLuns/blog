@@ -12,7 +12,7 @@ photos: [https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixid=Mnw4OTgy
 
 之前一波搞没了免费额度，这次直接要回收以前开通免费版的资源了。搞成基础套餐+按量计费模式，直接最低39.9块一个月。用不起了，腾讯是真TM的狗。
 <!-- more -->
-![公告](https://682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/cloudbase_comment_two/pic_1657700995751.png)
+![公告](/images/posts/cloudbase_comment_two/pic_1657700995751.png)
 超出基础后，价格比原来也翻了好多倍。
-![价格](https://682d-h-17b316-1259142607.tcb.qcloud.la/blog/posts/cloudbase_comment_two/pic_1657701583297.png)
+![价格](/images/posts/cloudbase_comment_two/pic_1657701583297.png)
 准备关了评论插件，换图床了，之前图床用的云存储，还不让整个文件下载，简直无语子了。
