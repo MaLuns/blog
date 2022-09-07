@@ -58,16 +58,16 @@ sidebar:
   social:
     - icon: fab fa-github
       url: https://github.com/MaLuns
-      title: Github
+      name: Github
     - icon: fab fa-github-alt
       url: https://gitee.com/ml13
-      title: Gitee
+      name: Gitee
     - icon: fab fa-weibo
       url: https://weibo.com/u/5022481764
-      title: Weibo
+      name: Weibo
     - icon: fas fa-rss
       url: atom.xml
-      title: Rss
+      name: Rss
       
 # 关于页
 about:
