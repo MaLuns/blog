@@ -8,7 +8,7 @@
     "deploy": "hexo deploy",
     "color": "hexo color",
     "new": "hexo new",
-    "start": "hexo server"
+    "start": "hexo server --draft"
   },
   "hexo": {
     "version": "5.4.2"

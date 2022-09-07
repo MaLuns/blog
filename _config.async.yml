@@ -1,9 +1,8 @@
 # 用户信息
 user:
   name: 白云苍狗
-  first_name: 白云
-  last_name: 苍狗
-  logo: favicon-32x32.png
+  first_name: 苍狗
+  last_name: 白云
   email: admin@imalun.com
   domain: https://www.imalun.com
   avatar: https://www.imalun.com/images/avatar.jpg
@@ -13,14 +12,12 @@ user:
 
 # 图标
 favicon:
+  logo: favicon-32x32.png
   icon16: favicon-16x16.png 
   icon32: favicon-32x32.png
   appleTouchIcon: apple-touch-icon.png
   webmanifest: /site.webmanifest
   visibilitychange: true
-  hidden: failure.ico
-  show_text: (/≧▽≦/)咦！又好了！
-  hide_text: (●—●)喔哟，崩溃啦！
 
 # 头部菜单
 top_bars:
@@ -37,34 +34,15 @@ top_bars:
   - title: 虫洞
     url: https://foreverblog.cn/go.html
     noswup: true
+    target: _blank
 
 # 横幅配置
 banner:
   index:
-    type: img
-    bgurl: https://pic1.zhimg.com/v2-b3c2c6745b9421a13a3c4706b19223b3_r.jpg?source=1940ef5c
+    type: video
+    bgurl: //cdn.moji.com/websrc/video/autumn20190924.mp4
     bannerTitle: 树深时见鹿，<br>溪午不闻钟。
     bannerText: Hi my new friend!
-  archive:
-    type: img
-    bgurl: https://w.wallhaven.cc/full/j5/wallhaven-j5we85.jpg
-    bannerTitle: 云间连下榻，<br>天上接行杯。
-    bannerText: The article archive
-  links:
-    type: img
-    bgurl: https://images.unsplash.com/photo-1563718428108-a2420c356c5c
-    bannerTitle: 莫愁前路无知己，<br>天下谁人不识君。
-    bannerText: A link to a friend's website
-  comment:
-    type: img
-    bgurl: https://images.unsplash.com/photo-1621266309424-52f5a2e6d7f6
-    bannerTitle: 醉后不知天在水，<br>满船清梦压星河。
-    bannerText: The magic tree hole
-  about:
-    type: img
-    bgurl: https://images.unsplash.com/photo-1637118560941-b2363dcd8a8e?crop=entropy&cs=srgb&fm=jpg&ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDE0fHwlRTYlOTclQTUlRTUlODclQkF8ZW58MHx8fHwxNjQ5NjcwODgz&ixlib=rb-1.2.1&q=85
-    bannerTitle: 醉后不知天在水，<br>满船清梦压星河。
-    bannerText: About me
 
 # 侧栏
 sidebar:
@@ -80,12 +58,16 @@ sidebar:
   social:
     - icon: fab fa-github
       url: https://github.com/MaLuns
-    - icon: iconfont cg-gitee
+      title: Github
+    - icon: fab fa-github-alt
       url: https://gitee.com/ml13
-    - icon: iconfont cg-weibo
+      title: Gitee
+    - icon: fab fa-weibo
       url: https://weibo.com/u/5022481764
-    - icon: iconfont cg-rss
+      title: Weibo
+    - icon: fas fa-rss
       url: atom.xml
+      title: Rss
       
 # 关于页
 about:
