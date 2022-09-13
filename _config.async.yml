@@ -31,7 +31,7 @@ top_bars:
   #- title: 树洞
   #  url: /comment/
   - title: 玩具
-    url: /project/
+    url: /projects/
   - title: 关于
     url: /about/
   - title: 虫洞
