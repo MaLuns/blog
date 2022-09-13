@@ -8,6 +8,7 @@ user:
   avatar: https://www.imalun.com/images/avatar.jpg
   describe: 醒，亦在人间；梦，亦在人间。
   ruleText: 暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，部署HTTPS。<br/><br/>提醒：评论插件已移除，申请可以点左侧联系我
+  copyrightYear: 2019
   birthDay: 11/19/2019 17:00:00 #计时开始时间
 
 # 图标
@@ -29,6 +30,8 @@ top_bars:
     url: /links/
   #- title: 树洞
   #  url: /comment/
+  - title: 玩具
+    url: /project/
   - title: 关于
     url: /about/
   - title: 虫洞
@@ -105,42 +108,3 @@ comment:
   bComments:
     v: 0.0.12
     env: h-17b316
-
-# 友链
-links:
-  - name: Hexo
-    url: //hexo.io/
-    image: //d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
-    desc: 快速、简洁且高效的博客框架
-  - name: 随心
-    url: //uiluil.com/
-    image: //uiluil.com/medias/logo.png
-    desc: 从来没有真正的绝境, 只有心灵的迷途
-  - name: 白云苍狗
-    url: //www.imalun.com/
-    image: //www.imalun.com/images/avatar.jpg
-    desc: 醒，亦在人间；梦，亦在人间
-  - name: 阿龙爱吃肉
-    url: //3zi.cn
-    image: //i.loli.net/2021/03/28/IZilAJ293tVpwLK.jpg
-    desc: 学习过程中和工作中的新知识点，范围：Java，MySQL，Layui…
-  - name: 五月七日▪君寻
-    url: //www.hongtk.cn
-    image: //www.hongtk.cn/wp-content/uploads/2021/05/100.png
-    desc: 申申如也，夭夭如也。
-  - name: 忆梦小站
-    url: //www.onyi.net
-    image: //cdn.jsdelivr.net/gh/heyechuanmei/YiMengXinYun/image/headportrait.jpg
-    desc: 微笑着挥手再见，但内心却深知，以后不会再相见。
-  - name: 昨夜星辰
-    url: //seachen.cn
-    image: //cdn.jsdelivr.net/gh/DreamStar1996/ImageHub-CDN@1.1.3/Bg-Phtoto/20.jpg
-    desc: 日月之行，星汉灿烂。
-  - name: 浮云翩迁之间
-    url: //blognas.hwb0307.com
-    image: //blognas.hwb0307.com/wp-content/uploads/2022/04/25b2916b5c49db617f5283.jpg
-    desc: 百代繁华一朝都，谁非过客；千秋明月吹角寒，花是主人。 
-  - name: HONG的小站
-    url: //hongweblog.com
-    image: //hongweblog.com/wp-content/uploads/2022/03/00.jpg
-    desc: 或许是个二次元? 
