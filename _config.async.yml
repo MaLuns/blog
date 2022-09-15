@@ -30,10 +30,10 @@ top_bars:
     url: /links/
   #- title: 树洞
   #  url: /comment/
-  - title: 玩具
-    url: /projects/
   - title: 关于
     url: /about/
+  - title: 玩具
+    url: /projects/
   - title: 虫洞
     url: https://foreverblog.cn/go.html
     noswup: true
