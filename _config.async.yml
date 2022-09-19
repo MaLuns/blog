@@ -32,12 +32,14 @@ top_bars:
   #  url: /comment/
   - title: 关于
     url: /about/
-  - title: 玩具
-    url: /projects/
-  - title: 虫洞
-    url: https://foreverblog.cn/go.html
-    noswup: true
-    target: _blank
+    children:
+      - title: 玩具
+        url: /projects/
+      - title: 虫洞
+        url: https://foreverblog.cn/go.html
+        noswup: true
+        target: _blank
+
 
 # 横幅配置
 banner:
@@ -108,3 +110,7 @@ comment:
   bComments:
     v: 0.0.12
     env: h-17b316
+
+search:
+  enable: true
+  type: local

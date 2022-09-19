@@ -1520,6 +1520,13 @@ hexo-generator-index@^1.0.0:
   dependencies:
     hexo-pagination "1.0.0"
 
+hexo-generator-searchdb@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npmmirror.com/hexo-generator-searchdb/-/hexo-generator-searchdb-1.4.0.tgz#e6774378d841cbaa6ccbc8206ce14a492b3a115e"
+  integrity sha512-TkwxlqxptRIXHwYeI/V32O2TxXkfqWa37Rrmg347Q+YT1eqk7vQ31vR4zLudBAcSr85ST0VUedYd1/gLBSJl9Q==
+  dependencies:
+    nunjucks "^3.2.2"
+
 hexo-generator-sitemap@^2.0.0:
   version "2.2.0"
   resolved "https://registry.npmmirror.com/hexo-generator-sitemap/-/hexo-generator-sitemap-2.2.0.tgz"
@@ -1600,10 +1607,10 @@ hexo-server@^1.0.0:
     open "^6.3.0"
     serve-static "^1.14.1"
 
-hexo-theme-async@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/hexo-theme-async/-/hexo-theme-async-1.0.6.tgz#d2904132c4edca49bcac1d3c9a2fb6412f339090"
-  integrity sha512-It7hoY0iJYPfeZYSZgenJTr14DXm2qDSCyMXIUVay34kcC9oiwH73byFB3WjtSd38B6eXhHojWWHQdJ9A9+37w==
+hexo-theme-async@^1.0.7:
+  version "1.1.4"
+  resolved "https://registry.npmmirror.com/hexo-theme-async/-/hexo-theme-async-1.1.4.tgz#4565667451ba6c413a39ac4f3d813b21bd214519"
+  integrity sha512-gw313/lDVwQkmD5sx/CbblMSBmo6YUGdT8Etq+vrKOxVOe9owWuAfkTugyB7j4Zh5zVRcD4v1THyJ8COxfnS4g==
 
 hexo-util@1.0.0:
   version "1.0.0"
@@ -2450,7 +2457,7 @@ nth-check@^2.0.1:
   dependencies:
     boolbase "^1.0.0"
 
-nunjucks@^3.0.0, nunjucks@^3.1.6, nunjucks@^3.2.1:
+nunjucks@^3.0.0, nunjucks@^3.1.6, nunjucks@^3.2.1, nunjucks@^3.2.2:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/nunjucks/-/nunjucks-3.2.3.tgz#1b33615247290e94e28263b5d855ece765648a31"
   integrity sha512-psb6xjLj47+fE76JdZwskvwG4MYsQKXUtMsPh6U0YMvmyjRtKRFcxnlXGWglNybtNTNVmGdp94K62/+NjF5FDQ==

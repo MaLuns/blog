@@ -154,3 +154,9 @@ image_minifier:
   optimizationLevel: 2
   pngquant: false
   progressive: false
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
