@@ -8,8 +8,6 @@ user:
   avatar: https://www.imalun.com/images/avatar.jpg
   describe: 醒，亦在人间；梦，亦在人间。
   ruleText: 暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，部署HTTPS。<br/><br/>提醒：评论插件已移除，申请可以点左侧联系我
-  copyrightYear: 2019
-  birthDay: 11/19/2019 17:00:00 #计时开始时间
 
 # 图标
 favicon:
@@ -39,7 +37,6 @@ top_bars:
         url: https://foreverblog.cn/go.html
         noswup: true
         target: _blank
-
 
 # 横幅配置
 banner:
@@ -93,6 +90,25 @@ about:
     <br/>
     转载前请联系作者获得许可，并注明原文链接。如有侵权，请留言告知，我会一周内删除。谢谢！
     
+footer:
+  # Hexo link (Powered by Hexo).
+  powered:
+    enable: true
+  # Beian icp information for Chinese users. In China, every legal website should have a beian icp in website footer.
+  # https://beian.miit.gov.cn/
+  beian:
+    enable: false
+    icp: 
+  # Copyright date
+  copyrightYear: 2019
+  # 
+  live_time:
+    enable: true
+    prefix: footer.tips
+    start_time: 11/19/2019 17:00:00 #计时开始时间
+  #
+  custom_text: 
+
 # 开启 Service Worker
 sw: true
 
