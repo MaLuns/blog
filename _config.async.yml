@@ -124,9 +124,6 @@ webAnalytics:
 # 评论插件
 comment:
   enable: false
-  bComments:
-    v: 0.0.12
-    env: h-17b316
 
 # 查询
 search:
@@ -159,3 +156,7 @@ creative_commons:
   language: deed.zh
   post: true
   clipboard: false
+
+cdn:
+  js:
+    async: [//code.tidio.co/het7qhit6brc6kwukrbcbtltwr9xhcty.js]
