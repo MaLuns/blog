@@ -90,6 +90,7 @@ about:
     <br/>
     转载前请联系作者获得许可，并注明原文链接。如有侵权，请留言告知，我会一周内删除。谢谢！
     
+# 页尾
 footer:
   # Hexo link (Powered by Hexo).
   powered:
@@ -127,12 +128,14 @@ comment:
     v: 0.0.12
     env: h-17b316
 
+# 查询
 search:
   enable: true
   type: local
   preload: true
   trigger: auto
 
+# 捐赠
 reward:
   enable: true
   methods:
@@ -140,3 +143,7 @@ reward:
       path: https://img.lkxin.cn/tu/2022/09/22/632c11ab2f727.png
     - name: 支付宝
       path: https://img.lkxin.cn/tu/2022/09/22/632c11ab08ffc.jpg
+
+# 归档页
+archive:
+  type: more
