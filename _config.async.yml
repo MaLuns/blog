@@ -146,4 +146,16 @@ reward:
 
 # 归档页
 archive:
-  type: more
+  type: less
+
+# 主题
+theme: 
+  switch: true 
+  default: auto
+
+# 版权信息
+creative_commons:
+  license: by-nc-sa
+  language: deed.zh
+  post: true
+  clipboard: false
