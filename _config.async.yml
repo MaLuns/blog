@@ -143,7 +143,7 @@ reward:
 
 # 归档页
 archive:
-  type: less
+  type: more
 
 # 主题
 theme: 
@@ -160,3 +160,5 @@ creative_commons:
 cdn:
   js:
     async: [//code.tidio.co/het7qhit6brc6kwukrbcbtltwr9xhcty.js]
+
+swup: true
