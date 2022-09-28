@@ -1,6 +1,6 @@
 ---
 title:  Pjax 下动态加载插件方案
-date: 2022-09-27 10:16:09
+date: 2022-09-28 16:35:09
 tags: [Pjax]
 categories: 记录类
 keywords: Pjax,Swup
