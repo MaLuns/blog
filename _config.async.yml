@@ -20,20 +20,20 @@ favicon:
 
 # 头部菜单
 top_bars:
-  - title: 首页
+  - title: menu.home
     url: /
-  - title: 归档
+  - title: menu.archives
     url: /archives/
-  - title: 友链
+  - title: menu.links
     url: /links/
   #- title: 树洞
   #  url: /comment/
-  - title: 关于
+  - title: menu.about
     url: /about/
     children:
-      - title: 玩具
+      - title: menu.projects
         url: /projects/
-      - title: 虫洞
+      - title: menu.forever
         url: https://foreverblog.cn/go.html
         noswup: true
         target: _blank
