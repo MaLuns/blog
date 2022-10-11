@@ -162,3 +162,7 @@ cdn:
     async: [//code.tidio.co/het7qhit6brc6kwukrbcbtltwr9xhcty.js]
 
 swup: true
+
+
+toc:
+  enable: true
