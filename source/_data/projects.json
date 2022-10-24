@@ -48,6 +48,11 @@
         "url": "https://github.com/MaLuns/wallhaven-electron"
       },
       {
+        "name": "wallhaven-mini",
+        "desc": "wallhaven-electron 的小程序版本。",
+        "url": "https://github.com/MaLuns/wallhaven-electron"
+      },
+      {
         "name": "home-nav",
         "desc": "一款简洁的首页导航。",
         "url": "https://github.com/MaLuns/home-nav"
