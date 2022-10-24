@@ -3,7 +3,7 @@ title: one-wallhaven 壁纸程序
 comments: true
 hash: 1604659028034
 date: 2020-11-06 18:37:08
-tags: [vue, electron]
+tags: [electron]
 description:
 categories: 创作类
 keywords: 壁纸程序,electron

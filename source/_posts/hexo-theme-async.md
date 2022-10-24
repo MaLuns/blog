@@ -3,13 +3,15 @@ title: hexo-theme-async 文档上线了🤣
 comment: true
 hash: 1662535765548
 date: 2022-09-07 15:29:25
-tags:
+tags: [hexo]
 description:
 categories: 记录类
 keywords:
 cover: https://img.lkxin.cn/tu/2022/09/22/632c1767d795b.png
+toc: false
 ---
-![demo](https://img.lkxin.cn/tu/2022/09/22/632c1767d795b.png)
+![demo](https://img.lkxin.cn/tu/2022/09/22/632c1767d795b.png)_预览图_
+
 时隔几个月，拖拖拉拉的终于整理好了一份使用指南。下次终于可以甩个文档连接了🤣，再也不用一个个解释了。
 <!--more-->
 ### 感慨

@@ -57,5 +57,5 @@ photos: [https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixid=Mnw4O
 
 ## 效果图 ##
 
-![](/images/posts/admin_template/CEt1w5WJrs.gif)
+![](/images/posts/admin_template/CEt1w5WJrs.gif)_示例_
 

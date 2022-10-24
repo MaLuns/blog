@@ -2,7 +2,7 @@
 title: Vue2.x 响应式部分源码阅读记录
 comments: true
 date: 2020-03-06 20:38:27
-tags: [vue,observer]
+tags: [vue]
 categories: 记录类
 keywords: vue,vue响应式,vue源码
 photos: [https://www.logosc.cn/uploads/resources/2018/11/26/1543210976_thumb.jpg]

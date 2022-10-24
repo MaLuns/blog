@@ -1,7 +1,7 @@
 ---
 title: 深入理解 JavaScript 事件（ 第1章 ）
 date: 2019-12-28 10:16:09
-tags: [JavaScript,事件,转载]
+tags: [JavaScript]
 categories: 转载
 comments: true
 photos: [https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDh8fGNvZGV8ZW58MHx8fHwxNjUwMTI0OTQ2&ixlib=rb-1.2.1&w=750&dpi=2]

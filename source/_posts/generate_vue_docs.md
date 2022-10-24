@@ -2,7 +2,7 @@
 title: 打造自己的Vue组件文档生成工具
 comments: true
 date: 2021-07-29 10:44:00
-tags: [vue,ast]
+tags: [vue]
 categories: 记录类
 keywords: vue,ast,文档生成
 photos: [https://www.logosc.cn/uploads/resources/2018/11/06/1541474216_thumb.jpg]
@@ -78,7 +78,7 @@ traverse.default(jsAst, {
 
 **export default** 生成的对应节点类型是 ExportDefaultDeclaration，**declaration** 属性就是对应的组件的 options 了，遍历 declaration 的属性可以获取到 **name**、**props**、**methods**、**model** 等节点信息。
 
-![ast](/images/posts/vue_docs/pic_1627612369570.png)
+![ast](/images/posts/vue_docs/pic_1627612369570.png)_AST_
 
 示例 
 
@@ -124,7 +124,9 @@ export default {
 ```
 
 可以看到会 CommentBlock、 CommentLine 两种类型的节点，还有头部的会放在 leadingComments 里，底部的注释在 trailingComments 里。
-![ast](/images/posts/vue_docs/pic_1627613208799.png)
+
+![ast](/images/posts/vue_docs/pic_1627613208799.png)_AST_
+
 一般会把组件描述注释放在 **export default**  上面，简单提取注释信息
 
 ``` js
@@ -208,7 +210,7 @@ function getDefaultVal (node) {
 
 组件的事件没法直接获取到对应节点，只能通过 **$emit()** 方法来定位事件位置，在 **traverse** 中可以使用 **MemberExpress**(复杂类型节点)，然后通过节点上的属性名是否是 **$emit** 判断是否是事件。
 
-![$emit](/images/posts/vue_docs/pic_1627615451450.png)
+![$emit](/images/posts/vue_docs/pic_1627615451450.png)_事件生成的AST_
 
 可以看到事件名称在 **MemberExpress** 父级上的 **arguments** 里，而备注则在更上一层的里。
 

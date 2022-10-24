@@ -14,7 +14,7 @@ photos: [https://www.logosc.cn/uploads/resources/2018/11/06/1541468516_thumb.jpg
 
 大致流程如下
 
-![](/images/posts/aotubuild/20200102105829.png)
+![](/images/posts/aotubuild/20200102105829.png)_流程图_
 
 # SVN 更新提交文件 #
 

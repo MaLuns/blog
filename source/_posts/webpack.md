@@ -1,7 +1,7 @@
 ---
 title: 解读 webpack 打包后js
 date: 2019-11-20 10:16:09
-tags: [webpack,require]
+tags: [webpack]
 categories: 记录类
 comments: true
 photos: [https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940]
