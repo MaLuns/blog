@@ -5,7 +5,7 @@ tags: [devenv]
 categories: 记录类
 comments: true
 keywords: build,devenv,csc.exe,MSbuild
-photos: [https://www.logosc.cn/uploads/resources/2018/11/06/1541468516_thumb.jpg]
+cover: https://www.logosc.cn/uploads/resources/2018/11/06/1541468516_thumb.jpg
 ---
 
 想要实现自动化编译并生产打包替换文件，首要的对项目进行编译生成。一般编译 donnet 项目有三种方式 csc.exe，MSbuild(不需要安装vs)，devenv(需要安装vs)。因为自己已经安装了 vs 了，所以直接使用 devenv 去编译程序了。

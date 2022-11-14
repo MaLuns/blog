@@ -7,7 +7,7 @@ tags: [node]
 categories: 记录类
 description: 
 keywords: 云开发,CloudBase,BComments,评论插件
-photos: [https://images.unsplash.com/photo-1640782625068-b317650f49b3?crop=entropy&cs=srgb&fm=jpg&ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDE3fHwlRTklQTMlOEUlRTYlOTklQUZ8ZW58MHx8fHwxNjQ5NjYwNzY0&ixlib=rb-1.2.1&q=85]
+cover: https://images.unsplash.com/photo-1640782625068-b317650f49b3?crop=entropy&cs=srgb&fm=jpg&ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDE3fHwlRTklQTMlOEUlRTYlOTklQUZ8ZW58MHx8fHwxNjQ5NjYwNzY0&ixlib=rb-1.2.1&q=85
 ---
 
 因为以前使用的评论插件存在很多 bug 和漏洞，但是也没啥人用，一直没有去修改，最近空闲时间比较多，所以准备对之前插件进行重构一番。原评论插件是使用原生 JS 编写 WebComponents 组件，感觉结构维护起来挺费力的(自己太菜)，决定使用 Vue3 构建 WebComponents 。

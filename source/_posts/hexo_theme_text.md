@@ -7,7 +7,7 @@ tags: [hexo]
 description: 
 categories: 创作类
 keywords: hexo,hexo主题,hexo-theme
-photos: [https://www.logosc.cn/uploads/resources/2018/11/06/1541488846_thumb.jpg]
+cover: https://www.logosc.cn/uploads/resources/2018/11/06/1541488846_thumb.jpg
 ---
 
 这个主题诞生的原因主要是因为闲的，所以就自己动手写了这个相对比较清爽风格的主题。

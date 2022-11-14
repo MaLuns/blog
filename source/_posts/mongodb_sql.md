@@ -7,7 +7,7 @@ tags: [MongoDB]
 description:
 categories: 记录类
 keywords: mongoDB,nosql
-photos: [https://www.logosc.cn/uploads/resources/2018/11/29/1543459810_thumb.jpg]
+cover: https://www.logosc.cn/uploads/resources/2018/11/29/1543459810_thumb.jpg
 ---
 MongoDB 是一个介于关系数据库和非关系数据库之间的产品。面向文档的 NoSQL 的数据库，存储结构也非常自由，是类似 json 的 bson 格式，因此可以存储比较复杂的数据类型。其强大的查询语言几乎支持绝大部分关系数据的的查询的功能。
 <!-- more -->

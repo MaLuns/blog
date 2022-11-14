@@ -7,7 +7,7 @@ tags: [electron]
 description:
 categories: 创作类
 keywords: 壁纸程序,electron
-photos: [https://www.logosc.cn/uploads/resources/2018/11/26/1543210530_thumb.jpg]
+cover: https://www.logosc.cn/uploads/resources/2018/11/26/1543210530_thumb.jpg
 ---
 
 基于 Electron + vue  的一个壁纸程序

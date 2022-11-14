@@ -5,7 +5,7 @@ tags: [node]
 categories: 记录类
 comments: true
 keywords: node代理
-photos: [https://images.unsplash.com/photo-1527335480088-278dbeec0ad5?&w=750&dpi=2]
+cover: https://images.unsplash.com/photo-1527335480088-278dbeec0ad5?&w=750&dpi=2
 ---
 
 

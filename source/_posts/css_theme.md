@@ -7,7 +7,7 @@ tags: [css]
 categories: 记录类
 description:
 keywords: css,换肤
-photos: [https://images.unsplash.com/photo-1641570466707-d8b4d20a2235?w=750&dpi=2]
+cover: https://images.unsplash.com/photo-1641570466707-d8b4d20a2235?w=750&dpi=2
 ---
 
 说起换肤功能，前端肯定不陌生，其实就是颜色值的更换，实现方式有很多，也各有优缺点。

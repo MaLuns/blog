@@ -7,7 +7,7 @@ tags: [node]
 categories: 记录类
 description: 
 keywords: 云开发,CloudBase
-photos: [https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDMzfHxjb2RlfGVufDB8fHx8MTY1MDEyNTAxMg&ixlib=rb-1.2.1&w=750&dpi=2]
+cover: https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDMzfHxjb2RlfGVufDB8fHx8MTY1MDEyNTAxMg&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 
 使用 CloudBase 给静态博客添加评论功能。

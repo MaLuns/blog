@@ -7,7 +7,7 @@ tags: [vue]
 categories: 记录类
 description:
 keywords: vue,vue优化
-photos: [https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDU3fHxjb2RlfGVufDB8fHx8MTY1MDEyNTA5Mg&ixlib=rb-1.2.1&w=750&dpi=2]
+cover: https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDU3fHxjb2RlfGVufDB8fHx8MTY1MDEyNTA5Mg&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 在 vue 的使用过程中会遇到各种场景，当普通使用时觉得没什么，但是或许优化一下可以更高效更优美的进行开发。下面有一些我在日常开发的时候用到的小技巧
 

@@ -7,7 +7,7 @@ tags: [vscode]
 description:
 categories: 记录类
 keywords: vscode插件,vscode教程
-photos: [https://images.unsplash.com/photo-1618388810903-840bb0d15ea5?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDE2fHx2c2NvZGV8ZW58MHx8fHwxNjQ5NjExMTYy&ixlib=rb-1.2.1&w=750&dpi=2]
+cover: https://images.unsplash.com/photo-1618388810903-840bb0d15ea5?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDE2fHx2c2NvZGV8ZW58MHx8fHwxNjQ5NjExMTYy&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 最近闲来无事，给公司框架做了开发代码片段提示和一些常用工具整合的插，在这里记录一下踩过的坑和一些常用的基本功能示例。
 <!-- more -->
