@@ -2,7 +2,7 @@
 title: 瀑布流使用虚拟列表性能优化
 comment: true
 date: 2022-11-14 12:05:46
-tags: [js]
+tags: [JavaScript]
 description:
 categories: 记录类
 keywords:
