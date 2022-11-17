@@ -13,3 +13,5 @@ cover: https://images.unsplash.com/photo-1522252234503-e356532cafd5?ixid=Mnw4OTg
 附上小程序码：
 
 ![xcx.jpg](https://img.lkxin.cn/tu/2022/10/18/634e537320ee3.jpg)_壁了个纸_
+
+<!-- more -->
