@@ -140,6 +140,9 @@ session.defaultSession.createInterruptedDownload({
     startTime
 })
 ```
+
+需要注意的一个地方是，Electron 会在程序退出时候删除我们下载一般的文件，我目前处理方案是在 程序退出时，将所有还没有下载完成文件复制一份，等下次继续下载时候还原回去。
+
 相关的文档地址 [BrowserWindow](https://www.electronjs.org/docs/api/browser-window)  ,[Session](https://www.electronjs.org/docs/api/session) , [webContents](https://www.electronjs.org/docs/api/web-contents), [DownloadItem](https://www.electronjs.org/docs/api/download-item)
 
 ### 创建请求实现续下载
