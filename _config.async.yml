@@ -1,8 +1,8 @@
 # 用户信息
 user:
   name: 白云苍狗
-  first_name: 苍狗
-  last_name: 白云
+  first_name: #苍狗
+  last_name: #白云
   email: admin@imalun.com
   domain: https://www.imalun.com
   avatar: https://www.imalun.com/images/avatar.jpg
@@ -11,7 +11,8 @@ user:
 
 # 图标
 favicon:
-  logo: favicon-32x32.png
+  logo: https://count.getloli.com/get/@www.imalun.com?theme=rule34
+  #logo: favicon-32x32.png
   icon16: favicon-16x16.png 
   icon32: favicon-32x32.png
   appleTouchIcon: apple-touch-icon.png
