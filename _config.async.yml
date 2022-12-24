@@ -59,16 +59,16 @@ sidebar:
     - key: sidebar.age
       val: 18
   social:
-    - icon: fab fa-github
+    - icon: icon-github
       url: https://github.com/MaLuns
       name: Github
-    - icon: fab fa-github-alt
+    - icon: icon-gitee
       url: https://gitee.com/ml13
       name: Gitee
-    - icon: fab fa-weibo
+    - icon: icon-weibo
       url: https://weibo.com/u/5022481764
       name: Weibo
-    - icon: fas fa-rss
+    - icon: icon-rss
       url: atom.xml
       name: Rss
     
@@ -148,6 +148,39 @@ cdn:
 
 swup: true
 
-
 toc:
   enable: true
+
+assets:
+  icons: 
+    type: symbol 
+    css:
+    js: //at.alicdn.com/t/c/font_3637590_j4dsunejwgt.js
+
+icons:
+  # 主题切换图标
+  sun: icon-taiyang
+  moon: icon-yueliang
+  # 首页视频播放
+  play: icon-yunhang
+  # 邮箱
+  email: icon-email
+  # 分类进入图标
+  next: icon-arrow-right
+  # 文章详情 日期
+  calendar: icon-rili
+  # 文章详情 时间
+  clock: icon-shijian
+  # 文章详情 作者
+  user: icon-yonghu
+  # 返回顶部 v1.1.3+
+  back_top: icon-backtop
+  # 查询 v1.1.5+
+  search: icon-chaxun
+  # 关闭 v1.1.5+
+  close: icon-guanbi
+  # 打赏 v1.1.7+
+  reward: icon-qiandai
+  # Toc
+  user_tag: icon-yonghu1
+  toc_tag: icon-liebiao
