@@ -26,7 +26,7 @@ keywords: about,个人介绍
             <ul class="trm-list">
                 <li>程序：Hexo</li>
                 <li>主题：<a href="https://github.com/MaLuns/hexo-theme-async" style="font-weight:700" target="_blank" rel="nofollow">Hexo-theme-async</a></li>
-                <li>托管：<a href="https://github.com/MaLuns/blog" style="font-weight:700" target="_blank" rel="nofollow">Github</a></li>
+                <li>托管：<a href="https://vercel.com" style="font-weight:700" target="_blank" rel="nofollow">Vercel</a></li>
             </ul>
         </div>
     </div>

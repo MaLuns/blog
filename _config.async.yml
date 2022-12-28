@@ -70,7 +70,7 @@ sidebar:
       name: Weibo
     - icon: icon-rss
       url: atom.xml
-      name: Rss
+      name: RSS
     
 # 页尾
 footer:
