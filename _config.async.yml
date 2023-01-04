@@ -5,7 +5,7 @@ user:
   last_name: #白云
   email: admin@imalun.com
   domain: https://www.imalun.com
-  avatar: https://www.imalun.com/images/avatar.jpg
+  avatar: https://www.imalun.com/images/avatar.jpg?v=1
   describe: 醒，亦在人间；梦，亦在人间。
   ruleText: 暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，部署HTTPS。<br/><br/>提醒：评论插件已移除，申请可以点左侧联系我
 
@@ -155,7 +155,7 @@ assets:
   icons: 
     type: symbol 
     css:
-    js: //at.alicdn.com/t/c/font_3637590_j4dsunejwgt.js
+    js: //at.alicdn.com/t/c/font_3637590_6vkofjjdmvj.js
 
 icons:
   # 主题切换图标
@@ -181,6 +181,9 @@ icons:
   close: icon-guanbi
   # 打赏 v1.1.7+
   reward: icon-qiandai
-  # Toc
+  # 用户信息和文章目录切换 v1.2.10+
   user_tag: icon-yonghu1
   toc_tag: icon-liebiao
+  # 右下角固定按钮 v1.2.11+
+  read: icon-yuedu
+  arrows: icon-arrows-h

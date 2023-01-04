@@ -10,9 +10,25 @@
 :root {
     .var-primary(#6062ce, #7a89df);
 
+    --selection-bg-color: #1f2d3d;
+    --selection-color   : #f1f1f1;
+
     &.dark {
         .var-primary(#6062ce, #7a89df);
+
+        --selection-bg-color: #f1f1f1;
+        --selection-color   : #1f2d3d;
+
+        .trm-avatar {
+            filter      : invert(0.9);
+            border-color: transparent;
+        }
     }
+}
+
+::selection {
+    background: var(--selection-bg-color);
+    color     : var(--selection-color);
 }
 
 .trm-top-bar {
