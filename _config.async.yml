@@ -221,7 +221,7 @@ notice_outdate:
 less:
   options:
     globalVars: 
-      commentType: 'none'
+      commentType: none
       isSearch: false
       isReadmode: false
       isAside: false
@@ -231,6 +231,6 @@ less:
       prismjsEnable: false
       prismjsLineNumber: false
       highlightTheme: true
-      highlightTitleStyle: 'default'
+      highlightTitleStyle: default
       highlightHeightLimit: false
-      noticeOutdateStyle: 'none
+      noticeOutdateStyle: none
