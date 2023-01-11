@@ -217,3 +217,20 @@ comment:
 
 notice_outdate:
   enable: true
+
+less:
+  options:
+    globalVars: 
+      commentType: 'none'
+      isSearch: false
+      isReadmode: false
+      isAside: false
+      isReward: false
+      highlightEnable: false
+      highlightLineNumber: false
+      prismjsEnable: false
+      prismjsLineNumber: false
+      highlightTheme: true
+      highlightTitleStyle: 'default'
+      highlightHeightLimit: false
+      noticeOutdateStyle: 'none
