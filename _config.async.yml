@@ -7,7 +7,7 @@ user:
   domain: https://www.imalun.com
   avatar: https://www.imalun.com/images/avatar.jpg?v=1
   describe: 醒，亦在人间；梦，亦在人间。
-  ruleText: 暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，部署HTTPS。<br/><br/>提醒：评论插件已移除，申请可以点左侧联系我
+  ruleText: <br/>暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，部署HTTPS。
 
 # 图标
 favicon:
@@ -103,10 +103,6 @@ webAnalytics:
   enable: true 
   baidu: bbad9d8e1fd8e044d365c2ce0d114c73
 
-# 评论插件
-comment:
-  enable: false
-
 cover:
   type: date
 
@@ -152,15 +148,16 @@ toc:
   enable: true
 
 assets:
+  third_party_provider: https://npm.elemecdn.com
   icons: 
     type: symbol 
     css:
-    js: //at.alicdn.com/t/c/font_3637590_6vkofjjdmvj.js
+    js: //at.alicdn.com/t/c/font_3637590_i4hyyea14ur.js
 
 icons:
   # 主题切换图标
-  sun: icon-taiyang
-  moon: icon-yueliang
+  sun: icon-sun
+  moon: icon-moon
   # 首页视频播放
   play: icon-yunhang
   # 邮箱
@@ -187,3 +184,36 @@ icons:
   # 右下角固定按钮 v1.2.11+
   read: icon-yuedu
   arrows: icon-arrows-h
+  # 代码块
+  double_arrows: icon-angle-double-down
+  copy: icon-copy
+
+highlight:
+  theme: true # 
+  title: mac # mac | default
+  copy: true # copy button
+  lang: true # show the code language
+  height_limit: 200 # unit: px
+
+post_pagination: 
+  enable: true 
+  type: small # large || small
+
+comment:
+  giscus:
+    enable: true
+    repo: MaLuns/blog
+    repo-id: MDEwOlJlcG9zaXRvcnkyMzQwMDY1ODI=
+    category: General
+    category-id: DIC_kwDODfKoNs4CTgC7
+    mapping: url
+    strict: 1
+    reactions-enabled: 1
+    input-position: top
+    emit-metadata: 0
+    lang: zh-CN
+    theme:
+      light: light_tritanopia
+
+notice_outdate:
+  enable: true

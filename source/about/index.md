@@ -2,6 +2,7 @@
 title: 关于
 type: about
 keywords: about,个人介绍
+comments: false
 ---
 
 <div class="row trm-mb-40 trm-scroll-animation trm-active-el" data-scroll="" data-scroll-offset="40">
