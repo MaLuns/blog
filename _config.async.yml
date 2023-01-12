@@ -217,6 +217,7 @@ comment:
 
 notice_outdate:
   enable: true
+  limit_day: 365 
 
 less:
   options:
