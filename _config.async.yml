@@ -199,22 +199,6 @@ post_pagination:
   enable: true 
   type: small # large || small
 
-comment:
-  giscus:
-    enable: true
-    repo: MaLuns/blog
-    repo-id: MDEwOlJlcG9zaXRvcnkyMzQwMDY1ODI=
-    category: General
-    category-id: DIC_kwDODfKoNs4CTgC7
-    mapping: url
-    strict: 1
-    reactions-enabled: 1
-    input-position: top
-    emit-metadata: 0
-    lang: zh-CN
-    theme:
-      light: light_tritanopia
-
 notice_outdate:
   enable: true
   limit_day: 365 
