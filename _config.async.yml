@@ -128,7 +128,7 @@ archive:
 
 # 主题
 theme: 
-  switch: true 
+  switch: false 
   default: auto
 
 # 版权信息
@@ -199,23 +199,6 @@ post_pagination:
   enable: true 
   type: small # large || small
 
-notice_outdate:
-  enable: true
-  limit_day: 365 
-
-less:
-  options:
-    globalVars: 
-      commentType: none
-      isSearch: false
-      isReadmode: false
-      isAside: false
-      isReward: false
-      highlightEnable: false
-      highlightLineNumber: false
-      prismjsEnable: false
-      prismjsLineNumber: false
-      highlightTheme: true
-      highlightTitleStyle: default
-      highlightHeightLimit: false
-      noticeOutdateStyle: none
+layout:
+  fixed_btn: async/fixed-btn
+  header_search: async/empty
