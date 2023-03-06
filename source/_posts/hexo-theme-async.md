@@ -7,10 +7,10 @@ tags: [hexo]
 description:
 categories: 记录类
 keywords:
-cover: https://img.lkxin.cn/tu/2022/09/22/632c1767d795b.png
+cover: https://hexo-theme-async.imalun.com/imgs/demo2.png
 toc: false
 ---
-![demo](https://img.lkxin.cn/tu/2022/09/22/632c1767d795b.png)_预览图_
+![demo](https://hexo-theme-async.imalun.com/imgs/demo2.png)_预览图_
 
 时隔几个月，拖拖拉拉的终于整理好了一份使用指南。下次终于可以甩个文档连接了🤣，再也不用一个个解释了。
 <!--more-->

@@ -4,7 +4,6 @@ date: 2022-09-28 16:35:09
 tags: [Pjax]
 categories: 记录类
 keywords: Pjax,Swup
-cover: https://img.lkxin.cn/tu/2022/09/28/6334037f81cb5.png
 ---
 
 在纯静态网站里，有时候会动态更新某个区域往会选择 Pjax（swup、barba.js）去处理，他们都是使用 ajax 和 pushState 通过真正的永久链接，页面标题和后退按钮提供快速浏览体验。
