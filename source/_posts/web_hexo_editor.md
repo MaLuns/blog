@@ -10,7 +10,7 @@ toc: false
 
 开源了一款 Hexo 在线编辑器，提供在线编写 Hexo 方式。目前已实现对本地 Hexo 编辑维护
 
-![Img](/images/img_20230406220102_1.png) _示例_
+![Img](/images/img_20230406222520_1.png) _示例_
 
 <!-- more -->
 
