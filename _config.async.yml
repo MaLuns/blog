@@ -41,6 +41,8 @@ top_bars:
 
 # 横幅配置
 banner:
+  default:
+    bgurl: https://img.xjh.me/random_img.php?return=302&type=bg
   index:
     type: video
     bgurl: //cdn.moji.com/websrc/video/autumn20190924.mp4
@@ -104,7 +106,8 @@ webAnalytics:
   baidu: bbad9d8e1fd8e044d365c2ce0d114c73
 
 cover:
-  type: date
+  type: random
+  default: https://img.xjh.me/random_img.php?return=302&type=bg
 
 # 查询
 search:
