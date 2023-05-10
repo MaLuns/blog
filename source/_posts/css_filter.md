@@ -5,7 +5,6 @@ date: 2020-04-04 20:38:27
 tags: [css]
 categories: 记录类
 keywords: css,filter
-cover: https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDEyfHxjc3N8ZW58MHx8fHwxNjQ5NjcwMDMy&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 今天为表达全国各族人民对抗击新冠肺炎疫情斗争牺牲烈士和逝世同胞的深切哀悼，各大网站也纷纷将界面弄成黑白以示哀悼。
 <!--more -->

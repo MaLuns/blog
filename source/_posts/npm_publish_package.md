@@ -4,7 +4,6 @@ date: 2023-02-10 10:50:55
 tags: [npm]
 categories: 记录类
 keywords: npm,npm pushlish,github actions,release
-cover: https://images.pexels.com/photos/11035482/pexels-photo-11035482.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
 toc: false
 ---
 

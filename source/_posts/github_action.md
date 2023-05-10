@@ -2,12 +2,10 @@
 title: 利用 GitHub Actions + Github Pages 实现博客自动部署
 date: 2021-09-26 09:08:34
 comments: true
-hash: 1632618496577
 tags: [github]
 description: 
 categories: 记录类
 keywords: GitHub Actions,持续集成,CI
-cover: https://images.unsplash.com/photo-1630514969818-94aefc42ec47?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDJ8fGdpdGh1YnxlbnwwfHx8fDE2NDk2NjkyMzQ&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 看看官方对GitHub Actions的介绍: GitHub Actions 帮助您自动完成软件开发周期内的任务。 GitHub Actions 是事件驱动的，意味着您可以在指定事件发生后运行一系列命令。 例如，每次有人为仓库创建拉取请求时，您都可以自动运行命令来执行软件测试脚本。
 

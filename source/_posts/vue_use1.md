@@ -1,13 +1,11 @@
 ---
 title: vue 使用中的小技巧 （一）
 comments: true
-hash: 1596456425272
 date: 2020-08-03 20:07:05
 tags: [vue]
 categories: 记录类
 description:
 keywords: vue,vue优化
-cover: https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDU3fHxjb2RlfGVufDB8fHx8MTY1MDEyNTA5Mg&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 在 vue 的使用过程中会遇到各种场景，当普通使用时觉得没什么，但是或许优化一下可以更高效更优美的进行开发。下面有一些我在日常开发的时候用到的小技巧
 
