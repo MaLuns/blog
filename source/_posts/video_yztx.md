@@ -1,13 +1,11 @@
 ---
 title: 朱雀云丹 · 风采铃
 comments: true
-hash: 1635779736006
 date: 2021-11-01 18:37:08
 tags: [video]
 description:
 categories: 分享类
 keywords:
-cover: https://www.logosc.cn/uploads/resources/2018/11/26/1543210848_thumb.jpg
 ---
 一壶生死曾入喉，醉梦黄泉九千宵。转眼形骸具付灭，悲欢两散天涯老。
 <!-- more -->

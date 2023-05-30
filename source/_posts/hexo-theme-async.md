@@ -1,13 +1,11 @@
 ---
 title: hexo-theme-async 文档上线了🤣
 comment: true
-hash: 1662535765548
 date: 2022-09-07 15:29:25
 tags: [hexo]
 description:
 categories: 记录类
 keywords:
-cover: https://hexo-theme-async.imalun.com/imgs/demo2.png
 toc: false
 ---
 ![demo](https://hexo-theme-async.imalun.com/imgs/demo2.png)_预览图_

@@ -1,13 +1,11 @@
 ---
 title: VS Code 插件开发指北 (二)
 comments: true
-hash: 1623932344116
 date: 2021-06-17 20:19:04
 tags: [vscode]
 description:
 categories: 记录类
 keywords: vscode插件开发,vscode
-cover: https://images.unsplash.com/photo-1590130382404-36dcbb666a3d?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDEwfHx2c2NvZGV8ZW58MHx8fHwxNjQ5NjExMTYy&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 
 接着上面的继续介绍一些常用的 VS Code 插件的配置和 API。

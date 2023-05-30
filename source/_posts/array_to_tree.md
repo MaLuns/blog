@@ -1,13 +1,11 @@
 ---
 title: 前端数组转树形结构
 comments: true
-hash: 1635422909268
 date: 2021-10-28 20:08:29
 tags: [JavaScript]
 categories: 记录类
 description:
 keywords: 前端,js,tree
-cover: https://images.unsplash.com/photo-1522252234503-e356532cafd5?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDd8fGNvZGV8ZW58MHx8fHwxNjQ5NjY5MTgw&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 数组转树形结构这种情况还是很常见的，有时候后端就只给你一个数组，需要前端自己处理。一般情况下一个递归就搞定了，但是数据量很多的时候就有点 hot 不住了。
 <!-- more -->

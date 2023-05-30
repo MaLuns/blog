@@ -5,7 +5,6 @@ tags: [WebComponents]
 categories: 记录类
 comments: true
 keywords: js组件,影子DOM,Shadow DOM,自定义元素,Custom elements,HTML模板
-cover: https://images.unsplash.com/photo-1508921340878-ba53e1f016ec?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDI2fHxXZWIlMjBDb21wb25lbnRzfGVufDB8fHx8MTY0OTY2OTk5Mw&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 组件是前端的发展方向，现在流行的 React 和 Vue 都是组件框架。如今 Web Components 被越来越多的浏览器所支持，Web Components 或许是未来的方向。
 <!-- more -->

@@ -1,13 +1,11 @@
 ---
 title: Flutter 常用小部件(一)
 comments: true
-hash: 1610115798728
 date: 2021-01-08 22:23:18
 tags: [Flutter]
 description:
 categories: 记录类
 keywords: flutter,widget
-cover: https://images.unsplash.com/photo-1592424002053-21f369ad7fdb?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDM2fHxjb2RlfGVufDB8fHx8MTY1MDEyNTAxMg&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 
 Flutter 中所有的UI界面都是widget构建的。widget用来描述元素配置数据,然后会被渲染成对应UI界面。 当widget的状态修改时, 它会重新渲染UI。

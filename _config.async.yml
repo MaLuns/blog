@@ -42,12 +42,18 @@ top_bars:
 # 横幅配置
 banner:
   default:
-    bgurl: https://img.xjh.me/random_img.php?return=302&type=bg
+    bgurl: //w.wallhaven.cc/full/wq/wallhaven-wqdglr.jpg
   index:
     type: video
     bgurl: //cdn.moji.com/websrc/video/autumn20190924.mp4
     bannerTitle: 树深时见鹿，<br>溪午不闻钟。
     bannerText: Hi my new friend!
+  archive:
+    bgurl: //w.wallhaven.cc/full/9m/wallhaven-9mo7kw.jpg
+  links:
+    bgurl: //w.wallhaven.cc/full/9m/wallhaven-9mogy1.jpg
+  about:
+    bgurl: //w.wallhaven.cc/full/2e/wallhaven-2em38y.jpg
 
 # 侧栏
 sidebar:
@@ -106,8 +112,7 @@ webAnalytics:
   baidu: bbad9d8e1fd8e044d365c2ce0d114c73
 
 cover:
-  type: random
-  default: https://img.xjh.me/random_img.php?return=302&type=bg
+  type: date
 
 # 查询
 search:
@@ -203,3 +208,14 @@ post_pagination:
 layout:
   fixed_btn: async/fixed-btn
   header_search: async/empty
+
+datetime_foramt:
+  post_card:
+    date: YY/MM/DD
+    time: HH:mm
+  post_info:
+    date: YY/MM/DD
+    time: HH:mm
+  archive:
+    date: YY/MM/DD
+    time: HH:mm

@@ -1,13 +1,11 @@
 ---
 title: Electron 的断点续下载
 comments: true
-hash: 1602125283457
 date: 2020-10-08 10:48:03
 tags: [vue, electron]
 description:
 categories: 记录类
 keywords: electron,断点下载
-cover: https://images.unsplash.com/photo-1617042375876-a13e36732a04?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDI0fHxjb2RlfGVufDB8fHx8MTY1MDEyNTAxMg&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 最近用 Electron 做了个壁纸程序，需要断点续下载，在这里记录一下。<!-- more -->
 

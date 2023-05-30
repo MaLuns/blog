@@ -1,13 +1,11 @@
 ---
 title: 云开发又又又涨价了
 comment: true
-hash: 1657701892880
 date: 2022-07-13 16:44:24
 tags:
 description:
 categories: 记录类
 keywords: 云开发
-cover: https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDEwfHx3d3d8ZW58MHx8fHwxNjQ5NjY5MDY1&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 
 之前一波搞没了免费额度，这次直接要回收以前开通免费版的资源了。搞成基础套餐+按量计费模式，直接最低39.9块一个月。用不起了，腾讯是真TM的狗。

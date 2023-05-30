@@ -4,7 +4,6 @@ date: 2019-12-28 10:16:09
 tags: [JavaScript]
 categories: 转载
 comments: true
-cover: https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDh8fGNvZGV8ZW58MHx8fHwxNjUwMTI0OTQ2&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 
 事件！事件到底是怎么工作的？JavaScrip t出现了多久，对 JavaScript 异步事件模型就迷惘了多久。迷惘导致 bug，bug 导致愤怒，然后尤达大师就会教我们如何如何......不过本质上，从概念上看，JavaScript事件模型既优雅又实用。一旦大家接受了这种语言的单线程设计，就会觉得 JavaScript 事件模型更像是一种功能，而不是一种局限。它意味着我们的代码是不可中断的，也意味着调度的事件会整整齐齐排好队，有条不紊地运行。本章将介绍JavaScript的异步机制，并破除一些常见的误解。我们会看到setTimeout 真正做了些什么。接着会讨论回调中抛出错误的处理。最后会奠定本书的主旨：为了清晰和可维护性，努力组织异步代码。

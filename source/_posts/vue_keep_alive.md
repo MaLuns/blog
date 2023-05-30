@@ -1,13 +1,11 @@
 ---
 title: keep-alive 与 router-view
 comments: true
-hash: 1607346421816
 date: 2020-12-07 20:07:05
 tags: [vue]
 categories: 记录类
 description:
 keywords:
-cover: https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixid=Mnw4OTgyNHwwfDF8c2VhcmNofDh8fHdlYnxlbnwwfHx8fDE2NTAxMjU0OTk&ixlib=rb-1.2.1&w=750&dpi=2
 ---
 
 keep-alive 用于缓存不活动的组件实例，router-view 一个 functional 组件，渲染路径匹配到的视图组件。这里对两者结合使用时遇到几种情况做个简单记录
