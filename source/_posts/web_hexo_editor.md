@@ -43,4 +43,4 @@ toc: false
 - [ ] 搜索文章内容
 - [ ] 支持图床
 - [ ] Markdown 同步滚动
-- [ ] 连接 Github 仓库，彻底在线维护 Hexo
+- [ ] 连接 Github 仓库，彻底在线维护 Hexo 博客
