@@ -15,8 +15,13 @@
     ]
   },
   {
-    "title": "工具",
+    "title": "工具",  
     "children": [
+      {
+        "name": "Hexo-Editor",
+        "desc": "An online web page for the hexo editor。",
+        "url": "https://github.com/MaLuns/hexo-editor"
+      },
       {
         "name": "Code-Shows",
         "desc": "一个将代码片段生成为可在线编辑的静态网页的框架。",
