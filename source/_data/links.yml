@@ -39,10 +39,14 @@
   image: //other.shifeiti.com/logo/logo.png
   desc: 记录生活，热爱跑步，学习 FPGA 中
 - name: Trtyr's Blog
-  url: https://www.trtyr.top
-  image: https://img.trtyr.top/img/head.webp
+  url: //www.trtyr.top
+  image: //img.trtyr.top/img/head.webp
   desc: A New Story Born
 - name: 爱吃肉的猫
-  url: https://meuicat.com/
-  image: https://s1.ax1x.com/2023/05/26/p9qChjI.jpg
+  url: //meuicat.com/
+  image: //s1.ax1x.com/2023/05/26/p9qChjI.jpg
   desc: 有肉有猫有生活.
+- name: 有余
+  url: //dongping.link/
+  image: //image.dongping.link/imageupload/3022db7803924133aeed921cb73822c9.png
+  desc: 村里唯一的希望.
