@@ -1,5 +1,5 @@
 ---
-title: 实现了一款 hexo 在线编辑器
+title: hexo 在线编辑器
 date: 2023-04-06 21:48:58
 tags:
 description:
