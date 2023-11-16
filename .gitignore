@@ -17,3 +17,4 @@ github-deploy-key
 github-deploy-key.pub
 .vitepress/cache
 .vscode/
+dist
