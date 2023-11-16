@@ -3,7 +3,7 @@ Thumbs.db
 db.json
 *.log
 node_modules/
-public/
+source
 .deploy*/
 .vs
 .vscode
@@ -15,3 +15,5 @@ themes/async
 demo.html
 github-deploy-key
 github-deploy-key.pub
+.vitepress/cache
+.vscode/
