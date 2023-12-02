@@ -46,7 +46,7 @@ future: true
 
 highlight:
   enable: true
-  line_number: false
+  line_number: true
   auto_detect: false
   tab_replace: ''
 
@@ -124,33 +124,6 @@ feed:
 #Site Map
 sitemap:
   path: sitemap.xml
-
-#压缩
-html_minifier:
-  enable: true
-  ignore_error: false
-  exclude:
-  
-css_minifier:
-  enable: true
-  exclude: 
-    - '*.min.css'
-
-js_minifier:
-  enable: false
-  mangle: true
-  output:
-  compress:
-  exclude: 
-    - '*.min.js'
-
-image_minifier: 
-  enable: false # 图片不压缩
-  interlaced: false
-  multipass: false
-  optimizationLevel: 2
-  pngquant: false
-  progressive: false
 
 search:
   path: search.xml
