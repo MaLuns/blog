@@ -63,3 +63,24 @@
 .trm-mode-switcher-place .trm-mode-switcher svg {
     font-size: 14px;
 }
+
+@font-face {
+    font-family : 'Raleway';
+    font-style  : normal;
+    font-display: swap;
+    src         : url(/fonts/DTM-Mono-1.otf);
+}
+
+.trm-blog-card {
+    .trm-cover-frame {
+        background-color: var(--card-cover-bg-color, #f3f3f3);
+
+        .trm-cover-date {
+            font-family            : 'Raleway' !important;
+            background-image       : linear-gradient(311deg, #421effd9, #60d139);
+            background-clip        : text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}

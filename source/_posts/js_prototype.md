@@ -175,7 +175,7 @@ JavaScript 中任意对象都有一个内置属性[[prototype]]，在 ES5 之前
 
 prototype 和 \_\_proto\_\_ 关系
 
-![](e83bca5f1d1e6bf359d1f75727968c11_720w.jpg)
+![](/images/posts/js_prototype/proto.jpg)
 
 >JavaScript 只有一种结构：对象。每个实例对象（ object ）都有一个私有属性（称之为 \_\_proto\_\_ ）指向它的构造函数的原型对象（ prototype ）。该原型对象也有一个自己的原型对象( \_\_proto\_\_ ) ，层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节。几乎所有 JavaScript 中的对象都是位于原型链顶端的 Object 的实例。
 
