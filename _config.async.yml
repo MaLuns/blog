@@ -42,18 +42,22 @@ top_bars:
 # 横幅配置
 banner:
   default:
-    bgurl: //w.wallhaven.cc/full/wq/wallhaven-wqdglr.jpg
+    type: video
+    bgurl: //cdn.moji.com/websrc/video/autumn20190924.mp4
   index:
     type: video
     bgurl: //cdn.moji.com/websrc/video/autumn20190924.mp4
     bannerTitle: 树深时见鹿，<br>溪午不闻钟。
     bannerText: Hi my new friend!
   archive:
-    bgurl: //w.wallhaven.cc/full/9m/wallhaven-9mo7kw.jpg
+    type: video
+    bgurl: //cdn.moji.com/websrc/video/autumn20190924.mp4
   links:
-    bgurl: //w.wallhaven.cc/full/9m/wallhaven-9mogy1.jpg
+    type: video
+    bgurl: //cdn.moji.com/websrc/video/autumn20190924.mp4
   about:
-    bgurl: //w.wallhaven.cc/full/2e/wallhaven-2em38y.jpg
+    type: video
+    bgurl: //cdn.moji.com/websrc/video/autumn20190924.mp4
 
 # 侧栏
 sidebar:
