@@ -212,6 +212,7 @@ post_pagination:
 layout:
   fixed_btn: async/fixed-btn
   header_search: async/empty
+  post_card: async/post-card
 
 datetime_foramt:
   post_card:

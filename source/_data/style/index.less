@@ -12,12 +12,14 @@
 
     --selection-bg-color: #1f2d3d;
     --selection-color   : #f1f1f1;
+    --body-color        : #1f2d3d;
 
     &.dark {
         .var-primary(#6062ce, #7a89df);
 
         --selection-bg-color: #f1f1f1;
         --selection-color   : #1f2d3d;
+        --body-color        : #f1f1f1b3;
 
         .trm-avatar {
             filter      : invert(0.9);
@@ -76,6 +78,15 @@
     src         : url(/fonts/DTM-Mono-1.otf);
 }
 
+@font-face {
+    font-family : OPPOSans;
+    font-style  : medium;
+    font-weight : 500;
+    font-display: swap;
+    src         : url(https://cup.oisin.cn/font/OPPOSans/OPlusSans.subset.woff2) format('woff2');
+}
+
+
 .trm-blog-card {
     .trm-cover-frame {
         background-color: var(--card-cover-bg-color, #f3f3f3);
@@ -88,4 +99,19 @@
             -webkit-text-fill-color: transparent;
         }
     }
+}
+
+body {
+    font-family: "OPPOSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.trm-btn,
+.trm-menu nav ul li a,
+.trm-label {
+    font-size: 12px;
+}
+
+
+.trm-left-side h6 {
+    font-size: 1.2rem;
 }
