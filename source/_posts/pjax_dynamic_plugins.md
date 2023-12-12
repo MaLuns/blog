@@ -11,12 +11,12 @@ keywords: Pjax,Swup
 但是实际使用中可能会遇到不同页面可能会需要加载不同插件处理，有些人可能会全量选择加载，这样会导致加载很多无用的脚本，有可能在用户关闭页面时都不一定会访问到，会很浪费资源。
 
 ## 解决思路
-首先想到的肯定是在请求到新的页面后，我们手动去比较当前 DOM 和 新 DOM 之间 `script` 标签的差异，手动给他插入到 body 里。
+首先想到的肯定是在请求到新的页面后，我们手动去比较当前 DOM 和 新 DOM 之间 **script** 标签的差异，手动给他插入到 body 里。
 
 ### 处理 Script
-一般来说 JavaScript 脚本都是放在 `body` 后，避免阻塞页面渲染，假设我们页面脚本也都是在 `body` 后，并在 script 添加 `[data-reload-script]` 表明哪些是需要动态加载的。
+一般来说 JavaScript 脚本都是放在 **body** 后，避免阻塞页面渲染，假设我们页面脚本也都是在 **body** 后，并在 script 添加 **[data-reload-script]** 表明哪些是需要动态加载的。
 
-首先我们直接获取到带有 `[data-reload-script]` 属性的 script 标签:
+首先我们直接获取到带有 **[data-reload-script]** 属性的 script 标签:
 
 ``` js
 // NewHTML 为 新页面 HTML
@@ -26,7 +26,7 @@ element.innerHTML = pageContent;
 const children = element.querySelector('#DynamicPluginBody').querySelectorAll('script[data-reload-script]');
 ```
 
-然后通过创建 script 标签插入到 `body`：
+然后通过创建 script 标签插入到 **body**：
 
 ``` js
 children.forEach(item => {
@@ -43,7 +43,7 @@ children.forEach(item => {
 
 #### 执行代码块
 
-实际很多插件不仅仅需要你引入，还需要你手动去初始化做一些操作的。我们可以通过 `src` 去判断是引入的脚本，还是代码块。
+实际很多插件不仅仅需要你引入，还需要你手动去初始化做一些操作的。我们可以通过 **src** 去判断是引入的脚本，还是代码块。
 
 ``` js
 let scripts = Array.from(document.scripts)
@@ -164,7 +164,7 @@ class DynamicPlugin {
 
 ### 处理 Head
 
-Head 部分处理来说相对比较简单，可以通过拿到新旧两个 Head，然后循环对比每个标签的 `outerHTML`，用来判断哪些比是需要新增的哪些是需要删除的。
+Head 部分处理来说相对比较简单，可以通过拿到新旧两个 Head，然后循环对比每个标签的 **outerHTML**，用来判断哪些比是需要新增的哪些是需要删除的。
 
 ## 结尾
 

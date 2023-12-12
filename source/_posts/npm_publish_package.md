@@ -7,15 +7,15 @@ keywords: npm,npm pushlish,github actions,release
 toc: false
 ---
 
-还在手动 `npm publish` 发布 `npm` ？ 还在手动更新版本创建发布 `Github Release` ？还在手动添加 `Changelog`？是时候利用  `CI/CD` 解放双手啦。常见的 `CI/CD` 有很多，比如 Jenkins、GitLab CI、CircleCI 、Github Actions 等。本文主要是通过 `Github Actions` 来自动化处理 `npm` 包管理。
+还在手动 **npm publish** 发布 **npm** ？ 还在手动更新版本创建发布 **Github Release** ？还在手动添加 **Changelog**？是时候利用  **CI/CD** 解放双手啦。常见的 **CI/CD** 有很多，比如 Jenkins、GitLab CI、CircleCI 、Github Actions 等。本文主要是通过 **Github Actions** 来自动化处理 **npm** 包管理。
 
 ## Github Actions 
-`GitHub Actions` 距离推出已经好几年了，相信小伙伴们没用过，也听说过。`GitHub Actions` 不仅仅是能自动执行生成、测试和部署操作，还允许您在存储库中发生其他事件时运行工作流程。 例如，您可以运行工作流程，以便在有人在您的存储库中创建新问题时自动添加相应的标签。而且 GitHub 提供 Linux、Windows 和 macOS 多种虚拟机来运行工作流程，可以更具项目选择合适的虚拟机环境。
+**GitHub Actions** 距离推出已经好几年了，相信小伙伴们没用过，也听说过。**GitHub Actions** 不仅仅是能自动执行生成、测试和部署操作，还允许您在存储库中发生其他事件时运行工作流程。 例如，您可以运行工作流程，以便在有人在您的存储库中创建新问题时自动添加相应的标签。而且 GitHub 提供 Linux、Windows 和 macOS 多种虚拟机来运行工作流程，可以更具项目选择合适的虚拟机环境。
 
-`GitHub Actions` 其实主要步骤只有两个，`event` (事件触发时机)、`jobs`（工作流程）。如果还不熟悉 `GitHub Actions`，可以[参考文档](https://docs.github.com/zh/actions)对其大致使用有个了解。
+**GitHub Actions** 其实主要步骤只有两个，**event** (事件触发时机)、**jobs**（工作流程）。如果还不熟悉 **GitHub Actions**，可以[参考文档](https://docs.github.com/zh/actions)对其大致使用有个了解。
 
 ## 发布 Npm 
-在本地发布 npm 包都是本地打包成组件后，登录 npm 账号运行 npm publish 发布。使用 `GitHub Actions` 来发布 `npm` 可以使用 `Npm Access Tokens`，可以更据需要分配 `Tokens` 权限，不需要使用账号密码登录。
+在本地发布 npm 包都是本地打包成组件后，登录 npm 账号运行 npm publish 发布。使用 **GitHub Actions** 来发布 **npm** 可以使用 **Npm Access Tokens**，可以更据需要分配 **Tokens** 权限，不需要使用账号密码登录。
 
 ### Github Actions 发布 Npm
 
@@ -57,7 +57,7 @@ on:
 
 本文就以为推送 Tag 触发为例：
 
-在你项目下添加 `.github\workflows\publish.yml` 文件，内容如下
+在你项目下添加 **.github\workflows\publish.yml** 文件，内容如下
 
 ``` yaml
 name: NPM Publish
@@ -67,7 +67,7 @@ on:
       - "v*"
 ```
 #### 代码拉取和Node配置
-在 `jobs` 添加一个名为 `build` 的 job，配置 `build` 的环境和拉取代码。`runs-on: ubuntu-latest` 配置虚拟机为 `ubuntu`，使用官方提取代码拉取和 配置 Node 的 Actions，更多 [官方提供 Actions](https://github.com/actions)
+在 **jobs** 添加一个名为 **build** 的 job，配置 **build** 的环境和拉取代码。**runs-on: ubuntu-latest** 配置虚拟机为 **ubuntu**，使用官方提取代码拉取和 配置 Node 的 Actions，更多 [官方提供 Actions](https://github.com/actions)
 
 ``` yaml
 jobs:
@@ -82,16 +82,16 @@ jobs:
           cache: yarn
 ```
 #### 配置环境密钥
-添加环境变量，在你项目 => Settings => Secrets and variables => Actions 中 添加你的密钥，名称随意取，密钥值为你上面生成的 `Npm Access Tokens`。
+添加环境变量，在你项目 => Settings => Secrets and variables => Actions 中 添加你的密钥，名称随意取，密钥值为你上面生成的 **Npm Access Tokens**。
 
 例如：
 Name => NPM_TOKEN
-Secret => 你的 `Npm Access Tokens`
+Secret => 你的 **Npm Access Tokens**
 
 
 #### 发布 Npm
 
-`build` 的 job 中，添加发布 Npm 操作，利用 NPM_TOKEN 发布 npm 包
+**build** 的 job 中，添加发布 Npm 操作，利用 NPM_TOKEN 发布 npm 包
 ``` yaml
     steps:
       - name: Npm Publish
@@ -101,7 +101,7 @@ Secret => 你的 `Npm Access Tokens`
 ```
 到此时，当你推送一个以 v开头 tag 到仓库时，就会执行这个 publish.yml，这个 Action 会将当前仓库发布到 Npm 了。
 
-当然你的包可能还需要执行一些构建操作等等，你可以在 `run` 里执行多条命令
+当然你的包可能还需要执行一些构建操作等等，你可以在 **run** 里执行多条命令
 
 ``` yaml
 run: |
@@ -112,9 +112,9 @@ run: |
 
 ### 区分 Beta 和 latest
 
-默认情况下 `npm publish` 发布时正式包，如果需要测试包需要执行 `npm publish --tag beta`。利用 git tag 我们可以将 v1.0.2 格式发为正式包，将 v1.0.2-beta.1 格式发布测试包。
+默认情况下 **npm publish** 发布时正式包，如果需要测试包需要执行 **npm publish --tag beta**。利用 git tag 我们可以将 v1.0.2 格式发为正式包，将 v1.0.2-beta.1 格式发布测试包。
 
-修改 publish 流程，`Github Action` 支持 `if` 操作，并不支持 `else`，只能通过如下模拟 `if else` 操作。
+修改 publish 流程，**Github Action** 支持 **if** 操作，并不支持 **else**，只能通过如下模拟 **if else** 操作。
 
 ``` yaml
     steps:
@@ -158,7 +158,7 @@ if (process.env.RELEASE_VERSION) {
 ```
 
 ### 创建发布 Github Release
-官方 `actions/create-release` 不在维护，推荐如下 Actions，可以结合需要选择，你也可以去前往 [marketplace](https://github.com/marketplace) 选择更多 Actions。
+官方 **actions/create-release** 不在维护，推荐如下 Actions，可以结合需要选择，你也可以去前往 [marketplace](https://github.com/marketplace) 选择更多 Actions。
 
 * [elgohr/Github-Release-Action](https://github.com/elgohr/Github-Release-Action)
 * [marvinpinto/action-automatic-releases](https://github.com/marvinpinto/action-automatic-releases)
@@ -166,7 +166,7 @@ if (process.env.RELEASE_VERSION) {
 * [ncipollo/release-action](https://github.com/ncipollo/release-action)
 
 
-很多创建 `Release` 的 `Actions`，并不会将你的提交自动生成发版说明，所以我编写了一个发布 `Release` 的 `Actions`，具体实现参考 [MaLuns/add-release](https://github.com/MaLuns/add-release) 以满足我的需求。Github 为我们提供 [`actions/toolkit`](https://github.com/actions/toolkit) 帮助我们简化了很多操作。
+很多创建 **Release** 的 **Actions**，并不会将你的提交自动生成发版说明，所以我编写了一个发布 **Release** 的 **Actions**，具体实现参考 [MaLuns/add-release](https://github.com/MaLuns/add-release) 以满足我的需求。Github 为我们提供 [**actions/toolkit**](https://github.com/actions/toolkit) 帮助我们简化了很多操作。
 
 简单描述如何实现：
 
