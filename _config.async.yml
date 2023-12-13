@@ -29,15 +29,10 @@ top_bars:
     url: /links/
   #- title: 树洞
   #  url: /comment/
+  - title: menu.projects
+    url: /projects/
   - title: menu.about
     url: /about/
-    children:
-      - title: menu.projects
-        url: /projects/
-      - title: menu.forever
-        url: https://foreverblog.cn/go.html
-        noswup: true
-        target: _blank
 
 # 横幅配置
 banner:

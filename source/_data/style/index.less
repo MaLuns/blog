@@ -10,16 +10,18 @@
 :root {
     .var-primary(#6062ce, #7a89df);
 
-    --selection-bg-color: #1f2d3d;
-    --selection-color   : #f1f1f1;
-    --body-color        : #1f2d3d;
+    --selection-bg-color : #1f2d3d;
+    --selection-color    : #f1f1f1;
+    --body-color         : #1f2d3d;
+    --card-cover-bg-color: #c4d6f56b;
 
     &.dark {
         .var-primary(#6062ce, #7a89df);
 
-        --selection-bg-color: #f1f1f1;
-        --selection-color   : #1f2d3d;
-        --body-color        : #f1f1f1b3;
+        --selection-bg-color : #f1f1f1;
+        --selection-color    : #1f2d3d;
+        --body-color         : #f1f1f1b3;
+        --card-cover-bg-color: #102027;
 
         .trm-avatar {
             filter      : invert(0.9);
@@ -30,6 +32,11 @@
         .trm-publication svg {
             filter: brightness(.7);
         }
+
+        .trm-banner .trm-banner-cover {
+            filter: blur(30px);
+        }
+
     }
 }
 
@@ -110,7 +117,6 @@ body {
 .trm-label {
     font-size: 12px;
 }
-
 
 .trm-left-side h6 {
     font-size: 1.2rem;
