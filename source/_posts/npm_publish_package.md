@@ -2,7 +2,7 @@
 title: 2023年，还在手动发布 npm 包？
 date: 2023-02-10 10:50:55
 tags: [npm]
-categories: 记录类
+categories: 创作类
 keywords: npm,npm pushlish,github actions,release
 toc: false
 ---

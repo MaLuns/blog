@@ -3,7 +3,7 @@ title: hexo 在线编辑器
 date: 2023-04-06 21:48:58
 tags:
 description:
-categories: 记录类
+categories: 创作类
 keywords: hexo,hexo 编辑器
 toc: false
 ---
