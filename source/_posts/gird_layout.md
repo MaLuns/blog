@@ -448,8 +448,111 @@ moveing.value
   : {};
 ```
 
+### 拖拽调整大小
+
+调整大小和调整位置计算类似，只不过一个是计算坐标一个计算行列。
+
+首先是能让元素可以进行拖拽，很多拖拽调整大小的都是在元素里添加几个拖拽节点元素，然后在监听拖拽节点鼠标事件去计算大小位置等。但是我这里需求比较简单，就不需要做的那么复杂，直接通过 css 让元素可以支持调整大小。
+
+```css
+.preview-item {
+  overflow: auto;
+  resize: both;
+}
+```
+
+添加样式后，可以看到元素可调整样式
+
+![resize](/images/posts/grid_layout/resize.png)
+
+监听元素大小调整方式有两种
+
+-   通 **ResizeObserver API** 监听，但是这个 API 还会监听到其他因数引起变动，比如窗口大小变动，导致元素变动等等。
+-   使用 **mousedown**、**mousemove**、**mouseup** 组合使用，监听鼠标事件，但是这个会存在与拖放事件同时触发问题。
+
+两种方式都可以实现，但是都有需要解决问题，我这里选择了第二种方式实现。
+
+大概实现就是在 PreviewItem 中监听 **mousedown** 事件，在 **mousemove** 中获取元素宽度大小实时计算宽度大小就可以。需要注意的是在 **mouseup** 中要重置 size 信息避免改变原有元素大小。
+
+```ts
+const onMousedown = (e) => {
+  dragStore.set(props.groupName, props.data);
+  emits("resize-start");
+  resizeing.value = true;
+
+  e.target.onmousemove = function (event) {
+    emits("resizeing", {
+      width: event.target.offsetWidth,
+      height: event.target.offsetHeight,
+    });
+  };
+
+  e.target.onmouseup = function (event) {
+    unset(event.target);
+    emits("resize-end");
+    event.target.style.width = "100%";
+    event.target.style.height = "100%";
+    dragStore.remove(props.groupName);
+  };
+};
+
+const unset = (target) => {
+  resizeing.value = false;
+  target.onmousemove = null;
+  target.onmouseup = null;
+};
+```
+
+在 DropContent 通过上面抛出信息，计算大小改变，然后设置拖拽时样式动态查看当前占位大小。
+
+```ts
+// 调整大小开始
+const onResizeStart = () => {
+  const dragData = dragStore.get(props.groupName);
+  if (dragData) {
+    current.column = dragData.column;
+    current.row = dragData.row;
+    current.x = dragData.x;
+    current.y = dragData.y;
+    current.id = dragData.id;
+    current.show = true;
+  }
+};
+
+// 调正大小时
+const onResizeing = (e) => {
+  const dragData = dragStore.get(props.groupName);
+  current.column = getColumn(e.width);
+  current.row = getRow(e.height);
+};
+
+// 调整大小结束
+const onResizeEnd = async () => {
+  current.show = false;
+  const dragData = dragStore.get(props.groupName);
+  if (
+    isPutDown.value &&
+    (await props.beforeDrop(
+      {
+        ...dragData,
+        column: current.column,
+        row: current.row,
+      },
+      list.value
+    ))
+  ) {
+    dragData.column = current.column;
+    dragData.row = current.row;
+  }
+};
+```
+
+实现效果：
+
+![resize_demo](/images/posts/grid_layout/resize_demo.png)
+
 ## 结语
 
-到目前为止基本上的 Grid 拖拽布局大致实现了，已经满足基本业务需求了，当然有需要朋友还可以在上面增加支持拖拉调整大小、碰撞后自动调整位置等等。
+到目前为止基本上的 Grid 拖拽布局大致实现了，已经满足基本业务需求了，当然有需要朋友还可以在上面增加碰撞后自动调整位置等等。
 
 完整源码在此，[在线体验](https://stackblitz.com/edit/vitejs-vite-rkwugn)
