@@ -1,0 +1,52 @@
+.twikoo(@color: #000000; @bgColor: #ffffff) {
+    .tk-admin {
+        color           : @color  !important;
+        background-color: @bgColor  !important;
+        backdrop-filter : unset !important;
+
+        .tk-panel {
+            color: @color  !important;
+
+            .tk-tabs {
+                margin: 1rem 0 !important;
+            }
+
+            .tk-tab.__active {
+                color        : @color  !important;
+                border-bottom: unset !important;
+            }
+        }
+
+        .tk-panel-logout,
+        .tk-admin-comment-filter-type {
+            color: @color  !important;
+        }
+
+        .tk-login,
+        .tk-regist {
+            margin: 0 0 0 40px;
+        }
+
+        details {
+            padding: 0 !important;
+            border : unset !important;
+
+            summary {
+                padding: 0 !important;
+                margin : 0 !important;
+            }
+        }
+
+        .tk-admin-close {
+            fill: @color;
+        }
+    }
+}
+
+:root {
+    .twikoo();
+
+    &.dark {
+        .twikoo(#ffffff, #494949);
+    }
+}

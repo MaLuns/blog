@@ -154,6 +154,8 @@ toc:
 
 assets:
   third_party_provider: https://npm.elemecdn.com
+  plugin:
+    twikoo: https://npm.elemecdn.com/twikoo@1.6.11/dist/twikoo.all.min.js
   icons: 
     type: symbol 
     css:
@@ -219,3 +221,8 @@ datetime_foramt:
   archive:
     date: YY/MM/DD
     time: HH:mm
+
+comment:
+  twikoo:
+    enable: true
+    envId: https://twikoo.imalun.com
