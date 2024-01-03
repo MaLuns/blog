@@ -7,7 +7,7 @@ description:
 keywords: grid,拖拽布局，vue
 ---
 
-最近有个需求需要实现自定义首页布局，需要将屏幕按照 6 列 4 行进行等分成多个格子，然后将组件可拖拽对应格子进行渲染展示。
+最近有个需求需要实现自定义首页布局，需要将屏幕按照 6 列 4 行进行等分成多个格子，然后将组件拖拽对应格子进行渲染展示。
 
 ![](/images/posts/grid_layout/demo.png)_示例_
 
@@ -56,9 +56,9 @@ keywords: grid,拖拽布局，vue
 
 ### 可拖拽元素
 
-让一个元素能够拖拽只需要给元素设置 **draggable="true"** 即可拖拽，拖拽事件 API 提供了 **DataTransfer** 对象，可以用于设置拖拽数据信息，但是仅仅只能 **drop** 事件中获取到，但是我们需要在拖拽中就需要获取到拖拽信息，用来显示拖拽时样式，所以需要我们自己存储起来，以便读取。
+让一个元素能够拖拽只需要给元素设置 **draggable="true"** 即可拖拽，拖拽事件 API 提供了 **DataTransfer** 对象，可以用于设置拖拽数据信息，但是仅仅只能 **drop** 事件中获取到。因为我们需要在拖拽中就需要获取到拖拽信息，用来显示拖拽时样式，所以需要自己处理这些信息存储起来，以便读取。
 
-需要处理主要是，在拖拽时将 将当前元素信息设置到 **dragStore** 中，结束时清空当前信息
+需要处理主要是，在拖拽时将 将当前元素信息设置到 **dragStore** 中，结束时清空当前信息。
 
 ```html
 <script setup lang="ts">
@@ -77,7 +77,7 @@ keywords: grid,拖拽布局，vue
 </template>
 ```
 
-封装一个存储方法，然后通过配置相同 key ，可以在同时存在多个放置区域时候，区分开来。
+封装一个存储方法，通过配置相同 key ，可以在同时存在多个放置区域时候，区分开来。
 
 ```ts
 class DragStore<T extends DragItemData> {
@@ -99,7 +99,7 @@ class DragStore<T extends DragItemData> {
 
 ### 可放置区域
 
-首先时需要告诉浏览器当前区域是可以放置的，只需要在元素监听 **dragenter**、**dragleave**、**dragover** 事件即可，然后通过 **preventDefault** 来阻止浏览器默认行为。可以在这三个事件中处理判断当前位置是否可以放置等等。
+首先是需要告诉浏览器当前区域是可以放置的，只需要在元素监听 **dragenter**、**dragleave**、**dragover** 事件即可，然后通过 **preventDefault** 来阻止浏览器默认行为。可以在这三个事件中处理判断当前位置是否可以放置等等。
 
 示例：
 
@@ -125,7 +125,7 @@ class DragStore<T extends DragItemData> {
 </template>
 ```
 
-上面的代码已经可以让，元素可以拖拽，然后当元素拖到可防止区域时候，可以看到鼠标样式会变为可放置样式了。
+上面的代码已经可以让，元素可以拖拽，当元素拖到可防止区域时候，可以看到鼠标样式会变为可放置样式了。
 
 ## Grid 布局
 
@@ -133,7 +133,7 @@ class DragStore<T extends DragItemData> {
 
 ### 计算 Grid 格子大小
 
-我这里直接使用了 **@vueuse/core** 的 **useElementSize** 的 hooks 去获取容器元素大小变动，也可以自己通过 **ResizeObserver** 去监听元素变动，然后根据设置列数、行数、间隔去计算单个格子大小。
+我这里直接使用了 **@vueuse/core** 的 **useElementSize** 的 hooks 去获取容器元素大小变动，也可以自己通过 **ResizeObserver** 去监听元素变动。接着根据设置列数、行数、间隔去计算单个格子大小。
 
 ```ts
 import { useElementSize } from "@vueuse/core";
@@ -194,7 +194,7 @@ export const useBoxSize = (target: Ref<HTMLElement | undefined>, column: number,
 
 ### 拖拽位置计算
 
-当元素拖拽进容器中时，我们可以通过 **offsetX**、**offsetY**两个数据获取当前鼠标距离容器左上角位置距离，我们可以根据这两个值计算出对应的在 Grid 中做坐标。
+当元素拖拽进容器中时，我们可以通过 **offsetX**、**offsetY** 两个数据获取当前鼠标距离容器左上角位置距离，我们可以根据这两个值计算出对应的在 Grid 中做坐标。
 
 计算方式：
 
