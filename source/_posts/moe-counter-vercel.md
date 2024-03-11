@@ -8,7 +8,7 @@ categories:
 keywords: 计数器，统计，moe-count
 ---
 
-因为 Moe-Counter 经常会出现无法访问的情况，于是基于 vercel + mongodb 自建了个。
+因为 Moe-Counter 经常会出现无法访问的情况，于是基于 vercel + mongodb 自建了计数器。
 
 <!-- more -->
 
