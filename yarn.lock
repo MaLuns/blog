@@ -878,10 +878,10 @@ hexo-server@^3.0.0:
     picocolors "^1.0.0"
     serve-static "^1.14.1"
 
-hexo-theme-async@^2.1.8:
-  version "2.1.8"
-  resolved "https://registry.npmmirror.com/hexo-theme-async/-/hexo-theme-async-2.1.8.tgz#9b07e987ab57c6fb744d5e1d1fdf52a9c2da0410"
-  integrity sha512-x3AfiC2V8T3m/LmgPpBBvfUJDhw8kftN5PNtd9DtMDDO+CY4iskq1twZwaKTKizoFOlj2z/cSShyJ1MXuUk6HQ==
+hexo-theme-async@^2.1.11:
+  version "2.1.11"
+  resolved "https://registry.yarnpkg.com/hexo-theme-async/-/hexo-theme-async-2.1.11.tgz#92a9f0beb573928367f83acee92f24f112296c1c"
+  integrity sha512-j5UA6JhQLq/A7rm30CrPSnZC5GXLEEMR1ObcnmPvACdgByKyUCnPTl57bqVGHG4rrOODAJ03qqoImWu2fueEBg==
 
 hexo-util@^2.0.0, hexo-util@^2.1.0, hexo-util@^2.7.0:
   version "2.7.0"

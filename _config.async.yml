@@ -210,6 +210,8 @@ layout:
   fixed_btn: async/fixed-btn
   header_search: async/empty
   post_card: async/post-card
+  comment: async/comment
+  script: async/script
 
 datetime_foramt:
   post_card:
@@ -221,8 +223,3 @@ datetime_foramt:
   archive:
     date: YY/MM/DD
     time: HH:mm
-
-comment:
-  twikoo:
-    enable: true
-    envId: https://twikoo.imalun.com

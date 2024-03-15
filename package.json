@@ -27,6 +27,6 @@
     "hexo-renderer-marked": "^6.1.1",
     "hexo-renderer-pug": "^3.0.0",
     "hexo-server": "^3.0.0",
-    "hexo-theme-async": "^2.1.8"
+    "hexo-theme-async": "^2.1.11"
   }
 }

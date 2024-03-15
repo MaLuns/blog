@@ -1,0 +1,39 @@
+<%- js({src: theme.assets.plugin.twikoo,'data-swup-reload-script': true, 'data-reset' :'true' }) %>
+    <script src="/danmu.js"></script>
+    <%- partial('./_partial/script') %>
+
+        <script data-swup-reload-script>
+            twikoo.init({
+                envId: "https://twikoo.imalun.com",
+                el: '#tcomment'
+            }).then(function () {
+                let container = document.querySelector('body>.tk-admin-container')
+                if (container) container.remove()
+                container = document.querySelector('.tk-admin-container')
+                if (container) document.body.append(container)
+            })
+
+            twikoo.getRecentComments({
+                envId: 'https://twikoo.imalun.com',
+                urls: [location.pathname].filter(i => i !== '/'),
+                pageSize: 30,
+                includeReply: false
+            }).then(function (res) {
+                const danmuku = new DanMuKu({
+                    el: ".trm-banner",
+                    speed: 60,
+                    gapWidth: 20
+                })
+                
+                danmuku.pushData(res.map((item, i) => ({
+                    id: i + 1,
+                    url: item.url,
+                    text: item.commentText,
+                    avatar: item.avatar,
+                })))
+
+            }).catch(function (err) {
+                // 发生错误
+                console.error(err)
+            })
+        </script>
