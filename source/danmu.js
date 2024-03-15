@@ -152,10 +152,11 @@ class DanMuKu {
             background-color: var(--danmu-bg-color,#fff);
             color: var(--danmu-color,#000);
             border-radius: 32px;
-            padding: 2px 8px 2px 4px;
+            padding: 4px 8px 4px 4px;
             align-items: center; `
         danmuEl.innerHTML = `
-            <img class="danmu-avatar" style="width:${this.height - 4}px;height:${this.height - 4}px;border-radius:50%;margin-right:6px;" src="${item.avatar}">
+            <img class="danmu-avatar" style="
+            display: inline-block;width:${this.height - 8}px;height:${this.height - 8}px;border-radius:50%;margin-right:6px;" src="${item.avatar}">
             <div class="danmu-text" style="text-wrap:nowrap;overflow:hidden;text-overflow:ellipsis;">${item.text}</div>`
         parent.appendChild(danmuEl)
 
