@@ -97,7 +97,7 @@ footer:
     prefix: footer.tips
     start_time: 11/19/2019 17:00:00 #计时开始时间
   #
-  custom_text: 
+  custom_text: <a href="https://blogscn.fun/" title="BLOGS·CN" target="_blank" rel="nofollow"> <img src="https://photo.xiangming.site/img/blogscn.png" alt="本站已加入BLOGS·CN" style="width:auto;height:15px;"> </a>
 
 # 开启 Service Worker
 sw: true

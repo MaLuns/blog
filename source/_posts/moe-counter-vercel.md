@@ -4,7 +4,7 @@ comment: true
 date: 2024-03-07 16:39:09
 tags:
 description: 手把手教你自建免费 Moe-Counter 计数器
-categories:
+categories: 创作类
 keywords: 计数器，统计，moe-count
 ---
 
