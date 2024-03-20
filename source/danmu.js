@@ -93,7 +93,7 @@ class DanMuKu {
     }
 
     _pushOne(data) {
-        const lens = this.dataList.map(item => item.lenght)
+        const lens = this.dataList.map(item => item.length)
         const min = Math.min(...lens)
         const index = lens.findIndex(i => i === min)
         this.dataList[index].push(data)
