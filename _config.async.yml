@@ -36,6 +36,10 @@ top_bars:
 
 # 横幅配置
 banner:
+  danmu:
+    enable: true
+		avatar: true
+		speed: 80
   default:
     type: video
     bgurl: //cdn.moji.com/websrc/video/autumn20190924.mp4
