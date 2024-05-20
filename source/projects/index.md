@@ -37,6 +37,10 @@ banner:
             <img class="trm-light-icon" style="width:100%" src="https://github-readme-stats.eurkon.com/api/pin/?username=Maluns&hide_border=true&repo=generate-vue-docs&theme=flag-india"/>
             <img class="trm-dark-icon" style="width:100%" src="https://github-readme-stats.eurkon.com/api/pin/?username=Maluns&hide_border=true&repo=generate-vue-docs&theme=cobalt"/>
         </a>
+        <a class="" target="_parent" href="https://github.com/MaLuns/vitepress-theme-async">
+            <img class="trm-light-icon" style="width:100%" src="https://github-readme-stats.eurkon.com/api/pin/?username=Maluns&hide_border=true&repo=vitepress-theme-async"/>
+            <img class="trm-dark-icon" style="width:100%" src="https://github-readme-stats.eurkon.com/api/pin/?username=Maluns&hide_border=true&repo=vitepress-theme-async&theme=cobalt"/>
+        </a>
     </div>
     <div class="col-lg-6" style="padding-right: 4px;padding-left: 4px;">
         <a class="" target="_parent" href="https://github.com/MaLuns/wallhaven-electron">
@@ -58,6 +62,10 @@ banner:
         <a class="" target="_parent" href="https://github.com/MaLuns/vite-plugin-mock-server-plus">
             <img class="trm-light-icon" style="width:100%" src="https://github-readme-stats.eurkon.com/api/pin/?username=Maluns&hide_border=true&repo=vite-plugin-mock-server-plus"/>
             <img class="trm-dark-icon" style="width:100%" src="https://github-readme-stats.eurkon.com/api/pin/?username=Maluns&hide_border=true&repo=vite-plugin-mock-server-plus&theme=cobalt"/>
+        </a>
+         <a class="" target="_parent" href="https://github.com/MaLuns/moe-counter-vercel">
+            <img class="trm-light-icon" style="width:100%" src="https://github-readme-stats.eurkon.com/api/pin/?username=Maluns&hide_border=true&repo=moe-counter-vercel&theme=flag-india"/>
+            <img class="trm-dark-icon" style="width:100%" src="https://github-readme-stats.eurkon.com/api/pin/?username=Maluns&hide_border=true&repo=moe-counter-vercel&theme=cobalt"/>
         </a>
     </div>
 </div>
