@@ -14,6 +14,7 @@
     --selection-color    : #f1f1f1;
     --body-color         : #1f2d3d;
     --card-cover-bg-color: #c4d6f56b;
+    --card-bg-img        : url(/images/foggy-birds.png);
 
     &.dark {
         .var-primary(#6062ce, #7a89df);
@@ -22,6 +23,7 @@
         --selection-color    : #1f2d3d;
         --body-color         : #f1f1f1b3;
         --card-cover-bg-color: #102027;
+        --card-bg-img        : none;
 
         .trm-avatar {
             filter      : invert(0.9);
@@ -134,7 +136,7 @@ body {
 .trm-timeline-content,
 .trm-blog-categories,
 footer {
-    background-image: url(/images/foggy-birds.png);
+    background-image: var(--card-bg-img);
 }
 
 .trm-read-mode {
@@ -144,4 +146,8 @@ footer {
     .trm-banner .trm-banner-content.trm-overlay .trm-banner-text h1 {
         background-image: url(/images/texture.png);
     }
+}
+
+.trm-breadcrumbs {
+    backdrop-filter: blur(20px);
 }
