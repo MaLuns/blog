@@ -76,8 +76,8 @@ sidebar:
     - icon: icon-gitee
       url: https://gitee.com/ml13
       name: Gitee
-    - icon: icon-weibo
-      url: https://weibo.com/u/5022481764
+    - icon: icon-bilibili
+      url: https://space.bilibili.com/12763040/channel/seriesdetail?sid=3170241
       name: Weibo
     - icon: icon-rss
       url: atom.xml
@@ -163,7 +163,7 @@ assets:
   icons: 
     type: symbol 
     css:
-    js: //at.alicdn.com/t/c/font_3637590_i4hyyea14ur.js
+    js: //at.alicdn.com/t/c/font_3637590_4boamrmcaa6.js
 
 icons:
   # 主题切换图标
