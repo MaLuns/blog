@@ -6,6 +6,7 @@ description:
 categories: 创作类
 keywords: hexo,hexo 编辑器
 toc: false
+cover: /images/posts/web_hexo_editor/hexo_editor_demo.png
 ---
 
 开源了一款 Hexo 在线编辑器，提供在线编写 Hexo 方式。目前已实现对本地 Hexo 编辑维护

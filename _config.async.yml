@@ -7,7 +7,7 @@ user:
   domain: https://www.imalun.com
   avatar: https://www.imalun.com/images/avatar.jpg?v=1
   describe: 醒，亦在人间；梦，亦在人间。
-  ruleText: <br/>暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，部署HTTPS。
+  ruleText: <br/>暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，独立域名并且部署HTTPS。
 
 # 图标
 favicon:
@@ -115,7 +115,8 @@ webAnalytics:
   baidu: bbad9d8e1fd8e044d365c2ce0d114c73
 
 cover:
-  type: date
+  type: img
+  default: /images/logo/def_post_cover.png
 
 # 查询
 search:
@@ -213,7 +214,7 @@ post_pagination:
 layout:
   fixed_btn: async/fixed-btn
   header_search: async/empty
-  post_card: async/post-card
+  # post_card: async/post-card
   comment: async/comment
   script: async/script
 

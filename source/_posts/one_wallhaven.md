@@ -6,6 +6,7 @@ tags: [electron]
 description:
 categories: 创作类
 keywords: 壁纸程序,electron
+cover: /images/posts/onewallhaven/onewallhaven.png
 ---
 
 基于 Electron + vue  的一个壁纸程序

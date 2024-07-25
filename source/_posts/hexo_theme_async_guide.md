@@ -7,6 +7,7 @@ description:
 categories: 记录类
 keywords:
 sticky: 1
+cover: https://hexo-theme-async.imalun.com/imgs/demo2.png
 ---
 
 ![demo](https://hexo-theme-async.imalun.com/imgs/demo2.png)_预览图_
