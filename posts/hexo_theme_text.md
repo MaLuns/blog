@@ -16,7 +16,7 @@ keywords: hexo,hexo主题,hexo-theme
 
 进入主题目录后，克隆此仓库
 
-``` git
+``` bash
 cd themes
 git clone https://github.com/MaLuns/hexo-theme-text
 ```

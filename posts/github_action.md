@@ -108,7 +108,7 @@ jons:
         hexo generate
         hexo deploy
 ```
-Github 每个仓库都是可以设置 **Deploy keys** 的， 用来可以操作单个仓库的。我们需要生成一个 **SSH Key** ，将公钥添加到 Setting => Deploy 里， 将私钥 Setting => Secrets => Actions 里。这样就可以在 工作流中 **{{ secrets.XXXXX }}** 获取到 **Secrets** 配置变量。我这里使用名称是 **HEXO_DEPLOY_PRI** 。
+Github 每个仓库都是可以设置 **Deploy keys** 的， 用来可以操作单个仓库的。我们需要生成一个 **SSH Key** ，将公钥添加到 Setting => Deploy 里， 将私钥 Setting => Secrets => Actions 里。这样就可以在 工作流中 **secrets.XXXXX** 获取到 **Secrets** 配置变量。我这里使用名称是 **HEXO_DEPLOY_PRI** 。
 
 
 ## Git submodule

@@ -46,6 +46,11 @@ onMounted(() => {
         <template #page-content-bottom>
             <Comment v-if="frontmatter.comments !== false" />
         </template>
+        <template #footer-content-after>
+            <a href="https://blogscn.fun/" title="BLOGS·CN" target="_blank" rel="nofollow"> <img
+                    src="https://photo.xiangming.site/img/blogscn.png" alt="本站已加入BLOGS·CN"
+                    style="width:auto;height:15px;"> </a>
+        </template>
     </Layout>
     <component :is="'script'" src="https://lib.baomitu.com/twikoo/1.6.39/twikoo.min.js" crossorigin="anonymous"
         @load="initTwikoo"></component>

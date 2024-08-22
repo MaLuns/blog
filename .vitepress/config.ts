@@ -114,7 +114,7 @@ export default defineConfig({
     links: links,
     rightside: {
       readmode: true,
-      aside: true,
+      aside: false,
     },
     outline: {
       level: [2, 6],
@@ -127,28 +127,14 @@ export default defineConfig({
     },
     rss: {
       enable: true,
-      baseUrl: "http://localhost:5173/",
+      baseUrl: "https://www.imalun.com",
       fileName: "atom.xml",
     },
     noticeOutdate: {
       enable: true,
     },
-  },
-  markdown: {
-    config(md) {
-      function aaa() {
-        md.block.ruler.push("demo11", function (state) {
-          console.log(state);
-
-          return false;
-        });
-
-        md.renderer.rules.demo11 = function (tokens, idx, options, env, self) {
-          return `<div class="myblock">xxxxxx</div>`;
-        };
-      }
-
-      md.use(aaa);
+    search: {
+      provider: "local",
     },
   },
 });
