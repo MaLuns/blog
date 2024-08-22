@@ -5,7 +5,6 @@ export default defineConfig({
   srcDir: "./",
   title: "白云苍狗",
   titleTemplate: ":title - 白云苍狗的小站",
-  outDir: "./dist",
   cleanUrls: true,
   themeConfig: {
     author: "白云苍狗",
