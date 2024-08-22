@@ -3,6 +3,9 @@ import links from "./data/links.json";
 
 export default defineConfig({
   srcDir: "./",
+  rewrites: {
+    "posts/:path": ":path",
+  },
   title: "白云苍狗",
   titleTemplate: ":title - 白云苍狗的小站",
   cleanUrls: true,
