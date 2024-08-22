@@ -1,32 +1,23 @@
 {
-  "name": "maluns-blog",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "build": "hexo generate",
-    "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "color": "hexo color",
-    "new": "hexo new",
-    "start": "hexo server --draft"
-  },
-  "hexo": {
-    "version": "7.0.0"
-  },
-  "dependencies": {
-    "hexo": "^7.0.0",
-    "hexo-generator-archive": "^2.0.0",
-    "hexo-generator-category": "^2.0.0",
-    "hexo-generator-feed": "^3.0.0",
-    "hexo-generator-index": "^3.0.0",
-    "hexo-generator-searchdb": "^1.4.1",
-    "hexo-generator-sitemap": "^3.0.1",
-    "hexo-generator-tag": "^2.0.0",
-    "hexo-renderer-ejs": "^2.0.0",
-    "hexo-renderer-less": "^4.0.0",
-    "hexo-renderer-marked": "^6.1.1",
-    "hexo-renderer-pug": "^3.0.0",
-    "hexo-server": "^3.0.0",
-    "hexo-theme-async": "latest"
-  }
+	"name": "vitepress-blog",
+	"version": "1.0.0",
+	"private": true,
+	"author": "白云苍狗",
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"dev": "vitepress dev ./",
+		"build": "vitepress build ./",
+		"preview": "vitepress preview ./"
+	},
+	"dependencies": {
+		"vitepress-theme-async": "v0.0.9"
+	},
+	"directories": {
+		"doc": "docs"
+	},
+	"devDependencies": {
+		"typescript": "^5.1.6",
+		"vitepress": "^1.3.3"
+	}
 }
