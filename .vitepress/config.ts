@@ -3,7 +3,9 @@ import links from "./data/links.json";
 
 export default defineConfig({
   srcDir: "./",
-  titleTemplate: ":title - 白云苍狗",
+  title: "白云苍狗",
+  titleTemplate: ":title - 白云苍狗的小站",
+  outDir: "../dist",
   cleanUrls: true,
   themeConfig: {
     author: "白云苍狗",
@@ -105,8 +107,6 @@ export default defineConfig({
         prefix: "footer.tips",
         startTime: "11/19/2019 17:00:00",
       },
-      // custom_text:
-      //   '<a href="https://blogscn.fun/" title="BLOGS·CN" target="_blank" rel="nofollow"> <img src="https://photo.xiangming.site/img/blogscn.png" alt="本站已加入BLOGS·CN" style="width:auto;height:15px;"> </a>',
     },
     cover: {
       default: "/images/logo/def_post_cover.png",
@@ -135,6 +135,13 @@ export default defineConfig({
     },
     search: {
       provider: "local",
+    },
+    reward: {
+      methods: [
+        { name: "微信", path: "/images/reward/wx_pay.jpg" },
+        { name: "支付宝", path: "/images/reward/alipay.jpg" },
+        { name: "QQ", path: "/images/reward/qq_pay.jpg" },
+      ],
     },
   },
 });
