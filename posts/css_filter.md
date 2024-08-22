@@ -23,7 +23,7 @@ Saturate ：设置饱和度。
 Invert : 颜色反转。
 Contrast  ：设置对比度。
 
-<style>
+<style module>
     html{
          filter: grayscale(100%); 
         -webkit-filter: grayscale(100%); 
