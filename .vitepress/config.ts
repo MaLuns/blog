@@ -8,6 +8,10 @@ export default defineConfig({
   },
   title: "白云苍狗",
   titleTemplate: ":title - 白云苍狗的小站",
+  description: "这里是白云苍狗的小站，记录着一些日常、作品、笔记、小工具。",
+  sitemap: {
+    hostname: "https://www.imalun.com",
+  },
   cleanUrls: true,
   themeConfig: {
     author: "白云苍狗",
