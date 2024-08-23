@@ -20,19 +20,22 @@ let danmuku: DanMuKu;
 const initTwikoo = async () => {
     danmuku?.reset()
     //@ts-ignore
-    twikoo && danmuku?.update(config).pushData(await twikoo.getRecentComments({
-        envId: 'https://twikoo.imalun.com',
-        urls: [location.pathname].filter(i => i !== '/'),
-        pageSize: 30,
-        includeReply: false
-    }).then(function (res: any) {
-        return res.map((item: any) => ({
-            id: item.id,
-            url: item.url,
-            text: item.commentText,
-            avatar: item.avatar,
+    if (twikoo && twikoo.getRecentComments) {
+        //@ts-ignore
+        danmuku?.update(config).pushData(await twikoo.getRecentComments({
+            envId: 'https://twikoo.imalun.com',
+            urls: [location.pathname].filter(i => i !== '/'),
+            pageSize: 30,
+            includeReply: false
+        }).then(function (res: any) {
+            return res.map((item: any) => ({
+                id: item.id,
+                url: item.url,
+                text: item.commentText,
+                avatar: item.avatar,
+            }))
         }))
-    }))
+    }
 }
 
 onMounted(() => {
