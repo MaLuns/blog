@@ -28,9 +28,9 @@ export default defineConfig({
     },
     favicon: {
       logo: "https://counter.imalun.com/www.imalun.com?theme=rule34",
-      icon16: "favicon-16x16.png",
-      icon32: "favicon-32x32.png",
-      appleTouchIcon: "apple-touch-icon.png",
+      icon16: "/favicon-16x16.png",
+      icon32: "/favicon-32x32.png",
+      appleTouchIcon: "/apple-touch-icon.png",
       webmanifest: "/site.webmanifest",
       visibilitychange: true,
     },
