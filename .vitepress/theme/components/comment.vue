@@ -7,7 +7,7 @@ const router = useRouter()
 const initTwikoo = async () => {
     try {
         //@ts-ignore
-        twikoo.init({
+        twikoo &&  twikoo.init({
             envId: "https://twikoo.imalun.com",
         }).then(function () {
             let container = document.querySelector('body>.tk-admin-container')
