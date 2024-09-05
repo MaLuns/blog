@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress-theme-async/config";
-import links from "./data/links.json";
+// import links from "./data/links.json";
 
 export default defineConfig({
   srcDir: "./",
@@ -117,7 +117,7 @@ export default defineConfig({
     cover: {
       default: "/images/logo/def_post_cover.png",
     },
-    links: links,
+    links: 'https://api.imalun.com/api/links',
     rightside: {
       readmode: true,
       aside: false,
