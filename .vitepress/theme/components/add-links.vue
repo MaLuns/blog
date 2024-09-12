@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, onMounted, ref } from 'vue'
 
 const data = reactive({
     desc: "",
@@ -7,6 +7,8 @@ const data = reactive({
     name: "",
     url: ""
 })
+
+const count = ref(0)
 
 const addLinks = () => {
     const { desc, image, name, url } = data;
@@ -33,16 +35,23 @@ const addLinks = () => {
         alert('请填写完整信息')
     }
 }
+
+onMounted(() => {
+    fetch('https://api.imalun.com/api/links/re-count',).then(res => res.json()).then(res => {
+        if (res?.code === 0) {
+            count.value = res.data.length
+        }
+    })
+})
 </script>
 <template>
     <div class="trm-card trm-scroll-animation">
         <div class="link-push">
             <div>
                 <p class="link-push-title">友链提交申请</p>
-                <p>申请友链前，请将本站添加到您的友链中</p>
+                <p>申请友链前，请将本站添加到您的友链中 <span v-if="count">({{ count }})</span></p>
             </div>
-            <div class="trm-btn" :class="{ disabled: !data.desc || !data.image || !data.name || !data.url }"
-                @click="addLinks">
+            <div class="trm-btn" :class="{ disabled: !data.desc || !data.image || !data.name || !data.url }" @click="addLinks">
                 提交申请
             </div>
         </div>
