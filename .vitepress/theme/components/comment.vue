@@ -26,9 +26,11 @@ onMounted(() => {
 })
 </script>
 <template>
-    <div class="trm-card trm-scroll-animation comment-container">
-        <div id="twikoo"></div>
-        <component :is="'script'" src="https://lib.baomitu.com/twikoo/1.6.39/twikoo.min.js" crossorigin="anonymous"
-            @load="initTwikoo"></component>
-    </div>
+    <ClientOnly>
+        <div class="trm-card trm-scroll-animation comment-container">
+            <div id="twikoo"></div>
+            <component :is="'script'" src="https://lib.baomitu.com/twikoo/1.6.39/twikoo.min.js" crossorigin="anonymous"
+                @load="initTwikoo"></component>
+        </div>
+    </ClientOnly>
 </template>
