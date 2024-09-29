@@ -15,8 +15,8 @@
 	},
 	"devDependencies": {
 		"feed": "^4.2.2",
-		"vitepress-theme-async": "latest",
 		"typescript": "^5.1.6",
-		"vitepress": "^1.3.3"
+		"vitepress": "^1.3.3",
+		"vitepress-theme-async": "^0.0.20"
 	}
 }

@@ -13,6 +13,12 @@ export default defineConfig({
     hostname: "https://www.imalun.com",
   },
   cleanUrls: true,
+  markdown: {
+    theme: {
+      light: "github-light",
+      dark: "one-dark-pro",
+    },
+  },
   themeConfig: {
     author: "白云苍狗",
     user: {
@@ -23,8 +29,7 @@ export default defineConfig({
       domain: "https://www.imalun.com",
       avatar: "https://www.imalun.com/images/avatar.jpg?v=2",
       describe: "醒，亦在人间；梦，亦在人间。",
-      ruleText:
-        "暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，独立域名并且部署HTTPS。",
+      ruleText: "暂不接受个人博客以外的友链申请，确保您的网站内容积极向上，文章至少30篇，原创70%以上，独立域名并且部署HTTPS。",
     },
     favicon: {
       logo: "https://counter.imalun.com/www.imalun.com?theme=rule34",
@@ -56,6 +61,9 @@ export default defineConfig({
         url: "/about/",
       },
     ],
+    page: {
+      archives: "/archives/",
+    },
     banner: {
       type: "video",
       bgurl: "//cdn.moji.com/websrc/video/autumn20190924.mp4",
@@ -117,7 +125,7 @@ export default defineConfig({
     cover: {
       default: "/images/logo/def_post_cover.png",
     },
-    links: 'https://api.imalun.com/api/links',
+    links: "https://api.imalun.com/api/links",
     rightside: {
       readmode: true,
       aside: false,
@@ -127,9 +135,11 @@ export default defineConfig({
     },
     indexGenerator: {
       perPage: 8,
+      static: true,
     },
     archiveGenerator: {
       dateFmt: "YYYY",
+      static: true,
     },
     rss: {
       enable: true,

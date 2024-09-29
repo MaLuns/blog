@@ -1047,10 +1047,10 @@ vite@^5.4.1:
   optionalDependencies:
     fsevents "~2.3.3"
 
-vitepress-theme-async@latest:
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/vitepress-theme-async/-/vitepress-theme-async-0.0.14.tgz#db092f11c05f3354caa807a4d0e32a8e8fdcd3bf"
-  integrity sha512-sMa3XqXl95JBcvZ9mewzwSMt5ah1wHQD3SWphULWo/9O/p+CGIPIVX2ftIFVaU4S/E5uyJ7TxcZU3WJKr3Tikg==
+vitepress-theme-async@^0.0.20:
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/vitepress-theme-async/-/vitepress-theme-async-0.0.20.tgz#2155a75776d5dcd014212deae1169e662c6829c6"
+  integrity sha512-ZHMXcE8DpsecASc12SyLV0Spfz1C5z5+rLnqj1V3Ej38/GXfJ+YGCuhtLe1O7PsMrU8Hyeai2fZ45LAZuJSSGg==
   dependencies:
     "@vueuse/core" "^9.6.0"
     feed "^4.2.2"
