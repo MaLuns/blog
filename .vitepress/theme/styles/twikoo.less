@@ -47,9 +47,9 @@
 }
 
 /* 评论博主标签圆角 */
-.tk-tag-green {
-    border-radius: 12px !important;
-    border       : 0px solid #e1f3d8 !important;
+.tk-tag-green.tk-tag-green {
+    padding: 2px 4px;
+    border : 0px solid #e1f3d8;
 }
 
 /* 预览按钮 */
@@ -86,6 +86,83 @@
 .tk-admin-container {
     position: fixed !important;
     z-index : 100;
+}
+
+/* 评论刷新图标 */
+.tk-icon.__comments.__comments {
+    color: var(--primary-70);
+}
+
+/* 评论内容 */
+.tk-comment.tk-comment {
+    margin-top: 0;
+
+    p {
+        margin: 0;
+    }
+
+    .border(){
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            height: 0;
+            width: 100%;
+            border-top: var(--border-dotted);
+            top: -1em;
+        }
+    }
+
+    &+.tk-comment{
+        margin-top: 2em;  
+        > .tk-main {
+            .border();
+        }
+    }
+
+    .tk-comment {
+        .tk-main {
+            .border();
+        }
+    }
+
+    /* 标签信息 */
+    .tk-meta {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* 头像 */
+    .tk-avatar {
+        border-radius: 50%;
+    }
+
+    /* 评论时间 */
+    .tk-time {
+        background-color: var(--body-color-5);
+        padding: 2px 4px;
+        border-radius: 2px;
+    }
+
+    /* 评论图标 */
+    .tk-action-link {
+        .tk-action-count,
+        .tk-action-icon{
+            color: var(--primary-70);
+        }
+    }
+
+    .tk-nick-link:hover {
+        color: var(--primary);
+    }
+
+    /* 回复区域 */
+    .tk-replies {
+        .tk-comment { 
+            margin-top: 2em;
+        }
+    }
 }
 
 .twikoo(@color: #000000; @bgColor: #ffffff) {
