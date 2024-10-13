@@ -21,21 +21,23 @@ let danmuku: DanMuKu;
 const initTwikoo = async () => {
     danmuku?.reset()
     //@ts-ignore
-    if (window.matchMedia('(max-width: 992px)').matches && window.twikoo && window.twikoo.getRecentComments) {
+    if (window.matchMedia('(min-width: 992px)').matches && window.twikoo && window.twikoo.getRecentComments) {
+        const url = location.pathname
         //@ts-ignore
-        danmuku?.update(config).pushData(await twikoo.getRecentComments({
+        const data = await twikoo.getRecentComments({
             envId: 'https://twikoo.imalun.com',
             urls: [location.pathname].filter(i => i !== '/'),
             pageSize: 30,
             includeReply: false
         }).then(function (res: any) {
-            return res.map((item: any) => ({
+            return url !== location.pathname ? [] : res.map((item: any) => ({
                 id: item.id,
                 url: item.url,
                 text: item.commentText,
                 avatar: item.avatar,
             }))
-        }))
+        })
+        danmuku?.update(config).pushData(data)
     }
 }
 
