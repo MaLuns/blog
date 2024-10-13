@@ -21,7 +21,7 @@ let danmuku: DanMuKu;
 const initTwikoo = async () => {
     danmuku?.reset()
     //@ts-ignore
-    if (window.twikoo && window.twikoo.getRecentComments) {
+    if (window.matchMedia('(max-width: 992px)').matches && window.twikoo && window.twikoo.getRecentComments) {
         //@ts-ignore
         danmuku?.update(config).pushData(await twikoo.getRecentComments({
             envId: 'https://twikoo.imalun.com',
