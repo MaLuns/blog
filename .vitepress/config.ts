@@ -64,10 +64,10 @@ export default defineConfig({
     page: {
       archives: "/archives/",
     },
-    banner: {
-      type: "video",
-      bgurl: "//cdn.moji.com/websrc/video/autumn20190924.mp4",
-    },
+    //banner: {
+    //  type: "video",
+    //  bgurl: "//cdn.moji.com/websrc/video/autumn20190924.mp4",
+    //},
     sidebar: {
       typedTextPrefix: "I`m",
       typedText: ["Web Developer"],
