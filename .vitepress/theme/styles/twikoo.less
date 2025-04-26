@@ -1,19 +1,19 @@
 :root {
     --twikoo-white             : #fff;
-    --twikoo-fontcolor         : #000;
-    --twikoo-background        : #fff;
+    --twikoo-fontcolor         : var(--body-color);
+    --twikoo-background        : var(--theme-bg-color);
     --twikoo-navbg             : rgba(255, 255, 255, 0.9);
-    --twikoo-card-btn-bg       : #f7f7fa;
-    --twikoo-post-blockquote-bg: #f2f5f7;
-    --twikoo-sceondbg          : #f7f7fa;
+    --twikoo-card-btn-bg       : var(--theme-bg2-color);
+    --twikoo-post-blockquote-bg: var(--theme-bg2-color);
+    --twikoo-sceondbg          : var(--theme-bg2-color);
 }
 
 :root.dark {
-    --twikoo-fontcolor         : #fff;
-    --twikoo-background        : #1e1e1e;
-    --twikoo-card-btn-bg       : #3f3f3f;
-    --twikoo-post-blockquote-bg: #000;
-    --twikoo-sceondbg          : #252627;
+    --twikoo-fontcolor         : var(--body-color);
+    --twikoo-background        : var(--theme-bg-color);
+    --twikoo-card-btn-bg       : var(--theme-bg2-color);
+    --twikoo-post-blockquote-bg: var(--theme-bg2-color);
+    --twikoo-sceondbg          : var(--theme-bg2-color);
 }
 
 /* 评论 */
@@ -79,8 +79,12 @@
     opacity: 0.4;
 }
 
-.tk-submit {
-    margin-top: none;
+.tk-footer {
+    display: none;
+}
+
+.tk-submit.tk-submit {
+    margin-top: 0px !important;
 }
 
 .tk-admin-container {
@@ -101,21 +105,23 @@
         margin: 0;
     }
 
-    .border(){
+    .border() {
         position: relative;
+
         &::before {
-            content: '';
-            position: absolute;
-            height: 0;
-            width: 100%;
+            content   : '';
+            position  : absolute;
+            height    : 0;
+            width     : 100%;
             border-top: var(--border-dotted);
-            top: -1em;
+            top       : -1em;
         }
     }
 
-    &+.tk-comment{
-        margin-top: 2em;  
-        > .tk-main {
+    &+.tk-comment {
+        margin-top: 2em;
+
+        >.tk-main {
             .border();
         }
     }
@@ -128,9 +134,9 @@
 
     /* 标签信息 */
     .tk-meta {
-        display: flex;
+        display    : flex;
         align-items: center;
-        gap: 6px;
+        gap        : 6px;
     }
 
     /* 头像 */
@@ -141,14 +147,15 @@
     /* 评论时间 */
     .tk-time {
         background-color: var(--body-color-5);
-        padding: 2px 4px;
-        border-radius: 2px;
+        padding         : 2px 4px;
+        border-radius   : 2px;
     }
 
     /* 评论图标 */
     .tk-action-link {
+
         .tk-action-count,
-        .tk-action-icon{
+        .tk-action-icon {
             color: var(--primary-70);
         }
     }
@@ -159,7 +166,7 @@
 
     /* 回复区域 */
     .tk-replies {
-        .tk-comment { 
+        .tk-comment {
             margin-top: 2em;
         }
     }
@@ -207,6 +214,11 @@
         .tk-admin-close {
             fill: @color;
         }
+    }
+
+    .OwO .OwO-body {
+        color           : @color;
+        background-color: @bgColor;
     }
 }
 

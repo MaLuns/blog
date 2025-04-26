@@ -107,6 +107,7 @@ onMounted(() => {
         border: 0;
         box-shadow: inset 0 0 4px -1px rgba(0, 0, 0, 0.15);
         background-color: var(--theme-bg2-color);
+        color: var(--theme-color);
         padding: 0 20px;
 
         &:focus {

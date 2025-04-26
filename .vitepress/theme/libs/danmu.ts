@@ -129,7 +129,7 @@ export class DanMuKu {
       "style",
       ` height:${this.height}px; padding: ${
         this.avatar ? `4px 8px 4px 4px` : "4px 8px"
-      }; display:inline-flex; position: absolute; right: 0; background-color: var(--trm-danmu-bg-color,#fff); color: var(--trm-danmu-color,#000); border-radius: 32px; align-items: center; transform: translateX(100%);`
+      };max-width: 560px; display:inline-flex; position: absolute; right: 0; background-color: var(--trm-danmu-bg-color,#fff); color: var(--trm-danmu-color,#000); border-radius: 32px; align-items: center; transform: translateX(100%);`
     );
     danmuEl.innerHTML = `
 					${
