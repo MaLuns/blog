@@ -19,6 +19,19 @@ export default defineConfig({
       dark: "one-dark-pro",
     },
   },
+  head: [
+    [
+      'script',
+      { id: 'baidutongji' },
+      `var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bbad9d8e1fd8e044d365c2ce0d114c73";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();`
+    ]
+  ],
   themeConfig: {
     author: "白云苍狗",
     user: {
