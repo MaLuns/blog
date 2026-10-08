@@ -36,7 +36,7 @@ ai: true
 
 ### 流程示意
 
-![](/images/posts/agent/single_step.png)
+![](/images/posts/agent/single_step.webp)
 
 ### 优势与局限
 
@@ -71,7 +71,7 @@ ai: true
 
 ### 流程示意
 
-![](/images/posts/agent/cot.png)
+![](/images/posts/agent/cot.webp)
 
 ### 优势与局限
 
@@ -107,7 +107,7 @@ ReAct 结合 **推理和行动**，让模型在思考的同时可以执行操作
 
 ### 流程示意
 
-![](/images/posts/agent/re_act.png)
+![](/images/posts/agent/re_act.webp)
 
 ### 优势与局限
 
@@ -141,7 +141,7 @@ ReAct 结合 **推理和行动**，让模型在思考的同时可以执行操作
 
 ### 流程示意
 
-![](/images/posts/agent/reflexive.png)
+![](/images/posts/agent/reflexive.webp)
 
 ## 任务规划型（Planner + Executor）
 
@@ -165,7 +165,7 @@ ReAct 结合 **推理和行动**，让模型在思考的同时可以执行操作
 
 ### 流程示意
 
-![](/images/posts/agent/plan.png)
+![](/images/posts/agent/plan.webp)
 
 ## 记忆增强型（Memory-Augmented Agent）
 
@@ -188,7 +188,7 @@ ReAct 结合 **推理和行动**，让模型在思考的同时可以执行操作
 
 ### 流程示意
 
-![](/images/posts/agent/memory.png)
+![](/images/posts/agent/memory.webp)
 
 ## 多 Agent 协作型（Multi-Agent / Team Agents）
 
@@ -212,7 +212,7 @@ ReAct 结合 **推理和行动**，让模型在思考的同时可以执行操作
 
 ### 流程示意
 
-![](/images/posts/agent/multi_agent.png)
+![](/images/posts/agent/multi_agent.webp)
 
 ## 总结
 
